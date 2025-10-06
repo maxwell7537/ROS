@@ -16,10 +16,10 @@ publisher_ = this->create_publisher<my_msgs::msg::Msg1>("topic", 10);
 - 队列大小为 10 （当订阅者处理滞后时，最多缓存10条消息，超出则丢弃旧消息）。
 ---
 ```
-timer_ = this->create_wall_timer(t1, std::bind(&talker::timer_callback, this));
+timer_ = this->create_wall_timer(chrono::milliseconds(100), std::bind(&talker::timer_callback, this));
 ```
 - 创建一个壁钟定时器（wall timer，基于系统实际时间触发）：
-- 周期为 t1 （0.1秒）；
+- 周期为 100ms （0.1秒）；
 - 通过 std::bind 将回调函数绑定到 talker 类的 timer_callback 成员函数， this 指针确保回调能访问类的成员变量。
 -----
 ```

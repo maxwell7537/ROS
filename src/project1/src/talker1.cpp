@@ -8,6 +8,8 @@ class talker : public rclcpp::Node{
         talker(): Node("talker"), count_(0){
           this->declare_parameter<double>("publish_frequency", 10.0);
           publisher_ = this->create_publisher<my_msgs::msg::Msg1>("topic", 10);
+          timer_ = nullptr;
+          update_timer_frequency();
           timer_ =this->create_wall_timer(chrono::milliseconds(100),bind(&talker::timer_callback,this));
           param_callback_handle_ = this->add_on_set_parameters_callback(
             bind(&talker::parameters_callback, this, placeholders::_1));
@@ -28,7 +30,10 @@ class talker : public rclcpp::Node{
       }
       void update_timer_frequency() {
         double frequency = this->get_parameter("publish_frequency").as_double();
-        timer_->cancel();// 取消现有定时器
+        // timer_->cancel();// 取消现有定时器
+         if (timer_ && timer_->is_canceled() == false) {
+            timer_->cancel();
+          }
         // auto period = chrono::duration_cast<chrono::milliseconds>(chrono::duration<double>(1.0 / frequency));
         auto period = chrono::duration_cast<chrono::milliseconds>(1.0s / frequency);
         timer_ = this->create_wall_timer(period, bind(&talker::timer_callback, this));// 创建新的定时器

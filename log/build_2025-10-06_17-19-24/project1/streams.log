@@ -1,0 +1,156 @@
+[0.005s] Invoking command in '/home/tdt/tool/ros/build/project1': CMAKE_PREFIX_PATH=/home/tdt/tool/ros/install/my_msgs:/home/tdt/tool/ros/install/project1:/opt/ros/humble LD_LIBRARY_PATH=/home/tdt/tool/ros/install/my_msgs/lib:/home/tdt/tool/ros/install/project1/lib:/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib /usr/bin/cmake --build /home/tdt/tool/ros/build/project1 -- -j24 -l24
+[0.041s] [  2%] Built target project1__cpp
+[0.041s] [ 11%] Built target project1__rosidl_generator_c
+[0.045s] [ 14%] [32mBuilding CXX object CMakeFiles/talker1_node.dir/src/talker1.cpp.o[0m
+[0.045s] [ 17%] [32mBuilding CXX object CMakeFiles/listener1_node.dir/src/listener1.cpp.o[0m
+[0.050s] [ 17%] Built target ament_cmake_python_copy_project1
+[0.061s] [ 25%] Built target project1__rosidl_typesupport_introspection_c
+[0.061s] [ 34%] Built target project1__rosidl_typesupport_introspection_cpp
+[0.061s] [ 42%] Built target project1__rosidl_typesupport_cpp
+[0.061s] [ 51%] Built target project1__rosidl_typesupport_fastrtps_cpp
+[0.063s] [ 68%] Built target project1__rosidl_typesupport_c
+[0.063s] [ 68%] Built target project1__rosidl_typesupport_fastrtps_c
+[0.079s] [ 68%] Built target project1
+[0.092s] [ 71%] Built target project1__py
+[0.109s] [ 77%] Built target project1__rosidl_generator_py
+[0.126s] [ 88%] Built target project1__rosidl_typesupport_c__pyext
+[0.126s] [ 88%] Built target project1__rosidl_typesupport_introspection_c__pyext
+[0.130s] [ 94%] Built target project1__rosidl_typesupport_fastrtps_c__pyext
+[0.199s] running egg_info
+[0.200s] writing project1.egg-info/PKG-INFO
+[0.200s] writing dependency_links to project1.egg-info/dependency_links.txt
+[0.200s] writing top-level names to project1.egg-info/top_level.txt
+[0.201s] reading manifest file 'project1.egg-info/SOURCES.txt'
+[0.201s] writing manifest file 'project1.egg-info/SOURCES.txt'
+[0.223s] [ 94%] Built target ament_cmake_python_build_project1_egg
+[2.429s] [ 97%] [32m[1mLinking CXX executable talker1_node[0m
+[2.550s] [ 97%] Built target talker1_node
+[4.808s] [100%] [32m[1mLinking CXX executable listener1_node[0m
+[5.048s] [100%] Built target listener1_node
+[5.055s] Invoked command in '/home/tdt/tool/ros/build/project1' returned '0': CMAKE_PREFIX_PATH=/home/tdt/tool/ros/install/my_msgs:/home/tdt/tool/ros/install/project1:/opt/ros/humble LD_LIBRARY_PATH=/home/tdt/tool/ros/install/my_msgs/lib:/home/tdt/tool/ros/install/project1/lib:/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib /usr/bin/cmake --build /home/tdt/tool/ros/build/project1 -- -j24 -l24
+[5.057s] Invoking command in '/home/tdt/tool/ros/build/project1': CMAKE_PREFIX_PATH=/home/tdt/tool/ros/install/my_msgs:/home/tdt/tool/ros/install/project1:/opt/ros/humble LD_LIBRARY_PATH=/home/tdt/tool/ros/install/my_msgs/lib:/home/tdt/tool/ros/install/project1/lib:/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib /usr/bin/cmake --install /home/tdt/tool/ros/build/project1
+[5.061s] -- Install configuration: ""
+[5.062s] -- Up-to-date: /home/tdt/tool/ros/install/project1/share/ament_index/resource_index/rosidl_interfaces/project1
+[5.062s] -- Up-to-date: /home/tdt/tool/ros/install/project1/include/project1/project1
+[5.062s] -- Up-to-date: /home/tdt/tool/ros/install/project1/include/project1/project1/msg
+[5.062s] -- Up-to-date: /home/tdt/tool/ros/install/project1/include/project1/project1/msg/detail
+[5.062s] -- Up-to-date: /home/tdt/tool/ros/install/project1/include/project1/project1/msg/detail/msg1__functions.h
+[5.062s] -- Up-to-date: /home/tdt/tool/ros/install/project1/include/project1/project1/msg/detail/msg1__functions.c
+[5.062s] -- Up-to-date: /home/tdt/tool/ros/install/project1/include/project1/project1/msg/detail/msg1__struct.h
+[5.062s] -- Up-to-date: /home/tdt/tool/ros/install/project1/include/project1/project1/msg/detail/msg1__type_support.h
+[5.062s] -- Up-to-date: /home/tdt/tool/ros/install/project1/include/project1/project1/msg/msg1.h
+[5.062s] -- Up-to-date: /home/tdt/tool/ros/install/project1/include/project1/project1/msg/rosidl_generator_c__visibility_control.h
+[5.062s] -- Up-to-date: /home/tdt/tool/ros/install/project1/share/project1/environment/library_path.sh
+[5.063s] -- Up-to-date: /home/tdt/tool/ros/install/project1/share/project1/environment/library_path.dsv
+[5.063s] -- Up-to-date: /home/tdt/tool/ros/install/project1/lib/libproject1__rosidl_generator_c.so
+[5.063s] -- Up-to-date: /home/tdt/tool/ros/install/project1/include/project1/project1
+[5.063s] -- Up-to-date: /home/tdt/tool/ros/install/project1/include/project1/project1/msg
+[5.063s] -- Up-to-date: /home/tdt/tool/ros/install/project1/include/project1/project1/msg/detail
+[5.063s] -- Up-to-date: /home/tdt/tool/ros/install/project1/include/project1/project1/msg/detail/msg1__rosidl_typesupport_fastrtps_c.h
+[5.063s] -- Up-to-date: /home/tdt/tool/ros/install/project1/include/project1/project1/msg/rosidl_typesupport_fastrtps_c__visibility_control.h
+[5.063s] -- Up-to-date: /home/tdt/tool/ros/install/project1/lib/libproject1__rosidl_typesupport_fastrtps_c.so
+[5.063s] -- Up-to-date: /home/tdt/tool/ros/install/project1/include/project1/project1
+[5.064s] -- Up-to-date: /home/tdt/tool/ros/install/project1/include/project1/project1/msg
+[5.064s] -- Up-to-date: /home/tdt/tool/ros/install/project1/include/project1/project1/msg/detail
+[5.064s] -- Up-to-date: /home/tdt/tool/ros/install/project1/include/project1/project1/msg/detail/msg1__builder.hpp
+[5.064s] -- Up-to-date: /home/tdt/tool/ros/install/project1/include/project1/project1/msg/detail/msg1__traits.hpp
+[5.064s] -- Up-to-date: /home/tdt/tool/ros/install/project1/include/project1/project1/msg/detail/msg1__type_support.hpp
+[5.064s] -- Up-to-date: /home/tdt/tool/ros/install/project1/include/project1/project1/msg/detail/msg1__struct.hpp
+[5.064s] -- Up-to-date: /home/tdt/tool/ros/install/project1/include/project1/project1/msg/rosidl_generator_cpp__visibility_control.hpp
+[5.064s] -- Up-to-date: /home/tdt/tool/ros/install/project1/include/project1/project1/msg/msg1.hpp
+[5.064s] -- Up-to-date: /home/tdt/tool/ros/install/project1/include/project1/project1
+[5.064s] -- Up-to-date: /home/tdt/tool/ros/install/project1/include/project1/project1/msg
+[5.064s] -- Up-to-date: /home/tdt/tool/ros/install/project1/include/project1/project1/msg/detail
+[5.064s] -- Up-to-date: /home/tdt/tool/ros/install/project1/include/project1/project1/msg/detail/dds_fastrtps
+[5.064s] -- Up-to-date: /home/tdt/tool/ros/install/project1/include/project1/project1/msg/detail/msg1__rosidl_typesupport_fastrtps_cpp.hpp
+[5.064s] -- Up-to-date: /home/tdt/tool/ros/install/project1/include/project1/project1/msg/rosidl_typesupport_fastrtps_cpp__visibility_control.h
+[5.064s] -- Up-to-date: /home/tdt/tool/ros/install/project1/lib/libproject1__rosidl_typesupport_fastrtps_cpp.so
+[5.064s] -- Up-to-date: /home/tdt/tool/ros/install/project1/include/project1/project1
+[5.064s] -- Up-to-date: /home/tdt/tool/ros/install/project1/include/project1/project1/msg
+[5.064s] -- Up-to-date: /home/tdt/tool/ros/install/project1/include/project1/project1/msg/detail
+[5.065s] -- Up-to-date: /home/tdt/tool/ros/install/project1/include/project1/project1/msg/detail/msg1__type_support.c
+[5.065s] -- Up-to-date: /home/tdt/tool/ros/install/project1/include/project1/project1/msg/detail/msg1__rosidl_typesupport_introspection_c.h
+[5.065s] -- Up-to-date: /home/tdt/tool/ros/install/project1/include/project1/project1/msg/rosidl_typesupport_introspection_c__visibility_control.h
+[5.065s] -- Up-to-date: /home/tdt/tool/ros/install/project1/lib/libproject1__rosidl_typesupport_introspection_c.so
+[5.065s] -- Up-to-date: /home/tdt/tool/ros/install/project1/lib/libproject1__rosidl_typesupport_c.so
+[5.065s] -- Up-to-date: /home/tdt/tool/ros/install/project1/include/project1/project1
+[5.065s] -- Up-to-date: /home/tdt/tool/ros/install/project1/include/project1/project1/msg
+[5.066s] -- Up-to-date: /home/tdt/tool/ros/install/project1/include/project1/project1/msg/detail
+[5.066s] -- Up-to-date: /home/tdt/tool/ros/install/project1/include/project1/project1/msg/detail/msg1__rosidl_typesupport_introspection_cpp.hpp
+[5.066s] -- Up-to-date: /home/tdt/tool/ros/install/project1/include/project1/project1/msg/detail/msg1__type_support.cpp
+[5.066s] -- Up-to-date: /home/tdt/tool/ros/install/project1/lib/libproject1__rosidl_typesupport_introspection_cpp.so
+[5.066s] -- Up-to-date: /home/tdt/tool/ros/install/project1/lib/libproject1__rosidl_typesupport_cpp.so
+[5.066s] -- Up-to-date: /home/tdt/tool/ros/install/project1/share/project1/environment/pythonpath.sh
+[5.066s] -- Up-to-date: /home/tdt/tool/ros/install/project1/share/project1/environment/pythonpath.dsv
+[5.066s] -- Up-to-date: /home/tdt/tool/ros/install/project1/local/lib/python3.10/dist-packages/project1-0.0.0-py3.10.egg-info
+[5.066s] -- Installing: /home/tdt/tool/ros/install/project1/local/lib/python3.10/dist-packages/project1-0.0.0-py3.10.egg-info/SOURCES.txt
+[5.066s] -- Installing: /home/tdt/tool/ros/install/project1/local/lib/python3.10/dist-packages/project1-0.0.0-py3.10.egg-info/dependency_links.txt
+[5.066s] -- Installing: /home/tdt/tool/ros/install/project1/local/lib/python3.10/dist-packages/project1-0.0.0-py3.10.egg-info/PKG-INFO
+[5.066s] -- Installing: /home/tdt/tool/ros/install/project1/local/lib/python3.10/dist-packages/project1-0.0.0-py3.10.egg-info/top_level.txt
+[5.066s] -- Up-to-date: /home/tdt/tool/ros/install/project1/local/lib/python3.10/dist-packages/project1
+[5.066s] -- Up-to-date: /home/tdt/tool/ros/install/project1/local/lib/python3.10/dist-packages/project1/__init__.py
+[5.066s] -- Up-to-date: /home/tdt/tool/ros/install/project1/local/lib/python3.10/dist-packages/project1/_project1_s.ep.rosidl_typesupport_introspection_c.c
+[5.066s] -- Up-to-date: /home/tdt/tool/ros/install/project1/local/lib/python3.10/dist-packages/project1/msg
+[5.066s] -- Up-to-date: /home/tdt/tool/ros/install/project1/local/lib/python3.10/dist-packages/project1/msg/__init__.py
+[5.066s] -- Up-to-date: /home/tdt/tool/ros/install/project1/local/lib/python3.10/dist-packages/project1/msg/_msg1.py
+[5.066s] -- Up-to-date: /home/tdt/tool/ros/install/project1/local/lib/python3.10/dist-packages/project1/msg/_msg1_s.c
+[5.066s] -- Up-to-date: /home/tdt/tool/ros/install/project1/local/lib/python3.10/dist-packages/project1/libproject1__rosidl_generator_py.so
+[5.066s] -- Up-to-date: /home/tdt/tool/ros/install/project1/local/lib/python3.10/dist-packages/project1/project1_s__rosidl_typesupport_fastrtps_c.cpython-310-x86_64-linux-gnu.so
+[5.066s] -- Up-to-date: /home/tdt/tool/ros/install/project1/local/lib/python3.10/dist-packages/project1/project1_s__rosidl_typesupport_c.cpython-310-x86_64-linux-gnu.so
+[5.066s] -- Up-to-date: /home/tdt/tool/ros/install/project1/local/lib/python3.10/dist-packages/project1/_project1_s.ep.rosidl_typesupport_fastrtps_c.c
+[5.066s] -- Up-to-date: /home/tdt/tool/ros/install/project1/local/lib/python3.10/dist-packages/project1/_project1_s.ep.rosidl_typesupport_c.c
+[5.066s] -- Up-to-date: /home/tdt/tool/ros/install/project1/local/lib/python3.10/dist-packages/project1/project1_s__rosidl_typesupport_introspection_c.cpython-310-x86_64-linux-gnu.so
+[5.084s] Listing '/home/tdt/tool/ros/install/project1/local/lib/python3.10/dist-packages/project1'...
+[5.085s] Listing '/home/tdt/tool/ros/install/project1/local/lib/python3.10/dist-packages/project1/msg'...
+[5.087s] -- Up-to-date: /home/tdt/tool/ros/install/project1/local/lib/python3.10/dist-packages/project1/project1_s__rosidl_typesupport_fastrtps_c.cpython-310-x86_64-linux-gnu.so
+[5.087s] -- Up-to-date: /home/tdt/tool/ros/install/project1/local/lib/python3.10/dist-packages/project1/project1_s__rosidl_typesupport_introspection_c.cpython-310-x86_64-linux-gnu.so
+[5.087s] -- Up-to-date: /home/tdt/tool/ros/install/project1/local/lib/python3.10/dist-packages/project1/project1_s__rosidl_typesupport_c.cpython-310-x86_64-linux-gnu.so
+[5.087s] -- Up-to-date: /home/tdt/tool/ros/install/project1/lib/libproject1__rosidl_generator_py.so
+[5.087s] -- Up-to-date: /home/tdt/tool/ros/install/project1/share/project1/msg/Msg1.idl
+[5.087s] -- Up-to-date: /home/tdt/tool/ros/install/project1/share/project1/msg/Msg1.msg
+[5.087s] -- Up-to-date: /home/tdt/tool/ros/install/project1/include/project1
+[5.087s] -- Up-to-date: /home/tdt/tool/ros/install/project1/include/project1/project1
+[5.087s] -- Installing: /home/tdt/tool/ros/install/project1/lib/project1/talker1_node
+[5.089s] -- Set runtime path of "/home/tdt/tool/ros/install/project1/lib/project1/talker1_node" to ""
+[5.089s] -- Installing: /home/tdt/tool/ros/install/project1/lib/project1/listener1_node
+[5.092s] -- Set runtime path of "/home/tdt/tool/ros/install/project1/lib/project1/listener1_node" to ""
+[5.092s] -- Up-to-date: /home/tdt/tool/ros/install/project1/share/ament_index/resource_index/package_run_dependencies/project1
+[5.092s] -- Up-to-date: /home/tdt/tool/ros/install/project1/share/ament_index/resource_index/parent_prefix_path/project1
+[5.092s] -- Up-to-date: /home/tdt/tool/ros/install/project1/share/project1/environment/ament_prefix_path.sh
+[5.092s] -- Up-to-date: /home/tdt/tool/ros/install/project1/share/project1/environment/ament_prefix_path.dsv
+[5.092s] -- Up-to-date: /home/tdt/tool/ros/install/project1/share/project1/environment/path.sh
+[5.092s] -- Up-to-date: /home/tdt/tool/ros/install/project1/share/project1/environment/path.dsv
+[5.092s] -- Up-to-date: /home/tdt/tool/ros/install/project1/share/project1/local_setup.bash
+[5.092s] -- Up-to-date: /home/tdt/tool/ros/install/project1/share/project1/local_setup.sh
+[5.092s] -- Up-to-date: /home/tdt/tool/ros/install/project1/share/project1/local_setup.zsh
+[5.092s] -- Up-to-date: /home/tdt/tool/ros/install/project1/share/project1/local_setup.dsv
+[5.092s] -- Installing: /home/tdt/tool/ros/install/project1/share/project1/package.dsv
+[5.092s] -- Up-to-date: /home/tdt/tool/ros/install/project1/share/ament_index/resource_index/packages/project1
+[5.092s] -- Up-to-date: /home/tdt/tool/ros/install/project1/share/project1/cmake/export_project1__rosidl_generator_cExport.cmake
+[5.092s] -- Up-to-date: /home/tdt/tool/ros/install/project1/share/project1/cmake/export_project1__rosidl_generator_cExport-noconfig.cmake
+[5.092s] -- Up-to-date: /home/tdt/tool/ros/install/project1/share/project1/cmake/export_project1__rosidl_typesupport_fastrtps_cExport.cmake
+[5.092s] -- Up-to-date: /home/tdt/tool/ros/install/project1/share/project1/cmake/export_project1__rosidl_typesupport_fastrtps_cExport-noconfig.cmake
+[5.092s] -- Up-to-date: /home/tdt/tool/ros/install/project1/share/project1/cmake/export_project1__rosidl_generator_cppExport.cmake
+[5.092s] -- Up-to-date: /home/tdt/tool/ros/install/project1/share/project1/cmake/export_project1__rosidl_typesupport_fastrtps_cppExport.cmake
+[5.092s] -- Up-to-date: /home/tdt/tool/ros/install/project1/share/project1/cmake/export_project1__rosidl_typesupport_fastrtps_cppExport-noconfig.cmake
+[5.092s] -- Up-to-date: /home/tdt/tool/ros/install/project1/share/project1/cmake/project1__rosidl_typesupport_introspection_cExport.cmake
+[5.092s] -- Up-to-date: /home/tdt/tool/ros/install/project1/share/project1/cmake/project1__rosidl_typesupport_introspection_cExport-noconfig.cmake
+[5.092s] -- Up-to-date: /home/tdt/tool/ros/install/project1/share/project1/cmake/project1__rosidl_typesupport_cExport.cmake
+[5.093s] -- Up-to-date: /home/tdt/tool/ros/install/project1/share/project1/cmake/project1__rosidl_typesupport_cExport-noconfig.cmake
+[5.093s] -- Up-to-date: /home/tdt/tool/ros/install/project1/share/project1/cmake/project1__rosidl_typesupport_introspection_cppExport.cmake
+[5.093s] -- Up-to-date: /home/tdt/tool/ros/install/project1/share/project1/cmake/project1__rosidl_typesupport_introspection_cppExport-noconfig.cmake
+[5.093s] -- Up-to-date: /home/tdt/tool/ros/install/project1/share/project1/cmake/project1__rosidl_typesupport_cppExport.cmake
+[5.093s] -- Up-to-date: /home/tdt/tool/ros/install/project1/share/project1/cmake/project1__rosidl_typesupport_cppExport-noconfig.cmake
+[5.093s] -- Up-to-date: /home/tdt/tool/ros/install/project1/share/project1/cmake/export_project1__rosidl_generator_pyExport.cmake
+[5.093s] -- Up-to-date: /home/tdt/tool/ros/install/project1/share/project1/cmake/export_project1__rosidl_generator_pyExport-noconfig.cmake
+[5.093s] -- Up-to-date: /home/tdt/tool/ros/install/project1/share/project1/cmake/rosidl_cmake-extras.cmake
+[5.093s] -- Up-to-date: /home/tdt/tool/ros/install/project1/share/project1/cmake/ament_cmake_export_dependencies-extras.cmake
+[5.093s] -- Up-to-date: /home/tdt/tool/ros/install/project1/share/project1/cmake/ament_cmake_export_include_directories-extras.cmake
+[5.093s] -- Up-to-date: /home/tdt/tool/ros/install/project1/share/project1/cmake/ament_cmake_export_libraries-extras.cmake
+[5.093s] -- Up-to-date: /home/tdt/tool/ros/install/project1/share/project1/cmake/ament_cmake_export_targets-extras.cmake
+[5.093s] -- Up-to-date: /home/tdt/tool/ros/install/project1/share/project1/cmake/rosidl_cmake_export_typesupport_targets-extras.cmake
+[5.093s] -- Up-to-date: /home/tdt/tool/ros/install/project1/share/project1/cmake/rosidl_cmake_export_typesupport_libraries-extras.cmake
+[5.093s] -- Up-to-date: /home/tdt/tool/ros/install/project1/share/project1/cmake/project1Config.cmake
+[5.093s] -- Up-to-date: /home/tdt/tool/ros/install/project1/share/project1/cmake/project1Config-version.cmake
+[5.093s] -- Up-to-date: /home/tdt/tool/ros/install/project1/share/project1/package.xml
+[5.094s] Invoked command in '/home/tdt/tool/ros/build/project1' returned '0': CMAKE_PREFIX_PATH=/home/tdt/tool/ros/install/my_msgs:/home/tdt/tool/ros/install/project1:/opt/ros/humble LD_LIBRARY_PATH=/home/tdt/tool/ros/install/my_msgs/lib:/home/tdt/tool/ros/install/project1/lib:/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib /usr/bin/cmake --install /home/tdt/tool/ros/build/project1

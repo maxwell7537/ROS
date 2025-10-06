@@ -1,0 +1,338 @@
+[0.000000] (-) TimerEvent: {}
+[0.000666] (my_msgs) JobQueued: {'identifier': 'my_msgs', 'dependencies': OrderedDict()}
+[0.000947] (project1) JobQueued: {'identifier': 'project1', 'dependencies': OrderedDict([('my_msgs', '/home/tdt/tool/ros/install/my_msgs')])}
+[0.000975] (my_msgs) JobStarted: {'identifier': 'my_msgs'}
+[0.004731] (my_msgs) JobProgress: {'identifier': 'my_msgs', 'progress': 'cmake'}
+[0.005155] (my_msgs) JobProgress: {'identifier': 'my_msgs', 'progress': 'build'}
+[0.005228] (my_msgs) Command: {'cmd': ['/usr/bin/cmake', '--build', '/home/tdt/tool/ros/build/my_msgs', '--', '-j24', '-l24'], 'cwd': '/home/tdt/tool/ros/build/my_msgs', 'env': OrderedDict([('GJS_DEBUG_TOPICS', 'JS ERROR;JS LOG'), ('LESSOPEN', '| /usr/bin/lesspipe %s'), ('LANGUAGE', 'en_US:en'), ('USER', 'tdt'), ('LC_TIME', 'zh_CN.UTF-8'), ('XDG_SESSION_TYPE', 'x11'), ('GIT_ASKPASS', '/usr/share/code/resources/app/extensions/git/dist/askpass.sh'), ('SHLVL', '1'), ('LD_LIBRARY_PATH', '/home/tdt/tool/ros/install/project1/lib:/home/tdt/tool/ros/install/my_msgs/lib:/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib'), ('HOME', '/home/tdt'), ('CHROME_DESKTOP', 'code.desktop'), ('OLDPWD', '/home/tdt/tool/ros/src'), ('TERM_PROGRAM_VERSION', '1.104.3'), ('DESKTOP_SESSION', 'ubuntu'), ('GIO_LAUNCHED_DESKTOP_FILE', '/usr/share/applications/code.desktop'), ('ROS_PYTHON_VERSION', '3'), ('GNOME_SHELL_SESSION_MODE', 'ubuntu'), ('GTK_MODULES', 'gail:atk-bridge'), ('VSCODE_GIT_ASKPASS_MAIN', '/usr/share/code/resources/app/extensions/git/dist/askpass-main.js'), ('LC_MONETARY', 'zh_CN.UTF-8'), ('VSCODE_GIT_ASKPASS_NODE', '/usr/share/code/code'), ('MANAGERPID', '1825'), ('SYSTEMD_EXEC_PID', '2115'), ('VSCODE_PYTHON_AUTOACTIVATE_GUARD', '1'), ('DBUS_SESSION_BUS_ADDRESS', 'unix:path=/run/user/1000/bus'), ('COLORTERM', 'truecolor'), ('GIO_LAUNCHED_DESKTOP_FILE_PID', '2938'), ('IM_CONFIG_PHASE', '1'), ('COLCON_PREFIX_PATH', '/home/tdt/tool/ros/install'), ('ROS_DISTRO', 'humble'), ('GTK_IM_MODULE', 'ibus'), ('LOGNAME', 'tdt'), ('JOURNAL_STREAM', '8:20881'), ('_', '/usr/bin/colcon'), ('ROS_VERSION', '2'), ('PKG_CONFIG_PATH', '/usr/local/lib/pkgconfig:/usr/local/lib/pkgconfig:'), ('XDG_SESSION_CLASS', 'user'), ('USERNAME', 'tdt'), ('TERM', 'xterm-256color'), ('GNOME_DESKTOP_SESSION_ID', 'this-is-deprecated'), ('ROS_LOCALHOST_ONLY', '0'), ('WINDOWPATH', '2'), ('PATH', '/home/tdt/.local/bin:/home/tdt/.local/bin:/opt/ros/humble/bin:/home/tdt/.local/bin:/home/tdt/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/snap/bin:/home/tdt/.config/Code/User/globalStorage/github.copilot-chat/debugCommand'), ('SESSION_MANAGER', 'local/tdt-Legion-Y9000P-IAX10:@/tmp/.ICE-unix/2088,unix/tdt-Legion-Y9000P-IAX10:/tmp/.ICE-unix/2088'), ('INVOCATION_ID', 'a9b23760a7684c39add1db14c05f38c4'), ('PAPERSIZE', 'a4'), ('XDG_MENU_PREFIX', 'gnome-'), ('LC_ADDRESS', 'zh_CN.UTF-8'), ('XDG_RUNTIME_DIR', '/run/user/1000'), ('GDK_BACKEND', 'x11'), ('DISPLAY', ':1'), ('LANG', 'en_US.UTF-8'), ('XDG_CURRENT_DESKTOP', 'Unity'), ('LC_TELEPHONE', 'zh_CN.UTF-8'), ('XMODIFIERS', '@im=ibus'), ('XDG_SESSION_DESKTOP', 'ubuntu'), ('XAUTHORITY', '/run/user/1000/gdm/Xauthority'), ('LS_COLORS', 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:'), ('VSCODE_GIT_IPC_HANDLE', '/run/user/1000/vscode-git-a947e9d6b2.sock'), ('TERM_PROGRAM', 'vscode'), ('SSH_AGENT_LAUNCHER', 'gnome-keyring'), ('SSH_AUTH_SOCK', '/run/user/1000/keyring/ssh'), ('AMENT_PREFIX_PATH', '/home/tdt/tool/ros/install/project1:/home/tdt/tool/ros/install/my_msgs:/opt/ros/humble'), ('ORIGINAL_XDG_CURRENT_DESKTOP', 'ubuntu:GNOME'), ('SHELL', '/bin/bash'), ('LC_NAME', 'zh_CN.UTF-8'), ('QT_ACCESSIBILITY', '1'), ('GDMSESSION', 'ubuntu'), ('LESSCLOSE', '/usr/bin/lesspipe %s %s'), ('LC_MEASUREMENT', 'zh_CN.UTF-8'), ('GPG_AGENT_INFO', '/run/user/1000/gnupg/S.gpg-agent:0:1'), ('GJS_DEBUG_OUTPUT', 'stderr'), ('LC_IDENTIFICATION', 'zh_CN.UTF-8'), ('VSCODE_GIT_ASKPASS_EXTRA_ARGS', ''), ('QT_IM_MODULE', 'ibus'), ('PWD', '/home/tdt/tool/ros/build/my_msgs'), ('LC_ALL', 'en_US.UTF-8'), ('XDG_CONFIG_DIRS', '/etc/xdg/xdg-ubuntu:/etc/xdg'), ('XDG_DATA_DIRS', '/usr/share/ubuntu:/usr/share/gnome:/usr/local/share/:/usr/share/:/var/lib/snapd/desktop'), ('PYTHONPATH', '/home/tdt/tool/ros/install/project1/local/lib/python3.10/dist-packages:/home/tdt/tool/ros/install/my_msgs/local/lib/python3.10/dist-packages:/opt/ros/humble/lib/python3.10/site-packages:/opt/ros/humble/local/lib/python3.10/dist-packages'), ('LC_NUMERIC', 'zh_CN.UTF-8'), ('LC_PAPER', 'zh_CN.UTF-8'), ('COLCON', '1'), ('CMAKE_PREFIX_PATH', '/home/tdt/tool/ros/install/project1:/home/tdt/tool/ros/install/my_msgs:/opt/ros/humble')]), 'shell': False}
+[0.037233] (my_msgs) StdoutLine: {'line': b'[  3%] Built target my_msgs__cpp\n'}
+[0.039662] (my_msgs) StdoutLine: {'line': b'[ 12%] Built target my_msgs__rosidl_generator_c\n'}
+[0.044308] (my_msgs) StdoutLine: {'line': b'[ 12%] Built target ament_cmake_python_copy_my_msgs\n'}
+[0.051631] (my_msgs) StdoutLine: {'line': b'[ 22%] Built target my_msgs__rosidl_typesupport_cpp\n'}
+[0.052513] (my_msgs) StdoutLine: {'line': b'[ 32%] Built target my_msgs__rosidl_typesupport_fastrtps_cpp\n'}
+[0.052869] (my_msgs) StdoutLine: {'line': b'[ 41%] Built target my_msgs__rosidl_typesupport_introspection_cpp\n'}
+[0.054572] (my_msgs) StdoutLine: {'line': b'[ 51%] Built target my_msgs__rosidl_typesupport_fastrtps_c\n'}
+[0.055303] (my_msgs) StdoutLine: {'line': b'[ 61%] Built target my_msgs__rosidl_typesupport_c\n'}
+[0.055495] (my_msgs) StdoutLine: {'line': b'[ 70%] Built target my_msgs__rosidl_typesupport_introspection_c\n'}
+[0.068179] (my_msgs) StdoutLine: {'line': b'[ 70%] Built target my_msgs\n'}
+[0.080000] (my_msgs) StdoutLine: {'line': b'[ 74%] Built target my_msgs__py\n'}
+[0.091754] (my_msgs) StdoutLine: {'line': b'[ 80%] Built target my_msgs__rosidl_generator_py\n'}
+[0.100672] (-) TimerEvent: {}
+[0.107086] (my_msgs) StdoutLine: {'line': b'[ 90%] Built target my_msgs__rosidl_typesupport_fastrtps_c__pyext\n'}
+[0.108455] (my_msgs) StdoutLine: {'line': b'[ 93%] Built target my_msgs__rosidl_typesupport_introspection_c__pyext\n'}
+[0.108734] (my_msgs) StdoutLine: {'line': b'[100%] Built target my_msgs__rosidl_typesupport_c__pyext\n'}
+[0.165248] (my_msgs) StdoutLine: {'line': b'running egg_info\n'}
+[0.165678] (my_msgs) StdoutLine: {'line': b'writing my_msgs.egg-info/PKG-INFO\n'}
+[0.165716] (my_msgs) StdoutLine: {'line': b'writing dependency_links to my_msgs.egg-info/dependency_links.txt\n'}
+[0.165742] (my_msgs) StdoutLine: {'line': b'writing top-level names to my_msgs.egg-info/top_level.txt\n'}
+[0.166702] (my_msgs) StdoutLine: {'line': b"reading manifest file 'my_msgs.egg-info/SOURCES.txt'\n"}
+[0.166970] (my_msgs) StdoutLine: {'line': b"writing manifest file 'my_msgs.egg-info/SOURCES.txt'\n"}
+[0.181912] (my_msgs) StdoutLine: {'line': b'[100%] Built target ament_cmake_python_build_my_msgs_egg\n'}
+[0.193237] (my_msgs) CommandEnded: {'returncode': 0}
+[0.193986] (my_msgs) JobProgress: {'identifier': 'my_msgs', 'progress': 'install'}
+[0.198396] (my_msgs) Command: {'cmd': ['/usr/bin/cmake', '--install', '/home/tdt/tool/ros/build/my_msgs'], 'cwd': '/home/tdt/tool/ros/build/my_msgs', 'env': OrderedDict([('GJS_DEBUG_TOPICS', 'JS ERROR;JS LOG'), ('LESSOPEN', '| /usr/bin/lesspipe %s'), ('LANGUAGE', 'en_US:en'), ('USER', 'tdt'), ('LC_TIME', 'zh_CN.UTF-8'), ('XDG_SESSION_TYPE', 'x11'), ('GIT_ASKPASS', '/usr/share/code/resources/app/extensions/git/dist/askpass.sh'), ('SHLVL', '1'), ('LD_LIBRARY_PATH', '/home/tdt/tool/ros/install/project1/lib:/home/tdt/tool/ros/install/my_msgs/lib:/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib'), ('HOME', '/home/tdt'), ('CHROME_DESKTOP', 'code.desktop'), ('OLDPWD', '/home/tdt/tool/ros/src'), ('TERM_PROGRAM_VERSION', '1.104.3'), ('DESKTOP_SESSION', 'ubuntu'), ('GIO_LAUNCHED_DESKTOP_FILE', '/usr/share/applications/code.desktop'), ('ROS_PYTHON_VERSION', '3'), ('GNOME_SHELL_SESSION_MODE', 'ubuntu'), ('GTK_MODULES', 'gail:atk-bridge'), ('VSCODE_GIT_ASKPASS_MAIN', '/usr/share/code/resources/app/extensions/git/dist/askpass-main.js'), ('LC_MONETARY', 'zh_CN.UTF-8'), ('VSCODE_GIT_ASKPASS_NODE', '/usr/share/code/code'), ('MANAGERPID', '1825'), ('SYSTEMD_EXEC_PID', '2115'), ('VSCODE_PYTHON_AUTOACTIVATE_GUARD', '1'), ('DBUS_SESSION_BUS_ADDRESS', 'unix:path=/run/user/1000/bus'), ('COLORTERM', 'truecolor'), ('GIO_LAUNCHED_DESKTOP_FILE_PID', '2938'), ('IM_CONFIG_PHASE', '1'), ('COLCON_PREFIX_PATH', '/home/tdt/tool/ros/install'), ('ROS_DISTRO', 'humble'), ('GTK_IM_MODULE', 'ibus'), ('LOGNAME', 'tdt'), ('JOURNAL_STREAM', '8:20881'), ('_', '/usr/bin/colcon'), ('ROS_VERSION', '2'), ('PKG_CONFIG_PATH', '/usr/local/lib/pkgconfig:/usr/local/lib/pkgconfig:'), ('XDG_SESSION_CLASS', 'user'), ('USERNAME', 'tdt'), ('TERM', 'xterm-256color'), ('GNOME_DESKTOP_SESSION_ID', 'this-is-deprecated'), ('ROS_LOCALHOST_ONLY', '0'), ('WINDOWPATH', '2'), ('PATH', '/home/tdt/.local/bin:/home/tdt/.local/bin:/opt/ros/humble/bin:/home/tdt/.local/bin:/home/tdt/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/snap/bin:/home/tdt/.config/Code/User/globalStorage/github.copilot-chat/debugCommand'), ('SESSION_MANAGER', 'local/tdt-Legion-Y9000P-IAX10:@/tmp/.ICE-unix/2088,unix/tdt-Legion-Y9000P-IAX10:/tmp/.ICE-unix/2088'), ('INVOCATION_ID', 'a9b23760a7684c39add1db14c05f38c4'), ('PAPERSIZE', 'a4'), ('XDG_MENU_PREFIX', 'gnome-'), ('LC_ADDRESS', 'zh_CN.UTF-8'), ('XDG_RUNTIME_DIR', '/run/user/1000'), ('GDK_BACKEND', 'x11'), ('DISPLAY', ':1'), ('LANG', 'en_US.UTF-8'), ('XDG_CURRENT_DESKTOP', 'Unity'), ('LC_TELEPHONE', 'zh_CN.UTF-8'), ('XMODIFIERS', '@im=ibus'), ('XDG_SESSION_DESKTOP', 'ubuntu'), ('XAUTHORITY', '/run/user/1000/gdm/Xauthority'), ('LS_COLORS', 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:'), ('VSCODE_GIT_IPC_HANDLE', '/run/user/1000/vscode-git-a947e9d6b2.sock'), ('TERM_PROGRAM', 'vscode'), ('SSH_AGENT_LAUNCHER', 'gnome-keyring'), ('SSH_AUTH_SOCK', '/run/user/1000/keyring/ssh'), ('AMENT_PREFIX_PATH', '/home/tdt/tool/ros/install/project1:/home/tdt/tool/ros/install/my_msgs:/opt/ros/humble'), ('ORIGINAL_XDG_CURRENT_DESKTOP', 'ubuntu:GNOME'), ('SHELL', '/bin/bash'), ('LC_NAME', 'zh_CN.UTF-8'), ('QT_ACCESSIBILITY', '1'), ('GDMSESSION', 'ubuntu'), ('LESSCLOSE', '/usr/bin/lesspipe %s %s'), ('LC_MEASUREMENT', 'zh_CN.UTF-8'), ('GPG_AGENT_INFO', '/run/user/1000/gnupg/S.gpg-agent:0:1'), ('GJS_DEBUG_OUTPUT', 'stderr'), ('LC_IDENTIFICATION', 'zh_CN.UTF-8'), ('VSCODE_GIT_ASKPASS_EXTRA_ARGS', ''), ('QT_IM_MODULE', 'ibus'), ('PWD', '/home/tdt/tool/ros/build/my_msgs'), ('LC_ALL', 'en_US.UTF-8'), ('XDG_CONFIG_DIRS', '/etc/xdg/xdg-ubuntu:/etc/xdg'), ('XDG_DATA_DIRS', '/usr/share/ubuntu:/usr/share/gnome:/usr/local/share/:/usr/share/:/var/lib/snapd/desktop'), ('PYTHONPATH', '/home/tdt/tool/ros/install/project1/local/lib/python3.10/dist-packages:/home/tdt/tool/ros/install/my_msgs/local/lib/python3.10/dist-packages:/opt/ros/humble/lib/python3.10/site-packages:/opt/ros/humble/local/lib/python3.10/dist-packages'), ('LC_NUMERIC', 'zh_CN.UTF-8'), ('LC_PAPER', 'zh_CN.UTF-8'), ('COLCON', '1'), ('CMAKE_PREFIX_PATH', '/home/tdt/tool/ros/install/project1:/home/tdt/tool/ros/install/my_msgs:/opt/ros/humble')]), 'shell': False}
+[0.200727] (-) TimerEvent: {}
+[0.203173] (my_msgs) StdoutLine: {'line': b'-- Install configuration: ""\n'}
+[0.203236] (my_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/tdt/tool/ros/install/my_msgs/share/ament_index/resource_index/rosidl_interfaces/my_msgs\n'}
+[0.203267] (my_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/tdt/tool/ros/install/my_msgs/include/my_msgs/my_msgs\n'}
+[0.203293] (my_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/tdt/tool/ros/install/my_msgs/include/my_msgs/my_msgs/msg\n'}
+[0.203316] (my_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/tdt/tool/ros/install/my_msgs/include/my_msgs/my_msgs/msg/detail\n'}
+[0.203337] (my_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/tdt/tool/ros/install/my_msgs/include/my_msgs/my_msgs/msg/detail/msg1__functions.h\n'}
+[0.203359] (my_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/tdt/tool/ros/install/my_msgs/include/my_msgs/my_msgs/msg/detail/msg1__functions.c\n'}
+[0.203379] (my_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/tdt/tool/ros/install/my_msgs/include/my_msgs/my_msgs/msg/detail/msg1__struct.h\n'}
+[0.203399] (my_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/tdt/tool/ros/install/my_msgs/include/my_msgs/my_msgs/msg/detail/msg1__type_support.h\n'}
+[0.203419] (my_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/tdt/tool/ros/install/my_msgs/include/my_msgs/my_msgs/msg/msg1.h\n'}
+[0.203440] (my_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/tdt/tool/ros/install/my_msgs/include/my_msgs/my_msgs/msg/rosidl_generator_c__visibility_control.h\n'}
+[0.203461] (my_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/tdt/tool/ros/install/my_msgs/share/my_msgs/environment/library_path.sh\n'}
+[0.203482] (my_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/tdt/tool/ros/install/my_msgs/share/my_msgs/environment/library_path.dsv\n'}
+[0.203615] (my_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/tdt/tool/ros/install/my_msgs/lib/libmy_msgs__rosidl_generator_c.so\n'}
+[0.203650] (my_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/tdt/tool/ros/install/my_msgs/include/my_msgs/my_msgs\n'}
+[0.203673] (my_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/tdt/tool/ros/install/my_msgs/include/my_msgs/my_msgs/msg\n'}
+[0.203700] (my_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/tdt/tool/ros/install/my_msgs/include/my_msgs/my_msgs/msg/detail\n'}
+[0.203723] (my_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/tdt/tool/ros/install/my_msgs/include/my_msgs/my_msgs/msg/detail/msg1__rosidl_typesupport_fastrtps_c.h\n'}
+[0.203745] (my_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/tdt/tool/ros/install/my_msgs/include/my_msgs/my_msgs/msg/rosidl_typesupport_fastrtps_c__visibility_control.h\n'}
+[0.203767] (my_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/tdt/tool/ros/install/my_msgs/lib/libmy_msgs__rosidl_typesupport_fastrtps_c.so\n'}
+[0.203789] (my_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/tdt/tool/ros/install/my_msgs/include/my_msgs/my_msgs\n'}
+[0.203811] (my_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/tdt/tool/ros/install/my_msgs/include/my_msgs/my_msgs/msg\n'}
+[0.203832] (my_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/tdt/tool/ros/install/my_msgs/include/my_msgs/my_msgs/msg/detail\n'}
+[0.203855] (my_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/tdt/tool/ros/install/my_msgs/include/my_msgs/my_msgs/msg/detail/msg1__type_support.c\n'}
+[0.203876] (my_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/tdt/tool/ros/install/my_msgs/include/my_msgs/my_msgs/msg/detail/msg1__rosidl_typesupport_introspection_c.h\n'}
+[0.203896] (my_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/tdt/tool/ros/install/my_msgs/include/my_msgs/my_msgs/msg/rosidl_typesupport_introspection_c__visibility_control.h\n'}
+[0.203921] (my_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/tdt/tool/ros/install/my_msgs/lib/libmy_msgs__rosidl_typesupport_introspection_c.so\n'}
+[0.203942] (my_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/tdt/tool/ros/install/my_msgs/lib/libmy_msgs__rosidl_typesupport_c.so\n'}
+[0.203994] (my_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/tdt/tool/ros/install/my_msgs/include/my_msgs/my_msgs\n'}
+[0.204028] (my_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/tdt/tool/ros/install/my_msgs/include/my_msgs/my_msgs/msg\n'}
+[0.204051] (my_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/tdt/tool/ros/install/my_msgs/include/my_msgs/my_msgs/msg/detail\n'}
+[0.204072] (my_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/tdt/tool/ros/install/my_msgs/include/my_msgs/my_msgs/msg/detail/msg1__builder.hpp\n'}
+[0.204096] (my_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/tdt/tool/ros/install/my_msgs/include/my_msgs/my_msgs/msg/detail/msg1__traits.hpp\n'}
+[0.204130] (my_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/tdt/tool/ros/install/my_msgs/include/my_msgs/my_msgs/msg/detail/msg1__type_support.hpp\n'}
+[0.204151] (my_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/tdt/tool/ros/install/my_msgs/include/my_msgs/my_msgs/msg/detail/msg1__struct.hpp\n'}
+[0.204195] (my_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/tdt/tool/ros/install/my_msgs/include/my_msgs/my_msgs/msg/rosidl_generator_cpp__visibility_control.hpp\n'}
+[0.204236] (my_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/tdt/tool/ros/install/my_msgs/include/my_msgs/my_msgs/msg/msg1.hpp\n'}
+[0.204259] (my_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/tdt/tool/ros/install/my_msgs/include/my_msgs/my_msgs\n'}
+[0.204281] (my_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/tdt/tool/ros/install/my_msgs/include/my_msgs/my_msgs/msg\n'}
+[0.204314] (my_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/tdt/tool/ros/install/my_msgs/include/my_msgs/my_msgs/msg/detail\n'}
+[0.204340] (my_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/tdt/tool/ros/install/my_msgs/include/my_msgs/my_msgs/msg/detail/dds_fastrtps\n'}
+[0.204371] (my_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/tdt/tool/ros/install/my_msgs/include/my_msgs/my_msgs/msg/detail/msg1__rosidl_typesupport_fastrtps_cpp.hpp\n'}
+[0.204404] (my_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/tdt/tool/ros/install/my_msgs/include/my_msgs/my_msgs/msg/rosidl_typesupport_fastrtps_cpp__visibility_control.h\n'}
+[0.204426] (my_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/tdt/tool/ros/install/my_msgs/lib/libmy_msgs__rosidl_typesupport_fastrtps_cpp.so\n'}
+[0.204464] (my_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/tdt/tool/ros/install/my_msgs/include/my_msgs/my_msgs\n'}
+[0.204528] (my_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/tdt/tool/ros/install/my_msgs/include/my_msgs/my_msgs/msg\n'}
+[0.204593] (my_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/tdt/tool/ros/install/my_msgs/include/my_msgs/my_msgs/msg/detail\n'}
+[0.204617] (my_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/tdt/tool/ros/install/my_msgs/include/my_msgs/my_msgs/msg/detail/msg1__rosidl_typesupport_introspection_cpp.hpp\n'}
+[0.204639] (my_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/tdt/tool/ros/install/my_msgs/include/my_msgs/my_msgs/msg/detail/msg1__type_support.cpp\n'}
+[0.204663] (my_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/tdt/tool/ros/install/my_msgs/lib/libmy_msgs__rosidl_typesupport_introspection_cpp.so\n'}
+[0.204684] (my_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/tdt/tool/ros/install/my_msgs/lib/libmy_msgs__rosidl_typesupport_cpp.so\n'}
+[0.204705] (my_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/tdt/tool/ros/install/my_msgs/share/my_msgs/environment/pythonpath.sh\n'}
+[0.204726] (my_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/tdt/tool/ros/install/my_msgs/share/my_msgs/environment/pythonpath.dsv\n'}
+[0.204746] (my_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/tdt/tool/ros/install/my_msgs/local/lib/python3.10/dist-packages/my_msgs-0.0.0-py3.10.egg-info\n'}
+[0.204766] (my_msgs) StdoutLine: {'line': b'-- Installing: /home/tdt/tool/ros/install/my_msgs/local/lib/python3.10/dist-packages/my_msgs-0.0.0-py3.10.egg-info/SOURCES.txt\n'}
+[0.204787] (my_msgs) StdoutLine: {'line': b'-- Installing: /home/tdt/tool/ros/install/my_msgs/local/lib/python3.10/dist-packages/my_msgs-0.0.0-py3.10.egg-info/dependency_links.txt\n'}
+[0.204807] (my_msgs) StdoutLine: {'line': b'-- Installing: /home/tdt/tool/ros/install/my_msgs/local/lib/python3.10/dist-packages/my_msgs-0.0.0-py3.10.egg-info/PKG-INFO\n'}
+[0.204828] (my_msgs) StdoutLine: {'line': b'-- Installing: /home/tdt/tool/ros/install/my_msgs/local/lib/python3.10/dist-packages/my_msgs-0.0.0-py3.10.egg-info/top_level.txt\n'}
+[0.204849] (my_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/tdt/tool/ros/install/my_msgs/local/lib/python3.10/dist-packages/my_msgs\n'}
+[0.204871] (my_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/tdt/tool/ros/install/my_msgs/local/lib/python3.10/dist-packages/my_msgs/libmy_msgs__rosidl_generator_py.so\n'}
+[0.204891] (my_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/tdt/tool/ros/install/my_msgs/local/lib/python3.10/dist-packages/my_msgs/_my_msgs_s.ep.rosidl_typesupport_introspection_c.c\n'}
+[0.204914] (my_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/tdt/tool/ros/install/my_msgs/local/lib/python3.10/dist-packages/my_msgs/__init__.py\n'}
+[0.204936] (my_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/tdt/tool/ros/install/my_msgs/local/lib/python3.10/dist-packages/my_msgs/msg\n'}
+[0.204957] (my_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/tdt/tool/ros/install/my_msgs/local/lib/python3.10/dist-packages/my_msgs/msg/__init__.py\n'}
+[0.204977] (my_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/tdt/tool/ros/install/my_msgs/local/lib/python3.10/dist-packages/my_msgs/msg/_msg1.py\n'}
+[0.204997] (my_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/tdt/tool/ros/install/my_msgs/local/lib/python3.10/dist-packages/my_msgs/msg/_msg1_s.c\n'}
+[0.205017] (my_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/tdt/tool/ros/install/my_msgs/local/lib/python3.10/dist-packages/my_msgs/my_msgs_s__rosidl_typesupport_introspection_c.cpython-310-x86_64-linux-gnu.so\n'}
+[0.205038] (my_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/tdt/tool/ros/install/my_msgs/local/lib/python3.10/dist-packages/my_msgs/_my_msgs_s.ep.rosidl_typesupport_fastrtps_c.c\n'}
+[0.205058] (my_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/tdt/tool/ros/install/my_msgs/local/lib/python3.10/dist-packages/my_msgs/my_msgs_s__rosidl_typesupport_c.cpython-310-x86_64-linux-gnu.so\n'}
+[0.205079] (my_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/tdt/tool/ros/install/my_msgs/local/lib/python3.10/dist-packages/my_msgs/_my_msgs_s.ep.rosidl_typesupport_c.c\n'}
+[0.205120] (my_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/tdt/tool/ros/install/my_msgs/local/lib/python3.10/dist-packages/my_msgs/my_msgs_s__rosidl_typesupport_fastrtps_c.cpython-310-x86_64-linux-gnu.so\n'}
+[0.224292] (my_msgs) StdoutLine: {'line': b"Listing '/home/tdt/tool/ros/install/my_msgs/local/lib/python3.10/dist-packages/my_msgs'...\n"}
+[0.224403] (my_msgs) StdoutLine: {'line': b"Listing '/home/tdt/tool/ros/install/my_msgs/local/lib/python3.10/dist-packages/my_msgs/msg'...\n"}
+[0.227780] (my_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/tdt/tool/ros/install/my_msgs/local/lib/python3.10/dist-packages/my_msgs/my_msgs_s__rosidl_typesupport_fastrtps_c.cpython-310-x86_64-linux-gnu.so\n'}
+[0.227835] (my_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/tdt/tool/ros/install/my_msgs/local/lib/python3.10/dist-packages/my_msgs/my_msgs_s__rosidl_typesupport_introspection_c.cpython-310-x86_64-linux-gnu.so\n'}
+[0.227863] (my_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/tdt/tool/ros/install/my_msgs/local/lib/python3.10/dist-packages/my_msgs/my_msgs_s__rosidl_typesupport_c.cpython-310-x86_64-linux-gnu.so\n'}
+[0.227889] (my_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/tdt/tool/ros/install/my_msgs/lib/libmy_msgs__rosidl_generator_py.so\n'}
+[0.227917] (my_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/tdt/tool/ros/install/my_msgs/share/my_msgs/msg/Msg1.idl\n'}
+[0.227943] (my_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/tdt/tool/ros/install/my_msgs/share/my_msgs/msg/Msg1.msg\n'}
+[0.227965] (my_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/tdt/tool/ros/install/my_msgs/share/ament_index/resource_index/package_run_dependencies/my_msgs\n'}
+[0.227988] (my_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/tdt/tool/ros/install/my_msgs/share/ament_index/resource_index/parent_prefix_path/my_msgs\n'}
+[0.228010] (my_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/tdt/tool/ros/install/my_msgs/share/my_msgs/environment/ament_prefix_path.sh\n'}
+[0.228031] (my_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/tdt/tool/ros/install/my_msgs/share/my_msgs/environment/ament_prefix_path.dsv\n'}
+[0.228052] (my_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/tdt/tool/ros/install/my_msgs/share/my_msgs/environment/path.sh\n'}
+[0.228074] (my_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/tdt/tool/ros/install/my_msgs/share/my_msgs/environment/path.dsv\n'}
+[0.228094] (my_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/tdt/tool/ros/install/my_msgs/share/my_msgs/local_setup.bash\n'}
+[0.228114] (my_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/tdt/tool/ros/install/my_msgs/share/my_msgs/local_setup.sh\n'}
+[0.229444] (my_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/tdt/tool/ros/install/my_msgs/share/my_msgs/local_setup.zsh\n'}
+[0.229499] (my_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/tdt/tool/ros/install/my_msgs/share/my_msgs/local_setup.dsv\n'}
+[0.229541] (my_msgs) StdoutLine: {'line': b'-- Installing: /home/tdt/tool/ros/install/my_msgs/share/my_msgs/package.dsv\n'}
+[0.229571] (my_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/tdt/tool/ros/install/my_msgs/share/ament_index/resource_index/packages/my_msgs\n'}
+[0.229598] (my_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/tdt/tool/ros/install/my_msgs/share/my_msgs/cmake/export_my_msgs__rosidl_generator_cExport.cmake\n'}
+[0.229623] (my_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/tdt/tool/ros/install/my_msgs/share/my_msgs/cmake/export_my_msgs__rosidl_generator_cExport-noconfig.cmake\n'}
+[0.229655] (my_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/tdt/tool/ros/install/my_msgs/share/my_msgs/cmake/export_my_msgs__rosidl_typesupport_fastrtps_cExport.cmake\n'}
+[0.229741] (my_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/tdt/tool/ros/install/my_msgs/share/my_msgs/cmake/export_my_msgs__rosidl_typesupport_fastrtps_cExport-noconfig.cmake\n'}
+[0.229769] (my_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/tdt/tool/ros/install/my_msgs/share/my_msgs/cmake/my_msgs__rosidl_typesupport_introspection_cExport.cmake\n'}
+[0.229794] (my_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/tdt/tool/ros/install/my_msgs/share/my_msgs/cmake/my_msgs__rosidl_typesupport_introspection_cExport-noconfig.cmake\n'}
+[0.229818] (my_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/tdt/tool/ros/install/my_msgs/share/my_msgs/cmake/my_msgs__rosidl_typesupport_cExport.cmake\n'}
+[0.229843] (my_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/tdt/tool/ros/install/my_msgs/share/my_msgs/cmake/my_msgs__rosidl_typesupport_cExport-noconfig.cmake\n'}
+[0.229867] (my_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/tdt/tool/ros/install/my_msgs/share/my_msgs/cmake/export_my_msgs__rosidl_generator_cppExport.cmake\n'}
+[0.229891] (my_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/tdt/tool/ros/install/my_msgs/share/my_msgs/cmake/export_my_msgs__rosidl_typesupport_fastrtps_cppExport.cmake\n'}
+[0.229918] (my_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/tdt/tool/ros/install/my_msgs/share/my_msgs/cmake/export_my_msgs__rosidl_typesupport_fastrtps_cppExport-noconfig.cmake\n'}
+[0.229944] (my_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/tdt/tool/ros/install/my_msgs/share/my_msgs/cmake/my_msgs__rosidl_typesupport_introspection_cppExport.cmake\n'}
+[0.229967] (my_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/tdt/tool/ros/install/my_msgs/share/my_msgs/cmake/my_msgs__rosidl_typesupport_introspection_cppExport-noconfig.cmake\n'}
+[0.229989] (my_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/tdt/tool/ros/install/my_msgs/share/my_msgs/cmake/my_msgs__rosidl_typesupport_cppExport.cmake\n'}
+[0.230011] (my_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/tdt/tool/ros/install/my_msgs/share/my_msgs/cmake/my_msgs__rosidl_typesupport_cppExport-noconfig.cmake\n'}
+[0.230038] (my_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/tdt/tool/ros/install/my_msgs/share/my_msgs/cmake/export_my_msgs__rosidl_generator_pyExport.cmake\n'}
+[0.230059] (my_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/tdt/tool/ros/install/my_msgs/share/my_msgs/cmake/export_my_msgs__rosidl_generator_pyExport-noconfig.cmake\n'}
+[0.230115] (my_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/tdt/tool/ros/install/my_msgs/share/my_msgs/cmake/rosidl_cmake-extras.cmake\n'}
+[0.230227] (my_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/tdt/tool/ros/install/my_msgs/share/my_msgs/cmake/ament_cmake_export_include_directories-extras.cmake\n'}
+[0.230270] (my_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/tdt/tool/ros/install/my_msgs/share/my_msgs/cmake/ament_cmake_export_libraries-extras.cmake\n'}
+[0.230307] (my_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/tdt/tool/ros/install/my_msgs/share/my_msgs/cmake/ament_cmake_export_targets-extras.cmake\n'}
+[0.230340] (my_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/tdt/tool/ros/install/my_msgs/share/my_msgs/cmake/rosidl_cmake_export_typesupport_targets-extras.cmake\n'}
+[0.230373] (my_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/tdt/tool/ros/install/my_msgs/share/my_msgs/cmake/ament_cmake_export_dependencies-extras.cmake\n'}
+[0.230402] (my_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/tdt/tool/ros/install/my_msgs/share/my_msgs/cmake/rosidl_cmake_export_typesupport_libraries-extras.cmake\n'}
+[0.230433] (my_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/tdt/tool/ros/install/my_msgs/share/my_msgs/cmake/my_msgsConfig.cmake\n'}
+[0.230460] (my_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/tdt/tool/ros/install/my_msgs/share/my_msgs/cmake/my_msgsConfig-version.cmake\n'}
+[0.230487] (my_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/tdt/tool/ros/install/my_msgs/share/my_msgs/package.xml\n'}
+[0.231503] (my_msgs) CommandEnded: {'returncode': 0}
+[0.241698] (my_msgs) JobEnded: {'identifier': 'my_msgs', 'rc': 0}
+[0.242150] (project1) JobStarted: {'identifier': 'project1'}
+[0.247040] (project1) JobProgress: {'identifier': 'project1', 'progress': 'cmake'}
+[0.247970] (project1) JobProgress: {'identifier': 'project1', 'progress': 'build'}
+[0.248954] (project1) Command: {'cmd': ['/usr/bin/cmake', '--build', '/home/tdt/tool/ros/build/project1', '--', '-j24', '-l24'], 'cwd': '/home/tdt/tool/ros/build/project1', 'env': OrderedDict([('GJS_DEBUG_TOPICS', 'JS ERROR;JS LOG'), ('LESSOPEN', '| /usr/bin/lesspipe %s'), ('LANGUAGE', 'en_US:en'), ('USER', 'tdt'), ('LC_TIME', 'zh_CN.UTF-8'), ('XDG_SESSION_TYPE', 'x11'), ('GIT_ASKPASS', '/usr/share/code/resources/app/extensions/git/dist/askpass.sh'), ('SHLVL', '1'), ('LD_LIBRARY_PATH', '/home/tdt/tool/ros/install/my_msgs/lib:/home/tdt/tool/ros/install/project1/lib:/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib'), ('HOME', '/home/tdt'), ('CHROME_DESKTOP', 'code.desktop'), ('OLDPWD', '/home/tdt/tool/ros/src'), ('TERM_PROGRAM_VERSION', '1.104.3'), ('DESKTOP_SESSION', 'ubuntu'), ('GIO_LAUNCHED_DESKTOP_FILE', '/usr/share/applications/code.desktop'), ('ROS_PYTHON_VERSION', '3'), ('GNOME_SHELL_SESSION_MODE', 'ubuntu'), ('GTK_MODULES', 'gail:atk-bridge'), ('VSCODE_GIT_ASKPASS_MAIN', '/usr/share/code/resources/app/extensions/git/dist/askpass-main.js'), ('LC_MONETARY', 'zh_CN.UTF-8'), ('VSCODE_GIT_ASKPASS_NODE', '/usr/share/code/code'), ('MANAGERPID', '1825'), ('SYSTEMD_EXEC_PID', '2115'), ('VSCODE_PYTHON_AUTOACTIVATE_GUARD', '1'), ('DBUS_SESSION_BUS_ADDRESS', 'unix:path=/run/user/1000/bus'), ('COLORTERM', 'truecolor'), ('GIO_LAUNCHED_DESKTOP_FILE_PID', '2938'), ('IM_CONFIG_PHASE', '1'), ('COLCON_PREFIX_PATH', '/home/tdt/tool/ros/install'), ('ROS_DISTRO', 'humble'), ('GTK_IM_MODULE', 'ibus'), ('LOGNAME', 'tdt'), ('JOURNAL_STREAM', '8:20881'), ('_', '/usr/bin/colcon'), ('ROS_VERSION', '2'), ('PKG_CONFIG_PATH', '/usr/local/lib/pkgconfig:/usr/local/lib/pkgconfig:'), ('XDG_SESSION_CLASS', 'user'), ('USERNAME', 'tdt'), ('TERM', 'xterm-256color'), ('GNOME_DESKTOP_SESSION_ID', 'this-is-deprecated'), ('ROS_LOCALHOST_ONLY', '0'), ('WINDOWPATH', '2'), ('PATH', '/home/tdt/.local/bin:/home/tdt/.local/bin:/opt/ros/humble/bin:/home/tdt/.local/bin:/home/tdt/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/snap/bin:/home/tdt/.config/Code/User/globalStorage/github.copilot-chat/debugCommand'), ('SESSION_MANAGER', 'local/tdt-Legion-Y9000P-IAX10:@/tmp/.ICE-unix/2088,unix/tdt-Legion-Y9000P-IAX10:/tmp/.ICE-unix/2088'), ('INVOCATION_ID', 'a9b23760a7684c39add1db14c05f38c4'), ('PAPERSIZE', 'a4'), ('XDG_MENU_PREFIX', 'gnome-'), ('LC_ADDRESS', 'zh_CN.UTF-8'), ('XDG_RUNTIME_DIR', '/run/user/1000'), ('GDK_BACKEND', 'x11'), ('DISPLAY', ':1'), ('LANG', 'en_US.UTF-8'), ('XDG_CURRENT_DESKTOP', 'Unity'), ('LC_TELEPHONE', 'zh_CN.UTF-8'), ('XMODIFIERS', '@im=ibus'), ('XDG_SESSION_DESKTOP', 'ubuntu'), ('XAUTHORITY', '/run/user/1000/gdm/Xauthority'), ('LS_COLORS', 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:'), ('VSCODE_GIT_IPC_HANDLE', '/run/user/1000/vscode-git-a947e9d6b2.sock'), ('TERM_PROGRAM', 'vscode'), ('SSH_AGENT_LAUNCHER', 'gnome-keyring'), ('SSH_AUTH_SOCK', '/run/user/1000/keyring/ssh'), ('AMENT_PREFIX_PATH', '/home/tdt/tool/ros/install/project1:/home/tdt/tool/ros/install/my_msgs:/opt/ros/humble'), ('ORIGINAL_XDG_CURRENT_DESKTOP', 'ubuntu:GNOME'), ('SHELL', '/bin/bash'), ('LC_NAME', 'zh_CN.UTF-8'), ('QT_ACCESSIBILITY', '1'), ('GDMSESSION', 'ubuntu'), ('LESSCLOSE', '/usr/bin/lesspipe %s %s'), ('LC_MEASUREMENT', 'zh_CN.UTF-8'), ('GPG_AGENT_INFO', '/run/user/1000/gnupg/S.gpg-agent:0:1'), ('GJS_DEBUG_OUTPUT', 'stderr'), ('LC_IDENTIFICATION', 'zh_CN.UTF-8'), ('VSCODE_GIT_ASKPASS_EXTRA_ARGS', ''), ('QT_IM_MODULE', 'ibus'), ('PWD', '/home/tdt/tool/ros/build/project1'), ('LC_ALL', 'en_US.UTF-8'), ('XDG_CONFIG_DIRS', '/etc/xdg/xdg-ubuntu:/etc/xdg'), ('XDG_DATA_DIRS', '/usr/share/ubuntu:/usr/share/gnome:/usr/local/share/:/usr/share/:/var/lib/snapd/desktop'), ('PYTHONPATH', '/home/tdt/tool/ros/install/project1/local/lib/python3.10/dist-packages:/home/tdt/tool/ros/install/my_msgs/local/lib/python3.10/dist-packages:/opt/ros/humble/lib/python3.10/site-packages:/opt/ros/humble/local/lib/python3.10/dist-packages'), ('LC_NUMERIC', 'zh_CN.UTF-8'), ('LC_PAPER', 'zh_CN.UTF-8'), ('COLCON', '1'), ('CMAKE_PREFIX_PATH', '/home/tdt/tool/ros/install/my_msgs:/home/tdt/tool/ros/install/project1:/opt/ros/humble')]), 'shell': False}
+[0.284308] (project1) StdoutLine: {'line': b'[  2%] Built target project1__cpp\n'}
+[0.284518] (project1) StdoutLine: {'line': b'\x1b[35m\x1b[1mConsolidate compiler generated dependencies of target talker1_node\x1b[0m\n'}
+[0.289119] (project1) StdoutLine: {'line': b'[ 11%] Built target project1__rosidl_generator_c\n'}
+[0.291305] (project1) StdoutLine: {'line': b'[ 17%] Built target listener1_node\n'}
+[0.291442] (project1) StdoutLine: {'line': b'[ 17%] Built target ament_cmake_python_copy_project1\n'}
+[0.296945] (project1) StdoutLine: {'line': b'[ 20%] \x1b[32mBuilding CXX object CMakeFiles/talker1_node.dir/src/talker1.cpp.o\x1b[0m\n'}
+[0.300669] (project1) StdoutLine: {'line': b'[ 28%] Built target project1__rosidl_typesupport_cpp\n'}
+[0.300797] (-) TimerEvent: {}
+[0.300890] (project1) StdoutLine: {'line': b'[ 37%] Built target project1__rosidl_typesupport_fastrtps_cpp\n'}
+[0.300955] (project1) StdoutLine: {'line': b'[ 45%] Built target project1__rosidl_typesupport_introspection_cpp\n'}
+[0.304515] (project1) StdoutLine: {'line': b'[ 54%] Built target project1__rosidl_typesupport_introspection_c\n'}
+[0.305143] (project1) StdoutLine: {'line': b'[ 71%] Built target project1__rosidl_typesupport_fastrtps_c\n'}
+[0.305221] (project1) StdoutLine: {'line': b'[ 71%] Built target project1__rosidl_typesupport_c\n'}
+[0.320437] (project1) StdoutLine: {'line': b'[ 71%] Built target project1\n'}
+[0.333243] (project1) StdoutLine: {'line': b'[ 74%] Built target project1__py\n'}
+[0.348212] (project1) StdoutLine: {'line': b'[ 80%] Built target project1__rosidl_generator_py\n'}
+[0.364972] (project1) StdoutLine: {'line': b'[ 85%] Built target project1__rosidl_typesupport_introspection_c__pyext\n'}
+[0.367799] (project1) StdoutLine: {'line': b'[ 91%] Built target project1__rosidl_typesupport_c__pyext\n'}
+[0.368254] (project1) StdoutLine: {'line': b'[ 97%] Built target project1__rosidl_typesupport_fastrtps_c__pyext\n'}
+[0.400962] (-) TimerEvent: {}
+[0.441336] (project1) StdoutLine: {'line': b'running egg_info\n'}
+[0.441772] (project1) StdoutLine: {'line': b'writing project1.egg-info/PKG-INFO\n'}
+[0.441868] (project1) StdoutLine: {'line': b'writing dependency_links to project1.egg-info/dependency_links.txt\n'}
+[0.441903] (project1) StdoutLine: {'line': b'writing top-level names to project1.egg-info/top_level.txt\n'}
+[0.443165] (project1) StdoutLine: {'line': b"reading manifest file 'project1.egg-info/SOURCES.txt'\n"}
+[0.443302] (project1) StdoutLine: {'line': b"writing manifest file 'project1.egg-info/SOURCES.txt'\n"}
+[0.460827] (project1) StdoutLine: {'line': b'[ 97%] Built target ament_cmake_python_build_project1_egg\n'}
+[0.502167] (-) TimerEvent: {}
+[0.602414] (-) TimerEvent: {}
+[0.702730] (-) TimerEvent: {}
+[0.803189] (-) TimerEvent: {}
+[0.903804] (-) TimerEvent: {}
+[1.004077] (-) TimerEvent: {}
+[1.104345] (-) TimerEvent: {}
+[1.204613] (-) TimerEvent: {}
+[1.304892] (-) TimerEvent: {}
+[1.405250] (-) TimerEvent: {}
+[1.505579] (-) TimerEvent: {}
+[1.605901] (-) TimerEvent: {}
+[1.706248] (-) TimerEvent: {}
+[1.806605] (-) TimerEvent: {}
+[1.906871] (-) TimerEvent: {}
+[2.007954] (-) TimerEvent: {}
+[2.108183] (-) TimerEvent: {}
+[2.208587] (-) TimerEvent: {}
+[2.309019] (-) TimerEvent: {}
+[2.409681] (-) TimerEvent: {}
+[2.483805] (project1) StdoutLine: {'line': b'[100%] \x1b[32m\x1b[1mLinking CXX executable talker1_node\x1b[0m\n'}
+[2.509886] (-) TimerEvent: {}
+[2.593913] (project1) StdoutLine: {'line': b'[100%] Built target talker1_node\n'}
+[2.602550] (project1) CommandEnded: {'returncode': 0}
+[2.602993] (project1) JobProgress: {'identifier': 'project1', 'progress': 'install'}
+[2.603327] (project1) Command: {'cmd': ['/usr/bin/cmake', '--install', '/home/tdt/tool/ros/build/project1'], 'cwd': '/home/tdt/tool/ros/build/project1', 'env': OrderedDict([('GJS_DEBUG_TOPICS', 'JS ERROR;JS LOG'), ('LESSOPEN', '| /usr/bin/lesspipe %s'), ('LANGUAGE', 'en_US:en'), ('USER', 'tdt'), ('LC_TIME', 'zh_CN.UTF-8'), ('XDG_SESSION_TYPE', 'x11'), ('GIT_ASKPASS', '/usr/share/code/resources/app/extensions/git/dist/askpass.sh'), ('SHLVL', '1'), ('LD_LIBRARY_PATH', '/home/tdt/tool/ros/install/my_msgs/lib:/home/tdt/tool/ros/install/project1/lib:/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib'), ('HOME', '/home/tdt'), ('CHROME_DESKTOP', 'code.desktop'), ('OLDPWD', '/home/tdt/tool/ros/src'), ('TERM_PROGRAM_VERSION', '1.104.3'), ('DESKTOP_SESSION', 'ubuntu'), ('GIO_LAUNCHED_DESKTOP_FILE', '/usr/share/applications/code.desktop'), ('ROS_PYTHON_VERSION', '3'), ('GNOME_SHELL_SESSION_MODE', 'ubuntu'), ('GTK_MODULES', 'gail:atk-bridge'), ('VSCODE_GIT_ASKPASS_MAIN', '/usr/share/code/resources/app/extensions/git/dist/askpass-main.js'), ('LC_MONETARY', 'zh_CN.UTF-8'), ('VSCODE_GIT_ASKPASS_NODE', '/usr/share/code/code'), ('MANAGERPID', '1825'), ('SYSTEMD_EXEC_PID', '2115'), ('VSCODE_PYTHON_AUTOACTIVATE_GUARD', '1'), ('DBUS_SESSION_BUS_ADDRESS', 'unix:path=/run/user/1000/bus'), ('COLORTERM', 'truecolor'), ('GIO_LAUNCHED_DESKTOP_FILE_PID', '2938'), ('IM_CONFIG_PHASE', '1'), ('COLCON_PREFIX_PATH', '/home/tdt/tool/ros/install'), ('ROS_DISTRO', 'humble'), ('GTK_IM_MODULE', 'ibus'), ('LOGNAME', 'tdt'), ('JOURNAL_STREAM', '8:20881'), ('_', '/usr/bin/colcon'), ('ROS_VERSION', '2'), ('PKG_CONFIG_PATH', '/usr/local/lib/pkgconfig:/usr/local/lib/pkgconfig:'), ('XDG_SESSION_CLASS', 'user'), ('USERNAME', 'tdt'), ('TERM', 'xterm-256color'), ('GNOME_DESKTOP_SESSION_ID', 'this-is-deprecated'), ('ROS_LOCALHOST_ONLY', '0'), ('WINDOWPATH', '2'), ('PATH', '/home/tdt/.local/bin:/home/tdt/.local/bin:/opt/ros/humble/bin:/home/tdt/.local/bin:/home/tdt/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/snap/bin:/home/tdt/.config/Code/User/globalStorage/github.copilot-chat/debugCommand'), ('SESSION_MANAGER', 'local/tdt-Legion-Y9000P-IAX10:@/tmp/.ICE-unix/2088,unix/tdt-Legion-Y9000P-IAX10:/tmp/.ICE-unix/2088'), ('INVOCATION_ID', 'a9b23760a7684c39add1db14c05f38c4'), ('PAPERSIZE', 'a4'), ('XDG_MENU_PREFIX', 'gnome-'), ('LC_ADDRESS', 'zh_CN.UTF-8'), ('XDG_RUNTIME_DIR', '/run/user/1000'), ('GDK_BACKEND', 'x11'), ('DISPLAY', ':1'), ('LANG', 'en_US.UTF-8'), ('XDG_CURRENT_DESKTOP', 'Unity'), ('LC_TELEPHONE', 'zh_CN.UTF-8'), ('XMODIFIERS', '@im=ibus'), ('XDG_SESSION_DESKTOP', 'ubuntu'), ('XAUTHORITY', '/run/user/1000/gdm/Xauthority'), ('LS_COLORS', 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:'), ('VSCODE_GIT_IPC_HANDLE', '/run/user/1000/vscode-git-a947e9d6b2.sock'), ('TERM_PROGRAM', 'vscode'), ('SSH_AGENT_LAUNCHER', 'gnome-keyring'), ('SSH_AUTH_SOCK', '/run/user/1000/keyring/ssh'), ('AMENT_PREFIX_PATH', '/home/tdt/tool/ros/install/project1:/home/tdt/tool/ros/install/my_msgs:/opt/ros/humble'), ('ORIGINAL_XDG_CURRENT_DESKTOP', 'ubuntu:GNOME'), ('SHELL', '/bin/bash'), ('LC_NAME', 'zh_CN.UTF-8'), ('QT_ACCESSIBILITY', '1'), ('GDMSESSION', 'ubuntu'), ('LESSCLOSE', '/usr/bin/lesspipe %s %s'), ('LC_MEASUREMENT', 'zh_CN.UTF-8'), ('GPG_AGENT_INFO', '/run/user/1000/gnupg/S.gpg-agent:0:1'), ('GJS_DEBUG_OUTPUT', 'stderr'), ('LC_IDENTIFICATION', 'zh_CN.UTF-8'), ('VSCODE_GIT_ASKPASS_EXTRA_ARGS', ''), ('QT_IM_MODULE', 'ibus'), ('PWD', '/home/tdt/tool/ros/build/project1'), ('LC_ALL', 'en_US.UTF-8'), ('XDG_CONFIG_DIRS', '/etc/xdg/xdg-ubuntu:/etc/xdg'), ('XDG_DATA_DIRS', '/usr/share/ubuntu:/usr/share/gnome:/usr/local/share/:/usr/share/:/var/lib/snapd/desktop'), ('PYTHONPATH', '/home/tdt/tool/ros/install/project1/local/lib/python3.10/dist-packages:/home/tdt/tool/ros/install/my_msgs/local/lib/python3.10/dist-packages:/opt/ros/humble/lib/python3.10/site-packages:/opt/ros/humble/local/lib/python3.10/dist-packages'), ('LC_NUMERIC', 'zh_CN.UTF-8'), ('LC_PAPER', 'zh_CN.UTF-8'), ('COLCON', '1'), ('CMAKE_PREFIX_PATH', '/home/tdt/tool/ros/install/my_msgs:/home/tdt/tool/ros/install/project1:/opt/ros/humble')]), 'shell': False}
+[2.608334] (project1) StdoutLine: {'line': b'-- Install configuration: ""\n'}
+[2.609062] (project1) StdoutLine: {'line': b'-- Up-to-date: /home/tdt/tool/ros/install/project1/share/ament_index/resource_index/rosidl_interfaces/project1\n'}
+[2.609132] (project1) StdoutLine: {'line': b'-- Up-to-date: /home/tdt/tool/ros/install/project1/include/project1/project1\n'}
+[2.609164] (project1) StdoutLine: {'line': b'-- Up-to-date: /home/tdt/tool/ros/install/project1/include/project1/project1/msg\n'}
+[2.609192] (project1) StdoutLine: {'line': b'-- Up-to-date: /home/tdt/tool/ros/install/project1/include/project1/project1/msg/detail\n'}
+[2.609216] (project1) StdoutLine: {'line': b'-- Up-to-date: /home/tdt/tool/ros/install/project1/include/project1/project1/msg/detail/msg1__functions.h\n'}
+[2.609240] (project1) StdoutLine: {'line': b'-- Up-to-date: /home/tdt/tool/ros/install/project1/include/project1/project1/msg/detail/msg1__functions.c\n'}
+[2.609262] (project1) StdoutLine: {'line': b'-- Up-to-date: /home/tdt/tool/ros/install/project1/include/project1/project1/msg/detail/msg1__struct.h\n'}
+[2.609284] (project1) StdoutLine: {'line': b'-- Up-to-date: /home/tdt/tool/ros/install/project1/include/project1/project1/msg/detail/msg1__type_support.h\n'}
+[2.609306] (project1) StdoutLine: {'line': b'-- Up-to-date: /home/tdt/tool/ros/install/project1/include/project1/project1/msg/msg1.h\n'}
+[2.609332] (project1) StdoutLine: {'line': b'-- Up-to-date: /home/tdt/tool/ros/install/project1/include/project1/project1/msg/rosidl_generator_c__visibility_control.h\n'}
+[2.609354] (project1) StdoutLine: {'line': b'-- Up-to-date: /home/tdt/tool/ros/install/project1/share/project1/environment/library_path.sh\n'}
+[2.609374] (project1) StdoutLine: {'line': b'-- Up-to-date: /home/tdt/tool/ros/install/project1/share/project1/environment/library_path.dsv\n'}
+[2.609393] (project1) StdoutLine: {'line': b'-- Up-to-date: /home/tdt/tool/ros/install/project1/lib/libproject1__rosidl_generator_c.so\n'}
+[2.609411] (project1) StdoutLine: {'line': b'-- Up-to-date: /home/tdt/tool/ros/install/project1/include/project1/project1\n'}
+[2.609429] (project1) StdoutLine: {'line': b'-- Up-to-date: /home/tdt/tool/ros/install/project1/include/project1/project1/msg\n'}
+[2.609447] (project1) StdoutLine: {'line': b'-- Up-to-date: /home/tdt/tool/ros/install/project1/include/project1/project1/msg/detail\n'}
+[2.609465] (project1) StdoutLine: {'line': b'-- Up-to-date: /home/tdt/tool/ros/install/project1/include/project1/project1/msg/detail/msg1__rosidl_typesupport_fastrtps_c.h\n'}
+[2.609483] (project1) StdoutLine: {'line': b'-- Up-to-date: /home/tdt/tool/ros/install/project1/include/project1/project1/msg/rosidl_typesupport_fastrtps_c__visibility_control.h\n'}
+[2.609501] (project1) StdoutLine: {'line': b'-- Up-to-date: /home/tdt/tool/ros/install/project1/lib/libproject1__rosidl_typesupport_fastrtps_c.so\n'}
+[2.609519] (project1) StdoutLine: {'line': b'-- Up-to-date: /home/tdt/tool/ros/install/project1/include/project1/project1\n'}
+[2.609538] (project1) StdoutLine: {'line': b'-- Up-to-date: /home/tdt/tool/ros/install/project1/include/project1/project1/msg\n'}
+[2.609556] (project1) StdoutLine: {'line': b'-- Up-to-date: /home/tdt/tool/ros/install/project1/include/project1/project1/msg/detail\n'}
+[2.609574] (project1) StdoutLine: {'line': b'-- Up-to-date: /home/tdt/tool/ros/install/project1/include/project1/project1/msg/detail/msg1__builder.hpp\n'}
+[2.609592] (project1) StdoutLine: {'line': b'-- Up-to-date: /home/tdt/tool/ros/install/project1/include/project1/project1/msg/detail/msg1__traits.hpp\n'}
+[2.609610] (project1) StdoutLine: {'line': b'-- Up-to-date: /home/tdt/tool/ros/install/project1/include/project1/project1/msg/detail/msg1__type_support.hpp\n'}
+[2.609630] (project1) StdoutLine: {'line': b'-- Up-to-date: /home/tdt/tool/ros/install/project1/include/project1/project1/msg/detail/msg1__struct.hpp\n'}
+[2.609649] (project1) StdoutLine: {'line': b'-- Up-to-date: /home/tdt/tool/ros/install/project1/include/project1/project1/msg/rosidl_generator_cpp__visibility_control.hpp\n'}
+[2.609672] (project1) StdoutLine: {'line': b'-- Up-to-date: /home/tdt/tool/ros/install/project1/include/project1/project1/msg/msg1.hpp\n'}
+[2.609690] (project1) StdoutLine: {'line': b'-- Up-to-date: /home/tdt/tool/ros/install/project1/include/project1/project1\n'}
+[2.609708] (project1) StdoutLine: {'line': b'-- Up-to-date: /home/tdt/tool/ros/install/project1/include/project1/project1/msg\n'}
+[2.609727] (project1) StdoutLine: {'line': b'-- Up-to-date: /home/tdt/tool/ros/install/project1/include/project1/project1/msg/detail\n'}
+[2.609744] (project1) StdoutLine: {'line': b'-- Up-to-date: /home/tdt/tool/ros/install/project1/include/project1/project1/msg/detail/dds_fastrtps\n'}
+[2.609762] (project1) StdoutLine: {'line': b'-- Up-to-date: /home/tdt/tool/ros/install/project1/include/project1/project1/msg/detail/msg1__rosidl_typesupport_fastrtps_cpp.hpp\n'}
+[2.609780] (project1) StdoutLine: {'line': b'-- Up-to-date: /home/tdt/tool/ros/install/project1/include/project1/project1/msg/rosidl_typesupport_fastrtps_cpp__visibility_control.h\n'}
+[2.609798] (project1) StdoutLine: {'line': b'-- Up-to-date: /home/tdt/tool/ros/install/project1/lib/libproject1__rosidl_typesupport_fastrtps_cpp.so\n'}
+[2.609816] (project1) StdoutLine: {'line': b'-- Up-to-date: /home/tdt/tool/ros/install/project1/include/project1/project1\n'}
+[2.609835] (project1) StdoutLine: {'line': b'-- Up-to-date: /home/tdt/tool/ros/install/project1/include/project1/project1/msg\n'}
+[2.609852] (project1) StdoutLine: {'line': b'-- Up-to-date: /home/tdt/tool/ros/install/project1/include/project1/project1/msg/detail\n'}
+[2.609869] (project1) StdoutLine: {'line': b'-- Up-to-date: /home/tdt/tool/ros/install/project1/include/project1/project1/msg/detail/msg1__type_support.c\n'}
+[2.609887] (-) TimerEvent: {}
+[2.609958] (project1) StdoutLine: {'line': b'-- Up-to-date: /home/tdt/tool/ros/install/project1/include/project1/project1/msg/detail/msg1__rosidl_typesupport_introspection_c.h\n'}
+[2.609988] (project1) StdoutLine: {'line': b'-- Up-to-date: /home/tdt/tool/ros/install/project1/include/project1/project1/msg/rosidl_typesupport_introspection_c__visibility_control.h\n'}
+[2.610010] (project1) StdoutLine: {'line': b'-- Up-to-date: /home/tdt/tool/ros/install/project1/lib/libproject1__rosidl_typesupport_introspection_c.so\n'}
+[2.610122] (project1) StdoutLine: {'line': b'-- Up-to-date: /home/tdt/tool/ros/install/project1/lib/libproject1__rosidl_typesupport_c.so\n'}
+[2.610155] (project1) StdoutLine: {'line': b'-- Up-to-date: /home/tdt/tool/ros/install/project1/include/project1/project1\n'}
+[2.610178] (project1) StdoutLine: {'line': b'-- Up-to-date: /home/tdt/tool/ros/install/project1/include/project1/project1/msg\n'}
+[2.610200] (project1) StdoutLine: {'line': b'-- Up-to-date: /home/tdt/tool/ros/install/project1/include/project1/project1/msg/detail\n'}
+[2.610222] (project1) StdoutLine: {'line': b'-- Up-to-date: /home/tdt/tool/ros/install/project1/include/project1/project1/msg/detail/msg1__rosidl_typesupport_introspection_cpp.hpp\n'}
+[2.610245] (project1) StdoutLine: {'line': b'-- Up-to-date: /home/tdt/tool/ros/install/project1/include/project1/project1/msg/detail/msg1__type_support.cpp\n'}
+[2.610268] (project1) StdoutLine: {'line': b'-- Up-to-date: /home/tdt/tool/ros/install/project1/lib/libproject1__rosidl_typesupport_introspection_cpp.so\n'}
+[2.610289] (project1) StdoutLine: {'line': b'-- Up-to-date: /home/tdt/tool/ros/install/project1/lib/libproject1__rosidl_typesupport_cpp.so\n'}
+[2.610310] (project1) StdoutLine: {'line': b'-- Up-to-date: /home/tdt/tool/ros/install/project1/share/project1/environment/pythonpath.sh\n'}
+[2.610331] (project1) StdoutLine: {'line': b'-- Up-to-date: /home/tdt/tool/ros/install/project1/share/project1/environment/pythonpath.dsv\n'}
+[2.610350] (project1) StdoutLine: {'line': b'-- Up-to-date: /home/tdt/tool/ros/install/project1/local/lib/python3.10/dist-packages/project1-0.0.0-py3.10.egg-info\n'}
+[2.610371] (project1) StdoutLine: {'line': b'-- Installing: /home/tdt/tool/ros/install/project1/local/lib/python3.10/dist-packages/project1-0.0.0-py3.10.egg-info/SOURCES.txt\n'}
+[2.610391] (project1) StdoutLine: {'line': b'-- Installing: /home/tdt/tool/ros/install/project1/local/lib/python3.10/dist-packages/project1-0.0.0-py3.10.egg-info/dependency_links.txt\n'}
+[2.610411] (project1) StdoutLine: {'line': b'-- Installing: /home/tdt/tool/ros/install/project1/local/lib/python3.10/dist-packages/project1-0.0.0-py3.10.egg-info/PKG-INFO\n'}
+[2.610433] (project1) StdoutLine: {'line': b'-- Installing: /home/tdt/tool/ros/install/project1/local/lib/python3.10/dist-packages/project1-0.0.0-py3.10.egg-info/top_level.txt\n'}
+[2.610455] (project1) StdoutLine: {'line': b'-- Up-to-date: /home/tdt/tool/ros/install/project1/local/lib/python3.10/dist-packages/project1\n'}
+[2.610478] (project1) StdoutLine: {'line': b'-- Up-to-date: /home/tdt/tool/ros/install/project1/local/lib/python3.10/dist-packages/project1/__init__.py\n'}
+[2.610500] (project1) StdoutLine: {'line': b'-- Up-to-date: /home/tdt/tool/ros/install/project1/local/lib/python3.10/dist-packages/project1/_project1_s.ep.rosidl_typesupport_introspection_c.c\n'}
+[2.610524] (project1) StdoutLine: {'line': b'-- Up-to-date: /home/tdt/tool/ros/install/project1/local/lib/python3.10/dist-packages/project1/msg\n'}
+[2.610547] (project1) StdoutLine: {'line': b'-- Up-to-date: /home/tdt/tool/ros/install/project1/local/lib/python3.10/dist-packages/project1/msg/__init__.py\n'}
+[2.610570] (project1) StdoutLine: {'line': b'-- Up-to-date: /home/tdt/tool/ros/install/project1/local/lib/python3.10/dist-packages/project1/msg/_msg1.py\n'}
+[2.610593] (project1) StdoutLine: {'line': b'-- Up-to-date: /home/tdt/tool/ros/install/project1/local/lib/python3.10/dist-packages/project1/msg/_msg1_s.c\n'}
+[2.610615] (project1) StdoutLine: {'line': b'-- Up-to-date: /home/tdt/tool/ros/install/project1/local/lib/python3.10/dist-packages/project1/libproject1__rosidl_generator_py.so\n'}
+[2.610635] (project1) StdoutLine: {'line': b'-- Up-to-date: /home/tdt/tool/ros/install/project1/local/lib/python3.10/dist-packages/project1/project1_s__rosidl_typesupport_fastrtps_c.cpython-310-x86_64-linux-gnu.so\n'}
+[2.610658] (project1) StdoutLine: {'line': b'-- Up-to-date: /home/tdt/tool/ros/install/project1/local/lib/python3.10/dist-packages/project1/project1_s__rosidl_typesupport_c.cpython-310-x86_64-linux-gnu.so\n'}
+[2.610677] (project1) StdoutLine: {'line': b'-- Up-to-date: /home/tdt/tool/ros/install/project1/local/lib/python3.10/dist-packages/project1/_project1_s.ep.rosidl_typesupport_fastrtps_c.c\n'}
+[2.610697] (project1) StdoutLine: {'line': b'-- Up-to-date: /home/tdt/tool/ros/install/project1/local/lib/python3.10/dist-packages/project1/_project1_s.ep.rosidl_typesupport_c.c\n'}
+[2.610801] (project1) StdoutLine: {'line': b'-- Up-to-date: /home/tdt/tool/ros/install/project1/local/lib/python3.10/dist-packages/project1/project1_s__rosidl_typesupport_introspection_c.cpython-310-x86_64-linux-gnu.so\n'}
+[2.629703] (project1) StdoutLine: {'line': b"Listing '/home/tdt/tool/ros/install/project1/local/lib/python3.10/dist-packages/project1'...\n"}
+[2.629798] (project1) StdoutLine: {'line': b"Listing '/home/tdt/tool/ros/install/project1/local/lib/python3.10/dist-packages/project1/msg'...\n"}
+[2.632084] (project1) StdoutLine: {'line': b'-- Up-to-date: /home/tdt/tool/ros/install/project1/local/lib/python3.10/dist-packages/project1/project1_s__rosidl_typesupport_fastrtps_c.cpython-310-x86_64-linux-gnu.so\n'}
+[2.632207] (project1) StdoutLine: {'line': b'-- Up-to-date: /home/tdt/tool/ros/install/project1/local/lib/python3.10/dist-packages/project1/project1_s__rosidl_typesupport_introspection_c.cpython-310-x86_64-linux-gnu.so\n'}
+[2.633015] (project1) StdoutLine: {'line': b'-- Up-to-date: /home/tdt/tool/ros/install/project1/local/lib/python3.10/dist-packages/project1/project1_s__rosidl_typesupport_c.cpython-310-x86_64-linux-gnu.so\n'}
+[2.633058] (project1) StdoutLine: {'line': b'-- Up-to-date: /home/tdt/tool/ros/install/project1/lib/libproject1__rosidl_generator_py.so\n'}
+[2.633084] (project1) StdoutLine: {'line': b'-- Up-to-date: /home/tdt/tool/ros/install/project1/share/project1/msg/Msg1.idl\n'}
+[2.633107] (project1) StdoutLine: {'line': b'-- Up-to-date: /home/tdt/tool/ros/install/project1/share/project1/msg/Msg1.msg\n'}
+[2.633130] (project1) StdoutLine: {'line': b'-- Up-to-date: /home/tdt/tool/ros/install/project1/include/project1\n'}
+[2.633153] (project1) StdoutLine: {'line': b'-- Up-to-date: /home/tdt/tool/ros/install/project1/include/project1/project1\n'}
+[2.633189] (project1) StdoutLine: {'line': b'-- Installing: /home/tdt/tool/ros/install/project1/lib/project1/talker1_node\n'}
+[2.633212] (project1) StdoutLine: {'line': b'-- Set runtime path of "/home/tdt/tool/ros/install/project1/lib/project1/talker1_node" to ""\n'}
+[2.633235] (project1) StdoutLine: {'line': b'-- Up-to-date: /home/tdt/tool/ros/install/project1/lib/project1/listener1_node\n'}
+[2.633256] (project1) StdoutLine: {'line': b'-- Up-to-date: /home/tdt/tool/ros/install/project1/share/ament_index/resource_index/package_run_dependencies/project1\n'}
+[2.633292] (project1) StdoutLine: {'line': b'-- Up-to-date: /home/tdt/tool/ros/install/project1/share/ament_index/resource_index/parent_prefix_path/project1\n'}
+[2.633343] (project1) StdoutLine: {'line': b'-- Up-to-date: /home/tdt/tool/ros/install/project1/share/project1/environment/ament_prefix_path.sh\n'}
+[2.633369] (project1) StdoutLine: {'line': b'-- Up-to-date: /home/tdt/tool/ros/install/project1/share/project1/environment/ament_prefix_path.dsv\n'}
+[2.633393] (project1) StdoutLine: {'line': b'-- Up-to-date: /home/tdt/tool/ros/install/project1/share/project1/environment/path.sh\n'}
+[2.633417] (project1) StdoutLine: {'line': b'-- Up-to-date: /home/tdt/tool/ros/install/project1/share/project1/environment/path.dsv\n'}
+[2.633439] (project1) StdoutLine: {'line': b'-- Up-to-date: /home/tdt/tool/ros/install/project1/share/project1/local_setup.bash\n'}
+[2.633462] (project1) StdoutLine: {'line': b'-- Up-to-date: /home/tdt/tool/ros/install/project1/share/project1/local_setup.sh\n'}
+[2.633483] (project1) StdoutLine: {'line': b'-- Up-to-date: /home/tdt/tool/ros/install/project1/share/project1/local_setup.zsh\n'}
+[2.633504] (project1) StdoutLine: {'line': b'-- Up-to-date: /home/tdt/tool/ros/install/project1/share/project1/local_setup.dsv\n'}
+[2.633526] (project1) StdoutLine: {'line': b'-- Installing: /home/tdt/tool/ros/install/project1/share/project1/package.dsv\n'}
+[2.634291] (project1) StdoutLine: {'line': b'-- Up-to-date: /home/tdt/tool/ros/install/project1/share/ament_index/resource_index/packages/project1\n'}
+[2.634326] (project1) StdoutLine: {'line': b'-- Up-to-date: /home/tdt/tool/ros/install/project1/share/project1/cmake/export_project1__rosidl_generator_cExport.cmake\n'}
+[2.634351] (project1) StdoutLine: {'line': b'-- Up-to-date: /home/tdt/tool/ros/install/project1/share/project1/cmake/export_project1__rosidl_generator_cExport-noconfig.cmake\n'}
+[2.634374] (project1) StdoutLine: {'line': b'-- Up-to-date: /home/tdt/tool/ros/install/project1/share/project1/cmake/export_project1__rosidl_typesupport_fastrtps_cExport.cmake\n'}
+[2.634397] (project1) StdoutLine: {'line': b'-- Up-to-date: /home/tdt/tool/ros/install/project1/share/project1/cmake/export_project1__rosidl_typesupport_fastrtps_cExport-noconfig.cmake\n'}
+[2.634418] (project1) StdoutLine: {'line': b'-- Up-to-date: /home/tdt/tool/ros/install/project1/share/project1/cmake/export_project1__rosidl_generator_cppExport.cmake\n'}
+[2.634438] (project1) StdoutLine: {'line': b'-- Up-to-date: /home/tdt/tool/ros/install/project1/share/project1/cmake/export_project1__rosidl_typesupport_fastrtps_cppExport.cmake\n'}
+[2.634458] (project1) StdoutLine: {'line': b'-- Up-to-date: /home/tdt/tool/ros/install/project1/share/project1/cmake/export_project1__rosidl_typesupport_fastrtps_cppExport-noconfig.cmake\n'}
+[2.634482] (project1) StdoutLine: {'line': b'-- Up-to-date: /home/tdt/tool/ros/install/project1/share/project1/cmake/project1__rosidl_typesupport_introspection_cExport.cmake\n'}
+[2.634503] (project1) StdoutLine: {'line': b'-- Up-to-date: /home/tdt/tool/ros/install/project1/share/project1/cmake/project1__rosidl_typesupport_introspection_cExport-noconfig.cmake\n'}
+[2.634523] (project1) StdoutLine: {'line': b'-- Up-to-date: /home/tdt/tool/ros/install/project1/share/project1/cmake/project1__rosidl_typesupport_cExport.cmake\n'}
+[2.634542] (project1) StdoutLine: {'line': b'-- Up-to-date: /home/tdt/tool/ros/install/project1/share/project1/cmake/project1__rosidl_typesupport_cExport-noconfig.cmake\n'}
+[2.634561] (project1) StdoutLine: {'line': b'-- Up-to-date: /home/tdt/tool/ros/install/project1/share/project1/cmake/project1__rosidl_typesupport_introspection_cppExport.cmake\n'}
+[2.634581] (project1) StdoutLine: {'line': b'-- Up-to-date: /home/tdt/tool/ros/install/project1/share/project1/cmake/project1__rosidl_typesupport_introspection_cppExport-noconfig.cmake\n'}
+[2.634600] (project1) StdoutLine: {'line': b'-- Up-to-date: /home/tdt/tool/ros/install/project1/share/project1/cmake/project1__rosidl_typesupport_cppExport.cmake\n'}
+[2.634620] (project1) StdoutLine: {'line': b'-- Up-to-date: /home/tdt/tool/ros/install/project1/share/project1/cmake/project1__rosidl_typesupport_cppExport-noconfig.cmake\n'}
+[2.634640] (project1) StdoutLine: {'line': b'-- Up-to-date: /home/tdt/tool/ros/install/project1/share/project1/cmake/export_project1__rosidl_generator_pyExport.cmake\n'}
+[2.634662] (project1) StdoutLine: {'line': b'-- Up-to-date: /home/tdt/tool/ros/install/project1/share/project1/cmake/export_project1__rosidl_generator_pyExport-noconfig.cmake\n'}
+[2.634684] (project1) StdoutLine: {'line': b'-- Up-to-date: /home/tdt/tool/ros/install/project1/share/project1/cmake/rosidl_cmake-extras.cmake\n'}
+[2.634704] (project1) StdoutLine: {'line': b'-- Up-to-date: /home/tdt/tool/ros/install/project1/share/project1/cmake/ament_cmake_export_dependencies-extras.cmake\n'}
+[2.634724] (project1) StdoutLine: {'line': b'-- Up-to-date: /home/tdt/tool/ros/install/project1/share/project1/cmake/ament_cmake_export_include_directories-extras.cmake\n'}
+[2.634744] (project1) StdoutLine: {'line': b'-- Up-to-date: /home/tdt/tool/ros/install/project1/share/project1/cmake/ament_cmake_export_libraries-extras.cmake\n'}
+[2.634763] (project1) StdoutLine: {'line': b'-- Up-to-date: /home/tdt/tool/ros/install/project1/share/project1/cmake/ament_cmake_export_targets-extras.cmake\n'}
+[2.634782] (project1) StdoutLine: {'line': b'-- Up-to-date: /home/tdt/tool/ros/install/project1/share/project1/cmake/rosidl_cmake_export_typesupport_targets-extras.cmake\n'}
+[2.634801] (project1) StdoutLine: {'line': b'-- Up-to-date: /home/tdt/tool/ros/install/project1/share/project1/cmake/rosidl_cmake_export_typesupport_libraries-extras.cmake\n'}
+[2.635426] (project1) StdoutLine: {'line': b'-- Up-to-date: /home/tdt/tool/ros/install/project1/share/project1/cmake/project1Config.cmake\n'}
+[2.635470] (project1) StdoutLine: {'line': b'-- Up-to-date: /home/tdt/tool/ros/install/project1/share/project1/cmake/project1Config-version.cmake\n'}
+[2.635501] (project1) StdoutLine: {'line': b'-- Up-to-date: /home/tdt/tool/ros/install/project1/share/project1/package.xml\n'}
+[2.636381] (project1) CommandEnded: {'returncode': 0}
+[2.644520] (project1) JobEnded: {'identifier': 'project1', 'rc': 0}
+[2.644928] (-) EventReactorShutdown: {}
