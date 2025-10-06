@@ -1,0 +1,3 @@
+[35m[1mConsolidate compiler generated dependencies of target talker1_node[0m
+[ 25%] [32mBuilding CXX object CMakeFiles/listener_node.dir/src/listener.cpp.o[0m
+[ 50%] [32mBuilding CXX object CMakeFiles/talker1_node.dir/src/talker1.cpp.o[0m

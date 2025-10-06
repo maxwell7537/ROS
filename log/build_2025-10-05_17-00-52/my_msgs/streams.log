@@ -1,0 +1,32 @@
+[0.006s] Invoking command in '/home/tdt/tool/ros/build/my_msgs': /usr/bin/cmake --build /home/tdt/tool/ros/build/my_msgs -- -j24 -l24
+[0.023s] -- Found ament_cmake: 1.3.12 (/opt/ros/humble/share/ament_cmake/cmake)
+[0.102s] -- Found ament_cmake_auto: 1.3.12 (/opt/ros/humble/share/ament_cmake_auto/cmake)
+[0.142s] Error parsing '/home/tdt/tool/ros/src/my_msgs/package.xml':
+[0.172s] Traceback (most recent call last):
+[0.172s]   File "/opt/ros/humble/share/ament_cmake_core/cmake/core/package_xml_2_cmake.py", line 150, in <module>
+[0.172s]     main()
+[0.172s]   File "/opt/ros/humble/share/ament_cmake_core/cmake/core/package_xml_2_cmake.py", line 53, in main
+[0.172s]     raise e
+[0.172s]   File "/opt/ros/humble/share/ament_cmake_core/cmake/core/package_xml_2_cmake.py", line 49, in main
+[0.172s]     package = parse_package_string(
+[0.172s]   File "/usr/lib/python3/dist-packages/catkin_pkg/package.py", line 786, in parse_package_string
+[0.172s]     raise InvalidPackage('Error(s):%s' % (''.join(['\n- %s' % e for e in errors])), filename)
+[0.172s] catkin_pkg.package.InvalidPackage: Error(s) in package '/home/tdt/tool/ros/src/my_msgs/package.xml':
+[0.172s] Error(s):
+[0.172s] - The generic dependency on 'rosidl_default_generators' is redundant with: build_depend
+[0.182s] [31mCMake Error at /opt/ros/humble/share/ament_cmake_core/cmake/core/ament_package_xml.cmake:95 (message):
+[0.182s]   execute_process(/usr/bin/python3
+[0.182s]   /opt/ros/humble/share/ament_cmake_core/cmake/core/package_xml_2_cmake.py
+[0.182s]   /home/tdt/tool/ros/src/my_msgs/package.xml
+[0.182s]   /home/tdt/tool/ros/build/my_msgs/ament_cmake_core/package.cmake) returned
+[0.182s]   error code 1
+[0.182s] Call Stack (most recent call first):
+[0.182s]   /opt/ros/humble/share/ament_cmake_core/cmake/core/ament_package_xml.cmake:49 (_ament_package_xml)
+[0.182s]   /opt/ros/humble/share/ament_cmake_auto/cmake/ament_auto_find_build_dependencies.cmake:42 (ament_package_xml)
+[0.182s]   CMakeLists.txt:12 (ament_auto_find_build_dependencies)
+[0.182s] 
+[0.182s] [0m
+[0.183s] -- Configuring incomplete, errors occurred!
+[0.183s] See also "/home/tdt/tool/ros/build/my_msgs/CMakeFiles/CMakeOutput.log".
+[0.184s] gmake: *** [Makefile:226: cmake_check_build_system] Error 1
+[0.186s] Invoked command in '/home/tdt/tool/ros/build/my_msgs' returned '2': /usr/bin/cmake --build /home/tdt/tool/ros/build/my_msgs -- -j24 -l24

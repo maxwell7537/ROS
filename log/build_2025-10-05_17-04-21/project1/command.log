@@ -1,0 +1,1 @@
+Invoking command in '/home/tdt/tool/ros/build/project1': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake --build /home/tdt/tool/ros/build/project1 --clean-first -- -j24 -l24

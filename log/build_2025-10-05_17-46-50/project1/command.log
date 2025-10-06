@@ -1,0 +1,2 @@
+Invoking command in '/home/tdt/tool/ros/build/project1': CMAKE_PREFIX_PATH=/home/tdt/tool/ros/install/my_msgs:/home/tdt/tool/ros/install/project1:/opt/ros/humble /usr/bin/cmake --build /home/tdt/tool/ros/build/project1 -- -j24 -l24
+Invoked command in '/home/tdt/tool/ros/build/project1' returned '2': CMAKE_PREFIX_PATH=/home/tdt/tool/ros/install/my_msgs:/home/tdt/tool/ros/install/project1:/opt/ros/humble /usr/bin/cmake --build /home/tdt/tool/ros/build/project1 -- -j24 -l24

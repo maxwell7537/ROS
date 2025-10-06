@@ -1,0 +1,28 @@
+[0.013s] Invoking command in '/home/tdt/tool/ros/build/project1': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake --build /home/tdt/tool/ros/build/project1 -- -j24 -l24
+[0.057s] [ 50%] Built target listener_node
+[0.059s] [100%] Built target talker1_node
+[0.074s] Invoked command in '/home/tdt/tool/ros/build/project1' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake --build /home/tdt/tool/ros/build/project1 -- -j24 -l24
+[0.082s] Invoking command in '/home/tdt/tool/ros/build/project1': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake --install /home/tdt/tool/ros/build/project1
+[0.087s] -- Install configuration: ""
+[0.087s] -- Up-to-date: /home/tdt/tool/ros/install/project1/include
+[0.087s] -- Up-to-date: /home/tdt/tool/ros/install/project1/include/project1
+[0.087s] -- Up-to-date: /home/tdt/tool/ros/install/project1/lib/project1/talker1_node
+[0.087s] -- Up-to-date: /home/tdt/tool/ros/install/project1/lib/project1/listener_node
+[0.087s] -- Up-to-date: /home/tdt/tool/ros/install/project1/share/ament_index/resource_index/package_run_dependencies/project1
+[0.087s] -- Up-to-date: /home/tdt/tool/ros/install/project1/share/ament_index/resource_index/parent_prefix_path/project1
+[0.087s] -- Up-to-date: /home/tdt/tool/ros/install/project1/share/project1/environment/ament_prefix_path.sh
+[0.087s] -- Up-to-date: /home/tdt/tool/ros/install/project1/share/project1/environment/ament_prefix_path.dsv
+[0.087s] -- Up-to-date: /home/tdt/tool/ros/install/project1/share/project1/environment/path.sh
+[0.087s] -- Up-to-date: /home/tdt/tool/ros/install/project1/share/project1/environment/path.dsv
+[0.087s] -- Up-to-date: /home/tdt/tool/ros/install/project1/share/project1/local_setup.bash
+[0.087s] -- Up-to-date: /home/tdt/tool/ros/install/project1/share/project1/local_setup.sh
+[0.087s] -- Up-to-date: /home/tdt/tool/ros/install/project1/share/project1/local_setup.zsh
+[0.087s] -- Up-to-date: /home/tdt/tool/ros/install/project1/share/project1/local_setup.dsv
+[0.087s] -- Installing: /home/tdt/tool/ros/install/project1/share/project1/package.dsv
+[0.087s] -- Up-to-date: /home/tdt/tool/ros/install/project1/share/ament_index/resource_index/packages/project1
+[0.087s] -- Up-to-date: /home/tdt/tool/ros/install/project1/share/project1/cmake/ament_cmake_export_dependencies-extras.cmake
+[0.087s] -- Up-to-date: /home/tdt/tool/ros/install/project1/share/project1/cmake/ament_cmake_export_include_directories-extras.cmake
+[0.087s] -- Up-to-date: /home/tdt/tool/ros/install/project1/share/project1/cmake/project1Config.cmake
+[0.087s] -- Up-to-date: /home/tdt/tool/ros/install/project1/share/project1/cmake/project1Config-version.cmake
+[0.087s] -- Up-to-date: /home/tdt/tool/ros/install/project1/share/project1/package.xml
+[0.088s] Invoked command in '/home/tdt/tool/ros/build/project1' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake --install /home/tdt/tool/ros/build/project1

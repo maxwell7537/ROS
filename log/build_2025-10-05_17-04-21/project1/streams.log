@@ -1,0 +1,7 @@
+[0.006s] Invoking command in '/home/tdt/tool/ros/build/project1': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake --build /home/tdt/tool/ros/build/project1 --clean-first -- -j24 -l24
+[0.070s] [ 25%] [32mBuilding CXX object CMakeFiles/talker1_node.dir/src/talker1.cpp.o[0m
+[0.071s] [ 50%] [32mBuilding CXX object CMakeFiles/listener_node.dir/src/listener.cpp.o[0m
+[2.358s] [ 75%] [32m[1mLinking CXX executable talker1_node[0m
+[2.472s] [ 75%] Built target talker1_node
+[4.659s] [100%] [32m[1mLinking CXX executable listener_node[0m
+[4.882s] [100%] Built target listener_node

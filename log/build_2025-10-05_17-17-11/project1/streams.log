@@ -1,0 +1,162 @@
+[0.007s] Invoking command in '/home/tdt/tool/ros/build/project1': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake --build /home/tdt/tool/ros/build/project1 -- -j24 -l24
+[0.043s] [ 25%] [32mBuilding CXX object CMakeFiles/talker1_node.dir/src/talker1.cpp.o[0m
+[0.043s] [ 50%] [32mBuilding CXX object CMakeFiles/listener_node.dir/src/listener.cpp.o[0m
+[1.272s] [01m[K/home/tdt/tool/ros/src/project1/src/talker1.cpp:31:21:[m[K [01;31m[Kerror: [m[K‘[01m[Kmy_msgs[m[K’ was not declared in this scope
+[1.272s]    31 |   rclcpp::Publisher<[01;31m[Kmy_msgs[m[K::msg::Msg1>::SharedPtr publisher_;
+[1.272s]       |                     [01;31m[K^~~~~~~[m[K
+[1.272s] [01m[K/home/tdt/tool/ros/src/project1/src/talker1.cpp:31:39:[m[K [01;31m[Kerror: [m[Ktemplate argument 1 is invalid
+[1.272s]    31 |   rclcpp::Publisher<my_msgs::msg::Msg1[01;31m[K>[m[K::SharedPtr publisher_;
+[1.272s]       |                                       [01;31m[K^[m[K
+[1.272s] [01m[K/home/tdt/tool/ros/src/project1/src/talker1.cpp:31:42:[m[K [01;31m[Kerror: [m[Kexpected ‘[01m[K;[m[K’ at end of member declaration
+[1.272s]    31 |   rclcpp::Publisher<my_msgs::msg::Msg1>::[01;31m[KSharedPtr[m[K publisher_;
+[1.272s]       |                                          [01;31m[K^~~~~~~~~[m[K
+[1.272s]       |                                                   [32m[K;[m[K
+[1.273s] [01m[K/home/tdt/tool/ros/src/project1/src/talker1.cpp:31:52:[m[K [01;31m[Kerror: [m[K‘[01m[Kpublisher_[m[K’ does not name a type; did you mean ‘[01m[Krmw_publisher_t[m[K’?
+[1.273s]    31 |   rclcpp::Publisher<my_msgs::msg::Msg1>::SharedPtr [01;31m[Kpublisher_[m[K;
+[1.273s]       |                                                    [01;31m[K^~~~~~~~~~[m[K
+[1.273s]       |                                                    [32m[Krmw_publisher_t[m[K
+[1.277s] [01m[K/home/tdt/tool/ros/src/project1/src/talker1.cpp:[m[K In constructor ‘[01m[KMinimalPublisher::MinimalPublisher()[m[K’:
+[1.277s] [01m[K/home/tdt/tool/ros/src/project1/src/talker1.cpp:12:5:[m[K [01;31m[Kerror: [m[K‘[01m[Kpublisher_[m[K’ was not declared in this scope; did you mean ‘[01m[Krmw_publisher_t[m[K’?
+[1.277s]    12 |     [01;31m[Kpublisher_[m[K = this->create_publisher<my_msgs::msg::Msg1>("topic", 10);
+[1.277s]       |     [01;31m[K^~~~~~~~~~[m[K
+[1.277s]       |     [32m[Krmw_publisher_t[m[K
+[1.280s] [01m[K/home/tdt/tool/ros/src/project1/src/talker1.cpp:12:41:[m[K [01;31m[Kerror: [m[K‘[01m[Kmy_msgs[m[K’ was not declared in this scope
+[1.280s]    12 |     publisher_ = this->create_publisher<[01;31m[Kmy_msgs[m[K::msg::Msg1>("topic", 10);
+[1.280s]       |                                         [01;31m[K^~~~~~~[m[K
+[1.280s] [01m[K/home/tdt/tool/ros/src/project1/src/talker1.cpp:12:24:[m[K [01;31m[Kerror: [m[Kparse error in template argument list
+[1.280s]    12 |     publisher_ = this->[01;31m[Kcreate_publisher<my_msgs::msg::Msg1>[m[K("topic", 10);
+[1.280s]       |                        [01;31m[K^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[m[K
+[1.280s] [01m[K/home/tdt/tool/ros/src/project1/src/talker1.cpp:12:60:[m[K [01;31m[Kerror: [m[Kno matching function for call to ‘[01m[KMinimalPublisher::create_publisher<<expression error> >(const char [6], int)[m[K’
+[1.280s]    12 |     publisher_ = [01;31m[Kthis->create_publisher<my_msgs::msg::Msg1>("topic", 10)[m[K;
+[1.280s]       |                  [01;31m[K~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~[m[K
+[1.280s] In file included from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/executors/single_threaded_executor.hpp:28[m[K,
+[1.280s]                  from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/executors.hpp:22[m[K,
+[1.280s]                  from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/rclcpp.hpp:155[m[K,
+[1.280s]                  from [01m[K/home/tdt/tool/ros/src/project1/src/talker1.cpp:5[m[K:
+[1.280s] [01m[K/opt/ros/humble/include/rclcpp/rclcpp/node.hpp:195:3:[m[K [01;36m[Knote: [m[Kcandidate: ‘[01m[Ktemplate<class MessageT, class AllocatorT, class PublisherT> std::shared_ptr<PublisherT> rclcpp::Node::create_publisher(const string&, const rclcpp::QoS&, const rclcpp::PublisherOptionsWithAllocator<AllocatorT>&)[m[K’
+[1.280s]   195 |   [01;36m[Kcreate_publisher[m[K(
+[1.280s]       |   [01;36m[K^~~~~~~~~~~~~~~~[m[K
+[1.280s] [01m[K/opt/ros/humble/include/rclcpp/rclcpp/node.hpp:195:3:[m[K [01;36m[Knote: [m[K  template argument deduction/substitution failed:
+[1.280s] [01m[K/home/tdt/tool/ros/src/project1/src/talker1.cpp:12:60:[m[K [01;31m[Kerror: [m[Ktemplate argument 1 is invalid
+[1.280s]    12 |     publisher_ = [01;31m[Kthis->create_publisher<my_msgs::msg::Msg1>("topic", 10)[m[K;
+[1.280s]       |                  [01;31m[K~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~[m[K
+[1.286s] [01m[K/home/tdt/tool/ros/src/project1/src/talker1.cpp:[m[K In member function ‘[01m[Kvoid MinimalPublisher::timer_callback()[m[K’:
+[1.286s] [01m[K/home/tdt/tool/ros/src/project1/src/talker1.cpp:23:5:[m[K [01;31m[Kerror: [m[K‘[01m[Kmy_msgs[m[K’ has not been declared
+[1.286s]    23 |     [01;31m[Kmy_msgs[m[K::msg::Msg1 msg;
+[1.286s]       |     [01;31m[K^~~~~~~[m[K
+[1.286s] [01m[K/home/tdt/tool/ros/src/project1/src/talker1.cpp:24:5:[m[K [01;31m[Kerror: [m[K‘[01m[Kmsg[m[K’ was not declared in this scope
+[1.286s]    24 |     [01;31m[Kmsg[m[K.header.stamp = this->get_clock()->now();  // 设置时间戳
+[1.286s]       |     [01;31m[K^~~[m[K
+[1.288s] [01m[K/home/tdt/tool/ros/src/project1/src/talker1.cpp:24:5:[m[K [01;36m[Knote: [m[Ksuggested alternatives:
+[1.288s] In file included from [01m[K/opt/ros/humble/include/builtin_interfaces/builtin_interfaces/msg/duration.hpp:7[m[K,
+[1.288s]                  from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/duration.hpp:20[m[K,
+[1.288s]                  from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/qos.hpp:20[m[K,
+[1.288s]                  from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/node_interfaces/node_graph_interface.hpp:32[m[K,
+[1.288s]                  from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/client.hpp:42[m[K,
+[1.288s]                  from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/callback_group.hpp:24[m[K,
+[1.288s]                  from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/any_executable.hpp:20[m[K,
+[1.288s]                  from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/memory_strategy.hpp:25[m[K,
+[1.288s]                  from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/memory_strategies.hpp:18[m[K,
+[1.288s]                  from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/executor_options.hpp:20[m[K,
+[1.288s]                  from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/executor.hpp:37[m[K,
+[1.288s]                  from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/executors/multi_threaded_executor.hpp:25[m[K,
+[1.288s]                  from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/executors.hpp:21[m[K,
+[1.288s]                  from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/rclcpp.hpp:155[m[K,
+[1.288s]                  from [01m[K/home/tdt/tool/ros/src/project1/src/talker1.cpp:5[m[K:
+[1.288s] [01m[K/opt/ros/humble/include/builtin_interfaces/builtin_interfaces/msg/detail/duration__struct.hpp:27:11:[m[K [01;36m[Knote: [m[K  ‘[01m[Kbuiltin_interfaces::msg[m[K’
+[1.288s]    27 | namespace [01;36m[Kmsg[m[K
+[1.288s]       |           [01;36m[K^~~[m[K
+[1.288s] In file included from [01m[K/opt/ros/humble/include/rcl_interfaces/rcl_interfaces/msg/set_parameters_result.hpp:7[m[K,
+[1.288s]                  from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/qos_overriding_options.hpp:28[m[K,
+[1.289s]                  from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/subscription_options.hpp:30[m[K,
+[1.289s]                  from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/subscription.hpp:45[m[K,
+[1.289s]                  from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/any_executable.hpp:25[m[K,
+[1.289s]                  from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/memory_strategy.hpp:25[m[K,
+[1.289s]                  from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/memory_strategies.hpp:18[m[K,
+[1.289s]                  from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/executor_options.hpp:20[m[K,
+[1.289s]                  from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/executor.hpp:37[m[K,
+[1.289s]                  from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/executors/multi_threaded_executor.hpp:25[m[K,
+[1.289s]                  from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/executors.hpp:21[m[K,
+[1.289s]                  from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/rclcpp.hpp:155[m[K,
+[1.289s]                  from [01m[K/home/tdt/tool/ros/src/project1/src/talker1.cpp:5[m[K:
+[1.289s] [01m[K/opt/ros/humble/include/rcl_interfaces/rcl_interfaces/msg/detail/set_parameters_result__struct.hpp:27:11:[m[K [01;36m[Knote: [m[K  ‘[01m[Krcl_interfaces::msg[m[K’
+[1.289s]    27 | namespace [01;36m[Kmsg[m[K
+[1.289s]       |           [01;36m[K^~~[m[K
+[1.289s] In file included from [01m[K/opt/ros/humble/include/statistics_msgs/statistics_msgs/msg/detail/metrics_message__struct.hpp:23[m[K,
+[1.289s]                  from [01m[K/opt/ros/humble/include/statistics_msgs/statistics_msgs/msg/metrics_message.hpp:7[m[K,
+[1.289s]                  from [01m[K/opt/ros/humble/include/libstatistics_collector/libstatistics_collector/collector/generate_statistics_message.hpp:21[m[K,
+[1.289s]                  from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/topic_statistics/subscription_topic_statistics.hpp:23[m[K,
+[1.289s]                  from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/subscription.hpp:50[m[K,
+[1.289s]                  from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/any_executable.hpp:25[m[K,
+[1.289s]                  from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/memory_strategy.hpp:25[m[K,
+[1.289s]                  from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/memory_strategies.hpp:18[m[K,
+[1.289s]                  from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/executor_options.hpp:20[m[K,
+[1.289s]                  from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/executor.hpp:37[m[K,
+[1.289s]                  from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/executors/multi_threaded_executor.hpp:25[m[K,
+[1.289s]                  from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/executors.hpp:21[m[K,
+[1.289s]                  from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/rclcpp.hpp:155[m[K,
+[1.289s]                  from [01m[K/home/tdt/tool/ros/src/project1/src/talker1.cpp:5[m[K:
+[1.289s] [01m[K/opt/ros/humble/include/statistics_msgs/statistics_msgs/msg/detail/statistic_data_point__struct.hpp:27:11:[m[K [01;36m[Knote: [m[K  ‘[01m[Kstatistics_msgs::msg[m[K’
+[1.289s]    27 | namespace [01;36m[Kmsg[m[K
+[1.289s]       |           [01;36m[K^~~[m[K
+[1.289s] In file included from [01m[K/opt/ros/humble/include/std_msgs/std_msgs/msg/string.hpp:7[m[K,
+[1.289s]                  from [01m[K/home/tdt/tool/ros/src/project1/src/talker1.cpp:6[m[K:
+[1.289s] [01m[K/opt/ros/humble/include/std_msgs/std_msgs/msg/detail/string__struct.hpp:27:11:[m[K [01;36m[Knote: [m[K  ‘[01m[Kstd_msgs::msg[m[K’
+[1.289s]    27 | namespace [01;36m[Kmsg[m[K
+[1.289s]       |           [01;36m[K^~~[m[K
+[1.292s] [01m[K/home/tdt/tool/ros/src/project1/src/talker1.cpp:28:5:[m[K [01;31m[Kerror: [m[K‘[01m[Kpublisher_[m[K’ was not declared in this scope; did you mean ‘[01m[Krmw_publisher_t[m[K’?
+[1.292s]    28 |     [01;31m[Kpublisher_[m[K->publish(msg);
+[1.292s]       |     [01;31m[K^~~~~~~~~~[m[K
+[1.292s]       |     [32m[Krmw_publisher_t[m[K
+[1.542s] gmake[2]: *** [CMakeFiles/talker1_node.dir/build.make:76: CMakeFiles/talker1_node.dir/src/talker1.cpp.o] Error 1
+[1.543s] gmake[1]: *** [CMakeFiles/Makefile2:139: CMakeFiles/talker1_node.dir/all] Error 2
+[1.543s] gmake[1]: *** Waiting for unfinished jobs....
+[1.594s] [01m[K/home/tdt/tool/ros/src/project1/src/listener.cpp:17:35:[m[K [01;31m[Kerror: [m[K‘[01m[Kmy_msgs[m[K’ does not name a type
+[1.594s]    17 |         void topic_callback(const [01;31m[Kmy_msgs[m[K::msg::Msg1 & msg) const{
+[1.594s]       |                                   [01;31m[K^~~~~~~[m[K
+[1.594s] [01m[K/home/tdt/tool/ros/src/project1/src/listener.cpp:17:47:[m[K [01;31m[Kerror: [m[Kexpected unqualified-id before ‘[01m[K::[m[K’ token
+[1.594s]    17 |         void topic_callback(const my_msgs::msg[01;31m[K::[m[KMsg1 & msg) const{
+[1.594s]       |                                               [01;31m[K^~[m[K
+[1.594s] [01m[K/home/tdt/tool/ros/src/project1/src/listener.cpp:17:47:[m[K [01;31m[Kerror: [m[Kexpected ‘[01m[K)[m[K’ before ‘[01m[K::[m[K’ token
+[1.594s]    17 |         void topic_callback[34m[K([m[Kconst my_msgs::msg[01;31m[K:[m[K[32m[K:[m[KMsg1 & msg) const{
+[1.594s]       |                            [34m[K~[m[K                  [01;31m[K^[m[K[32m[K~[m[K
+[1.594s]       |                                               [32m[K)[m[K
+[1.594s] [01m[K/home/tdt/tool/ros/src/project1/src/listener.cpp:17:44:[m[K [01;31m[Kerror: [m[Kexpected ‘[01m[K;[m[K’ at end of member declaration
+[1.594s]    17 |         void topic_callback(const my_msgs::[01;31m[Kmsg[m[K::Msg1 & msg) const{
+[1.594s]       |                                            [01;31m[K^~~[m[K
+[1.594s]       |                                               [32m[K;[m[K
+[1.595s] [01m[K/home/tdt/tool/ros/src/project1/src/listener.cpp:17:49:[m[K [01;31m[Kerror: [m[K‘[01m[KMsg1[m[K’ in namespace ‘[01m[K::[m[K’ does not name a type
+[1.595s]    17 |         void topic_callback(const my_msgs::msg::[01;31m[KMsg1[m[K & msg) const{
+[1.595s]       |                                                 [01;31m[K^~~~[m[K
+[1.900s] In file included from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/client.hpp:39[m[K,
+[1.900s]                  from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/callback_group.hpp:24[m[K,
+[1.900s]                  from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/any_executable.hpp:20[m[K,
+[1.900s]                  from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/memory_strategy.hpp:25[m[K,
+[1.900s]                  from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/memory_strategies.hpp:18[m[K,
+[1.900s]                  from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/executor_options.hpp:20[m[K,
+[1.900s]                  from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/executor.hpp:37[m[K,
+[1.900s]                  from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/executors/multi_threaded_executor.hpp:25[m[K,
+[1.900s]                  from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/executors.hpp:21[m[K,
+[1.900s]                  from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/rclcpp.hpp:155[m[K,
+[1.900s]                  from [01m[K/home/tdt/tool/ros/src/project1/src/listener.cpp:3[m[K:
+[1.900s] /opt/ros/humble/include/rclcpp/rclcpp/function_traits.hpp: In instantiation of ‘[01m[Kstruct rclcpp::function_traits::function_traits<std::_Bind<void (MinimalSubscriber::*(MinimalSubscriber*, std::_Placeholder<1>))(...)> >[m[K’:
+[1.900s] [01m[K/opt/ros/humble/include/rclcpp/rclcpp/any_subscription_callback.hpp:380:10:[m[K   recursively required by substitution of ‘[01m[Ktemplate<class MessageT, class CallbackT> struct rclcpp::detail::SubscriptionCallbackTypeHelper<MessageT, CallbackT, typename std::enable_if<rclcpp::function_traits::same_arguments<CallbackT, std::function<void(std::shared_ptr<_Tp>, const rclcpp::MessageInfo&)> >::value, void>::type> [with MessageT = std_msgs::msg::String_<std::allocator<void> >; CallbackT = std::_Bind<void (MinimalSubscriber::*(MinimalSubscriber*, std::_Placeholder<1>))(...)>][m[K’
+[1.900s] [01m[K/opt/ros/humble/include/rclcpp/rclcpp/any_subscription_callback.hpp:380:10:[m[K   required from ‘[01m[Krclcpp::AnySubscriptionCallback<MessageT, AllocatorT> rclcpp::AnySubscriptionCallback<MessageT, AllocatorT>::set(CallbackT) [with CallbackT = std::_Bind<void (MinimalSubscriber::*(MinimalSubscriber*, std::_Placeholder<1>))(...)>; MessageT = std_msgs::msg::String_<std::allocator<void> >; AllocatorT = std::allocator<void>][m[K’
+[1.900s] [01m[K/opt/ros/humble/include/rclcpp/rclcpp/subscription_factory.hpp:94:32:[m[K   required from ‘[01m[Krclcpp::SubscriptionFactory rclcpp::create_subscription_factory(CallbackT&&, const rclcpp::SubscriptionOptionsWithAllocator<AllocatorT>&, typename MessageMemoryStrategyT::SharedPtr, std::shared_ptr<rclcpp::topic_statistics::SubscriptionTopicStatistics<ROSMessageType> >) [with MessageT = std_msgs::msg::String_<std::allocator<void> >; CallbackT = std::_Bind<void (MinimalSubscriber::*(MinimalSubscriber*, std::_Placeholder<1>))(...)>; AllocatorT = std::allocator<void>; SubscriptionT = rclcpp::Subscription<std_msgs::msg::String_<std::allocator<void> > >; MessageMemoryStrategyT = rclcpp::message_memory_strategy::MessageMemoryStrategy<std_msgs::msg::String_<std::allocator<void> >, std::allocator<void> >; ROSMessageType = std_msgs::msg::String_<std::allocator<void> >; typename MessageMemoryStrategyT::SharedPtr = std::shared_ptr<rclcpp::message_memory_strategy::MessageMemoryStrategy<std_msgs::msg::String_<std::allocator<void> >, std::allocator<void> > >][m[K’
+[1.900s] [01m[K/opt/ros/humble/include/rclcpp/rclcpp/create_subscription.hpp:122:63:[m[K   required from ‘[01m[Kstd::shared_ptr<ROSMessageT> rclcpp::detail::create_subscription(NodeParametersT&, NodeTopicsT&, const string&, const rclcpp::QoS&, CallbackT&&, const rclcpp::SubscriptionOptionsWithAllocator<AllocatorT>&, typename MessageMemoryStrategyT::SharedPtr) [with MessageT = std_msgs::msg::String_<std::allocator<void> >; CallbackT = std::_Bind<void (MinimalSubscriber::*(MinimalSubscriber*, std::_Placeholder<1>))(...)>; AllocatorT = std::allocator<void>; SubscriptionT = rclcpp::Subscription<std_msgs::msg::String_<std::allocator<void> > >; MessageMemoryStrategyT = rclcpp::message_memory_strategy::MessageMemoryStrategy<std_msgs::msg::String_<std::allocator<void> >, std::allocator<void> >; NodeParametersT = rclcpp::Node; NodeTopicsT = rclcpp::Node; ROSMessageType = std_msgs::msg::String_<std::allocator<void> >; std::string = std::__cxx11::basic_string<char>; typename MessageMemoryStrategyT::SharedPtr = std::shared_ptr<rclcpp::message_memory_strategy::MessageMemoryStrategy<std_msgs::msg::String_<std::allocator<void> >, std::allocator<void> > >][m[K’
+[1.900s] [01m[K/opt/ros/humble/include/rclcpp/rclcpp/create_subscription.hpp:191:76:[m[K   required from ‘[01m[Kstd::shared_ptr<ROSMessageT> rclcpp::create_subscription(NodeT&, const string&, const rclcpp::QoS&, CallbackT&&, const rclcpp::SubscriptionOptionsWithAllocator<AllocatorT>&, typename MessageMemoryStrategyT::SharedPtr) [with MessageT = std_msgs::msg::String_<std::allocator<void> >; CallbackT = std::_Bind<void (MinimalSubscriber::*(MinimalSubscriber*, std::_Placeholder<1>))(...)>; AllocatorT = std::allocator<void>; SubscriptionT = rclcpp::Subscription<std_msgs::msg::String_<std::allocator<void> > >; MessageMemoryStrategyT = rclcpp::message_memory_strategy::MessageMemoryStrategy<std_msgs::msg::String_<std::allocator<void> >, std::allocator<void> >; NodeT = rclcpp::Node; std::string = std::__cxx11::basic_string<char>; typename MessageMemoryStrategyT::SharedPtr = std::shared_ptr<rclcpp::message_memory_strategy::MessageMemoryStrategy<std_msgs::msg::String_<std::allocator<void> >, std::allocator<void> > >][m[K’
+[1.900s] [01m[K/opt/ros/humble/include/rclcpp/rclcpp/node_impl.hpp:99:47:[m[K   required from ‘[01m[Kstd::shared_ptr<ROSMessageT> rclcpp::Node::create_subscription(const string&, const rclcpp::QoS&, CallbackT&&, const rclcpp::SubscriptionOptionsWithAllocator<AllocatorT>&, typename MessageMemoryStrategyT::SharedPtr) [with MessageT = std_msgs::msg::String_<std::allocator<void> >; CallbackT = std::_Bind<void (MinimalSubscriber::*(MinimalSubscriber*, std::_Placeholder<1>))(...)>; AllocatorT = std::allocator<void>; SubscriptionT = rclcpp::Subscription<std_msgs::msg::String_<std::allocator<void> > >; MessageMemoryStrategyT = rclcpp::message_memory_strategy::MessageMemoryStrategy<std_msgs::msg::String_<std::allocator<void> >, std::allocator<void> >; std::string = std::__cxx11::basic_string<char>; typename MessageMemoryStrategyT::SharedPtr = std::shared_ptr<rclcpp::message_memory_strategy::MessageMemoryStrategy<std_msgs::msg::String_<std::allocator<void> >, std::allocator<void> > >][m[K’
+[1.900s] [01m[K/home/tdt/tool/ros/src/project1/src/listener.cpp:12:77:[m[K   required from here
+[1.900s] [01m[K/opt/ros/humble/include/rclcpp/rclcpp/function_traits.hpp:51:9:[m[K [01;31m[Kerror: [m[K‘[01m[Kdecltype[m[K’ cannot resolve address of overloaded function
+[1.900s]    51 |   using [01;31m[Karguments[m[K = typename tuple_tail<
+[1.900s]       |         [01;31m[K^~~~~~~~~[m[K
+[1.900s] [01m[K/opt/ros/humble/include/rclcpp/rclcpp/function_traits.hpp:57:9:[m[K [01;31m[Kerror: [m[K‘[01m[Kdecltype[m[K’ cannot resolve address of overloaded function
+[1.900s]    57 |   using [01;31m[Kargument_type[m[K = typename std::tuple_element<N, arguments>::type;
+[1.900s]       |         [01;31m[K^~~~~~~~~~~~~[m[K
+[1.900s] [01m[K/opt/ros/humble/include/rclcpp/rclcpp/function_traits.hpp:59:9:[m[K [01;31m[Kerror: [m[K‘[01m[Kdecltype[m[K’ cannot resolve address of overloaded function
+[1.900s]    59 |   using [01;31m[Kreturn_type[m[K = typename function_traits<decltype( &FunctionT::operator())>::return_type;
+[1.900s]       |         [01;31m[K^~~~~~~~~~~[m[K
+[2.841s] gmake[2]: *** [CMakeFiles/listener_node.dir/build.make:76: CMakeFiles/listener_node.dir/src/listener.cpp.o] Error 1
+[2.841s] gmake[1]: *** [CMakeFiles/Makefile2:165: CMakeFiles/listener_node.dir/all] Error 2
+[2.841s] gmake: *** [Makefile:146: all] Error 2
+[2.843s] Invoked command in '/home/tdt/tool/ros/build/project1' returned '2': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake --build /home/tdt/tool/ros/build/project1 -- -j24 -l24

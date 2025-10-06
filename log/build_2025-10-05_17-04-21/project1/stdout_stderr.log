@@ -1,0 +1,6 @@
+[ 25%] [32mBuilding CXX object CMakeFiles/talker1_node.dir/src/talker1.cpp.o[0m
+[ 50%] [32mBuilding CXX object CMakeFiles/listener_node.dir/src/listener.cpp.o[0m
+[ 75%] [32m[1mLinking CXX executable talker1_node[0m
+[ 75%] Built target talker1_node
+[100%] [32m[1mLinking CXX executable listener_node[0m
+[100%] Built target listener_node
