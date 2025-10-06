@@ -1,9 +1,0 @@
-[0mIn this package, headers install destination is set to `include` by ament_auto_package. It is recommended to install `include/project1` instead and will be the default behavior of ament_auto_package from ROS 2 Kilted Kaiju. On distributions before Kilted, ament_auto_package behaves the same way when you use USE_SCOPED_HEADER_INSTALL_DIR option.[0m
-[01m[K/home/tdt/tool/ros/project1/src/listener.cpp:5:10:[m[K [01;31m[Kfatal error: [m[Kopencv2/opencv.hpp: No such file or directory
-    5 | #include [01;31m[K<opencv2/opencv.hpp>[m[K
-      |          [01;31m[K^~~~~~~~~~~~~~~~~~~~[m[K
-compilation terminated.
-gmake[2]: *** [CMakeFiles/listener_node.dir/build.make:76: CMakeFiles/listener_node.dir/src/listener.cpp.o] Error 1
-gmake[1]: *** [CMakeFiles/Makefile2:165: CMakeFiles/listener_node.dir/all] Error 2
-gmake[1]: *** Waiting for unfinished jobs....
-gmake: *** [Makefile:146: all] Error 2

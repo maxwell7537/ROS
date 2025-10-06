@@ -1,6 +1,0 @@
-Invoking command in '/home/tdt/tool/ros/project1/build/project1': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake /home/tdt/tool/ros/project1 -DCMAKE_INSTALL_PREFIX=/home/tdt/tool/ros/project1/install/project1
-Invoked command in '/home/tdt/tool/ros/project1/build/project1' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake /home/tdt/tool/ros/project1 -DCMAKE_INSTALL_PREFIX=/home/tdt/tool/ros/project1/install/project1
-Invoking command in '/home/tdt/tool/ros/project1/build/project1': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake --build /home/tdt/tool/ros/project1/build/project1 -- -j24 -l24
-Invoked command in '/home/tdt/tool/ros/project1/build/project1' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake --build /home/tdt/tool/ros/project1/build/project1 -- -j24 -l24
-Invoking command in '/home/tdt/tool/ros/project1/build/project1': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake --install /home/tdt/tool/ros/project1/build/project1
-Invoked command in '/home/tdt/tool/ros/project1/build/project1' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake --install /home/tdt/tool/ros/project1/build/project1

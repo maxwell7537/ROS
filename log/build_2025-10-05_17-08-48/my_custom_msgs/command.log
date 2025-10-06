@@ -1,2 +1,0 @@
-Invoking command in '/home/tdt/tool/ros/build/my_custom_msgs': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake /home/tdt/tool/ros/src/my_msgs -DCMAKE_INSTALL_PREFIX=/home/tdt/tool/ros/install/my_custom_msgs
-Invoked command in '/home/tdt/tool/ros/build/my_custom_msgs' returned '1': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake /home/tdt/tool/ros/src/my_msgs -DCMAKE_INSTALL_PREFIX=/home/tdt/tool/ros/install/my_custom_msgs

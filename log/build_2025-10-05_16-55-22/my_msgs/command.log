@@ -1,1 +1,0 @@
-Invoking command in '/home/tdt/tool/ros/build/my_msgs': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake /home/tdt/tool/ros/src/my_msgs -DCMAKE_INSTALL_PREFIX=/home/tdt/tool/ros/install/my_msgs
