@@ -51,3 +51,13 @@ ROS
     ros2 node list
     ros2 param set /talker publish_frequency 值
 ```
+
+------
+2025.10.11
+加入了额外的cv_bridge子模块
+在其他地方克隆包含子模块的仓库时，需要运行
+`git submodule update --init --recursive`
+来获取并检出子模块的文件。
+增加了talker和listener发送和接收图片的功能
+修改了ros2节点连接的opencv版本--改为自定义的4.7.0版本而不是系统的4.5版本
+解决了highgui：：imshow版本冲突的问题
