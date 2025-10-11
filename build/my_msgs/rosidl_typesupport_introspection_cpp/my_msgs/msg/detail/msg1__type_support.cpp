@@ -37,7 +37,7 @@ void Msg1_fini_function(void * message_memory)
   typed_message->~Msg1();
 }
 
-static const ::rosidl_typesupport_introspection_cpp::MessageMember Msg1_message_member_array[2] = {
+static const ::rosidl_typesupport_introspection_cpp::MessageMember Msg1_message_member_array[3] = {
   {
     "s",  // name
     ::rosidl_typesupport_introspection_cpp::ROS_TYPE_STRING,  // type
@@ -71,13 +71,30 @@ static const ::rosidl_typesupport_introspection_cpp::MessageMember Msg1_message_
     nullptr,  // fetch(index, &value) function pointer
     nullptr,  // assign(index, value) function pointer
     nullptr  // resize(index) function pointer
+  },
+  {
+    "image",  // name
+    ::rosidl_typesupport_introspection_cpp::ROS_TYPE_MESSAGE,  // type
+    0,  // upper bound of string
+    ::rosidl_typesupport_introspection_cpp::get_message_type_support_handle<sensor_msgs::msg::Image>(),  // members of sub message
+    false,  // is array
+    0,  // array size
+    false,  // is upper bound
+    offsetof(my_msgs::msg::Msg1, image),  // bytes offset in struct
+    nullptr,  // default value
+    nullptr,  // size() function pointer
+    nullptr,  // get_const(index) function pointer
+    nullptr,  // get(index) function pointer
+    nullptr,  // fetch(index, &value) function pointer
+    nullptr,  // assign(index, value) function pointer
+    nullptr  // resize(index) function pointer
   }
 };
 
 static const ::rosidl_typesupport_introspection_cpp::MessageMembers Msg1_message_members = {
   "my_msgs::msg",  // message namespace
   "Msg1",  // message name
-  2,  // number of fields
+  3,  // number of fields
   sizeof(my_msgs::msg::Msg1),
   Msg1_message_member_array,  // message members
   Msg1_init_function,  // function to initialize message memory (memory has to be allocated)

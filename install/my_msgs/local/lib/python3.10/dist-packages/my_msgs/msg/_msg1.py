@@ -42,6 +42,10 @@ class Metaclass_Msg1(type):
             cls._TYPE_SUPPORT = module.type_support_msg__msg__msg1
             cls._DESTROY_ROS_MESSAGE = module.destroy_ros_message_msg__msg__msg1
 
+            from sensor_msgs.msg import Image
+            if Image.__class__._TYPE_SUPPORT is None:
+                Image.__class__.__import_type_support__()
+
     @classmethod
     def __prepare__(cls, name, bases, **kwargs):
         # list constant names here so that they appear in the help text of
@@ -57,16 +61,19 @@ class Msg1(metaclass=Metaclass_Msg1):
     __slots__ = [
         '_s',
         '_num',
+        '_image',
     ]
 
     _fields_and_field_types = {
         's': 'string',
         'num': 'int32',
+        'image': 'sensor_msgs/Image',
     }
 
     SLOT_TYPES = (
         rosidl_parser.definition.UnboundedString(),  # noqa: E501
         rosidl_parser.definition.BasicType('int32'),  # noqa: E501
+        rosidl_parser.definition.NamespacedType(['sensor_msgs', 'msg'], 'Image'),  # noqa: E501
     )
 
     def __init__(self, **kwargs):
@@ -75,6 +82,8 @@ class Msg1(metaclass=Metaclass_Msg1):
             ', '.join(sorted(k for k in kwargs.keys() if '_' + k not in self.__slots__))
         self.s = kwargs.get('s', str())
         self.num = kwargs.get('num', int())
+        from sensor_msgs.msg import Image
+        self.image = kwargs.get('image', Image())
 
     def __repr__(self):
         typename = self.__class__.__module__.split('.')
@@ -108,6 +117,8 @@ class Msg1(metaclass=Metaclass_Msg1):
         if self.s != other.s:
             return False
         if self.num != other.num:
+            return False
+        if self.image != other.image:
             return False
         return True
 
@@ -143,3 +154,17 @@ class Msg1(metaclass=Metaclass_Msg1):
             assert value >= -2147483648 and value < 2147483648, \
                 "The 'num' field must be an integer in [-2147483648, 2147483647]"
         self._num = value
+
+    @builtins.property
+    def image(self):
+        """Message field 'image'."""
+        return self._image
+
+    @image.setter
+    def image(self, value):
+        if __debug__:
+            from sensor_msgs.msg import Image
+            assert \
+                isinstance(value, Image), \
+                "The 'image' field must be a sub message of type 'Image'"
+        self._image = value

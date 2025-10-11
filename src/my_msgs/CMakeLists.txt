@@ -4,14 +4,12 @@ project(my_msgs)
 # 查找依赖
 find_package(ament_cmake REQUIRED)
 find_package(rosidl_default_generators REQUIRED)
+find_package(sensor_msgs REQUIRED)
 
 # 生成接口
 rosidl_generate_interfaces(${PROJECT_NAME}
   "msg/Msg1.msg"
-  # 添加多个消息文件用空格分隔
-  # "msg/Msg2.msg" "msg/Msg3.msg"
+  DEPENDENCIES std_msgs sensor_msgs
 )
-
-
 
 ament_package()

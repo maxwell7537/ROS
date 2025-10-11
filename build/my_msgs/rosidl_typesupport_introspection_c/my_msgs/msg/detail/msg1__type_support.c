@@ -15,6 +15,10 @@
 // Include directives for member types
 // Member `s`
 #include "rosidl_runtime_c/string_functions.h"
+// Member `image`
+#include "sensor_msgs/msg/image.h"
+// Member `image`
+#include "sensor_msgs/msg/detail/image__rosidl_typesupport_introspection_c.h"
 
 #ifdef __cplusplus
 extern "C"
@@ -35,7 +39,7 @@ void my_msgs__msg__Msg1__rosidl_typesupport_introspection_c__Msg1_fini_function(
   my_msgs__msg__Msg1__fini(message_memory);
 }
 
-static rosidl_typesupport_introspection_c__MessageMember my_msgs__msg__Msg1__rosidl_typesupport_introspection_c__Msg1_message_member_array[2] = {
+static rosidl_typesupport_introspection_c__MessageMember my_msgs__msg__Msg1__rosidl_typesupport_introspection_c__Msg1_message_member_array[3] = {
   {
     "s",  // name
     rosidl_typesupport_introspection_c__ROS_TYPE_STRING,  // type
@@ -69,13 +73,30 @@ static rosidl_typesupport_introspection_c__MessageMember my_msgs__msg__Msg1__ros
     NULL,  // fetch(index, &value) function pointer
     NULL,  // assign(index, value) function pointer
     NULL  // resize(index) function pointer
+  },
+  {
+    "image",  // name
+    rosidl_typesupport_introspection_c__ROS_TYPE_MESSAGE,  // type
+    0,  // upper bound of string
+    NULL,  // members of sub message (initialized later)
+    false,  // is array
+    0,  // array size
+    false,  // is upper bound
+    offsetof(my_msgs__msg__Msg1, image),  // bytes offset in struct
+    NULL,  // default value
+    NULL,  // size() function pointer
+    NULL,  // get_const(index) function pointer
+    NULL,  // get(index) function pointer
+    NULL,  // fetch(index, &value) function pointer
+    NULL,  // assign(index, value) function pointer
+    NULL  // resize(index) function pointer
   }
 };
 
 static const rosidl_typesupport_introspection_c__MessageMembers my_msgs__msg__Msg1__rosidl_typesupport_introspection_c__Msg1_message_members = {
   "my_msgs__msg",  // message namespace
   "Msg1",  // message name
-  2,  // number of fields
+  3,  // number of fields
   sizeof(my_msgs__msg__Msg1),
   my_msgs__msg__Msg1__rosidl_typesupport_introspection_c__Msg1_message_member_array,  // message members
   my_msgs__msg__Msg1__rosidl_typesupport_introspection_c__Msg1_init_function,  // function to initialize message memory (memory has to be allocated)
@@ -93,6 +114,8 @@ static rosidl_message_type_support_t my_msgs__msg__Msg1__rosidl_typesupport_intr
 ROSIDL_TYPESUPPORT_INTROSPECTION_C_EXPORT_my_msgs
 const rosidl_message_type_support_t *
 ROSIDL_TYPESUPPORT_INTERFACE__MESSAGE_SYMBOL_NAME(rosidl_typesupport_introspection_c, my_msgs, msg, Msg1)() {
+  my_msgs__msg__Msg1__rosidl_typesupport_introspection_c__Msg1_message_member_array[2].members_ =
+    ROSIDL_TYPESUPPORT_INTERFACE__MESSAGE_SYMBOL_NAME(rosidl_typesupport_introspection_c, sensor_msgs, msg, Image)();
   if (!my_msgs__msg__Msg1__rosidl_typesupport_introspection_c__Msg1_message_type_support_handle.typesupport_identifier) {
     my_msgs__msg__Msg1__rosidl_typesupport_introspection_c__Msg1_message_type_support_handle.typesupport_identifier =
       rosidl_typesupport_introspection_c__identifier;

@@ -19,6 +19,10 @@
 #include "rosidl_runtime_c/string.h"
 #include "rosidl_runtime_c/string_functions.h"
 
+ROSIDL_GENERATOR_C_IMPORT
+bool sensor_msgs__msg__image__convert_from_py(PyObject * _pymsg, void * _ros_message);
+ROSIDL_GENERATOR_C_IMPORT
+PyObject * sensor_msgs__msg__image__convert_to_py(void * raw_ros_message);
 
 ROSIDL_GENERATOR_C_EXPORT
 bool my_msgs__msg__msg1__convert_from_py(PyObject * _pymsg, void * _ros_message)
@@ -77,6 +81,17 @@ bool my_msgs__msg__msg1__convert_from_py(PyObject * _pymsg, void * _ros_message)
     ros_message->num = (int32_t)PyLong_AsLong(field);
     Py_DECREF(field);
   }
+  {  // image
+    PyObject * field = PyObject_GetAttrString(_pymsg, "image");
+    if (!field) {
+      return false;
+    }
+    if (!sensor_msgs__msg__image__convert_from_py(field, &ros_message->image)) {
+      Py_DECREF(field);
+      return false;
+    }
+    Py_DECREF(field);
+  }
 
   return true;
 }
@@ -121,6 +136,20 @@ PyObject * my_msgs__msg__msg1__convert_to_py(void * raw_ros_message)
     field = PyLong_FromLong(ros_message->num);
     {
       int rc = PyObject_SetAttrString(_pymessage, "num", field);
+      Py_DECREF(field);
+      if (rc) {
+        return NULL;
+      }
+    }
+  }
+  {  // image
+    PyObject * field = NULL;
+    field = sensor_msgs__msg__image__convert_to_py(&ros_message->image);
+    if (!field) {
+      return NULL;
+    }
+    {
+      int rc = PyObject_SetAttrString(_pymessage, "image", field);
       Py_DECREF(field);
       if (rc) {
         return NULL;

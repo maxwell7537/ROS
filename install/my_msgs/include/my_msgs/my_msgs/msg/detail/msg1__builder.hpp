@@ -21,16 +21,32 @@ namespace msg
 namespace builder
 {
 
+class Init_Msg1_image
+{
+public:
+  explicit Init_Msg1_image(::my_msgs::msg::Msg1 & msg)
+  : msg_(msg)
+  {}
+  ::my_msgs::msg::Msg1 image(::my_msgs::msg::Msg1::_image_type arg)
+  {
+    msg_.image = std::move(arg);
+    return std::move(msg_);
+  }
+
+private:
+  ::my_msgs::msg::Msg1 msg_;
+};
+
 class Init_Msg1_num
 {
 public:
   explicit Init_Msg1_num(::my_msgs::msg::Msg1 & msg)
   : msg_(msg)
   {}
-  ::my_msgs::msg::Msg1 num(::my_msgs::msg::Msg1::_num_type arg)
+  Init_Msg1_image num(::my_msgs::msg::Msg1::_num_type arg)
   {
     msg_.num = std::move(arg);
-    return std::move(msg_);
+    return Init_Msg1_image(msg_);
   }
 
 private:

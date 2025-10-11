@@ -2,6 +2,7 @@
 // with input from my_msgs/msg/Msg1.msg
 // generated code does not contain a copyright notice
 
+#include "sensor_msgs/msg/Image.idl"
 
 module my_msgs {
   module msg {
@@ -9,6 +10,8 @@ module my_msgs {
       string s;
 
       int32 num;
+
+      sensor_msgs::msg::Image image;
     };
   };
 };

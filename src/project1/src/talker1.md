@@ -3,7 +3,7 @@
 - 调用父类 Node 的构造函数，将节点名称设为 "talker" ；
 - 初始化成员变量 count_ 为 0 （用于消息计数）。
 ---
-```this->declare_parameter<double>```("publish_frequency", 10.0);
+```this->declare_parameter<double>("publish_frequency", 10.0);```
 - 在节点中声明一个双精度浮点型参数 publish_frequency ，默认值为 10.0 。
 - ROS2的参数系统支持运行时修改参数，此操作让节点具备“可配置发布频率”的能力。
 ---

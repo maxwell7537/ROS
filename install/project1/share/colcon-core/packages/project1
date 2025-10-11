@@ -1,1 +1,1 @@
-OpenCV:my_msgs:rclcpp:rosidl_default_runtime:std_msgs
+cv_bridge:image_transport:my_msgs:opencv:rclcpp:std_msgs

@@ -36,8 +36,23 @@ extern "C"
 
 #include "rosidl_runtime_c/string.h"  // s
 #include "rosidl_runtime_c/string_functions.h"  // s
+#include "sensor_msgs/msg/detail/image__functions.h"  // image
 
 // forward declare type support functions
+ROSIDL_TYPESUPPORT_FASTRTPS_C_IMPORT_my_msgs
+size_t get_serialized_size_sensor_msgs__msg__Image(
+  const void * untyped_ros_message,
+  size_t current_alignment);
+
+ROSIDL_TYPESUPPORT_FASTRTPS_C_IMPORT_my_msgs
+size_t max_serialized_size_sensor_msgs__msg__Image(
+  bool & full_bounded,
+  bool & is_plain,
+  size_t current_alignment);
+
+ROSIDL_TYPESUPPORT_FASTRTPS_C_IMPORT_my_msgs
+const rosidl_message_type_support_t *
+  ROSIDL_TYPESUPPORT_INTERFACE__MESSAGE_SYMBOL_NAME(rosidl_typesupport_fastrtps_c, sensor_msgs, msg, Image)();
 
 
 using _Msg1__ros_msg_type = my_msgs__msg__Msg1;
@@ -68,6 +83,20 @@ static bool _Msg1__cdr_serialize(
   // Field name: num
   {
     cdr << ros_message->num;
+  }
+
+  // Field name: image
+  {
+    const message_type_support_callbacks_t * callbacks =
+      static_cast<const message_type_support_callbacks_t *>(
+      ROSIDL_TYPESUPPORT_INTERFACE__MESSAGE_SYMBOL_NAME(
+        rosidl_typesupport_fastrtps_c, sensor_msgs, msg, Image
+      )()->data);
+    if (!callbacks->cdr_serialize(
+        &ros_message->image, cdr))
+    {
+      return false;
+    }
   }
 
   return true;
@@ -103,6 +132,20 @@ static bool _Msg1__cdr_deserialize(
     cdr >> ros_message->num;
   }
 
+  // Field name: image
+  {
+    const message_type_support_callbacks_t * callbacks =
+      static_cast<const message_type_support_callbacks_t *>(
+      ROSIDL_TYPESUPPORT_INTERFACE__MESSAGE_SYMBOL_NAME(
+        rosidl_typesupport_fastrtps_c, sensor_msgs, msg, Image
+      )()->data);
+    if (!callbacks->cdr_deserialize(
+        cdr, &ros_message->image))
+    {
+      return false;
+    }
+  }
+
   return true;
 }  // NOLINT(readability/fn_size)
 
@@ -130,6 +173,10 @@ size_t get_serialized_size_my_msgs__msg__Msg1(
     current_alignment += item_size +
       eprosima::fastcdr::Cdr::alignment(current_alignment, item_size);
   }
+  // field.name image
+
+  current_alignment += get_serialized_size_sensor_msgs__msg__Image(
+    &(ros_message->image), current_alignment);
 
   return current_alignment - initial_alignment;
 }
@@ -179,6 +226,25 @@ size_t max_serialized_size_my_msgs__msg__Msg1(
     current_alignment += array_size * sizeof(uint32_t) +
       eprosima::fastcdr::Cdr::alignment(current_alignment, sizeof(uint32_t));
   }
+  // member: image
+  {
+    size_t array_size = 1;
+
+
+    last_member_size = 0;
+    for (size_t index = 0; index < array_size; ++index) {
+      bool inner_full_bounded;
+      bool inner_is_plain;
+      size_t inner_size;
+      inner_size =
+        max_serialized_size_sensor_msgs__msg__Image(
+        inner_full_bounded, inner_is_plain, current_alignment);
+      last_member_size += inner_size;
+      current_alignment += inner_size;
+      full_bounded &= inner_full_bounded;
+      is_plain &= inner_is_plain;
+    }
+  }
 
   size_t ret_val = current_alignment - initial_alignment;
   if (is_plain) {
@@ -188,7 +254,7 @@ size_t max_serialized_size_my_msgs__msg__Msg1(
     using DataType = my_msgs__msg__Msg1;
     is_plain =
       (
-      offsetof(DataType, num) +
+      offsetof(DataType, image) +
       last_member_size
       ) == ret_val;
   }

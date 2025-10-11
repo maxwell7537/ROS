@@ -20,12 +20,15 @@ extern "C"
 // Include directives for member types
 // Member 's'
 #include "rosidl_runtime_c/string.h"
+// Member 'image'
+#include "sensor_msgs/msg/detail/image__struct.h"
 
 /// Struct defined in msg/Msg1 in the package my_msgs.
 typedef struct my_msgs__msg__Msg1
 {
   rosidl_runtime_c__String s;
   int32_t num;
+  sensor_msgs__msg__Image image;
 } my_msgs__msg__Msg1;
 
 // Struct for a sequence of my_msgs__msg__Msg1.

@@ -14,6 +14,8 @@
 // Include directives for member types
 // Member `s`
 #include "rosidl_runtime_c/string_functions.h"
+// Member `image`
+#include "sensor_msgs/msg/detail/image__functions.h"
 
 bool
 my_msgs__msg__Msg1__init(my_msgs__msg__Msg1 * msg)
@@ -27,6 +29,11 @@ my_msgs__msg__Msg1__init(my_msgs__msg__Msg1 * msg)
     return false;
   }
   // num
+  // image
+  if (!sensor_msgs__msg__Image__init(&msg->image)) {
+    my_msgs__msg__Msg1__fini(msg);
+    return false;
+  }
   return true;
 }
 
@@ -39,6 +46,8 @@ my_msgs__msg__Msg1__fini(my_msgs__msg__Msg1 * msg)
   // s
   rosidl_runtime_c__String__fini(&msg->s);
   // num
+  // image
+  sensor_msgs__msg__Image__fini(&msg->image);
 }
 
 bool
@@ -55,6 +64,12 @@ my_msgs__msg__Msg1__are_equal(const my_msgs__msg__Msg1 * lhs, const my_msgs__msg
   }
   // num
   if (lhs->num != rhs->num) {
+    return false;
+  }
+  // image
+  if (!sensor_msgs__msg__Image__are_equal(
+      &(lhs->image), &(rhs->image)))
+  {
     return false;
   }
   return true;
@@ -76,6 +91,12 @@ my_msgs__msg__Msg1__copy(
   }
   // num
   output->num = input->num;
+  // image
+  if (!sensor_msgs__msg__Image__copy(
+      &(input->image), &(output->image)))
+  {
+    return false;
+  }
   return true;
 }
 

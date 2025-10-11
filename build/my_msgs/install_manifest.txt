@@ -82,11 +82,11 @@
 /home/tdt/tool/ros/install/my_msgs/share/my_msgs/cmake/export_my_msgs__rosidl_generator_pyExport.cmake
 /home/tdt/tool/ros/install/my_msgs/share/my_msgs/cmake/export_my_msgs__rosidl_generator_pyExport-noconfig.cmake
 /home/tdt/tool/ros/install/my_msgs/share/my_msgs/cmake/rosidl_cmake-extras.cmake
+/home/tdt/tool/ros/install/my_msgs/share/my_msgs/cmake/ament_cmake_export_dependencies-extras.cmake
 /home/tdt/tool/ros/install/my_msgs/share/my_msgs/cmake/ament_cmake_export_include_directories-extras.cmake
 /home/tdt/tool/ros/install/my_msgs/share/my_msgs/cmake/ament_cmake_export_libraries-extras.cmake
 /home/tdt/tool/ros/install/my_msgs/share/my_msgs/cmake/ament_cmake_export_targets-extras.cmake
 /home/tdt/tool/ros/install/my_msgs/share/my_msgs/cmake/rosidl_cmake_export_typesupport_targets-extras.cmake
-/home/tdt/tool/ros/install/my_msgs/share/my_msgs/cmake/ament_cmake_export_dependencies-extras.cmake
 /home/tdt/tool/ros/install/my_msgs/share/my_msgs/cmake/rosidl_cmake_export_typesupport_libraries-extras.cmake
 /home/tdt/tool/ros/install/my_msgs/share/my_msgs/cmake/my_msgsConfig.cmake
 /home/tdt/tool/ros/install/my_msgs/share/my_msgs/cmake/my_msgsConfig-version.cmake

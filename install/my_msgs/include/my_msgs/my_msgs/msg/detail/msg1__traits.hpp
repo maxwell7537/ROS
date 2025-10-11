@@ -14,6 +14,10 @@
 #include "my_msgs/msg/detail/msg1__struct.hpp"
 #include "rosidl_runtime_cpp/traits.hpp"
 
+// Include directives for member types
+// Member 'image'
+#include "sensor_msgs/msg/detail/image__traits.hpp"
+
 namespace my_msgs
 {
 
@@ -36,6 +40,13 @@ inline void to_flow_style_yaml(
   {
     out << "num: ";
     rosidl_generator_traits::value_to_yaml(msg.num, out);
+    out << ", ";
+  }
+
+  // member: image
+  {
+    out << "image: ";
+    to_flow_style_yaml(msg.image, out);
   }
   out << "}";
 }  // NOLINT(readability/fn_size)
@@ -62,6 +73,15 @@ inline void to_block_style_yaml(
     out << "num: ";
     rosidl_generator_traits::value_to_yaml(msg.num, out);
     out << "\n";
+  }
+
+  // member: image
+  {
+    if (indentation > 0) {
+      out << std::string(indentation, ' ');
+    }
+    out << "image:\n";
+    to_block_style_yaml(msg.image, out, indentation + 2);
   }
 }  // NOLINT(readability/fn_size)
 

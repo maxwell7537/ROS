@@ -1,6 +1,0 @@
-{
-  "package_name": "my_msgs",
-  "non_idl_tuples": [
-    "/home/tdt/tool/ros/src/my_msgs:msg/Msg1.msg"
-  ]
-}

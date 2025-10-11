@@ -38,7 +38,7 @@ ROS
 ```
     colcon build --packages-select my_msgs project1
     source install/setup.bash
-    ros2 run project1 talker_node
+    ros2 run project1 talker1_node
 ```
 另一个终端运行：
 ```

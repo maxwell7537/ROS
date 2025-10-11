@@ -224,17 +224,28 @@ CMakeFiles/my_msgs__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtp
   /usr/include/malloc.h \
   rosidl_generator_c/my_msgs/msg/detail/msg1__struct.h \
   /opt/ros/humble/include/rosidl_runtime_c/rosidl_runtime_c/string.h \
+  /opt/ros/humble/include/sensor_msgs/sensor_msgs/msg/detail/image__struct.h \
+  /opt/ros/humble/include/std_msgs/std_msgs/msg/detail/header__struct.h \
+  /opt/ros/humble/include/builtin_interfaces/builtin_interfaces/msg/detail/time__struct.h \
   rosidl_generator_c/my_msgs/msg/detail/msg1__functions.h \
   /usr/include/c++/11/stdlib.h \
   rosidl_generator_c/my_msgs/msg/rosidl_generator_c__visibility_control.h \
-  /opt/ros/humble/include/rosidl_runtime_c/rosidl_runtime_c/string_functions.h
+  /opt/ros/humble/include/rosidl_runtime_c/rosidl_runtime_c/string_functions.h \
+  /opt/ros/humble/include/sensor_msgs/sensor_msgs/msg/detail/image__functions.h \
+  /opt/ros/humble/include/sensor_msgs/sensor_msgs/msg/rosidl_generator_c__visibility_control.h
 
+
+/opt/ros/humble/include/sensor_msgs/sensor_msgs/msg/detail/image__functions.h:
 
 /opt/ros/humble/include/rosidl_runtime_c/rosidl_runtime_c/string_functions.h:
 
 /usr/include/c++/11/stdlib.h:
 
 rosidl_generator_c/my_msgs/msg/detail/msg1__functions.h:
+
+/opt/ros/humble/include/builtin_interfaces/builtin_interfaces/msg/detail/time__struct.h:
+
+/opt/ros/humble/include/std_msgs/std_msgs/msg/detail/header__struct.h:
 
 /opt/ros/humble/include/rosidl_runtime_c/rosidl_runtime_c/string.h:
 
@@ -350,6 +361,8 @@ rosidl_generator_c/my_msgs/msg/detail/msg1__struct.h:
 
 /usr/include/x86_64-linux-gnu/bits/uintn-identity.h:
 
+/opt/ros/humble/include/sensor_msgs/sensor_msgs/msg/rosidl_generator_c__visibility_control.h:
+
 /opt/ros/humble/include/rosidl_typesupport_fastrtps_c/rosidl_typesupport_fastrtps_c/wstring_conversion.hpp:
 
 /usr/include/x86_64-linux-gnu/bits/byteswap.h:
@@ -397,6 +410,8 @@ rosidl_generator_c/my_msgs/msg/detail/msg1__struct.h:
 /usr/include/c++/11/bits/concept_check.h:
 
 /usr/include/stdint.h:
+
+/opt/ros/humble/include/sensor_msgs/sensor_msgs/msg/detail/image__struct.h:
 
 /usr/include/c++/11/cstdint:
 

@@ -15,6 +15,10 @@
 #include "rosidl_runtime_cpp/message_initialization.hpp"
 
 
+// Include directives for member types
+// Member 'image'
+#include "sensor_msgs/msg/detail/image__struct.hpp"
+
 #ifndef _WIN32
 # define DEPRECATED__my_msgs__msg__Msg1 __attribute__((deprecated))
 #else
@@ -34,6 +38,7 @@ struct Msg1_
   using Type = Msg1_<ContainerAllocator>;
 
   explicit Msg1_(rosidl_runtime_cpp::MessageInitialization _init = rosidl_runtime_cpp::MessageInitialization::ALL)
+  : image(_init)
   {
     if (rosidl_runtime_cpp::MessageInitialization::ALL == _init ||
       rosidl_runtime_cpp::MessageInitialization::ZERO == _init)
@@ -44,7 +49,8 @@ struct Msg1_
   }
 
   explicit Msg1_(const ContainerAllocator & _alloc, rosidl_runtime_cpp::MessageInitialization _init = rosidl_runtime_cpp::MessageInitialization::ALL)
-  : s(_alloc)
+  : s(_alloc),
+    image(_alloc, _init)
   {
     if (rosidl_runtime_cpp::MessageInitialization::ALL == _init ||
       rosidl_runtime_cpp::MessageInitialization::ZERO == _init)
@@ -61,6 +67,9 @@ struct Msg1_
   using _num_type =
     int32_t;
   _num_type num;
+  using _image_type =
+    sensor_msgs::msg::Image_<ContainerAllocator>;
+  _image_type image;
 
   // setters for named parameter idiom
   Type & set__s(
@@ -73,6 +82,12 @@ struct Msg1_
     const int32_t & _arg)
   {
     this->num = _arg;
+    return *this;
+  }
+  Type & set__image(
+    const sensor_msgs::msg::Image_<ContainerAllocator> & _arg)
+  {
+    this->image = _arg;
     return *this;
   }
 
@@ -122,6 +137,9 @@ struct Msg1_
       return false;
     }
     if (this->num != other.num) {
+      return false;
+    }
+    if (this->image != other.image) {
       return false;
     }
     return true;
