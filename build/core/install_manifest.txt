@@ -1,0 +1,17 @@
+/home/tdt/tool/ros/install/core/lib/core/core_node
+/home/tdt/tool/ros/install/core/share/ament_index/resource_index/package_run_dependencies/core
+/home/tdt/tool/ros/install/core/share/ament_index/resource_index/parent_prefix_path/core
+/home/tdt/tool/ros/install/core/share/core/environment/ament_prefix_path.sh
+/home/tdt/tool/ros/install/core/share/core/environment/ament_prefix_path.dsv
+/home/tdt/tool/ros/install/core/share/core/environment/path.sh
+/home/tdt/tool/ros/install/core/share/core/environment/path.dsv
+/home/tdt/tool/ros/install/core/share/core/local_setup.bash
+/home/tdt/tool/ros/install/core/share/core/local_setup.sh
+/home/tdt/tool/ros/install/core/share/core/local_setup.zsh
+/home/tdt/tool/ros/install/core/share/core/local_setup.dsv
+/home/tdt/tool/ros/install/core/share/core/package.dsv
+/home/tdt/tool/ros/install/core/share/ament_index/resource_index/packages/core
+/home/tdt/tool/ros/install/core/share/core/cmake/ament_cmake_export_dependencies-extras.cmake
+/home/tdt/tool/ros/install/core/share/core/cmake/coreConfig.cmake
+/home/tdt/tool/ros/install/core/share/core/cmake/coreConfig-version.cmake
+/home/tdt/tool/ros/install/core/share/core/package.xml
