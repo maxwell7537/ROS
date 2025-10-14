@@ -16,6 +16,16 @@ set(CMAKE_MULTIPLE_OUTPUT_PAIRS
   "/home/tdt/tool/ros/build/my_msgs/rosidl_generator_cpp/my_msgs/msg/detail/msg1__struct.hpp" "/home/tdt/tool/ros/build/my_msgs/rosidl_generator_cpp/my_msgs/msg/msg1.hpp"
   "/home/tdt/tool/ros/build/my_msgs/rosidl_generator_cpp/my_msgs/msg/detail/msg1__traits.hpp" "/home/tdt/tool/ros/build/my_msgs/rosidl_generator_cpp/my_msgs/msg/msg1.hpp"
   "/home/tdt/tool/ros/build/my_msgs/rosidl_generator_cpp/my_msgs/msg/detail/msg1__type_support.hpp" "/home/tdt/tool/ros/build/my_msgs/rosidl_generator_cpp/my_msgs/msg/msg1.hpp"
+  "/home/tdt/tool/ros/build/my_msgs/rosidl_generator_cpp/my_msgs/msg/detail/recive_data__builder.hpp" "/home/tdt/tool/ros/build/my_msgs/rosidl_generator_cpp/my_msgs/msg/msg1.hpp"
+  "/home/tdt/tool/ros/build/my_msgs/rosidl_generator_cpp/my_msgs/msg/detail/recive_data__struct.hpp" "/home/tdt/tool/ros/build/my_msgs/rosidl_generator_cpp/my_msgs/msg/msg1.hpp"
+  "/home/tdt/tool/ros/build/my_msgs/rosidl_generator_cpp/my_msgs/msg/detail/recive_data__traits.hpp" "/home/tdt/tool/ros/build/my_msgs/rosidl_generator_cpp/my_msgs/msg/msg1.hpp"
+  "/home/tdt/tool/ros/build/my_msgs/rosidl_generator_cpp/my_msgs/msg/detail/recive_data__type_support.hpp" "/home/tdt/tool/ros/build/my_msgs/rosidl_generator_cpp/my_msgs/msg/msg1.hpp"
+  "/home/tdt/tool/ros/build/my_msgs/rosidl_generator_cpp/my_msgs/msg/detail/send_data__builder.hpp" "/home/tdt/tool/ros/build/my_msgs/rosidl_generator_cpp/my_msgs/msg/msg1.hpp"
+  "/home/tdt/tool/ros/build/my_msgs/rosidl_generator_cpp/my_msgs/msg/detail/send_data__struct.hpp" "/home/tdt/tool/ros/build/my_msgs/rosidl_generator_cpp/my_msgs/msg/msg1.hpp"
+  "/home/tdt/tool/ros/build/my_msgs/rosidl_generator_cpp/my_msgs/msg/detail/send_data__traits.hpp" "/home/tdt/tool/ros/build/my_msgs/rosidl_generator_cpp/my_msgs/msg/msg1.hpp"
+  "/home/tdt/tool/ros/build/my_msgs/rosidl_generator_cpp/my_msgs/msg/detail/send_data__type_support.hpp" "/home/tdt/tool/ros/build/my_msgs/rosidl_generator_cpp/my_msgs/msg/msg1.hpp"
+  "/home/tdt/tool/ros/build/my_msgs/rosidl_generator_cpp/my_msgs/msg/recive_data.hpp" "/home/tdt/tool/ros/build/my_msgs/rosidl_generator_cpp/my_msgs/msg/msg1.hpp"
+  "/home/tdt/tool/ros/build/my_msgs/rosidl_generator_cpp/my_msgs/msg/send_data.hpp" "/home/tdt/tool/ros/build/my_msgs/rosidl_generator_cpp/my_msgs/msg/msg1.hpp"
   )
 
 

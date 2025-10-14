@@ -71,6 +71,16 @@ CMakeFiles/my_msgs__cpp: rosidl_generator_cpp/my_msgs/msg/detail/msg1__builder.h
 CMakeFiles/my_msgs__cpp: rosidl_generator_cpp/my_msgs/msg/detail/msg1__struct.hpp
 CMakeFiles/my_msgs__cpp: rosidl_generator_cpp/my_msgs/msg/detail/msg1__traits.hpp
 CMakeFiles/my_msgs__cpp: rosidl_generator_cpp/my_msgs/msg/detail/msg1__type_support.hpp
+CMakeFiles/my_msgs__cpp: rosidl_generator_cpp/my_msgs/msg/recive_data.hpp
+CMakeFiles/my_msgs__cpp: rosidl_generator_cpp/my_msgs/msg/detail/recive_data__builder.hpp
+CMakeFiles/my_msgs__cpp: rosidl_generator_cpp/my_msgs/msg/detail/recive_data__struct.hpp
+CMakeFiles/my_msgs__cpp: rosidl_generator_cpp/my_msgs/msg/detail/recive_data__traits.hpp
+CMakeFiles/my_msgs__cpp: rosidl_generator_cpp/my_msgs/msg/detail/recive_data__type_support.hpp
+CMakeFiles/my_msgs__cpp: rosidl_generator_cpp/my_msgs/msg/send_data.hpp
+CMakeFiles/my_msgs__cpp: rosidl_generator_cpp/my_msgs/msg/detail/send_data__builder.hpp
+CMakeFiles/my_msgs__cpp: rosidl_generator_cpp/my_msgs/msg/detail/send_data__struct.hpp
+CMakeFiles/my_msgs__cpp: rosidl_generator_cpp/my_msgs/msg/detail/send_data__traits.hpp
+CMakeFiles/my_msgs__cpp: rosidl_generator_cpp/my_msgs/msg/detail/send_data__type_support.hpp
 CMakeFiles/my_msgs__cpp: rosidl_generator_cpp/my_msgs/msg/rosidl_generator_cpp__visibility_control.hpp
 
 rosidl_generator_cpp/my_msgs/msg/msg1.hpp: /opt/ros/humble/lib/rosidl_generator_cpp/rosidl_generator_cpp
@@ -89,6 +99,8 @@ rosidl_generator_cpp/my_msgs/msg/msg1.hpp: /opt/ros/humble/share/rosidl_generato
 rosidl_generator_cpp/my_msgs/msg/msg1.hpp: /opt/ros/humble/share/rosidl_generator_cpp/resource/srv__struct.hpp.em
 rosidl_generator_cpp/my_msgs/msg/msg1.hpp: /opt/ros/humble/share/rosidl_generator_cpp/resource/srv__traits.hpp.em
 rosidl_generator_cpp/my_msgs/msg/msg1.hpp: rosidl_adapter/my_msgs/msg/Msg1.idl
+rosidl_generator_cpp/my_msgs/msg/msg1.hpp: rosidl_adapter/my_msgs/msg/ReciveData.idl
+rosidl_generator_cpp/my_msgs/msg/msg1.hpp: rosidl_adapter/my_msgs/msg/SendData.idl
 rosidl_generator_cpp/my_msgs/msg/msg1.hpp: /opt/ros/humble/share/std_msgs/msg/Bool.idl
 rosidl_generator_cpp/my_msgs/msg/msg1.hpp: /opt/ros/humble/share/std_msgs/msg/Byte.idl
 rosidl_generator_cpp/my_msgs/msg/msg1.hpp: /opt/ros/humble/share/std_msgs/msg/ByteMultiArray.idl
@@ -196,12 +208,52 @@ rosidl_generator_cpp/my_msgs/msg/detail/msg1__traits.hpp: rosidl_generator_cpp/m
 rosidl_generator_cpp/my_msgs/msg/detail/msg1__type_support.hpp: rosidl_generator_cpp/my_msgs/msg/msg1.hpp
 	@$(CMAKE_COMMAND) -E touch_nocreate rosidl_generator_cpp/my_msgs/msg/detail/msg1__type_support.hpp
 
+rosidl_generator_cpp/my_msgs/msg/recive_data.hpp: rosidl_generator_cpp/my_msgs/msg/msg1.hpp
+	@$(CMAKE_COMMAND) -E touch_nocreate rosidl_generator_cpp/my_msgs/msg/recive_data.hpp
+
+rosidl_generator_cpp/my_msgs/msg/detail/recive_data__builder.hpp: rosidl_generator_cpp/my_msgs/msg/msg1.hpp
+	@$(CMAKE_COMMAND) -E touch_nocreate rosidl_generator_cpp/my_msgs/msg/detail/recive_data__builder.hpp
+
+rosidl_generator_cpp/my_msgs/msg/detail/recive_data__struct.hpp: rosidl_generator_cpp/my_msgs/msg/msg1.hpp
+	@$(CMAKE_COMMAND) -E touch_nocreate rosidl_generator_cpp/my_msgs/msg/detail/recive_data__struct.hpp
+
+rosidl_generator_cpp/my_msgs/msg/detail/recive_data__traits.hpp: rosidl_generator_cpp/my_msgs/msg/msg1.hpp
+	@$(CMAKE_COMMAND) -E touch_nocreate rosidl_generator_cpp/my_msgs/msg/detail/recive_data__traits.hpp
+
+rosidl_generator_cpp/my_msgs/msg/detail/recive_data__type_support.hpp: rosidl_generator_cpp/my_msgs/msg/msg1.hpp
+	@$(CMAKE_COMMAND) -E touch_nocreate rosidl_generator_cpp/my_msgs/msg/detail/recive_data__type_support.hpp
+
+rosidl_generator_cpp/my_msgs/msg/send_data.hpp: rosidl_generator_cpp/my_msgs/msg/msg1.hpp
+	@$(CMAKE_COMMAND) -E touch_nocreate rosidl_generator_cpp/my_msgs/msg/send_data.hpp
+
+rosidl_generator_cpp/my_msgs/msg/detail/send_data__builder.hpp: rosidl_generator_cpp/my_msgs/msg/msg1.hpp
+	@$(CMAKE_COMMAND) -E touch_nocreate rosidl_generator_cpp/my_msgs/msg/detail/send_data__builder.hpp
+
+rosidl_generator_cpp/my_msgs/msg/detail/send_data__struct.hpp: rosidl_generator_cpp/my_msgs/msg/msg1.hpp
+	@$(CMAKE_COMMAND) -E touch_nocreate rosidl_generator_cpp/my_msgs/msg/detail/send_data__struct.hpp
+
+rosidl_generator_cpp/my_msgs/msg/detail/send_data__traits.hpp: rosidl_generator_cpp/my_msgs/msg/msg1.hpp
+	@$(CMAKE_COMMAND) -E touch_nocreate rosidl_generator_cpp/my_msgs/msg/detail/send_data__traits.hpp
+
+rosidl_generator_cpp/my_msgs/msg/detail/send_data__type_support.hpp: rosidl_generator_cpp/my_msgs/msg/msg1.hpp
+	@$(CMAKE_COMMAND) -E touch_nocreate rosidl_generator_cpp/my_msgs/msg/detail/send_data__type_support.hpp
+
 my_msgs__cpp: CMakeFiles/my_msgs__cpp
 my_msgs__cpp: rosidl_generator_cpp/my_msgs/msg/detail/msg1__builder.hpp
 my_msgs__cpp: rosidl_generator_cpp/my_msgs/msg/detail/msg1__struct.hpp
 my_msgs__cpp: rosidl_generator_cpp/my_msgs/msg/detail/msg1__traits.hpp
 my_msgs__cpp: rosidl_generator_cpp/my_msgs/msg/detail/msg1__type_support.hpp
+my_msgs__cpp: rosidl_generator_cpp/my_msgs/msg/detail/recive_data__builder.hpp
+my_msgs__cpp: rosidl_generator_cpp/my_msgs/msg/detail/recive_data__struct.hpp
+my_msgs__cpp: rosidl_generator_cpp/my_msgs/msg/detail/recive_data__traits.hpp
+my_msgs__cpp: rosidl_generator_cpp/my_msgs/msg/detail/recive_data__type_support.hpp
+my_msgs__cpp: rosidl_generator_cpp/my_msgs/msg/detail/send_data__builder.hpp
+my_msgs__cpp: rosidl_generator_cpp/my_msgs/msg/detail/send_data__struct.hpp
+my_msgs__cpp: rosidl_generator_cpp/my_msgs/msg/detail/send_data__traits.hpp
+my_msgs__cpp: rosidl_generator_cpp/my_msgs/msg/detail/send_data__type_support.hpp
 my_msgs__cpp: rosidl_generator_cpp/my_msgs/msg/msg1.hpp
+my_msgs__cpp: rosidl_generator_cpp/my_msgs/msg/recive_data.hpp
+my_msgs__cpp: rosidl_generator_cpp/my_msgs/msg/send_data.hpp
 my_msgs__cpp: CMakeFiles/my_msgs__cpp.dir/build.make
 .PHONY : my_msgs__cpp
 

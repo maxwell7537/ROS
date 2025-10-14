@@ -83,6 +83,8 @@ rosidl_generator_c/my_msgs/msg/msg1.h: /opt/ros/humble/share/rosidl_generator_c/
 rosidl_generator_c/my_msgs/msg/msg1.h: /opt/ros/humble/share/rosidl_generator_c/resource/msg__type_support.h.em
 rosidl_generator_c/my_msgs/msg/msg1.h: /opt/ros/humble/share/rosidl_generator_c/resource/srv__type_support.h.em
 rosidl_generator_c/my_msgs/msg/msg1.h: rosidl_adapter/my_msgs/msg/Msg1.idl
+rosidl_generator_c/my_msgs/msg/msg1.h: rosidl_adapter/my_msgs/msg/ReciveData.idl
+rosidl_generator_c/my_msgs/msg/msg1.h: rosidl_adapter/my_msgs/msg/SendData.idl
 rosidl_generator_c/my_msgs/msg/msg1.h: /opt/ros/humble/share/std_msgs/msg/Bool.idl
 rosidl_generator_c/my_msgs/msg/msg1.h: /opt/ros/humble/share/std_msgs/msg/Byte.idl
 rosidl_generator_c/my_msgs/msg/msg1.h: /opt/ros/humble/share/std_msgs/msg/ByteMultiArray.idl
@@ -187,8 +189,38 @@ rosidl_generator_c/my_msgs/msg/detail/msg1__struct.h: rosidl_generator_c/my_msgs
 rosidl_generator_c/my_msgs/msg/detail/msg1__type_support.h: rosidl_generator_c/my_msgs/msg/msg1.h
 	@$(CMAKE_COMMAND) -E touch_nocreate rosidl_generator_c/my_msgs/msg/detail/msg1__type_support.h
 
+rosidl_generator_c/my_msgs/msg/recive_data.h: rosidl_generator_c/my_msgs/msg/msg1.h
+	@$(CMAKE_COMMAND) -E touch_nocreate rosidl_generator_c/my_msgs/msg/recive_data.h
+
+rosidl_generator_c/my_msgs/msg/detail/recive_data__functions.h: rosidl_generator_c/my_msgs/msg/msg1.h
+	@$(CMAKE_COMMAND) -E touch_nocreate rosidl_generator_c/my_msgs/msg/detail/recive_data__functions.h
+
+rosidl_generator_c/my_msgs/msg/detail/recive_data__struct.h: rosidl_generator_c/my_msgs/msg/msg1.h
+	@$(CMAKE_COMMAND) -E touch_nocreate rosidl_generator_c/my_msgs/msg/detail/recive_data__struct.h
+
+rosidl_generator_c/my_msgs/msg/detail/recive_data__type_support.h: rosidl_generator_c/my_msgs/msg/msg1.h
+	@$(CMAKE_COMMAND) -E touch_nocreate rosidl_generator_c/my_msgs/msg/detail/recive_data__type_support.h
+
+rosidl_generator_c/my_msgs/msg/send_data.h: rosidl_generator_c/my_msgs/msg/msg1.h
+	@$(CMAKE_COMMAND) -E touch_nocreate rosidl_generator_c/my_msgs/msg/send_data.h
+
+rosidl_generator_c/my_msgs/msg/detail/send_data__functions.h: rosidl_generator_c/my_msgs/msg/msg1.h
+	@$(CMAKE_COMMAND) -E touch_nocreate rosidl_generator_c/my_msgs/msg/detail/send_data__functions.h
+
+rosidl_generator_c/my_msgs/msg/detail/send_data__struct.h: rosidl_generator_c/my_msgs/msg/msg1.h
+	@$(CMAKE_COMMAND) -E touch_nocreate rosidl_generator_c/my_msgs/msg/detail/send_data__struct.h
+
+rosidl_generator_c/my_msgs/msg/detail/send_data__type_support.h: rosidl_generator_c/my_msgs/msg/msg1.h
+	@$(CMAKE_COMMAND) -E touch_nocreate rosidl_generator_c/my_msgs/msg/detail/send_data__type_support.h
+
 rosidl_generator_c/my_msgs/msg/detail/msg1__functions.c: rosidl_generator_c/my_msgs/msg/msg1.h
 	@$(CMAKE_COMMAND) -E touch_nocreate rosidl_generator_c/my_msgs/msg/detail/msg1__functions.c
+
+rosidl_generator_c/my_msgs/msg/detail/recive_data__functions.c: rosidl_generator_c/my_msgs/msg/msg1.h
+	@$(CMAKE_COMMAND) -E touch_nocreate rosidl_generator_c/my_msgs/msg/detail/recive_data__functions.c
+
+rosidl_generator_c/my_msgs/msg/detail/send_data__functions.c: rosidl_generator_c/my_msgs/msg/msg1.h
+	@$(CMAKE_COMMAND) -E touch_nocreate rosidl_generator_c/my_msgs/msg/detail/send_data__functions.c
 
 CMakeFiles/my_msgs__rosidl_generator_c.dir/rosidl_generator_c/my_msgs/msg/detail/msg1__functions.c.o: CMakeFiles/my_msgs__rosidl_generator_c.dir/flags.make
 CMakeFiles/my_msgs__rosidl_generator_c.dir/rosidl_generator_c/my_msgs/msg/detail/msg1__functions.c.o: rosidl_generator_c/my_msgs/msg/detail/msg1__functions.c
@@ -204,14 +236,46 @@ CMakeFiles/my_msgs__rosidl_generator_c.dir/rosidl_generator_c/my_msgs/msg/detail
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/my_msgs__rosidl_generator_c.dir/rosidl_generator_c/my_msgs/msg/detail/msg1__functions.c.s"
 	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/tdt/tool/ros/build/my_msgs/rosidl_generator_c/my_msgs/msg/detail/msg1__functions.c -o CMakeFiles/my_msgs__rosidl_generator_c.dir/rosidl_generator_c/my_msgs/msg/detail/msg1__functions.c.s
 
+CMakeFiles/my_msgs__rosidl_generator_c.dir/rosidl_generator_c/my_msgs/msg/detail/recive_data__functions.c.o: CMakeFiles/my_msgs__rosidl_generator_c.dir/flags.make
+CMakeFiles/my_msgs__rosidl_generator_c.dir/rosidl_generator_c/my_msgs/msg/detail/recive_data__functions.c.o: rosidl_generator_c/my_msgs/msg/detail/recive_data__functions.c
+CMakeFiles/my_msgs__rosidl_generator_c.dir/rosidl_generator_c/my_msgs/msg/detail/recive_data__functions.c.o: CMakeFiles/my_msgs__rosidl_generator_c.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/tdt/tool/ros/build/my_msgs/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building C object CMakeFiles/my_msgs__rosidl_generator_c.dir/rosidl_generator_c/my_msgs/msg/detail/recive_data__functions.c.o"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/my_msgs__rosidl_generator_c.dir/rosidl_generator_c/my_msgs/msg/detail/recive_data__functions.c.o -MF CMakeFiles/my_msgs__rosidl_generator_c.dir/rosidl_generator_c/my_msgs/msg/detail/recive_data__functions.c.o.d -o CMakeFiles/my_msgs__rosidl_generator_c.dir/rosidl_generator_c/my_msgs/msg/detail/recive_data__functions.c.o -c /home/tdt/tool/ros/build/my_msgs/rosidl_generator_c/my_msgs/msg/detail/recive_data__functions.c
+
+CMakeFiles/my_msgs__rosidl_generator_c.dir/rosidl_generator_c/my_msgs/msg/detail/recive_data__functions.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/my_msgs__rosidl_generator_c.dir/rosidl_generator_c/my_msgs/msg/detail/recive_data__functions.c.i"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/tdt/tool/ros/build/my_msgs/rosidl_generator_c/my_msgs/msg/detail/recive_data__functions.c > CMakeFiles/my_msgs__rosidl_generator_c.dir/rosidl_generator_c/my_msgs/msg/detail/recive_data__functions.c.i
+
+CMakeFiles/my_msgs__rosidl_generator_c.dir/rosidl_generator_c/my_msgs/msg/detail/recive_data__functions.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/my_msgs__rosidl_generator_c.dir/rosidl_generator_c/my_msgs/msg/detail/recive_data__functions.c.s"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/tdt/tool/ros/build/my_msgs/rosidl_generator_c/my_msgs/msg/detail/recive_data__functions.c -o CMakeFiles/my_msgs__rosidl_generator_c.dir/rosidl_generator_c/my_msgs/msg/detail/recive_data__functions.c.s
+
+CMakeFiles/my_msgs__rosidl_generator_c.dir/rosidl_generator_c/my_msgs/msg/detail/send_data__functions.c.o: CMakeFiles/my_msgs__rosidl_generator_c.dir/flags.make
+CMakeFiles/my_msgs__rosidl_generator_c.dir/rosidl_generator_c/my_msgs/msg/detail/send_data__functions.c.o: rosidl_generator_c/my_msgs/msg/detail/send_data__functions.c
+CMakeFiles/my_msgs__rosidl_generator_c.dir/rosidl_generator_c/my_msgs/msg/detail/send_data__functions.c.o: CMakeFiles/my_msgs__rosidl_generator_c.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/tdt/tool/ros/build/my_msgs/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building C object CMakeFiles/my_msgs__rosidl_generator_c.dir/rosidl_generator_c/my_msgs/msg/detail/send_data__functions.c.o"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/my_msgs__rosidl_generator_c.dir/rosidl_generator_c/my_msgs/msg/detail/send_data__functions.c.o -MF CMakeFiles/my_msgs__rosidl_generator_c.dir/rosidl_generator_c/my_msgs/msg/detail/send_data__functions.c.o.d -o CMakeFiles/my_msgs__rosidl_generator_c.dir/rosidl_generator_c/my_msgs/msg/detail/send_data__functions.c.o -c /home/tdt/tool/ros/build/my_msgs/rosidl_generator_c/my_msgs/msg/detail/send_data__functions.c
+
+CMakeFiles/my_msgs__rosidl_generator_c.dir/rosidl_generator_c/my_msgs/msg/detail/send_data__functions.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/my_msgs__rosidl_generator_c.dir/rosidl_generator_c/my_msgs/msg/detail/send_data__functions.c.i"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/tdt/tool/ros/build/my_msgs/rosidl_generator_c/my_msgs/msg/detail/send_data__functions.c > CMakeFiles/my_msgs__rosidl_generator_c.dir/rosidl_generator_c/my_msgs/msg/detail/send_data__functions.c.i
+
+CMakeFiles/my_msgs__rosidl_generator_c.dir/rosidl_generator_c/my_msgs/msg/detail/send_data__functions.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/my_msgs__rosidl_generator_c.dir/rosidl_generator_c/my_msgs/msg/detail/send_data__functions.c.s"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/tdt/tool/ros/build/my_msgs/rosidl_generator_c/my_msgs/msg/detail/send_data__functions.c -o CMakeFiles/my_msgs__rosidl_generator_c.dir/rosidl_generator_c/my_msgs/msg/detail/send_data__functions.c.s
+
 # Object files for target my_msgs__rosidl_generator_c
 my_msgs__rosidl_generator_c_OBJECTS = \
-"CMakeFiles/my_msgs__rosidl_generator_c.dir/rosidl_generator_c/my_msgs/msg/detail/msg1__functions.c.o"
+"CMakeFiles/my_msgs__rosidl_generator_c.dir/rosidl_generator_c/my_msgs/msg/detail/msg1__functions.c.o" \
+"CMakeFiles/my_msgs__rosidl_generator_c.dir/rosidl_generator_c/my_msgs/msg/detail/recive_data__functions.c.o" \
+"CMakeFiles/my_msgs__rosidl_generator_c.dir/rosidl_generator_c/my_msgs/msg/detail/send_data__functions.c.o"
 
 # External object files for target my_msgs__rosidl_generator_c
 my_msgs__rosidl_generator_c_EXTERNAL_OBJECTS =
 
 libmy_msgs__rosidl_generator_c.so: CMakeFiles/my_msgs__rosidl_generator_c.dir/rosidl_generator_c/my_msgs/msg/detail/msg1__functions.c.o
+libmy_msgs__rosidl_generator_c.so: CMakeFiles/my_msgs__rosidl_generator_c.dir/rosidl_generator_c/my_msgs/msg/detail/recive_data__functions.c.o
+libmy_msgs__rosidl_generator_c.so: CMakeFiles/my_msgs__rosidl_generator_c.dir/rosidl_generator_c/my_msgs/msg/detail/send_data__functions.c.o
 libmy_msgs__rosidl_generator_c.so: CMakeFiles/my_msgs__rosidl_generator_c.dir/build.make
 libmy_msgs__rosidl_generator_c.so: /opt/ros/humble/lib/libsensor_msgs__rosidl_generator_c.so
 libmy_msgs__rosidl_generator_c.so: /opt/ros/humble/lib/libgeometry_msgs__rosidl_generator_c.so
@@ -220,7 +284,7 @@ libmy_msgs__rosidl_generator_c.so: /opt/ros/humble/lib/libbuiltin_interfaces__ro
 libmy_msgs__rosidl_generator_c.so: /opt/ros/humble/lib/librosidl_runtime_c.so
 libmy_msgs__rosidl_generator_c.so: /opt/ros/humble/lib/librcutils.so
 libmy_msgs__rosidl_generator_c.so: CMakeFiles/my_msgs__rosidl_generator_c.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/tdt/tool/ros/build/my_msgs/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Linking C shared library libmy_msgs__rosidl_generator_c.so"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/tdt/tool/ros/build/my_msgs/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Linking C shared library libmy_msgs__rosidl_generator_c.so"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/my_msgs__rosidl_generator_c.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
@@ -235,7 +299,17 @@ CMakeFiles/my_msgs__rosidl_generator_c.dir/depend: rosidl_generator_c/my_msgs/ms
 CMakeFiles/my_msgs__rosidl_generator_c.dir/depend: rosidl_generator_c/my_msgs/msg/detail/msg1__functions.h
 CMakeFiles/my_msgs__rosidl_generator_c.dir/depend: rosidl_generator_c/my_msgs/msg/detail/msg1__struct.h
 CMakeFiles/my_msgs__rosidl_generator_c.dir/depend: rosidl_generator_c/my_msgs/msg/detail/msg1__type_support.h
+CMakeFiles/my_msgs__rosidl_generator_c.dir/depend: rosidl_generator_c/my_msgs/msg/detail/recive_data__functions.c
+CMakeFiles/my_msgs__rosidl_generator_c.dir/depend: rosidl_generator_c/my_msgs/msg/detail/recive_data__functions.h
+CMakeFiles/my_msgs__rosidl_generator_c.dir/depend: rosidl_generator_c/my_msgs/msg/detail/recive_data__struct.h
+CMakeFiles/my_msgs__rosidl_generator_c.dir/depend: rosidl_generator_c/my_msgs/msg/detail/recive_data__type_support.h
+CMakeFiles/my_msgs__rosidl_generator_c.dir/depend: rosidl_generator_c/my_msgs/msg/detail/send_data__functions.c
+CMakeFiles/my_msgs__rosidl_generator_c.dir/depend: rosidl_generator_c/my_msgs/msg/detail/send_data__functions.h
+CMakeFiles/my_msgs__rosidl_generator_c.dir/depend: rosidl_generator_c/my_msgs/msg/detail/send_data__struct.h
+CMakeFiles/my_msgs__rosidl_generator_c.dir/depend: rosidl_generator_c/my_msgs/msg/detail/send_data__type_support.h
 CMakeFiles/my_msgs__rosidl_generator_c.dir/depend: rosidl_generator_c/my_msgs/msg/msg1.h
+CMakeFiles/my_msgs__rosidl_generator_c.dir/depend: rosidl_generator_c/my_msgs/msg/recive_data.h
+CMakeFiles/my_msgs__rosidl_generator_c.dir/depend: rosidl_generator_c/my_msgs/msg/send_data.h
 	cd /home/tdt/tool/ros/build/my_msgs && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/tdt/tool/ros/src/my_msgs /home/tdt/tool/ros/src/my_msgs /home/tdt/tool/ros/build/my_msgs /home/tdt/tool/ros/build/my_msgs /home/tdt/tool/ros/build/my_msgs/CMakeFiles/my_msgs__rosidl_generator_c.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : CMakeFiles/my_msgs__rosidl_generator_c.dir/depend
 

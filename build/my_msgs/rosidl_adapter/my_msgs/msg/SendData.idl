@@ -1,0 +1,22 @@
+// generated from rosidl_adapter/resource/msg.idl.em
+// with input from my_msgs/msg/SendData.msg
+// generated code does not contain a copyright notice
+
+
+module my_msgs {
+  module msg {
+    struct SendData {
+      @verbatim (language="comment", text=
+        "底盘系的yaw")
+      float yaw;
+
+      @verbatim (language="comment", text=
+        "底盘系的pitch")
+      float pitch;
+
+      @verbatim (language="comment", text=
+        "是否射击")
+      boolean if_shoot;
+    };
+  };
+};

@@ -1315,50 +1315,50 @@ src/CMakeFiles/cv_bridge_boost.dir/module.cpp.o: /home/tdt/tool/ros/src/vision_o
   /opt/ros/humble/include/sensor_msgs/sensor_msgs/msg/detail/compressed_image__traits.hpp \
   /opt/ros/humble/include/sensor_msgs/sensor_msgs/msg/detail/compressed_image__type_support.hpp \
   /opt/ros/humble/include/sensor_msgs/sensor_msgs/image_encodings.hpp \
-  /home/tdt/tool/OpenCv/1.0/opencv-4.7.0/modules/core/include/opencv2/core/core.hpp \
-  /home/tdt/tool/OpenCv/1.0/opencv-4.7.0/modules/core/include/opencv2/core.hpp \
-  /home/tdt/tool/OpenCv/1.0/opencv-4.7.0/modules/core/include/opencv2/core/cvdef.h \
-  /home/tdt/tool/OpenCv/1.0/opencv-4.7.0/modules/core/include/opencv2/core/version.hpp \
-  /home/tdt/tool/OpenCv/1.0/opencv-4.7.0/modules/core/include/opencv2/core/hal/interface.h \
-  /home/tdt/tool/OpenCv/1.0/opencv-4.7.0/modules/core/include/opencv2/core/cv_cpu_dispatch.h \
+  /usr/local/include/opencv4/opencv2/core/core.hpp \
+  /usr/local/include/opencv4/opencv2/core.hpp \
+  /usr/local/include/opencv4/opencv2/core/cvdef.h \
+  /usr/local/include/opencv4/opencv2/core/version.hpp \
+  /usr/local/include/opencv4/opencv2/core/hal/interface.h \
+  /usr/local/include/opencv4/opencv2/core/cv_cpu_dispatch.h \
   /usr/lib/gcc/x86_64-linux-gnu/11/include/emmintrin.h \
   /usr/lib/gcc/x86_64-linux-gnu/11/include/xmmintrin.h \
   /usr/lib/gcc/x86_64-linux-gnu/11/include/mmintrin.h \
   /usr/lib/gcc/x86_64-linux-gnu/11/include/mm_malloc.h \
-  /home/tdt/tool/OpenCv/1.0/opencv-4.7.0/modules/core/include/opencv2/core/base.hpp \
-  /home/tdt/tool/OpenCv/1.0/opencv-4.7.0/build/opencv2/opencv_modules.hpp \
-  /home/tdt/tool/OpenCv/1.0/opencv-4.7.0/modules/core/include/opencv2/core/cvstd.hpp \
-  /home/tdt/tool/OpenCv/1.0/opencv-4.7.0/modules/core/include/opencv2/core/cvstd_wrapper.hpp \
-  /home/tdt/tool/OpenCv/1.0/opencv-4.7.0/modules/core/include/opencv2/core/neon_utils.hpp \
-  /home/tdt/tool/OpenCv/1.0/opencv-4.7.0/modules/core/include/opencv2/core/vsx_utils.hpp \
-  /home/tdt/tool/OpenCv/1.0/opencv-4.7.0/modules/core/include/opencv2/core/check.hpp \
-  /home/tdt/tool/OpenCv/1.0/opencv-4.7.0/modules/core/include/opencv2/core/traits.hpp \
-  /home/tdt/tool/OpenCv/1.0/opencv-4.7.0/modules/core/include/opencv2/core/matx.hpp \
-  /home/tdt/tool/OpenCv/1.0/opencv-4.7.0/modules/core/include/opencv2/core/saturate.hpp \
-  /home/tdt/tool/OpenCv/1.0/opencv-4.7.0/modules/core/include/opencv2/core/fast_math.hpp \
-  /home/tdt/tool/OpenCv/1.0/opencv-4.7.0/modules/core/include/opencv2/core/types.hpp \
-  /home/tdt/tool/OpenCv/1.0/opencv-4.7.0/modules/core/include/opencv2/core/mat.hpp \
-  /home/tdt/tool/OpenCv/1.0/opencv-4.7.0/modules/core/include/opencv2/core/bufferpool.hpp \
-  /home/tdt/tool/OpenCv/1.0/opencv-4.7.0/modules/core/include/opencv2/core/mat.inl.hpp \
-  /home/tdt/tool/OpenCv/1.0/opencv-4.7.0/modules/core/include/opencv2/core/persistence.hpp \
-  /home/tdt/tool/OpenCv/1.0/opencv-4.7.0/modules/core/include/opencv2/core/operations.hpp \
-  /home/tdt/tool/OpenCv/1.0/opencv-4.7.0/modules/core/include/opencv2/core/cvstd.inl.hpp \
-  /home/tdt/tool/OpenCv/1.0/opencv-4.7.0/modules/core/include/opencv2/core/utility.hpp \
+  /usr/local/include/opencv4/opencv2/core/base.hpp \
+  /usr/local/include/opencv4/opencv2/opencv_modules.hpp \
+  /usr/local/include/opencv4/opencv2/core/cvstd.hpp \
+  /usr/local/include/opencv4/opencv2/core/cvstd_wrapper.hpp \
+  /usr/local/include/opencv4/opencv2/core/neon_utils.hpp \
+  /usr/local/include/opencv4/opencv2/core/vsx_utils.hpp \
+  /usr/local/include/opencv4/opencv2/core/check.hpp \
+  /usr/local/include/opencv4/opencv2/core/traits.hpp \
+  /usr/local/include/opencv4/opencv2/core/matx.hpp \
+  /usr/local/include/opencv4/opencv2/core/saturate.hpp \
+  /usr/local/include/opencv4/opencv2/core/fast_math.hpp \
+  /usr/local/include/opencv4/opencv2/core/types.hpp \
+  /usr/local/include/opencv4/opencv2/core/mat.hpp \
+  /usr/local/include/opencv4/opencv2/core/bufferpool.hpp \
+  /usr/local/include/opencv4/opencv2/core/mat.inl.hpp \
+  /usr/local/include/opencv4/opencv2/core/persistence.hpp \
+  /usr/local/include/opencv4/opencv2/core/operations.hpp \
+  /usr/local/include/opencv4/opencv2/core/cvstd.inl.hpp \
+  /usr/local/include/opencv4/opencv2/core/utility.hpp \
   /usr/include/c++/11/mutex \
   /usr/include/c++/11/chrono \
   /usr/include/c++/11/ratio \
   /usr/include/c++/11/bits/parse_numbers.h \
   /usr/include/c++/11/bits/std_mutex.h \
   /usr/include/c++/11/bits/unique_lock.h \
-  /home/tdt/tool/OpenCv/1.0/opencv-4.7.0/modules/core/include/opencv2/core/optim.hpp \
-  /home/tdt/tool/OpenCv/1.0/opencv-4.7.0/modules/core/include/opencv2/core/ovx.hpp \
-  /home/tdt/tool/OpenCv/1.0/opencv-4.7.0/modules/core/include/opencv2/core/cvdef.h \
-  /home/tdt/tool/OpenCv/1.0/opencv-4.7.0/modules/imgproc/include/opencv2/imgproc/imgproc.hpp \
-  /home/tdt/tool/OpenCv/1.0/opencv-4.7.0/modules/imgproc/include/opencv2/imgproc.hpp \
-  /home/tdt/tool/OpenCv/1.0/opencv-4.7.0/modules/imgproc/include/opencv2/imgproc/segmentation.hpp \
-  /home/tdt/tool/OpenCv/1.0/opencv-4.7.0/modules/imgproc/include/opencv2/imgproc/types_c.h \
-  /home/tdt/tool/OpenCv/1.0/opencv-4.7.0/modules/core/include/opencv2/core/core_c.h \
-  /home/tdt/tool/OpenCv/1.0/opencv-4.7.0/modules/core/include/opencv2/core/types_c.h \
+  /usr/local/include/opencv4/opencv2/core/optim.hpp \
+  /usr/local/include/opencv4/opencv2/core/ovx.hpp \
+  /usr/local/include/opencv4/opencv2/core/cvdef.h \
+  /usr/local/include/opencv4/opencv2/imgproc/imgproc.hpp \
+  /usr/local/include/opencv4/opencv2/imgproc.hpp \
+  /usr/local/include/opencv4/opencv2/imgproc/segmentation.hpp \
+  /usr/local/include/opencv4/opencv2/imgproc/types_c.h \
+  /usr/local/include/opencv4/opencv2/core/core_c.h \
+  /usr/local/include/opencv4/opencv2/core/types_c.h \
   src/cv_bridge/cv_bridge_export.h \
   /usr/include/python3.10/numpy/ndarrayobject.h \
   /usr/include/python3.10/numpy/ndarraytypes.h \
@@ -2685,50 +2685,50 @@ src/CMakeFiles/cv_bridge_boost.dir/module_opencv3.cpp.o: /home/tdt/tool/ros/src/
   /opt/ros/humble/include/sensor_msgs/sensor_msgs/msg/detail/compressed_image__traits.hpp \
   /opt/ros/humble/include/sensor_msgs/sensor_msgs/msg/detail/compressed_image__type_support.hpp \
   /opt/ros/humble/include/sensor_msgs/sensor_msgs/image_encodings.hpp \
-  /home/tdt/tool/OpenCv/1.0/opencv-4.7.0/modules/core/include/opencv2/core/core.hpp \
-  /home/tdt/tool/OpenCv/1.0/opencv-4.7.0/modules/core/include/opencv2/core.hpp \
-  /home/tdt/tool/OpenCv/1.0/opencv-4.7.0/modules/core/include/opencv2/core/cvdef.h \
-  /home/tdt/tool/OpenCv/1.0/opencv-4.7.0/modules/core/include/opencv2/core/version.hpp \
-  /home/tdt/tool/OpenCv/1.0/opencv-4.7.0/modules/core/include/opencv2/core/hal/interface.h \
-  /home/tdt/tool/OpenCv/1.0/opencv-4.7.0/modules/core/include/opencv2/core/cv_cpu_dispatch.h \
+  /usr/local/include/opencv4/opencv2/core/core.hpp \
+  /usr/local/include/opencv4/opencv2/core.hpp \
+  /usr/local/include/opencv4/opencv2/core/cvdef.h \
+  /usr/local/include/opencv4/opencv2/core/version.hpp \
+  /usr/local/include/opencv4/opencv2/core/hal/interface.h \
+  /usr/local/include/opencv4/opencv2/core/cv_cpu_dispatch.h \
   /usr/lib/gcc/x86_64-linux-gnu/11/include/emmintrin.h \
   /usr/lib/gcc/x86_64-linux-gnu/11/include/xmmintrin.h \
   /usr/lib/gcc/x86_64-linux-gnu/11/include/mmintrin.h \
   /usr/lib/gcc/x86_64-linux-gnu/11/include/mm_malloc.h \
-  /home/tdt/tool/OpenCv/1.0/opencv-4.7.0/modules/core/include/opencv2/core/base.hpp \
-  /home/tdt/tool/OpenCv/1.0/opencv-4.7.0/build/opencv2/opencv_modules.hpp \
-  /home/tdt/tool/OpenCv/1.0/opencv-4.7.0/modules/core/include/opencv2/core/cvstd.hpp \
-  /home/tdt/tool/OpenCv/1.0/opencv-4.7.0/modules/core/include/opencv2/core/cvstd_wrapper.hpp \
-  /home/tdt/tool/OpenCv/1.0/opencv-4.7.0/modules/core/include/opencv2/core/neon_utils.hpp \
-  /home/tdt/tool/OpenCv/1.0/opencv-4.7.0/modules/core/include/opencv2/core/vsx_utils.hpp \
-  /home/tdt/tool/OpenCv/1.0/opencv-4.7.0/modules/core/include/opencv2/core/check.hpp \
-  /home/tdt/tool/OpenCv/1.0/opencv-4.7.0/modules/core/include/opencv2/core/traits.hpp \
-  /home/tdt/tool/OpenCv/1.0/opencv-4.7.0/modules/core/include/opencv2/core/matx.hpp \
-  /home/tdt/tool/OpenCv/1.0/opencv-4.7.0/modules/core/include/opencv2/core/saturate.hpp \
-  /home/tdt/tool/OpenCv/1.0/opencv-4.7.0/modules/core/include/opencv2/core/fast_math.hpp \
-  /home/tdt/tool/OpenCv/1.0/opencv-4.7.0/modules/core/include/opencv2/core/types.hpp \
-  /home/tdt/tool/OpenCv/1.0/opencv-4.7.0/modules/core/include/opencv2/core/mat.hpp \
-  /home/tdt/tool/OpenCv/1.0/opencv-4.7.0/modules/core/include/opencv2/core/bufferpool.hpp \
-  /home/tdt/tool/OpenCv/1.0/opencv-4.7.0/modules/core/include/opencv2/core/mat.inl.hpp \
-  /home/tdt/tool/OpenCv/1.0/opencv-4.7.0/modules/core/include/opencv2/core/persistence.hpp \
-  /home/tdt/tool/OpenCv/1.0/opencv-4.7.0/modules/core/include/opencv2/core/operations.hpp \
-  /home/tdt/tool/OpenCv/1.0/opencv-4.7.0/modules/core/include/opencv2/core/cvstd.inl.hpp \
-  /home/tdt/tool/OpenCv/1.0/opencv-4.7.0/modules/core/include/opencv2/core/utility.hpp \
+  /usr/local/include/opencv4/opencv2/core/base.hpp \
+  /usr/local/include/opencv4/opencv2/opencv_modules.hpp \
+  /usr/local/include/opencv4/opencv2/core/cvstd.hpp \
+  /usr/local/include/opencv4/opencv2/core/cvstd_wrapper.hpp \
+  /usr/local/include/opencv4/opencv2/core/neon_utils.hpp \
+  /usr/local/include/opencv4/opencv2/core/vsx_utils.hpp \
+  /usr/local/include/opencv4/opencv2/core/check.hpp \
+  /usr/local/include/opencv4/opencv2/core/traits.hpp \
+  /usr/local/include/opencv4/opencv2/core/matx.hpp \
+  /usr/local/include/opencv4/opencv2/core/saturate.hpp \
+  /usr/local/include/opencv4/opencv2/core/fast_math.hpp \
+  /usr/local/include/opencv4/opencv2/core/types.hpp \
+  /usr/local/include/opencv4/opencv2/core/mat.hpp \
+  /usr/local/include/opencv4/opencv2/core/bufferpool.hpp \
+  /usr/local/include/opencv4/opencv2/core/mat.inl.hpp \
+  /usr/local/include/opencv4/opencv2/core/persistence.hpp \
+  /usr/local/include/opencv4/opencv2/core/operations.hpp \
+  /usr/local/include/opencv4/opencv2/core/cvstd.inl.hpp \
+  /usr/local/include/opencv4/opencv2/core/utility.hpp \
   /usr/include/c++/11/mutex \
   /usr/include/c++/11/chrono \
   /usr/include/c++/11/ratio \
   /usr/include/c++/11/bits/parse_numbers.h \
   /usr/include/c++/11/bits/std_mutex.h \
   /usr/include/c++/11/bits/unique_lock.h \
-  /home/tdt/tool/OpenCv/1.0/opencv-4.7.0/modules/core/include/opencv2/core/optim.hpp \
-  /home/tdt/tool/OpenCv/1.0/opencv-4.7.0/modules/core/include/opencv2/core/ovx.hpp \
-  /home/tdt/tool/OpenCv/1.0/opencv-4.7.0/modules/core/include/opencv2/core/cvdef.h \
-  /home/tdt/tool/OpenCv/1.0/opencv-4.7.0/modules/imgproc/include/opencv2/imgproc/imgproc.hpp \
-  /home/tdt/tool/OpenCv/1.0/opencv-4.7.0/modules/imgproc/include/opencv2/imgproc.hpp \
-  /home/tdt/tool/OpenCv/1.0/opencv-4.7.0/modules/imgproc/include/opencv2/imgproc/segmentation.hpp \
-  /home/tdt/tool/OpenCv/1.0/opencv-4.7.0/modules/imgproc/include/opencv2/imgproc/types_c.h \
-  /home/tdt/tool/OpenCv/1.0/opencv-4.7.0/modules/core/include/opencv2/core/core_c.h \
-  /home/tdt/tool/OpenCv/1.0/opencv-4.7.0/modules/core/include/opencv2/core/types_c.h \
+  /usr/local/include/opencv4/opencv2/core/optim.hpp \
+  /usr/local/include/opencv4/opencv2/core/ovx.hpp \
+  /usr/local/include/opencv4/opencv2/core/cvdef.h \
+  /usr/local/include/opencv4/opencv2/imgproc/imgproc.hpp \
+  /usr/local/include/opencv4/opencv2/imgproc.hpp \
+  /usr/local/include/opencv4/opencv2/imgproc/segmentation.hpp \
+  /usr/local/include/opencv4/opencv2/imgproc/types_c.h \
+  /usr/local/include/opencv4/opencv2/core/core_c.h \
+  /usr/local/include/opencv4/opencv2/core/types_c.h \
   src/cv_bridge/cv_bridge_export.h \
   /usr/include/python3.10/numpy/ndarrayobject.h \
   /usr/include/python3.10/numpy/ndarraytypes.h \
@@ -2755,13 +2755,17 @@ src/CMakeFiles/cv_bridge_boost.dir/module_opencv3.cpp.o: /home/tdt/tool/ros/src/
 
 src/cv_bridge/cv_bridge_export.h:
 
-/home/tdt/tool/OpenCv/1.0/opencv-4.7.0/modules/imgproc/include/opencv2/imgproc/segmentation.hpp:
+/usr/local/include/opencv4/opencv2/core/core_c.h:
 
-/home/tdt/tool/OpenCv/1.0/opencv-4.7.0/modules/imgproc/include/opencv2/imgproc/imgproc.hpp:
+/usr/local/include/opencv4/opencv2/imgproc/types_c.h:
 
-/home/tdt/tool/OpenCv/1.0/opencv-4.7.0/modules/core/include/opencv2/core/ovx.hpp:
+/usr/local/include/opencv4/opencv2/imgproc.hpp:
 
-/home/tdt/tool/OpenCv/1.0/opencv-4.7.0/modules/core/include/opencv2/core/optim.hpp:
+/usr/local/include/opencv4/opencv2/imgproc/imgproc.hpp:
+
+/usr/local/include/opencv4/opencv2/core/ovx.hpp:
+
+/usr/local/include/opencv4/opencv2/core/optim.hpp:
 
 /usr/include/c++/11/bits/unique_lock.h:
 
@@ -2771,39 +2775,37 @@ src/cv_bridge/cv_bridge_export.h:
 
 /usr/include/c++/11/ratio:
 
-/home/tdt/tool/OpenCv/1.0/opencv-4.7.0/modules/core/include/opencv2/core/operations.hpp:
+/usr/local/include/opencv4/opencv2/core/utility.hpp:
 
-/home/tdt/tool/OpenCv/1.0/opencv-4.7.0/modules/core/include/opencv2/core/bufferpool.hpp:
+/usr/local/include/opencv4/opencv2/core/operations.hpp:
 
-/home/tdt/tool/OpenCv/1.0/opencv-4.7.0/modules/core/include/opencv2/core/fast_math.hpp:
+/usr/local/include/opencv4/opencv2/core/persistence.hpp:
 
-/home/tdt/tool/OpenCv/1.0/opencv-4.7.0/modules/core/include/opencv2/core/matx.hpp:
+/usr/local/include/opencv4/opencv2/core/mat.inl.hpp:
 
-/home/tdt/tool/OpenCv/1.0/opencv-4.7.0/modules/core/include/opencv2/core/check.hpp:
+/usr/local/include/opencv4/opencv2/core/bufferpool.hpp:
 
-/home/tdt/tool/OpenCv/1.0/opencv-4.7.0/modules/core/include/opencv2/core/vsx_utils.hpp:
+/usr/local/include/opencv4/opencv2/core/types.hpp:
 
-/home/tdt/tool/OpenCv/1.0/opencv-4.7.0/modules/core/include/opencv2/core/neon_utils.hpp:
+/usr/local/include/opencv4/opencv2/core/saturate.hpp:
 
-/home/tdt/tool/OpenCv/1.0/opencv-4.7.0/modules/core/include/opencv2/core/cvstd.hpp:
+/usr/local/include/opencv4/opencv2/core/check.hpp:
 
-/home/tdt/tool/OpenCv/1.0/opencv-4.7.0/build/opencv2/opencv_modules.hpp:
+/usr/local/include/opencv4/opencv2/core/neon_utils.hpp:
 
-/home/tdt/tool/OpenCv/1.0/opencv-4.7.0/modules/core/include/opencv2/core/base.hpp:
+/usr/local/include/opencv4/opencv2/opencv_modules.hpp:
+
+/usr/local/include/opencv4/opencv2/core/base.hpp:
 
 /usr/lib/gcc/x86_64-linux-gnu/11/include/mm_malloc.h:
 
 /usr/lib/gcc/x86_64-linux-gnu/11/include/mmintrin.h:
 
-/home/tdt/tool/OpenCv/1.0/opencv-4.7.0/modules/core/include/opencv2/core/cv_cpu_dispatch.h:
+/usr/local/include/opencv4/opencv2/core/hal/interface.h:
 
-/home/tdt/tool/OpenCv/1.0/opencv-4.7.0/modules/core/include/opencv2/core/hal/interface.h:
+/usr/local/include/opencv4/opencv2/core/version.hpp:
 
-/home/tdt/tool/OpenCv/1.0/opencv-4.7.0/modules/core/include/opencv2/core/version.hpp:
-
-/home/tdt/tool/OpenCv/1.0/opencv-4.7.0/modules/core/include/opencv2/core.hpp:
-
-/home/tdt/tool/OpenCv/1.0/opencv-4.7.0/modules/core/include/opencv2/core/core.hpp:
+/usr/local/include/opencv4/opencv2/core.hpp:
 
 /opt/ros/humble/include/sensor_msgs/sensor_msgs/image_encodings.hpp:
 
@@ -2868,6 +2870,8 @@ src/cv_bridge/cv_bridge_export.h:
 /usr/include/boost/preprocessor/tuple/pop_front.hpp:
 
 /usr/include/boost/preprocessor/tuple/pop_back.hpp:
+
+/usr/local/include/opencv4/opencv2/core/mat.hpp:
 
 /usr/include/boost/preprocessor/tuple/to_array.hpp:
 
@@ -2999,8 +3003,6 @@ src/cv_bridge/cv_bridge_export.h:
 
 /usr/lib/gcc/x86_64-linux-gnu/11/include/float.h:
 
-/home/tdt/tool/OpenCv/1.0/opencv-4.7.0/modules/core/include/opencv2/core/types_c.h:
-
 /usr/include/boost/predef/detail/test.h:
 
 /usr/include/boost/predef/make.h:
@@ -3053,8 +3055,6 @@ src/cv_bridge/cv_bridge_export.h:
 
 /usr/include/boost/mpl/vector/vector10.hpp:
 
-/home/tdt/tool/OpenCv/1.0/opencv-4.7.0/modules/imgproc/include/opencv2/imgproc.hpp:
-
 /usr/include/boost/preprocessor/seq/size.hpp:
 
 /usr/include/boost/mpl/aux_/integral_wrapper.hpp:
@@ -3072,6 +3072,8 @@ src/cv_bridge/cv_bridge_export.h:
 /usr/include/x86_64-linux-gnu/bits/types/__fpos64_t.h:
 
 /usr/include/boost/mpl/vector/vector20.hpp:
+
+/usr/local/include/opencv4/opencv2/core/cv_cpu_dispatch.h:
 
 /usr/include/boost/python/object_protocol.hpp:
 
@@ -3229,8 +3231,6 @@ src/cv_bridge/cv_bridge_export.h:
 
 /usr/include/boost/python/detail/translate_exception.hpp:
 
-/home/tdt/tool/OpenCv/1.0/opencv-4.7.0/modules/core/include/opencv2/core/mat.inl.hpp:
-
 /usr/include/boost/current_function.hpp:
 
 /usr/include/c++/11/tuple:
@@ -3289,13 +3289,13 @@ src/cv_bridge/cv_bridge_export.h:
 
 /usr/include/boost/type_traits/alignment_of.hpp:
 
-/home/tdt/tool/OpenCv/1.0/opencv-4.7.0/modules/core/include/opencv2/core/core_c.h:
-
 /usr/include/boost/type_traits/intrinsics.hpp:
 
 /usr/include/boost/python/register_ptr_to_python.hpp:
 
 /usr/include/boost/type_traits/is_base_and_derived.hpp:
+
+/usr/local/include/opencv4/opencv2/core/cvstd_wrapper.hpp:
 
 /usr/include/boost/numeric/conversion/detail/bounds.hpp:
 
@@ -3366,6 +3366,8 @@ src/cv_bridge/cv_bridge_export.h:
 /usr/include/boost/python/detail/config.hpp:
 
 /usr/include/python3.10/cpython/pyctype.h:
+
+/usr/local/include/opencv4/opencv2/core/vsx_utils.hpp:
 
 /usr/include/boost/preprocessor/logical/and.hpp:
 
@@ -3469,6 +3471,8 @@ src/cv_bridge/cv_bridge_export.h:
 
 /usr/include/x86_64-linux-gnu/bits/types/locale_t.h:
 
+/usr/local/include/opencv4/opencv2/imgproc/segmentation.hpp:
+
 /usr/include/c++/11/system_error:
 
 /usr/include/features-time64.h:
@@ -3476,8 +3480,6 @@ src/cv_bridge/cv_bridge_export.h:
 /usr/include/python3.10/cpython/ceval.h:
 
 /usr/include/boost/python/converter/arg_to_python.hpp:
-
-/home/tdt/tool/OpenCv/1.0/opencv-4.7.0/modules/core/include/opencv2/core/types.hpp:
 
 /usr/include/python3.10/listobject.h:
 
@@ -3522,6 +3524,8 @@ src/cv_bridge/cv_bridge_export.h:
 /usr/include/boost/mpl/aux_/find_if_pred.hpp:
 
 /usr/include/c++/11/bits/stl_construct.h:
+
+/usr/local/include/opencv4/opencv2/core/cvstd.inl.hpp:
 
 /usr/include/python3.10/pyconfig.h:
 
@@ -3811,8 +3815,6 @@ src/cv_bridge/cv_bridge_export.h:
 
 /usr/include/x86_64-linux-gnu/bits/local_lim.h:
 
-/home/tdt/tool/OpenCv/1.0/opencv-4.7.0/modules/core/include/opencv2/core/cvdef.h:
-
 /usr/include/x86_64-linux-gnu/gnu/stubs-64.h:
 
 /usr/include/boost/config/pragma_message.hpp:
@@ -3987,8 +3989,6 @@ src/cv_bridge/cv_bridge_export.h:
 
 /usr/include/boost/integer_fwd.hpp:
 
-/home/tdt/tool/OpenCv/1.0/opencv-4.7.0/modules/core/include/opencv2/core/persistence.hpp:
-
 /usr/include/boost/type_traits/is_volatile.hpp:
 
 /usr/include/boost/swap.hpp:
@@ -4056,6 +4056,8 @@ src/cv_bridge/cv_bridge_export.h:
 /usr/include/boost/mpl/aux_/inserter_algorithm.hpp:
 
 /usr/include/boost/utility/addressof.hpp:
+
+/usr/local/include/opencv4/opencv2/core/matx.hpp:
 
 /usr/include/python3.10/pymem.h:
 
@@ -4327,8 +4329,6 @@ src/cv_bridge/cv_bridge_export.h:
 
 /usr/include/boost/mpl/aux_/nested_type_wknd.hpp:
 
-/home/tdt/tool/OpenCv/1.0/opencv-4.7.0/modules/core/include/opencv2/core/mat.hpp:
-
 /usr/include/boost/python/converter/rvalue_from_python_data.hpp:
 
 /usr/include/boost/bind/bind_cc.hpp:
@@ -4342,8 +4342,6 @@ src/cv_bridge/cv_bridge_export.h:
 /usr/include/c++/11/bits/shared_ptr.h:
 
 /usr/include/boost/mpl/aux_/msvc_eti_base.hpp:
-
-/home/tdt/tool/OpenCv/1.0/opencv-4.7.0/modules/core/include/opencv2/core/saturate.hpp:
 
 /usr/lib/gcc/x86_64-linux-gnu/11/include/syslimits.h:
 
@@ -4366,6 +4364,8 @@ src/cv_bridge/cv_bridge_export.h:
 /usr/include/python3.10/cpython/initconfig.h:
 
 /usr/include/string.h:
+
+/usr/local/include/opencv4/opencv2/core/types_c.h:
 
 /usr/include/boost/config/no_tr1/functional.hpp:
 
@@ -4428,6 +4428,8 @@ src/cv_bridge/cv_bridge_export.h:
 /usr/include/python3.10/tracemalloc.h:
 
 /usr/include/x86_64-linux-gnu/bits/libm-simd-decl-stubs.h:
+
+/usr/local/include/opencv4/opencv2/core/cvstd.hpp:
 
 /usr/include/x86_64-linux-gnu/bits/flt-eval-method.h:
 
@@ -4583,8 +4585,6 @@ src/cv_bridge/cv_bridge_export.h:
 
 /usr/include/boost/mpl/long_fwd.hpp:
 
-/home/tdt/tool/OpenCv/1.0/opencv-4.7.0/modules/core/include/opencv2/core/cvstd.inl.hpp:
-
 /usr/include/boost/lexical_cast/detail/converter_numeric.hpp:
 
 /usr/include/boost/mpl/void.hpp:
@@ -4633,8 +4633,6 @@ src/cv_bridge/cv_bridge_export.h:
 
 /usr/include/boost/mpl/back_fwd.hpp:
 
-/home/tdt/tool/OpenCv/1.0/opencv-4.7.0/modules/core/include/opencv2/core/cvstd_wrapper.hpp:
-
 /usr/include/boost/mpl/vector/aux_/iterator.hpp:
 
 /usr/include/boost/mpl/iterator_tags.hpp:
@@ -4674,8 +4672,6 @@ src/cv_bridge/cv_bridge_export.h:
 /usr/include/c++/11/bits/stl_pair.h:
 
 /usr/include/boost/preprocessor/array/elem.hpp:
-
-/home/tdt/tool/OpenCv/1.0/opencv-4.7.0/modules/imgproc/include/opencv2/imgproc/types_c.h:
 
 /usr/include/boost/preprocessor/repetition/enum_trailing_params.hpp:
 
@@ -4730,8 +4726,6 @@ src/cv_bridge/cv_bridge_export.h:
 /usr/include/boost/mpl/advance_fwd.hpp:
 
 /usr/include/boost/mpl/distance_fwd.hpp:
-
-/home/tdt/tool/OpenCv/1.0/opencv-4.7.0/modules/core/include/opencv2/core/traits.hpp:
 
 /usr/include/boost/mpl/aux_/front_impl.hpp:
 
@@ -4829,6 +4823,8 @@ src/cv_bridge/cv_bridge_export.h:
 
 /usr/include/boost/mpl/or.hpp:
 
+/usr/local/include/opencv4/opencv2/core/core.hpp:
+
 /usr/include/asm-generic/bitsperlong.h:
 
 /usr/include/boost/mpl/aux_/preprocessed/gcc/or.hpp:
@@ -4854,8 +4850,6 @@ src/cv_bridge/cv_bridge_export.h:
 /usr/include/boost/mpl/not.hpp:
 
 /usr/include/boost/mpl/aux_/config/gpu.hpp:
-
-/home/tdt/tool/OpenCv/1.0/opencv-4.7.0/modules/core/include/opencv2/core/utility.hpp:
 
 /usr/include/boost/mpl/aux_/na_assert.hpp:
 
@@ -4946,6 +4940,8 @@ src/cv_bridge/cv_bridge_export.h:
 /usr/include/boost/smart_ptr/bad_weak_ptr.hpp:
 
 /usr/include/boost/smart_ptr/detail/sp_counted_base.hpp:
+
+/usr/local/include/opencv4/opencv2/core/cvdef.h:
 
 /usr/include/boost/smart_ptr/detail/sp_has_sync_intrinsics.hpp:
 
@@ -5349,6 +5345,8 @@ src/cv_bridge/cv_bridge_export.h:
 
 /usr/include/boost/iterator/iterator_traits.hpp:
 
+/usr/local/include/opencv4/opencv2/core/traits.hpp:
+
 /usr/include/boost/detail/workaround.hpp:
 
 /usr/include/boost/iterator/iterator_categories.hpp:
@@ -5376,6 +5374,8 @@ src/cv_bridge/cv_bridge_export.h:
 /usr/include/boost/python/detail/msvc_typeinfo.hpp:
 
 /usr/include/boost/range/detail/implementation_help.hpp:
+
+/usr/local/include/opencv4/opencv2/core/fast_math.hpp:
 
 /usr/include/boost/range/size_type.hpp:
 

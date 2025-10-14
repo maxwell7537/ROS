@@ -67,6 +67,8 @@ include CMakeFiles/my_msgs.dir/compiler_depend.make
 include CMakeFiles/my_msgs.dir/progress.make
 
 CMakeFiles/my_msgs: /home/tdt/tool/ros/src/my_msgs/msg/Msg1.msg
+CMakeFiles/my_msgs: /home/tdt/tool/ros/src/my_msgs/msg/ReciveData.msg
+CMakeFiles/my_msgs: /home/tdt/tool/ros/src/my_msgs/msg/SendData.msg
 CMakeFiles/my_msgs: /opt/ros/humble/share/std_msgs/msg/Bool.idl
 CMakeFiles/my_msgs: /opt/ros/humble/share/std_msgs/msg/Byte.idl
 CMakeFiles/my_msgs: /opt/ros/humble/share/std_msgs/msg/ByteMultiArray.idl

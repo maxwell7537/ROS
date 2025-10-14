@@ -3,7 +3,9 @@
   "output_dir": "/home/tdt/tool/ros/build/my_msgs/rosidl_generator_c/my_msgs",
   "template_dir": "/opt/ros/humble/share/rosidl_generator_c/cmake/../resource",
   "idl_tuples": [
-    "/home/tdt/tool/ros/build/my_msgs/rosidl_adapter/my_msgs:msg/Msg1.idl"
+    "/home/tdt/tool/ros/build/my_msgs/rosidl_adapter/my_msgs:msg/Msg1.idl",
+    "/home/tdt/tool/ros/build/my_msgs/rosidl_adapter/my_msgs:msg/ReciveData.idl",
+    "/home/tdt/tool/ros/build/my_msgs/rosidl_adapter/my_msgs:msg/SendData.idl"
   ],
   "ros_interface_dependencies": [
     "std_msgs:/opt/ros/humble/share/std_msgs/msg/Bool.idl",
@@ -114,6 +116,8 @@
     "/opt/ros/humble/share/rosidl_generator_c/cmake/../resource/msg__type_support.h.em",
     "/opt/ros/humble/share/rosidl_generator_c/cmake/../resource/srv__type_support.h.em",
     "/home/tdt/tool/ros/build/my_msgs/rosidl_adapter/my_msgs/msg/Msg1.idl",
+    "/home/tdt/tool/ros/build/my_msgs/rosidl_adapter/my_msgs/msg/ReciveData.idl",
+    "/home/tdt/tool/ros/build/my_msgs/rosidl_adapter/my_msgs/msg/SendData.idl",
     "/opt/ros/humble/share/std_msgs/msg/Bool.idl",
     "/opt/ros/humble/share/std_msgs/msg/Byte.idl",
     "/opt/ros/humble/share/std_msgs/msg/ByteMultiArray.idl",

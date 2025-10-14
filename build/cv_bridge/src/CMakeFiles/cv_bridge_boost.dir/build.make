@@ -149,9 +149,9 @@ src/boost/cv_bridge_boost.so: /opt/ros/humble/lib/libgeometry_msgs__rosidl_types
 src/boost/cv_bridge_boost.so: /opt/ros/humble/lib/libstd_msgs__rosidl_typesupport_cpp.so
 src/boost/cv_bridge_boost.so: /opt/ros/humble/lib/libbuiltin_interfaces__rosidl_typesupport_cpp.so
 src/boost/cv_bridge_boost.so: /opt/ros/humble/lib/librosidl_runtime_c.so
-src/boost/cv_bridge_boost.so: /home/tdt/tool/OpenCv/1.0/opencv-4.7.0/build/lib/libopencv_imgcodecs.so.4.7.0
-src/boost/cv_bridge_boost.so: /home/tdt/tool/OpenCv/1.0/opencv-4.7.0/build/lib/libopencv_imgproc.so.4.7.0
-src/boost/cv_bridge_boost.so: /home/tdt/tool/OpenCv/1.0/opencv-4.7.0/build/lib/libopencv_core.so.4.7.0
+src/boost/cv_bridge_boost.so: /usr/local/lib/libopencv_imgcodecs.so.4.7.0
+src/boost/cv_bridge_boost.so: /usr/local/lib/libopencv_imgproc.so.4.7.0
+src/boost/cv_bridge_boost.so: /usr/local/lib/libopencv_core.so.4.7.0
 src/boost/cv_bridge_boost.so: /opt/ros/humble/lib/librcutils.so
 src/boost/cv_bridge_boost.so: /usr/lib/x86_64-linux-gnu/libboost_python310.so.1.74.0
 src/boost/cv_bridge_boost.so: src/CMakeFiles/cv_bridge_boost.dir/link.txt

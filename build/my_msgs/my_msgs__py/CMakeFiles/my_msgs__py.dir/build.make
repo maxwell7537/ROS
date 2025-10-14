@@ -70,8 +70,12 @@ my_msgs__py/CMakeFiles/my_msgs__py: rosidl_generator_py/my_msgs/_my_msgs_s.ep.ro
 my_msgs__py/CMakeFiles/my_msgs__py: rosidl_generator_py/my_msgs/_my_msgs_s.ep.rosidl_typesupport_introspection_c.c
 my_msgs__py/CMakeFiles/my_msgs__py: rosidl_generator_py/my_msgs/_my_msgs_s.ep.rosidl_typesupport_c.c
 my_msgs__py/CMakeFiles/my_msgs__py: rosidl_generator_py/my_msgs/msg/_msg1.py
+my_msgs__py/CMakeFiles/my_msgs__py: rosidl_generator_py/my_msgs/msg/_recive_data.py
+my_msgs__py/CMakeFiles/my_msgs__py: rosidl_generator_py/my_msgs/msg/_send_data.py
 my_msgs__py/CMakeFiles/my_msgs__py: rosidl_generator_py/my_msgs/msg/__init__.py
 my_msgs__py/CMakeFiles/my_msgs__py: rosidl_generator_py/my_msgs/msg/_msg1_s.c
+my_msgs__py/CMakeFiles/my_msgs__py: rosidl_generator_py/my_msgs/msg/_recive_data_s.c
+my_msgs__py/CMakeFiles/my_msgs__py: rosidl_generator_py/my_msgs/msg/_send_data_s.c
 
 rosidl_generator_py/my_msgs/_my_msgs_s.ep.rosidl_typesupport_fastrtps_c.c: /opt/ros/humble/lib/rosidl_generator_py/rosidl_generator_py
 rosidl_generator_py/my_msgs/_my_msgs_s.ep.rosidl_typesupport_fastrtps_c.c: /opt/ros/humble/local/lib/python3.10/dist-packages/rosidl_generator_py/__init__.py
@@ -87,6 +91,8 @@ rosidl_generator_py/my_msgs/_my_msgs_s.ep.rosidl_typesupport_fastrtps_c.c: /opt/
 rosidl_generator_py/my_msgs/_my_msgs_s.ep.rosidl_typesupport_fastrtps_c.c: /opt/ros/humble/share/rosidl_generator_py/resource/_srv_pkg_typesupport_entry_point.c.em
 rosidl_generator_py/my_msgs/_my_msgs_s.ep.rosidl_typesupport_fastrtps_c.c: /opt/ros/humble/share/rosidl_generator_py/resource/_srv.py.em
 rosidl_generator_py/my_msgs/_my_msgs_s.ep.rosidl_typesupport_fastrtps_c.c: rosidl_adapter/my_msgs/msg/Msg1.idl
+rosidl_generator_py/my_msgs/_my_msgs_s.ep.rosidl_typesupport_fastrtps_c.c: rosidl_adapter/my_msgs/msg/ReciveData.idl
+rosidl_generator_py/my_msgs/_my_msgs_s.ep.rosidl_typesupport_fastrtps_c.c: rosidl_adapter/my_msgs/msg/SendData.idl
 rosidl_generator_py/my_msgs/_my_msgs_s.ep.rosidl_typesupport_fastrtps_c.c: /opt/ros/humble/share/std_msgs/msg/Bool.idl
 rosidl_generator_py/my_msgs/_my_msgs_s.ep.rosidl_typesupport_fastrtps_c.c: /opt/ros/humble/share/std_msgs/msg/Byte.idl
 rosidl_generator_py/my_msgs/_my_msgs_s.ep.rosidl_typesupport_fastrtps_c.c: /opt/ros/humble/share/std_msgs/msg/ByteMultiArray.idl
@@ -191,11 +197,23 @@ rosidl_generator_py/my_msgs/_my_msgs_s.ep.rosidl_typesupport_c.c: rosidl_generat
 rosidl_generator_py/my_msgs/msg/_msg1.py: rosidl_generator_py/my_msgs/_my_msgs_s.ep.rosidl_typesupport_fastrtps_c.c
 	@$(CMAKE_COMMAND) -E touch_nocreate rosidl_generator_py/my_msgs/msg/_msg1.py
 
+rosidl_generator_py/my_msgs/msg/_recive_data.py: rosidl_generator_py/my_msgs/_my_msgs_s.ep.rosidl_typesupport_fastrtps_c.c
+	@$(CMAKE_COMMAND) -E touch_nocreate rosidl_generator_py/my_msgs/msg/_recive_data.py
+
+rosidl_generator_py/my_msgs/msg/_send_data.py: rosidl_generator_py/my_msgs/_my_msgs_s.ep.rosidl_typesupport_fastrtps_c.c
+	@$(CMAKE_COMMAND) -E touch_nocreate rosidl_generator_py/my_msgs/msg/_send_data.py
+
 rosidl_generator_py/my_msgs/msg/__init__.py: rosidl_generator_py/my_msgs/_my_msgs_s.ep.rosidl_typesupport_fastrtps_c.c
 	@$(CMAKE_COMMAND) -E touch_nocreate rosidl_generator_py/my_msgs/msg/__init__.py
 
 rosidl_generator_py/my_msgs/msg/_msg1_s.c: rosidl_generator_py/my_msgs/_my_msgs_s.ep.rosidl_typesupport_fastrtps_c.c
 	@$(CMAKE_COMMAND) -E touch_nocreate rosidl_generator_py/my_msgs/msg/_msg1_s.c
+
+rosidl_generator_py/my_msgs/msg/_recive_data_s.c: rosidl_generator_py/my_msgs/_my_msgs_s.ep.rosidl_typesupport_fastrtps_c.c
+	@$(CMAKE_COMMAND) -E touch_nocreate rosidl_generator_py/my_msgs/msg/_recive_data_s.c
+
+rosidl_generator_py/my_msgs/msg/_send_data_s.c: rosidl_generator_py/my_msgs/_my_msgs_s.ep.rosidl_typesupport_fastrtps_c.c
+	@$(CMAKE_COMMAND) -E touch_nocreate rosidl_generator_py/my_msgs/msg/_send_data_s.c
 
 my_msgs__py: my_msgs__py/CMakeFiles/my_msgs__py
 my_msgs__py: rosidl_generator_py/my_msgs/_my_msgs_s.ep.rosidl_typesupport_c.c
@@ -204,6 +222,10 @@ my_msgs__py: rosidl_generator_py/my_msgs/_my_msgs_s.ep.rosidl_typesupport_intros
 my_msgs__py: rosidl_generator_py/my_msgs/msg/__init__.py
 my_msgs__py: rosidl_generator_py/my_msgs/msg/_msg1.py
 my_msgs__py: rosidl_generator_py/my_msgs/msg/_msg1_s.c
+my_msgs__py: rosidl_generator_py/my_msgs/msg/_recive_data.py
+my_msgs__py: rosidl_generator_py/my_msgs/msg/_recive_data_s.c
+my_msgs__py: rosidl_generator_py/my_msgs/msg/_send_data.py
+my_msgs__py: rosidl_generator_py/my_msgs/msg/_send_data_s.c
 my_msgs__py: my_msgs__py/CMakeFiles/my_msgs__py.dir/build.make
 .PHONY : my_msgs__py
 

@@ -250,8 +250,20 @@ CMakeFiles/my_msgs__rosidl_typesupport_c__pyext.dir/rosidl_generator_py/my_msgs/
   /opt/ros/humble/include/sensor_msgs/sensor_msgs/msg/detail/image__struct.h \
   /opt/ros/humble/include/std_msgs/std_msgs/msg/detail/header__struct.h \
   /opt/ros/humble/include/builtin_interfaces/builtin_interfaces/msg/detail/time__struct.h \
-  rosidl_generator_c/my_msgs/msg/detail/msg1__functions.h
+  rosidl_generator_c/my_msgs/msg/detail/msg1__functions.h \
+  rosidl_generator_c/my_msgs/msg/detail/recive_data__type_support.h \
+  rosidl_generator_c/my_msgs/msg/detail/recive_data__struct.h \
+  rosidl_generator_c/my_msgs/msg/detail/recive_data__functions.h \
+  rosidl_generator_c/my_msgs/msg/detail/send_data__type_support.h \
+  rosidl_generator_c/my_msgs/msg/detail/send_data__struct.h \
+  rosidl_generator_c/my_msgs/msg/detail/send_data__functions.h
 
+
+rosidl_generator_c/my_msgs/msg/detail/send_data__type_support.h:
+
+rosidl_generator_c/my_msgs/msg/detail/recive_data__functions.h:
+
+rosidl_generator_c/my_msgs/msg/detail/recive_data__struct.h:
 
 /opt/ros/humble/include/sensor_msgs/sensor_msgs/msg/detail/image__struct.h:
 
@@ -304,6 +316,8 @@ rosidl_generator_c/my_msgs/msg/rosidl_generator_c__visibility_control.h:
 /usr/include/python3.10/cpython/ceval.h:
 
 /usr/include/python3.10/genericaliasobject.h:
+
+rosidl_generator_c/my_msgs/msg/detail/send_data__struct.h:
 
 /opt/ros/humble/include/builtin_interfaces/builtin_interfaces/msg/detail/time__struct.h:
 
@@ -511,6 +525,8 @@ rosidl_generator_c/my_msgs/msg/detail/msg1__functions.h:
 
 /usr/lib/gcc/x86_64-linux-gnu/11/include/stdint.h:
 
+rosidl_generator_c/my_msgs/msg/detail/send_data__functions.h:
+
 /usr/include/python3.10/pymacconfig.h:
 
 rosidl_generator_py/my_msgs/_my_msgs_s.ep.rosidl_typesupport_c.c:
@@ -600,6 +616,8 @@ rosidl_generator_c/my_msgs/msg/detail/msg1__type_support.h:
 /usr/include/python3.10/funcobject.h:
 
 /usr/include/limits.h:
+
+rosidl_generator_c/my_msgs/msg/detail/recive_data__type_support.h:
 
 /usr/include/x86_64-linux-gnu/bits/pthreadtypes.h:
 

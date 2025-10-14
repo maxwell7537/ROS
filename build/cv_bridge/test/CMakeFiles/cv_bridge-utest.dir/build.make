@@ -159,7 +159,7 @@ test/cv_bridge-utest: test/CMakeFiles/cv_bridge-utest.dir/build.make
 test/cv_bridge-utest: gtest/libgtest_main.a
 test/cv_bridge-utest: gtest/libgtest.a
 test/cv_bridge-utest: src/libcv_bridge.so
-test/cv_bridge-utest: /home/tdt/tool/OpenCv/1.0/opencv-4.7.0/build/lib/libopencv_imgcodecs.so.4.7.0
+test/cv_bridge-utest: /usr/local/lib/libopencv_imgcodecs.so.4.7.0
 test/cv_bridge-utest: /opt/ros/humble/lib/libsensor_msgs__rosidl_typesupport_fastrtps_c.so
 test/cv_bridge-utest: /opt/ros/humble/lib/libsensor_msgs__rosidl_typesupport_fastrtps_cpp.so
 test/cv_bridge-utest: /opt/ros/humble/lib/libsensor_msgs__rosidl_typesupport_introspection_c.so
@@ -200,8 +200,8 @@ test/cv_bridge-utest: /opt/ros/humble/lib/libgeometry_msgs__rosidl_typesupport_c
 test/cv_bridge-utest: /opt/ros/humble/lib/libstd_msgs__rosidl_typesupport_cpp.so
 test/cv_bridge-utest: /opt/ros/humble/lib/libbuiltin_interfaces__rosidl_typesupport_cpp.so
 test/cv_bridge-utest: /opt/ros/humble/lib/librosidl_runtime_c.so
-test/cv_bridge-utest: /home/tdt/tool/OpenCv/1.0/opencv-4.7.0/build/lib/libopencv_imgproc.so.4.7.0
-test/cv_bridge-utest: /home/tdt/tool/OpenCv/1.0/opencv-4.7.0/build/lib/libopencv_core.so.4.7.0
+test/cv_bridge-utest: /usr/local/lib/libopencv_imgproc.so.4.7.0
+test/cv_bridge-utest: /usr/local/lib/libopencv_core.so.4.7.0
 test/cv_bridge-utest: /opt/ros/humble/lib/librcutils.so
 test/cv_bridge-utest: test/CMakeFiles/cv_bridge-utest.dir/link.txt
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/tdt/tool/ros/build/cv_bridge/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Linking CXX executable cv_bridge-utest"

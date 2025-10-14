@@ -6,7 +6,8 @@
                 "${workspaceFolder}/**",
                 "/opt/ros/humble/**",
                 "/usr/local/include/opencv4/opencv2/**",
-                "/usr/local/include/opencv4/**"
+                "/usr/local/include/opencv4/**",
+                "/home/tdt/tool/ros/**"
             ],
             "defines": [],
             "compilerPath": "/usr/bin/gcc",

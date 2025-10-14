@@ -30,7 +30,7 @@ class image:public rclcpp::Node{
     private:
         void captureAndDisplay(){  // 定时器回调函数：每12.5ms执行一次
             cv::Mat screenshot = captureUnityWindow();//捕获Unity窗口
-            if (!screenshot.empty()) {
+            if (!screenshot.empty()){
                 cv::imshow("Unity Game Viewer", screenshot);// 显示图像
                 cv::waitKey(1);  // 必须调用waitKey来刷新显示
 

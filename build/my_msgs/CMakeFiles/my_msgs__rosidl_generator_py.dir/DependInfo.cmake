@@ -9,6 +9,8 @@ set(CMAKE_DEPENDS_LANGUAGES
 # The set of dependency files which are needed:
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
   "/home/tdt/tool/ros/build/my_msgs/rosidl_generator_py/my_msgs/msg/_msg1_s.c" "CMakeFiles/my_msgs__rosidl_generator_py.dir/rosidl_generator_py/my_msgs/msg/_msg1_s.c.o" "gcc" "CMakeFiles/my_msgs__rosidl_generator_py.dir/rosidl_generator_py/my_msgs/msg/_msg1_s.c.o.d"
+  "/home/tdt/tool/ros/build/my_msgs/rosidl_generator_py/my_msgs/msg/_recive_data_s.c" "CMakeFiles/my_msgs__rosidl_generator_py.dir/rosidl_generator_py/my_msgs/msg/_recive_data_s.c.o" "gcc" "CMakeFiles/my_msgs__rosidl_generator_py.dir/rosidl_generator_py/my_msgs/msg/_recive_data_s.c.o.d"
+  "/home/tdt/tool/ros/build/my_msgs/rosidl_generator_py/my_msgs/msg/_send_data_s.c" "CMakeFiles/my_msgs__rosidl_generator_py.dir/rosidl_generator_py/my_msgs/msg/_send_data_s.c.o" "gcc" "CMakeFiles/my_msgs__rosidl_generator_py.dir/rosidl_generator_py/my_msgs/msg/_send_data_s.c.o.d"
   )
 
 # Targets to which this target links.

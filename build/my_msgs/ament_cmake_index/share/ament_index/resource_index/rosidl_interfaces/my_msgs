@@ -1,2 +1,6 @@
 msg/Msg1.idl
 msg/Msg1.msg
+msg/ReciveData.idl
+msg/ReciveData.msg
+msg/SendData.idl
+msg/SendData.msg

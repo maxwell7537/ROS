@@ -17,6 +17,10 @@ set(CMAKE_MULTIPLE_OUTPUT_PAIRS
   "/home/tdt/tool/ros/build/my_msgs/rosidl_generator_py/my_msgs/msg/__init__.py" "/home/tdt/tool/ros/build/my_msgs/rosidl_generator_py/my_msgs/_my_msgs_s.ep.rosidl_typesupport_fastrtps_c.c"
   "/home/tdt/tool/ros/build/my_msgs/rosidl_generator_py/my_msgs/msg/_msg1.py" "/home/tdt/tool/ros/build/my_msgs/rosidl_generator_py/my_msgs/_my_msgs_s.ep.rosidl_typesupport_fastrtps_c.c"
   "/home/tdt/tool/ros/build/my_msgs/rosidl_generator_py/my_msgs/msg/_msg1_s.c" "/home/tdt/tool/ros/build/my_msgs/rosidl_generator_py/my_msgs/_my_msgs_s.ep.rosidl_typesupport_fastrtps_c.c"
+  "/home/tdt/tool/ros/build/my_msgs/rosidl_generator_py/my_msgs/msg/_recive_data.py" "/home/tdt/tool/ros/build/my_msgs/rosidl_generator_py/my_msgs/_my_msgs_s.ep.rosidl_typesupport_fastrtps_c.c"
+  "/home/tdt/tool/ros/build/my_msgs/rosidl_generator_py/my_msgs/msg/_recive_data_s.c" "/home/tdt/tool/ros/build/my_msgs/rosidl_generator_py/my_msgs/_my_msgs_s.ep.rosidl_typesupport_fastrtps_c.c"
+  "/home/tdt/tool/ros/build/my_msgs/rosidl_generator_py/my_msgs/msg/_send_data.py" "/home/tdt/tool/ros/build/my_msgs/rosidl_generator_py/my_msgs/_my_msgs_s.ep.rosidl_typesupport_fastrtps_c.c"
+  "/home/tdt/tool/ros/build/my_msgs/rosidl_generator_py/my_msgs/msg/_send_data_s.c" "/home/tdt/tool/ros/build/my_msgs/rosidl_generator_py/my_msgs/_my_msgs_s.ep.rosidl_typesupport_fastrtps_c.c"
   )
 
 

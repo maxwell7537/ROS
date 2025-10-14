@@ -5,6 +5,10 @@ file(REMOVE_RECURSE
   "../rosidl_generator_py/my_msgs/msg/__init__.py"
   "../rosidl_generator_py/my_msgs/msg/_msg1.py"
   "../rosidl_generator_py/my_msgs/msg/_msg1_s.c"
+  "../rosidl_generator_py/my_msgs/msg/_recive_data.py"
+  "../rosidl_generator_py/my_msgs/msg/_recive_data_s.c"
+  "../rosidl_generator_py/my_msgs/msg/_send_data.py"
+  "../rosidl_generator_py/my_msgs/msg/_send_data_s.c"
   "CMakeFiles/my_msgs__py"
 )
 

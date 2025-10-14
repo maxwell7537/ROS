@@ -7,9 +7,6 @@ set(CMAKE_DEPENDS_GENERATOR "Unix Makefiles")
 # The top level Makefile was generated from the following files:
 set(CMAKE_MAKEFILE_DEPENDS
   "CMakeCache.txt"
-  "/home/tdt/tool/OpenCv/1.0/opencv-4.7.0/build/OpenCVConfig-version.cmake"
-  "/home/tdt/tool/OpenCv/1.0/opencv-4.7.0/build/OpenCVConfig.cmake"
-  "/home/tdt/tool/OpenCv/1.0/opencv-4.7.0/build/OpenCVModules.cmake"
   "CMakeFiles/3.22.1/CMakeCCompiler.cmake"
   "CMakeFiles/3.22.1/CMakeCXXCompiler.cmake"
   "CMakeFiles/3.22.1/CMakeSystem.cmake"
@@ -457,6 +454,10 @@ set(CMAKE_MAKEFILE_DEPENDS
   "/usr/lib/x86_64-linux-gnu/cmake/boost_python-1.74.0/boost_python-config.cmake"
   "/usr/lib/x86_64-linux-gnu/cmake/boost_python-1.74.0/libboost_python-variant-shared-py3.10.cmake"
   "/usr/lib/x86_64-linux-gnu/cmake/boost_python-1.74.0/libboost_python-variant-static-py3.10.cmake"
+  "/usr/local/lib/cmake/opencv4/OpenCVConfig-version.cmake"
+  "/usr/local/lib/cmake/opencv4/OpenCVConfig.cmake"
+  "/usr/local/lib/cmake/opencv4/OpenCVModules-release.cmake"
+  "/usr/local/lib/cmake/opencv4/OpenCVModules.cmake"
   "/usr/share/cmake-3.22/Modules/CMakeCCompiler.cmake.in"
   "/usr/share/cmake-3.22/Modules/CMakeCCompilerABI.c"
   "/usr/share/cmake-3.22/Modules/CMakeCInformation.cmake"

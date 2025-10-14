@@ -1,0 +1,4 @@
+source;share/shoot/local_setup.bash
+source;share/shoot/local_setup.dsv
+source;share/shoot/local_setup.sh
+source;share/shoot/local_setup.zsh

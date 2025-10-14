@@ -1,1 +1,3 @@
 /home/tdt/tool/ros/build/my_msgs/rosidl_adapter/my_msgs:msg/Msg1.idl
+/home/tdt/tool/ros/build/my_msgs/rosidl_adapter/my_msgs:msg/ReciveData.idl
+/home/tdt/tool/ros/build/my_msgs/rosidl_adapter/my_msgs:msg/SendData.idl

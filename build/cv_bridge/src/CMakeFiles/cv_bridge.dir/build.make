@@ -113,7 +113,7 @@ src/libcv_bridge.so: /opt/ros/humble/lib/libsensor_msgs__rosidl_typesupport_fast
 src/libcv_bridge.so: /opt/ros/humble/lib/libsensor_msgs__rosidl_typesupport_introspection_c.so
 src/libcv_bridge.so: /opt/ros/humble/lib/libsensor_msgs__rosidl_typesupport_introspection_cpp.so
 src/libcv_bridge.so: /opt/ros/humble/lib/libsensor_msgs__rosidl_generator_py.so
-src/libcv_bridge.so: /home/tdt/tool/OpenCv/1.0/opencv-4.7.0/build/lib/libopencv_imgcodecs.so.4.7.0
+src/libcv_bridge.so: /usr/local/lib/libopencv_imgcodecs.so.4.7.0
 src/libcv_bridge.so: /opt/ros/humble/lib/libgeometry_msgs__rosidl_typesupport_fastrtps_c.so
 src/libcv_bridge.so: /opt/ros/humble/lib/libstd_msgs__rosidl_typesupport_fastrtps_c.so
 src/libcv_bridge.so: /opt/ros/humble/lib/libbuiltin_interfaces__rosidl_typesupport_fastrtps_c.so
@@ -151,8 +151,8 @@ src/libcv_bridge.so: /opt/ros/humble/lib/libbuiltin_interfaces__rosidl_typesuppo
 src/libcv_bridge.so: /opt/ros/humble/lib/librcpputils.so
 src/libcv_bridge.so: /opt/ros/humble/lib/librosidl_runtime_c.so
 src/libcv_bridge.so: /opt/ros/humble/lib/librcutils.so
-src/libcv_bridge.so: /home/tdt/tool/OpenCv/1.0/opencv-4.7.0/build/lib/libopencv_imgproc.so.4.7.0
-src/libcv_bridge.so: /home/tdt/tool/OpenCv/1.0/opencv-4.7.0/build/lib/libopencv_core.so.4.7.0
+src/libcv_bridge.so: /usr/local/lib/libopencv_imgproc.so.4.7.0
+src/libcv_bridge.so: /usr/local/lib/libopencv_core.so.4.7.0
 src/libcv_bridge.so: src/CMakeFiles/cv_bridge.dir/link.txt
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/tdt/tool/ros/build/cv_bridge/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Linking CXX shared library libcv_bridge.so"
 	cd /home/tdt/tool/ros/build/cv_bridge/src && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/cv_bridge.dir/link.txt --verbose=$(VERBOSE)

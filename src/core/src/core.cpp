@@ -6,14 +6,14 @@
 #include "sensor_msgs/msg/image.hpp"
 #include "sensor_msgs/image_encodings.hpp"
 
-class ImageSubscriber:public rclcpp::Node{
+class core:public rclcpp::Node{
 public:
-    ImageSubscriber():Node("image_subscriber_node"){
+    core():Node("core_node"){
         subscription_ = this->create_subscription<sensor_msgs::msg::Image>(
             "unity_camera_image",10,
-            std::bind(&ImageSubscriber::imageCallback, this, std::placeholders::_1)  // 回调函数
+            std::bind(&core::imageCallback, this, std::placeholders::_1)  // 回调函数
         );
-        RCLCPP_INFO(this->get_logger(), "ImageSubscriber node started, subscribing to 'unity_camera_image'");
+        RCLCPP_INFO(this->get_logger(), "core node started, subscribing to 'unity_camera_image'");
         cv::namedWindow("Received Image", cv::WINDOW_AUTOSIZE);
     }
 
@@ -43,7 +43,7 @@ private:
 int main(int argc, char * argv[])
 {
     rclcpp::init(argc, argv);
-    rclcpp::spin(std::make_shared<ImageSubscriber>());
+    rclcpp::spin(std::make_shared<core>());
     cv::destroyAllWindows(); // 关闭 OpenCV 窗口
     rclcpp::shutdown();
     return 0;
