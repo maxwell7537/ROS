@@ -54,7 +54,7 @@ if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_
      NOT IS_SYMLINK "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib/shoot/shoot_node")
     file(RPATH_CHANGE
          FILE "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib/shoot/shoot_node"
-         OLD_RPATH "/opt/ros/humble/lib/x86_64-linux-gnu:/home/tdt/tool/ros/install/cv_bridge/lib:/home/tdt/tool/ros/install/my_msgs/lib:/opt/ros/humble/lib:/home/tdt/tool/OpenCv/1.0/opencv-4.7.0/build/lib:"
+         OLD_RPATH "/opt/ros/humble/lib/x86_64-linux-gnu:/home/tdt/tool/ros/install/cv_bridge/lib:/home/tdt/tool/ros/install/my_msgs/lib:/opt/ros/humble/lib:/home/tdt/tool/ros/install/tdt_interface/lib:/home/tdt/tool/OpenCv/1.0/opencv-4.7.0/build/lib:"
          NEW_RPATH "")
     if(CMAKE_INSTALL_DO_STRIP)
       execute_process(COMMAND "/usr/bin/strip" "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib/shoot/shoot_node")

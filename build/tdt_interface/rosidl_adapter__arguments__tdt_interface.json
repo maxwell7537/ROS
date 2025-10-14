@@ -1,0 +1,7 @@
+{
+  "package_name": "tdt_interface",
+  "non_idl_tuples": [
+    "/home/tdt/tool/ros/tdt_interface:msg/SendData.msg",
+    "/home/tdt/tool/ros/tdt_interface:msg/ReceiveData.msg"
+  ]
+}

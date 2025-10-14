@@ -1,0 +1,21 @@
+// generated from rosidl_adapter/resource/msg.idl.em
+// with input from tdt_interface/msg/ReceiveData.msg
+// generated code does not contain a copyright notice
+
+#include "builtin_interfaces/msg/Time.idl"
+
+module tdt_interface {
+  module msg {
+    struct ReceiveData {
+      @verbatim (language="comment", text=
+        "底盘系的yaw")
+      float yaw;
+
+      @verbatim (language="comment", text=
+        "底盘系的pitch")
+      float pitch;
+
+      builtin_interfaces::msg::Time timestamp;
+    };
+  };
+};

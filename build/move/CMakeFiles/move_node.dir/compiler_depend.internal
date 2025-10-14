@@ -839,6 +839,16 @@ CMakeFiles/move_node.dir/src/move.cpp.o
  /home/tdt/tool/OpenCv/1.0/opencv-4.7.0/modules/core/include/opencv2/core/core_c.h
  /home/tdt/tool/OpenCv/1.0/opencv-4.7.0/modules/core/include/opencv2/core/types_c.h
  /home/tdt/tool/ros/install/cv_bridge/include/cv_bridge/cv_bridge/cv_bridge_export.h
+ /opt/ros/humble/include/geometry_msgs/geometry_msgs/msg/twist_stamped.hpp
+ /opt/ros/humble/include/geometry_msgs/geometry_msgs/msg/detail/twist_stamped__struct.hpp
+ /opt/ros/humble/include/geometry_msgs/geometry_msgs/msg/detail/twist__struct.hpp
+ /opt/ros/humble/include/geometry_msgs/geometry_msgs/msg/detail/vector3__struct.hpp
+ /opt/ros/humble/include/geometry_msgs/geometry_msgs/msg/detail/twist_stamped__builder.hpp
+ /opt/ros/humble/include/geometry_msgs/geometry_msgs/msg/detail/twist_stamped__traits.hpp
+ /opt/ros/humble/include/geometry_msgs/geometry_msgs/msg/detail/twist__traits.hpp
+ /opt/ros/humble/include/geometry_msgs/geometry_msgs/msg/detail/vector3__traits.hpp
+ /opt/ros/humble/include/geometry_msgs/geometry_msgs/msg/detail/twist_stamped__type_support.hpp
+ /opt/ros/humble/include/geometry_msgs/geometry_msgs/msg/rosidl_generator_cpp__visibility_control.hpp
  /usr/include/X11/Xlib.h
  /usr/include/X11/X.h
  /usr/include/X11/Xfuncproto.h

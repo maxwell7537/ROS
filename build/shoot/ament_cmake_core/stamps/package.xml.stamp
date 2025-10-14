@@ -16,6 +16,7 @@
   <depend>my_msgs</depend>
   <depend>opencv</depend>
   <depend>sensor_msgs</depend>
+  <depend>tdt_interface</depend>
 
 
   <test_depend>ament_lint_auto</test_depend>

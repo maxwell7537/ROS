@@ -505,6 +505,9 @@ statistics_msgs_DIR:PATH=/opt/ros/humble/share/statistics_msgs/cmake
 //The directory containing a CMake configuration file for std_msgs.
 std_msgs_DIR:PATH=/opt/ros/humble/share/std_msgs/cmake
 
+//The directory containing a CMake configuration file for tdt_interface.
+tdt_interface_DIR:PATH=/home/tdt/tool/ros/install/tdt_interface/share/tdt_interface/cmake
+
 //The directory containing a CMake configuration file for tinyxml2_vendor.
 tinyxml2_vendor_DIR:PATH=/opt/ros/humble/share/tinyxml2_vendor/cmake
 

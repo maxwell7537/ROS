@@ -838,6 +838,16 @@ CMakeFiles/move_node.dir/src/move.cpp.o: /home/tdt/tool/ros/src/move/src/move.cp
   /home/tdt/tool/OpenCv/1.0/opencv-4.7.0/modules/core/include/opencv2/core/core_c.h \
   /home/tdt/tool/OpenCv/1.0/opencv-4.7.0/modules/core/include/opencv2/core/types_c.h \
   /home/tdt/tool/ros/install/cv_bridge/include/cv_bridge/cv_bridge/cv_bridge_export.h \
+  /opt/ros/humble/include/geometry_msgs/geometry_msgs/msg/twist_stamped.hpp \
+  /opt/ros/humble/include/geometry_msgs/geometry_msgs/msg/detail/twist_stamped__struct.hpp \
+  /opt/ros/humble/include/geometry_msgs/geometry_msgs/msg/detail/twist__struct.hpp \
+  /opt/ros/humble/include/geometry_msgs/geometry_msgs/msg/detail/vector3__struct.hpp \
+  /opt/ros/humble/include/geometry_msgs/geometry_msgs/msg/detail/twist_stamped__builder.hpp \
+  /opt/ros/humble/include/geometry_msgs/geometry_msgs/msg/detail/twist_stamped__traits.hpp \
+  /opt/ros/humble/include/geometry_msgs/geometry_msgs/msg/detail/twist__traits.hpp \
+  /opt/ros/humble/include/geometry_msgs/geometry_msgs/msg/detail/vector3__traits.hpp \
+  /opt/ros/humble/include/geometry_msgs/geometry_msgs/msg/detail/twist_stamped__type_support.hpp \
+  /opt/ros/humble/include/geometry_msgs/geometry_msgs/msg/rosidl_generator_cpp__visibility_control.hpp \
   /usr/include/X11/Xlib.h \
   /usr/include/X11/X.h \
   /usr/include/X11/Xfuncproto.h \
@@ -849,6 +859,8 @@ CMakeFiles/move_node.dir/src/move.cpp.o: /home/tdt/tool/ros/src/move/src/move.cp
 /usr/include/X11/Xfuncproto.h:
 
 /usr/include/X11/X.h:
+
+/opt/ros/humble/include/geometry_msgs/geometry_msgs/msg/detail/twist_stamped__type_support.hpp:
 
 /home/tdt/tool/OpenCv/1.0/opencv-4.7.0/modules/core/include/opencv2/core/types_c.h:
 
@@ -884,6 +896,8 @@ CMakeFiles/move_node.dir/src/move.cpp.o: /home/tdt/tool/ros/src/move/src/move.cp
 
 /home/tdt/tool/OpenCv/1.0/opencv-4.7.0/modules/core/include/opencv2/core/cuda.inl.hpp:
 
+/opt/ros/humble/include/geometry_msgs/geometry_msgs/msg/detail/twist__struct.hpp:
+
 /home/tdt/tool/OpenCv/1.0/opencv-4.7.0/modules/stitching/include/opencv2/stitching/detail/warpers.hpp:
 
 /home/tdt/tool/OpenCv/1.0/opencv-4.7.0/modules/stitching/include/opencv2/stitching/warpers.hpp:
@@ -900,7 +914,11 @@ CMakeFiles/move_node.dir/src/move.cpp.o: /home/tdt/tool/ros/src/move/src/move.cp
 
 /home/tdt/tool/OpenCv/1.0/opencv-4.7.0/modules/imgproc/include/opencv2/imgproc/segmentation.hpp:
 
+/opt/ros/humble/include/geometry_msgs/geometry_msgs/msg/detail/twist_stamped__builder.hpp:
+
 /home/tdt/tool/OpenCv/1.0/opencv-4.7.0/modules/imgproc/include/opencv2/imgproc.hpp:
+
+/opt/ros/humble/include/geometry_msgs/geometry_msgs/msg/rosidl_generator_cpp__visibility_control.hpp:
 
 /home/tdt/tool/OpenCv/1.0/opencv-4.7.0/modules/videoio/include/opencv2/videoio.hpp:
 
@@ -973,6 +991,8 @@ CMakeFiles/move_node.dir/src/move.cpp.o: /home/tdt/tool/ros/src/move/src/move.cp
 /home/tdt/tool/OpenCv/1.0/opencv-4.7.0/modules/core/include/opencv2/core/traits.hpp:
 
 /home/tdt/tool/OpenCv/1.0/opencv-4.7.0/modules/core/include/opencv2/core/check.hpp:
+
+/opt/ros/humble/include/geometry_msgs/geometry_msgs/msg/twist_stamped.hpp:
 
 /home/tdt/tool/OpenCv/1.0/opencv-4.7.0/modules/core/include/opencv2/core/vsx_utils.hpp:
 
@@ -1181,6 +1201,8 @@ CMakeFiles/move_node.dir/src/move.cpp.o: /home/tdt/tool/ros/src/move/src/move.cp
 /home/tdt/tool/OpenCv/1.0/opencv-4.7.0/modules/core/include/opencv2/core/optim.hpp:
 
 /opt/ros/humble/include/rclcpp/rclcpp/is_ros_compatible_type.hpp:
+
+/opt/ros/humble/include/geometry_msgs/geometry_msgs/msg/detail/twist_stamped__traits.hpp:
 
 /opt/ros/humble/include/rcl_interfaces/rcl_interfaces/srv/detail/describe_parameters__type_support.hpp:
 
@@ -1538,6 +1560,8 @@ CMakeFiles/move_node.dir/src/move.cpp.o: /home/tdt/tool/ros/src/move/src/move.cp
 
 /usr/include/x86_64-linux-gnu/bits/types/__sigset_t.h:
 
+/opt/ros/humble/include/geometry_msgs/geometry_msgs/msg/detail/vector3__struct.hpp:
+
 /opt/ros/humble/include/rclcpp/rclcpp/intra_process_buffer_type.hpp:
 
 /usr/include/c++/11/bits/shared_ptr.h:
@@ -1770,6 +1794,8 @@ CMakeFiles/move_node.dir/src/move.cpp.o: /home/tdt/tool/ros/src/move/src/move.cp
 
 /opt/ros/humble/include/builtin_interfaces/builtin_interfaces/msg/detail/duration__type_support.hpp:
 
+/opt/ros/humble/include/geometry_msgs/geometry_msgs/msg/detail/twist__traits.hpp:
+
 /usr/lib/gcc/x86_64-linux-gnu/11/include/mm_malloc.h:
 
 /usr/include/x86_64-linux-gnu/bits/time64.h:
@@ -1779,6 +1805,8 @@ CMakeFiles/move_node.dir/src/move.cpp.o: /home/tdt/tool/ros/src/move/src/move.cp
 /opt/ros/humble/include/rosidl_runtime_c/rosidl_runtime_c/service_type_support_struct.h:
 
 /usr/include/c++/11/iosfwd:
+
+/opt/ros/humble/include/geometry_msgs/geometry_msgs/msg/detail/vector3__traits.hpp:
 
 /usr/include/c++/11/initializer_list:
 
@@ -2159,6 +2187,8 @@ CMakeFiles/move_node.dir/src/move.cpp.o: /home/tdt/tool/ros/src/move/src/move.cp
 /opt/ros/humble/include/rcl_interfaces/rcl_interfaces/srv/set_parameters.hpp:
 
 /opt/ros/humble/include/rcl/rcl/visibility_control.h:
+
+/opt/ros/humble/include/geometry_msgs/geometry_msgs/msg/detail/twist_stamped__struct.hpp:
 
 /opt/ros/humble/include/rclcpp/rclcpp/service.hpp:
 

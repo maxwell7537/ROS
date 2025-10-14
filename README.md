@@ -88,3 +88,9 @@ core 用 有限状态机（FSM）决定下一步动作（进攻 / 防守 / 占�
 参数化配置：
 
     将识别阈值（如 YOLO 置信度）、PID 参数、目标坐标等设为 ROS2 参数（declare_parameter），比赛中可通过ros2 param set实时调整，无需重新编译
+
+
+2025.10.14  
+加入了完整的move和shoot
+写了start.sh
+加入了tdt_interface与模拟器交流
