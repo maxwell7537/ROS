@@ -153,58 +153,58 @@ private:
     void display_detection_result() {
         cv::Mat display_image = current_image_.clone();
         
-        // //绘制边界框
-        // if (detection_result_.bbox_width > 0 && detection_result_.bbox_height > 0) {
-        //     cv::Rect bbox(detection_result_.bbox_x, detection_result_.bbox_y,
-        //                  detection_result_.bbox_width, detection_result_.bbox_height);
-        //     cv::rectangle(display_image, bbox, cv::Scalar(0, 255, 0), 2);
+        //绘制边界框
+        if (detection_result_.bbox_width > 0 && detection_result_.bbox_height > 0) {
+            cv::Rect bbox(detection_result_.bbox_x, detection_result_.bbox_y,
+                         detection_result_.bbox_width, detection_result_.bbox_height);
+            cv::rectangle(display_image, bbox, cv::Scalar(0, 255, 0), 1);
             
-        //     // 绘制标签
-        //     std::string label = cv::format("Rob: %.2f", detection_result_.confidence);
-        //     cv::putText(display_image, label, 
-        //                cv::Point(bbox.x, bbox.y - 10), 
-        //                cv::FONT_HERSHEY_SIMPLEX, 0.5, cv::Scalar(0, 255, 0), 1);
-        // }
+            // 绘制标签
+            std::string label = cv::format("Rob: %.2f", detection_result_.confidence);
+            cv::putText(display_image, label, 
+                       cv::Point(bbox.x, bbox.y - 10), 
+                       cv::FONT_HERSHEY_SIMPLEX, 0.5, cv::Scalar(0, 255, 0), 1);
+        }
         
-        // // 绘制中心点
-        // if (detection_result_.pixel_x > 0 && detection_result_.pixel_y > 0) {
-        //     cv::Point center(detection_result_.pixel_x, detection_result_.pixel_y);
-        //     cv::circle(display_image, center, 5, cv::Scalar(0, 0, 255), -1);
-        //     cv::circle(display_image, center, 15, cv::Scalar(0, 0, 255), 2);
-        // }
+        // 绘制中心点
+        if (detection_result_.pixel_x > 0 && detection_result_.pixel_y > 0) {
+            cv::Point center(detection_result_.pixel_x, detection_result_.pixel_y);
+            cv::circle(display_image, center, 1, cv::Scalar(0, 0, 255), -1);
+            cv::circle(display_image, center, 5, cv::Scalar(0, 0, 255), 2);
+        }
         
-        // // 显示距离信息
-        // if (detection_result_.distance > 0) {
-        //     std::string distance_info = cv::format("Distance: %.2f", detection_result_.distance);
-        //     cv::putText(display_image, distance_info, 
-        //                cv::Point(10, display_image.rows - 20), 
-        //                cv::FONT_HERSHEY_SIMPLEX, 0.7, cv::Scalar(0, 255, 255), 2);
+        // 显示距离信息
+        if (detection_result_.distance > 0) {
+            std::string distance_info = cv::format("Distance: %.2f", detection_result_.distance);
+            cv::putText(display_image, distance_info, 
+                       cv::Point(10, display_image.rows - 20), 
+                       cv::FONT_HERSHEY_SIMPLEX, 0.7, cv::Scalar(0, 255, 255), 2);
             
-        //     std::string world_info = cv::format("World: (%.1f, %.1f, %.1f)", 
-        //                                       detection_result_.world_x,
-        //                                       detection_result_.world_y,
-        //                                       detection_result_.world_z);
-        //     cv::putText(display_image, world_info, 
-        //                cv::Point(10, display_image.rows - 50), 
-        //                cv::FONT_HERSHEY_SIMPLEX, 0.7, cv::Scalar(255, 255, 0), 2);
-        // }
+            std::string world_info = cv::format("World: (%.1f, %.1f, %.1f)", 
+                                              detection_result_.world_x,
+                                              detection_result_.world_y,
+                                              detection_result_.world_z);
+            cv::putText(display_image, world_info, 
+                       cv::Point(10, display_image.rows - 50), 
+                       cv::FONT_HERSHEY_SIMPLEX, 0.7, cv::Scalar(255, 255, 0), 2);
+        }
         
-        // // 显示检测计数
-        // std::string count_info = cv::format("Detections: %d", detection_count_);
-        // cv::putText(display_image, count_info, 
-        //            cv::Point(10, 30), 
-        //            cv::FONT_HERSHEY_SIMPLEX, 0.7, cv::Scalar(255, 255, 255), 2);
+        // 显示检测计数
+        std::string count_info = cv::format("Detections: %d", detection_count_);
+        cv::putText(display_image, count_info, 
+                   cv::Point(10, 30), 
+                   cv::FONT_HERSHEY_SIMPLEX, 0.7, cv::Scalar(255, 255, 255), 2);
         
-        // // 显示状态
-        // auto current_time = this->now();
-        // auto time_since_last = current_time - last_detection_time_;
-        // std::string status = (time_since_last.seconds() < 0.5) ? "ACTIVE" : "INACTIVE";
-        // cv::Scalar status_color = (time_since_last.seconds() < 0.5) ? 
-        //                          cv::Scalar(0, 255, 0) : cv::Scalar(0, 0, 255);
+        // 显示状态
+        auto current_time = this->now();
+        auto time_since_last = current_time - last_detection_time_;
+        std::string status = (time_since_last.seconds() < 0.5) ? "ACTIVE" : "INACTIVE";
+        cv::Scalar status_color = (time_since_last.seconds() < 0.5) ? 
+                                 cv::Scalar(0, 255, 0) : cv::Scalar(0, 0, 255);
         
-        // cv::putText(display_image, "Status: " + status, 
-        //            cv::Point(10, 60), 
-        //            cv::FONT_HERSHEY_SIMPLEX, 0.7, status_color, 2);
+        cv::putText(display_image, "Status: " + status, 
+                   cv::Point(10, 60), 
+                   cv::FONT_HERSHEY_SIMPLEX, 0.7, status_color, 2);
         
         cv::imshow("Target Detection Display", display_image);
         cv::waitKey(1);
