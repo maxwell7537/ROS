@@ -838,138 +838,22 @@ CMakeFiles/shoot_node.dir/src/shoot.cpp.o: /home/tdt/tool/ros/src/shoot/src/shoo
   /home/tdt/tool/OpenCv/1.0/opencv-4.7.0/modules/core/include/opencv2/core/core_c.h \
   /home/tdt/tool/OpenCv/1.0/opencv-4.7.0/modules/core/include/opencv2/core/types_c.h \
   /home/tdt/tool/ros/install/cv_bridge/include/cv_bridge/cv_bridge/cv_bridge_export.h \
-  /usr/include/SDL2/SDL.h \
-  /usr/include/SDL2/SDL_main.h \
-  /usr/include/SDL2/SDL_stdinc.h \
-  /usr/include/SDL2/SDL_config.h \
-  /usr/include/x86_64-linux-gnu/SDL2/_real_SDL_config.h \
-  /usr/include/SDL2/SDL_platform.h \
-  /usr/include/SDL2/begin_code.h \
-  /usr/include/SDL2/close_code.h \
-  /usr/include/inttypes.h \
-  /usr/include/SDL2/SDL_assert.h \
-  /usr/include/SDL2/SDL_atomic.h \
-  /usr/include/SDL2/SDL_platform.h \
-  /usr/include/SDL2/SDL_audio.h \
-  /usr/include/SDL2/SDL_error.h \
-  /usr/include/SDL2/SDL_endian.h \
-  /usr/include/SDL2/SDL_mutex.h \
-  /usr/include/SDL2/SDL_thread.h \
-  /usr/include/SDL2/SDL_rwops.h \
-  /usr/include/SDL2/SDL_clipboard.h \
-  /usr/include/SDL2/SDL_cpuinfo.h \
-  /usr/lib/gcc/x86_64-linux-gnu/11/include/immintrin.h \
-  /usr/lib/gcc/x86_64-linux-gnu/11/include/x86gprintrin.h \
-  /usr/lib/gcc/x86_64-linux-gnu/11/include/ia32intrin.h \
-  /usr/lib/gcc/x86_64-linux-gnu/11/include/adxintrin.h \
-  /usr/lib/gcc/x86_64-linux-gnu/11/include/bmiintrin.h \
-  /usr/lib/gcc/x86_64-linux-gnu/11/include/bmi2intrin.h \
-  /usr/lib/gcc/x86_64-linux-gnu/11/include/cetintrin.h \
-  /usr/lib/gcc/x86_64-linux-gnu/11/include/cldemoteintrin.h \
-  /usr/lib/gcc/x86_64-linux-gnu/11/include/clflushoptintrin.h \
-  /usr/lib/gcc/x86_64-linux-gnu/11/include/clwbintrin.h \
-  /usr/lib/gcc/x86_64-linux-gnu/11/include/clzerointrin.h \
-  /usr/lib/gcc/x86_64-linux-gnu/11/include/enqcmdintrin.h \
-  /usr/lib/gcc/x86_64-linux-gnu/11/include/fxsrintrin.h \
-  /usr/lib/gcc/x86_64-linux-gnu/11/include/lzcntintrin.h \
-  /usr/lib/gcc/x86_64-linux-gnu/11/include/lwpintrin.h \
-  /usr/lib/gcc/x86_64-linux-gnu/11/include/movdirintrin.h \
-  /usr/lib/gcc/x86_64-linux-gnu/11/include/mwaitintrin.h \
-  /usr/lib/gcc/x86_64-linux-gnu/11/include/mwaitxintrin.h \
-  /usr/lib/gcc/x86_64-linux-gnu/11/include/pconfigintrin.h \
-  /usr/lib/gcc/x86_64-linux-gnu/11/include/popcntintrin.h \
-  /usr/lib/gcc/x86_64-linux-gnu/11/include/pkuintrin.h \
-  /usr/lib/gcc/x86_64-linux-gnu/11/include/rdseedintrin.h \
-  /usr/lib/gcc/x86_64-linux-gnu/11/include/rtmintrin.h \
-  /usr/lib/gcc/x86_64-linux-gnu/11/include/serializeintrin.h \
-  /usr/lib/gcc/x86_64-linux-gnu/11/include/sgxintrin.h \
-  /usr/lib/gcc/x86_64-linux-gnu/11/include/tbmintrin.h \
-  /usr/lib/gcc/x86_64-linux-gnu/11/include/tsxldtrkintrin.h \
-  /usr/lib/gcc/x86_64-linux-gnu/11/include/uintrintrin.h \
-  /usr/lib/gcc/x86_64-linux-gnu/11/include/waitpkgintrin.h \
-  /usr/lib/gcc/x86_64-linux-gnu/11/include/wbnoinvdintrin.h \
-  /usr/lib/gcc/x86_64-linux-gnu/11/include/xsaveintrin.h \
-  /usr/lib/gcc/x86_64-linux-gnu/11/include/xsavecintrin.h \
-  /usr/lib/gcc/x86_64-linux-gnu/11/include/xsaveoptintrin.h \
-  /usr/lib/gcc/x86_64-linux-gnu/11/include/xsavesintrin.h \
-  /usr/lib/gcc/x86_64-linux-gnu/11/include/xtestintrin.h \
-  /usr/lib/gcc/x86_64-linux-gnu/11/include/hresetintrin.h \
-  /usr/lib/gcc/x86_64-linux-gnu/11/include/pmmintrin.h \
-  /usr/lib/gcc/x86_64-linux-gnu/11/include/tmmintrin.h \
-  /usr/lib/gcc/x86_64-linux-gnu/11/include/smmintrin.h \
-  /usr/lib/gcc/x86_64-linux-gnu/11/include/wmmintrin.h \
-  /usr/lib/gcc/x86_64-linux-gnu/11/include/avxintrin.h \
-  /usr/lib/gcc/x86_64-linux-gnu/11/include/avxvnniintrin.h \
-  /usr/lib/gcc/x86_64-linux-gnu/11/include/avx2intrin.h \
-  /usr/lib/gcc/x86_64-linux-gnu/11/include/avx512fintrin.h \
-  /usr/lib/gcc/x86_64-linux-gnu/11/include/avx512erintrin.h \
-  /usr/lib/gcc/x86_64-linux-gnu/11/include/avx512pfintrin.h \
-  /usr/lib/gcc/x86_64-linux-gnu/11/include/avx512cdintrin.h \
-  /usr/lib/gcc/x86_64-linux-gnu/11/include/avx512vlintrin.h \
-  /usr/lib/gcc/x86_64-linux-gnu/11/include/avx512bwintrin.h \
-  /usr/lib/gcc/x86_64-linux-gnu/11/include/avx512dqintrin.h \
-  /usr/lib/gcc/x86_64-linux-gnu/11/include/avx512vlbwintrin.h \
-  /usr/lib/gcc/x86_64-linux-gnu/11/include/avx512vldqintrin.h \
-  /usr/lib/gcc/x86_64-linux-gnu/11/include/avx512ifmaintrin.h \
-  /usr/lib/gcc/x86_64-linux-gnu/11/include/avx512ifmavlintrin.h \
-  /usr/lib/gcc/x86_64-linux-gnu/11/include/avx512vbmiintrin.h \
-  /usr/lib/gcc/x86_64-linux-gnu/11/include/avx512vbmivlintrin.h \
-  /usr/lib/gcc/x86_64-linux-gnu/11/include/avx5124fmapsintrin.h \
-  /usr/lib/gcc/x86_64-linux-gnu/11/include/avx5124vnniwintrin.h \
-  /usr/lib/gcc/x86_64-linux-gnu/11/include/avx512vpopcntdqintrin.h \
-  /usr/lib/gcc/x86_64-linux-gnu/11/include/avx512vbmi2intrin.h \
-  /usr/lib/gcc/x86_64-linux-gnu/11/include/avx512vbmi2vlintrin.h \
-  /usr/lib/gcc/x86_64-linux-gnu/11/include/avx512vnniintrin.h \
-  /usr/lib/gcc/x86_64-linux-gnu/11/include/avx512vnnivlintrin.h \
-  /usr/lib/gcc/x86_64-linux-gnu/11/include/avx512vpopcntdqvlintrin.h \
-  /usr/lib/gcc/x86_64-linux-gnu/11/include/avx512bitalgintrin.h \
-  /usr/lib/gcc/x86_64-linux-gnu/11/include/avx512vp2intersectintrin.h \
-  /usr/lib/gcc/x86_64-linux-gnu/11/include/avx512vp2intersectvlintrin.h \
-  /usr/lib/gcc/x86_64-linux-gnu/11/include/shaintrin.h \
-  /usr/lib/gcc/x86_64-linux-gnu/11/include/fmaintrin.h \
-  /usr/lib/gcc/x86_64-linux-gnu/11/include/f16cintrin.h \
-  /usr/lib/gcc/x86_64-linux-gnu/11/include/gfniintrin.h \
-  /usr/lib/gcc/x86_64-linux-gnu/11/include/vaesintrin.h \
-  /usr/lib/gcc/x86_64-linux-gnu/11/include/vpclmulqdqintrin.h \
-  /usr/lib/gcc/x86_64-linux-gnu/11/include/avx512bf16vlintrin.h \
-  /usr/lib/gcc/x86_64-linux-gnu/11/include/avx512bf16intrin.h \
-  /usr/lib/gcc/x86_64-linux-gnu/11/include/amxtileintrin.h \
-  /usr/lib/gcc/x86_64-linux-gnu/11/include/amxint8intrin.h \
-  /usr/lib/gcc/x86_64-linux-gnu/11/include/amxbf16intrin.h \
-  /usr/lib/gcc/x86_64-linux-gnu/11/include/prfchwintrin.h \
-  /usr/lib/gcc/x86_64-linux-gnu/11/include/keylockerintrin.h \
-  /usr/include/SDL2/SDL_events.h \
-  /usr/include/SDL2/SDL_video.h \
-  /usr/include/SDL2/SDL_pixels.h \
-  /usr/include/SDL2/SDL_rect.h \
-  /usr/include/SDL2/SDL_surface.h \
-  /usr/include/SDL2/SDL_blendmode.h \
-  /usr/include/SDL2/SDL_keyboard.h \
-  /usr/include/SDL2/SDL_keycode.h \
-  /usr/include/SDL2/SDL_scancode.h \
-  /usr/include/SDL2/SDL_mouse.h \
-  /usr/include/SDL2/SDL_joystick.h \
-  /usr/include/SDL2/SDL_gamecontroller.h \
-  /usr/include/SDL2/SDL_sensor.h \
-  /usr/include/SDL2/SDL_quit.h \
-  /usr/include/SDL2/SDL_gesture.h \
-  /usr/include/SDL2/SDL_touch.h \
-  /usr/include/SDL2/SDL_filesystem.h \
-  /usr/include/SDL2/SDL_haptic.h \
-  /usr/include/SDL2/SDL_hidapi.h \
-  /usr/include/SDL2/SDL_hints.h \
-  /usr/include/SDL2/SDL_loadso.h \
-  /usr/include/SDL2/SDL_log.h \
-  /usr/include/SDL2/SDL_messagebox.h \
-  /usr/include/SDL2/SDL_metal.h \
-  /usr/include/SDL2/SDL_power.h \
-  /usr/include/SDL2/SDL_render.h \
-  /usr/include/SDL2/SDL_shape.h \
-  /usr/include/SDL2/SDL_system.h \
-  /usr/include/SDL2/SDL_timer.h \
-  /usr/include/SDL2/SDL_version.h \
-  /usr/include/SDL2/SDL_locale.h \
-  /usr/include/SDL2/SDL_misc.h \
+  /opt/ros/humble/include/geometry_msgs/geometry_msgs/msg/point.hpp \
+  /opt/ros/humble/include/geometry_msgs/geometry_msgs/msg/detail/point__struct.hpp \
+  /opt/ros/humble/include/geometry_msgs/geometry_msgs/msg/detail/point__builder.hpp \
+  /opt/ros/humble/include/geometry_msgs/geometry_msgs/msg/detail/point__traits.hpp \
+  /opt/ros/humble/include/geometry_msgs/geometry_msgs/msg/detail/point__type_support.hpp \
+  /opt/ros/humble/include/geometry_msgs/geometry_msgs/msg/rosidl_generator_cpp__visibility_control.hpp \
+  /opt/ros/humble/include/std_msgs/std_msgs/msg/float32_multi_array.hpp \
+  /opt/ros/humble/include/std_msgs/std_msgs/msg/detail/float32_multi_array__struct.hpp \
+  /opt/ros/humble/include/std_msgs/std_msgs/msg/detail/multi_array_layout__struct.hpp \
+  /opt/ros/humble/include/std_msgs/std_msgs/msg/detail/multi_array_dimension__struct.hpp \
+  /opt/ros/humble/include/std_msgs/std_msgs/msg/detail/float32_multi_array__builder.hpp \
+  /opt/ros/humble/include/std_msgs/std_msgs/msg/detail/float32_multi_array__traits.hpp \
+  /opt/ros/humble/include/std_msgs/std_msgs/msg/detail/multi_array_layout__traits.hpp \
+  /opt/ros/humble/include/std_msgs/std_msgs/msg/detail/multi_array_dimension__traits.hpp \
+  /opt/ros/humble/include/std_msgs/std_msgs/msg/detail/float32_multi_array__type_support.hpp \
+  /opt/ros/humble/include/std_msgs/std_msgs/msg/rosidl_generator_cpp__visibility_control.hpp \
   /home/tdt/tool/ros/install/my_msgs/include/my_msgs/my_msgs/msg/send_data.hpp \
   /home/tdt/tool/ros/install/my_msgs/include/my_msgs/my_msgs/msg/detail/send_data__struct.hpp \
   /home/tdt/tool/ros/install/my_msgs/include/my_msgs/my_msgs/msg/detail/send_data__builder.hpp \
@@ -984,6 +868,8 @@ CMakeFiles/shoot_node.dir/src/shoot.cpp.o: /home/tdt/tool/ros/src/shoot/src/shoo
   /home/tdt/tool/ros/install/tdt_interface/include/tdt_interface/tdt_interface/msg/rosidl_generator_cpp__visibility_control.hpp
 
 
+/home/tdt/tool/ros/install/tdt_interface/include/tdt_interface/tdt_interface/msg/rosidl_generator_cpp__visibility_control.hpp:
+
 /home/tdt/tool/ros/install/tdt_interface/include/tdt_interface/tdt_interface/msg/detail/send_data__type_support.hpp:
 
 /home/tdt/tool/ros/install/tdt_interface/include/tdt_interface/tdt_interface/msg/detail/send_data__struct.hpp:
@@ -996,137 +882,17 @@ CMakeFiles/shoot_node.dir/src/shoot.cpp.o: /home/tdt/tool/ros/src/shoot/src/shoo
 
 /home/tdt/tool/ros/install/my_msgs/include/my_msgs/my_msgs/msg/send_data.hpp:
 
-/usr/include/SDL2/SDL_version.h:
+/opt/ros/humble/include/std_msgs/std_msgs/msg/rosidl_generator_cpp__visibility_control.hpp:
 
-/usr/include/SDL2/SDL_timer.h:
+/opt/ros/humble/include/std_msgs/std_msgs/msg/detail/multi_array_layout__traits.hpp:
 
-/usr/include/SDL2/SDL_system.h:
+/opt/ros/humble/include/std_msgs/std_msgs/msg/detail/multi_array_dimension__struct.hpp:
 
-/usr/include/SDL2/SDL_render.h:
+/opt/ros/humble/include/std_msgs/std_msgs/msg/detail/float32_multi_array__struct.hpp:
 
-/usr/include/SDL2/SDL_messagebox.h:
+/opt/ros/humble/include/std_msgs/std_msgs/msg/float32_multi_array.hpp:
 
-/usr/include/SDL2/SDL_hidapi.h:
-
-/usr/include/SDL2/SDL_quit.h:
-
-/usr/include/SDL2/SDL_blendmode.h:
-
-/usr/include/SDL2/SDL_video.h:
-
-/usr/include/SDL2/SDL_events.h:
-
-/usr/lib/gcc/x86_64-linux-gnu/11/include/keylockerintrin.h:
-
-/usr/lib/gcc/x86_64-linux-gnu/11/include/prfchwintrin.h:
-
-/usr/lib/gcc/x86_64-linux-gnu/11/include/avx512bf16vlintrin.h:
-
-/usr/lib/gcc/x86_64-linux-gnu/11/include/vaesintrin.h:
-
-/usr/include/SDL2/SDL_joystick.h:
-
-/usr/lib/gcc/x86_64-linux-gnu/11/include/shaintrin.h:
-
-/usr/lib/gcc/x86_64-linux-gnu/11/include/avx512vp2intersectintrin.h:
-
-/usr/lib/gcc/x86_64-linux-gnu/11/include/avx512bitalgintrin.h:
-
-/usr/lib/gcc/x86_64-linux-gnu/11/include/avx512vpopcntdqvlintrin.h:
-
-/usr/lib/gcc/x86_64-linux-gnu/11/include/avx512vnnivlintrin.h:
-
-/usr/lib/gcc/x86_64-linux-gnu/11/include/avx512vnniintrin.h:
-
-/usr/lib/gcc/x86_64-linux-gnu/11/include/avx512vbmi2vlintrin.h:
-
-/usr/lib/gcc/x86_64-linux-gnu/11/include/avx512vbmi2intrin.h:
-
-/usr/lib/gcc/x86_64-linux-gnu/11/include/avx512vpopcntdqintrin.h:
-
-/usr/lib/gcc/x86_64-linux-gnu/11/include/avx5124vnniwintrin.h:
-
-/usr/lib/gcc/x86_64-linux-gnu/11/include/avx5124fmapsintrin.h:
-
-/usr/lib/gcc/x86_64-linux-gnu/11/include/avx512vbmiintrin.h:
-
-/usr/lib/gcc/x86_64-linux-gnu/11/include/avx512ifmaintrin.h:
-
-/usr/lib/gcc/x86_64-linux-gnu/11/include/avx512vlintrin.h:
-
-/usr/lib/gcc/x86_64-linux-gnu/11/include/avx512cdintrin.h:
-
-/usr/lib/gcc/x86_64-linux-gnu/11/include/avx512fintrin.h:
-
-/usr/lib/gcc/x86_64-linux-gnu/11/include/avx2intrin.h:
-
-/usr/lib/gcc/x86_64-linux-gnu/11/include/avxvnniintrin.h:
-
-/home/tdt/tool/ros/install/tdt_interface/include/tdt_interface/tdt_interface/msg/rosidl_generator_cpp__visibility_control.hpp:
-
-/usr/lib/gcc/x86_64-linux-gnu/11/include/avxintrin.h:
-
-/usr/lib/gcc/x86_64-linux-gnu/11/include/wmmintrin.h:
-
-/usr/lib/gcc/x86_64-linux-gnu/11/include/smmintrin.h:
-
-/usr/lib/gcc/x86_64-linux-gnu/11/include/xsavecintrin.h:
-
-/usr/lib/gcc/x86_64-linux-gnu/11/include/uintrintrin.h:
-
-/usr/lib/gcc/x86_64-linux-gnu/11/include/tbmintrin.h:
-
-/usr/lib/gcc/x86_64-linux-gnu/11/include/sgxintrin.h:
-
-/usr/lib/gcc/x86_64-linux-gnu/11/include/rdseedintrin.h:
-
-/usr/lib/gcc/x86_64-linux-gnu/11/include/pkuintrin.h:
-
-/usr/lib/gcc/x86_64-linux-gnu/11/include/mwaitxintrin.h:
-
-/usr/lib/gcc/x86_64-linux-gnu/11/include/mwaitintrin.h:
-
-/usr/lib/gcc/x86_64-linux-gnu/11/include/movdirintrin.h:
-
-/usr/lib/gcc/x86_64-linux-gnu/11/include/clzerointrin.h:
-
-/usr/lib/gcc/x86_64-linux-gnu/11/include/clflushoptintrin.h:
-
-/usr/lib/gcc/x86_64-linux-gnu/11/include/cldemoteintrin.h:
-
-/usr/lib/gcc/x86_64-linux-gnu/11/include/cetintrin.h:
-
-/usr/lib/gcc/x86_64-linux-gnu/11/include/bmiintrin.h:
-
-/usr/lib/gcc/x86_64-linux-gnu/11/include/adxintrin.h:
-
-/usr/lib/gcc/x86_64-linux-gnu/11/include/ia32intrin.h:
-
-/usr/lib/gcc/x86_64-linux-gnu/11/include/x86gprintrin.h:
-
-/usr/lib/gcc/x86_64-linux-gnu/11/include/immintrin.h:
-
-/usr/include/SDL2/SDL_cpuinfo.h:
-
-/usr/include/SDL2/SDL_clipboard.h:
-
-/usr/include/SDL2/SDL_thread.h:
-
-/usr/include/SDL2/SDL_audio.h:
-
-/usr/include/inttypes.h:
-
-/usr/include/SDL2/begin_code.h:
-
-/usr/include/SDL2/SDL_platform.h:
-
-/usr/lib/gcc/x86_64-linux-gnu/11/include/f16cintrin.h:
-
-/usr/include/x86_64-linux-gnu/SDL2/_real_SDL_config.h:
-
-/usr/include/SDL2/SDL_config.h:
-
-/usr/include/SDL2/SDL_stdinc.h:
+/opt/ros/humble/include/geometry_msgs/geometry_msgs/msg/detail/point__traits.hpp:
 
 /home/tdt/tool/OpenCv/1.0/opencv-4.7.0/modules/core/include/opencv2/core/types_c.h:
 
@@ -1168,11 +934,11 @@ CMakeFiles/shoot_node.dir/src/shoot.cpp.o: /home/tdt/tool/ros/src/shoot/src/shoo
 
 /home/tdt/tool/OpenCv/1.0/opencv-4.7.0/modules/photo/include/opencv2/photo.hpp:
 
+/opt/ros/humble/include/geometry_msgs/geometry_msgs/msg/point.hpp:
+
 /home/tdt/tool/OpenCv/1.0/opencv-4.7.0/modules/objdetect/include/opencv2/objdetect/aruco_detector.hpp:
 
 /home/tdt/tool/OpenCv/1.0/opencv-4.7.0/modules/objdetect/include/opencv2/objdetect/face.hpp:
-
-/usr/lib/gcc/x86_64-linux-gnu/11/include/gfniintrin.h:
 
 /home/tdt/tool/OpenCv/1.0/opencv-4.7.0/modules/objdetect/include/opencv2/objdetect.hpp:
 
@@ -1182,11 +948,11 @@ CMakeFiles/shoot_node.dir/src/shoot.cpp.o: /home/tdt/tool/ros/src/shoot/src/shoo
 
 /home/tdt/tool/OpenCv/1.0/opencv-4.7.0/modules/imgproc/include/opencv2/imgproc.hpp:
 
+/opt/ros/humble/include/geometry_msgs/geometry_msgs/msg/rosidl_generator_cpp__visibility_control.hpp:
+
 /home/tdt/tool/OpenCv/1.0/opencv-4.7.0/modules/videoio/include/opencv2/videoio.hpp:
 
 /home/tdt/tool/OpenCv/1.0/opencv-4.7.0/modules/imgcodecs/include/opencv2/imgcodecs.hpp:
-
-/usr/lib/gcc/x86_64-linux-gnu/11/include/bmi2intrin.h:
 
 /home/tdt/tool/OpenCv/1.0/opencv-4.7.0/modules/highgui/include/opencv2/highgui.hpp:
 
@@ -1202,9 +968,9 @@ CMakeFiles/shoot_node.dir/src/shoot.cpp.o: /home/tdt/tool/ros/src/shoot/src/shoo
 
 /home/tdt/tool/OpenCv/1.0/opencv-4.7.0/modules/flann/include/opencv2/flann/hierarchical_clustering_index.h:
 
-/usr/include/SDL2/SDL_misc.h:
-
 /home/tdt/tool/OpenCv/1.0/opencv-4.7.0/modules/flann/include/opencv2/flann/linear_index.h:
+
+/opt/ros/humble/include/geometry_msgs/geometry_msgs/msg/detail/point__builder.hpp:
 
 /home/tdt/tool/OpenCv/1.0/opencv-4.7.0/modules/flann/include/opencv2/flann/composite_index.h:
 
@@ -1227,8 +993,6 @@ CMakeFiles/shoot_node.dir/src/shoot.cpp.o: /home/tdt/tool/ros/src/shoot/src/shoo
 /home/tdt/tool/OpenCv/1.0/opencv-4.7.0/modules/flann/include/opencv2/flann/matrix.h:
 
 /home/tdt/tool/OpenCv/1.0/opencv-4.7.0/modules/flann/include/opencv2/flann.hpp:
-
-/usr/include/SDL2/SDL_surface.h:
 
 /home/tdt/tool/OpenCv/1.0/opencv-4.7.0/modules/dnn/include/opencv2/dnn/version.hpp:
 
@@ -1264,8 +1028,6 @@ CMakeFiles/shoot_node.dir/src/shoot.cpp.o: /home/tdt/tool/ros/src/shoot/src/shoo
 
 /home/tdt/tool/OpenCv/1.0/opencv-4.7.0/modules/core/include/opencv2/core/neon_utils.hpp:
 
-/usr/include/SDL2/SDL_mutex.h:
-
 /opt/ros/humble/include/sensor_msgs/sensor_msgs/msg/detail/image__struct.hpp:
 
 /home/tdt/tool/OpenCv/1.0/opencv-4.7.0/modules/core/include/opencv2/core/cvstd_wrapper.hpp:
@@ -1292,8 +1054,6 @@ CMakeFiles/shoot_node.dir/src/shoot.cpp.o: /home/tdt/tool/ros/src/shoot/src/shoo
 
 /usr/lib/gcc/x86_64-linux-gnu/11/include/emmintrin.h:
 
-/usr/include/SDL2/SDL_keycode.h:
-
 /usr/include/c++/11/cstddef:
 
 /home/tdt/tool/OpenCv/1.0/opencv-4.7.0/modules/core/include/opencv2/core/version.hpp:
@@ -1307,8 +1067,6 @@ CMakeFiles/shoot_node.dir/src/shoot.cpp.o: /home/tdt/tool/ros/src/shoot/src/shoo
 /home/tdt/tool/ros/install/my_msgs/include/my_msgs/my_msgs/msg/detail/send_data__type_support.hpp:
 
 /opt/ros/humble/include/rclcpp/rclcpp/wait_set_policies/thread_safe_synchronization.hpp:
-
-/usr/lib/gcc/x86_64-linux-gnu/11/include/wbnoinvdintrin.h:
 
 /opt/ros/humble/include/rclcpp/rclcpp/wait_set_policies/static_storage.hpp:
 
@@ -1328,8 +1086,6 @@ CMakeFiles/shoot_node.dir/src/shoot.cpp.o: /home/tdt/tool/ros/src/shoot/src/shoo
 
 /opt/ros/humble/include/rcl_yaml_param_parser/rcl_yaml_param_parser/visibility_control.h:
 
-/usr/lib/gcc/x86_64-linux-gnu/11/include/vpclmulqdqintrin.h:
-
 /opt/ros/humble/include/rcl_interfaces/rcl_interfaces/srv/set_parameters_atomically.hpp:
 
 /opt/ros/humble/include/rcl_interfaces/rcl_interfaces/srv/detail/set_parameters__struct.hpp:
@@ -1343,8 +1099,6 @@ CMakeFiles/shoot_node.dir/src/shoot.cpp.o: /home/tdt/tool/ros/src/shoot/src/shoo
 /opt/ros/humble/include/rcl_interfaces/rcl_interfaces/srv/list_parameters.hpp:
 
 /opt/ros/humble/include/rcl_interfaces/rcl_interfaces/srv/detail/get_parameters__type_support.hpp:
-
-/usr/include/SDL2/SDL_gesture.h:
 
 /opt/ros/humble/include/rcl_interfaces/rcl_interfaces/srv/detail/get_parameters__traits.hpp:
 
@@ -1382,8 +1136,6 @@ CMakeFiles/shoot_node.dir/src/shoot.cpp.o: /home/tdt/tool/ros/src/shoot/src/shoo
 
 /opt/ros/humble/include/rclcpp/rclcpp/create_subscription.hpp:
 
-/usr/include/SDL2/SDL_haptic.h:
-
 /opt/ros/humble/include/rclcpp/rclcpp/create_service.hpp:
 
 /opt/ros/humble/include/rclcpp/rclcpp/node_interfaces/node_parameters_interface_traits.hpp:
@@ -1395,8 +1147,6 @@ CMakeFiles/shoot_node.dir/src/shoot.cpp.o: /home/tdt/tool/ros/src/shoot/src/shoo
 /opt/ros/humble/include/rclcpp/rclcpp/create_publisher.hpp:
 
 /opt/ros/humble/include/rclcpp/rclcpp/node_options.hpp:
-
-/usr/lib/gcc/x86_64-linux-gnu/11/include/tsxldtrkintrin.h:
 
 /opt/ros/humble/include/std_msgs/std_msgs/msg/detail/header__traits.hpp:
 
@@ -1427,8 +1177,6 @@ CMakeFiles/shoot_node.dir/src/shoot.cpp.o: /home/tdt/tool/ros/src/shoot/src/shoo
 /opt/ros/humble/include/rclcpp/rclcpp/node_interfaces/node_clock_interface.hpp:
 
 /opt/ros/humble/include/rclcpp/rclcpp/generic_subscription.hpp:
-
-/usr/include/SDL2/SDL_error.h:
 
 /opt/ros/humble/include/rclcpp/rclcpp/subscription_factory.hpp:
 
@@ -1464,11 +1212,11 @@ CMakeFiles/shoot_node.dir/src/shoot.cpp.o: /home/tdt/tool/ros/src/shoot/src/shoo
 
 /opt/ros/humble/include/rcl_interfaces/rcl_interfaces/msg/detail/list_parameters_result__struct.hpp:
 
-/usr/lib/gcc/x86_64-linux-gnu/11/include/fxsrintrin.h:
-
 /home/tdt/tool/OpenCv/1.0/opencv-4.7.0/modules/core/include/opencv2/core/saturate.hpp:
 
 /opt/ros/humble/include/rcl_interfaces/rcl_interfaces/msg/list_parameters_result.hpp:
+
+/opt/ros/humble/include/std_msgs/std_msgs/msg/detail/float32_multi_array__builder.hpp:
 
 /opt/ros/humble/include/rclcpp/rclcpp/node.hpp:
 
@@ -1586,10 +1334,6 @@ CMakeFiles/shoot_node.dir/src/shoot.cpp.o: /home/tdt/tool/ros/src/shoot/src/shoo
 
 /usr/include/x86_64-linux-gnu/c++/11/bits/os_defines.h:
 
-/usr/lib/gcc/x86_64-linux-gnu/11/include/lwpintrin.h:
-
-/usr/include/SDL2/SDL_main.h:
-
 /usr/include/c++/11/bits/exception_defines.h:
 
 /home/tdt/tool/OpenCv/1.0/opencv-4.7.0/modules/core/include/opencv2/core/mat.hpp:
@@ -1604,11 +1348,7 @@ CMakeFiles/shoot_node.dir/src/shoot.cpp.o: /home/tdt/tool/ros/src/shoot/src/shoo
 
 /usr/include/x86_64-linux-gnu/bits/types/stack_t.h:
 
-/usr/include/SDL2/SDL_metal.h:
-
 /usr/include/x86_64-linux-gnu/bits/types/sigval_t.h:
-
-/usr/include/SDL2/SDL_loadso.h:
 
 /usr/include/x86_64-linux-gnu/bits/types/siginfo_t.h:
 
@@ -1637,6 +1377,8 @@ CMakeFiles/shoot_node.dir/src/shoot.cpp.o: /home/tdt/tool/ros/src/shoot/src/shoo
 /opt/ros/humble/include/rclcpp/rclcpp/topic_statistics_state.hpp:
 
 /usr/include/c++/11/bits/vector.tcc:
+
+/opt/ros/humble/include/std_msgs/std_msgs/msg/detail/float32_multi_array__traits.hpp:
 
 /usr/include/c++/11/bits/stl_bvector.h:
 
@@ -1704,9 +1446,9 @@ CMakeFiles/shoot_node.dir/src/shoot.cpp.o: /home/tdt/tool/ros/src/shoot/src/shoo
 
 /usr/include/c++/11/tr1/beta_function.tcc:
 
-/usr/include/SDL2/SDL_keyboard.h:
-
 /usr/include/c++/11/bits/stl_heap.h:
+
+/opt/ros/humble/include/std_msgs/std_msgs/msg/detail/multi_array_layout__struct.hpp:
 
 /opt/ros/humble/include/rcpputils/rcpputils/pointer_traits.hpp:
 
@@ -1718,19 +1460,13 @@ CMakeFiles/shoot_node.dir/src/shoot.cpp.o: /home/tdt/tool/ros/src/shoot/src/shoo
 
 /usr/include/c++/11/bits/stl_algo.h:
 
-/usr/lib/gcc/x86_64-linux-gnu/11/include/avx512pfintrin.h:
-
 /usr/include/c++/11/bits/stl_relops.h:
-
-/usr/include/SDL2/SDL.h:
 
 /usr/include/x86_64-linux-gnu/bits/sigaction.h:
 
 /usr/include/c++/11/bits/basic_string.tcc:
 
 /opt/ros/humble/include/rcutils/rcutils/logging_macros.h:
-
-/usr/lib/gcc/x86_64-linux-gnu/11/include/hresetintrin.h:
 
 /home/tdt/tool/OpenCv/1.0/opencv-4.7.0/modules/core/include/opencv2/core/cuda.hpp:
 
@@ -1745,8 +1481,6 @@ CMakeFiles/shoot_node.dir/src/shoot.cpp.o: /home/tdt/tool/ros/src/shoot/src/shoo
 /usr/include/x86_64-linux-gnu/bits/types/__sigval_t.h:
 
 /usr/include/c++/11/cerrno:
-
-/usr/lib/gcc/x86_64-linux-gnu/11/include/avx512vlbwintrin.h:
 
 /usr/include/x86_64-linux-gnu/bits/types/cookie_io_functions_t.h:
 
@@ -1777,8 +1511,6 @@ CMakeFiles/shoot_node.dir/src/shoot.cpp.o: /home/tdt/tool/ros/src/shoot/src/shoo
 /usr/include/c++/11/unordered_map:
 
 /usr/include/c++/11/cctype:
-
-/usr/lib/gcc/x86_64-linux-gnu/11/include/clwbintrin.h:
 
 /usr/include/c++/11/iomanip:
 
@@ -1840,8 +1572,6 @@ CMakeFiles/shoot_node.dir/src/shoot.cpp.o: /home/tdt/tool/ros/src/shoot/src/shoo
 
 /usr/include/x86_64-linux-gnu/bits/struct_mutex.h:
 
-/usr/lib/gcc/x86_64-linux-gnu/11/include/xtestintrin.h:
-
 /home/tdt/tool/OpenCv/1.0/opencv-4.7.0/modules/core/include/opencv2/core/cvstd.hpp:
 
 /usr/include/c++/11/bits/concept_check.h:
@@ -1864,8 +1594,6 @@ CMakeFiles/shoot_node.dir/src/shoot.cpp.o: /home/tdt/tool/ros/src/shoot/src/shoo
 
 /usr/include/c++/11/bits/stl_construct.h:
 
-/usr/include/SDL2/SDL_locale.h:
-
 /usr/include/x86_64-linux-gnu/bits/siginfo-consts-arch.h:
 
 /usr/include/c++/11/tr1/special_function_util.h:
@@ -1873,8 +1601,6 @@ CMakeFiles/shoot_node.dir/src/shoot.cpp.o: /home/tdt/tool/ros/src/shoot/src/shoo
 /usr/include/x86_64-linux-gnu/bits/byteswap.h:
 
 /home/tdt/tool/ros/install/my_msgs/include/my_msgs/my_msgs/msg/detail/send_data__traits.hpp:
-
-/usr/lib/gcc/x86_64-linux-gnu/11/include/popcntintrin.h:
 
 /usr/include/x86_64-linux-gnu/sys/cdefs.h:
 
@@ -1918,8 +1644,6 @@ CMakeFiles/shoot_node.dir/src/shoot.cpp.o: /home/tdt/tool/ros/src/shoot/src/shoo
 
 /usr/include/x86_64-linux-gnu/bits/timex.h:
 
-/usr/lib/gcc/x86_64-linux-gnu/11/include/amxbf16intrin.h:
-
 /usr/include/x86_64-linux-gnu/bits/stdio_lim.h:
 
 /opt/ros/humble/include/rcl/rcl/graph.h:
@@ -1931,8 +1655,6 @@ CMakeFiles/shoot_node.dir/src/shoot.cpp.o: /home/tdt/tool/ros/src/shoot/src/shoo
 /opt/ros/humble/include/rcl_interfaces/rcl_interfaces/msg/detail/parameter_value__traits.hpp:
 
 /usr/include/c++/11/functional:
-
-/usr/lib/gcc/x86_64-linux-gnu/11/include/enqcmdintrin.h:
 
 /usr/include/x86_64-linux-gnu/bits/pthread_stack_min-dynamic.h:
 
@@ -1946,8 +1668,6 @@ CMakeFiles/shoot_node.dir/src/shoot.cpp.o: /home/tdt/tool/ros/src/shoot/src/shoo
 
 /usr/include/x86_64-linux-gnu/bits/stdint-intn.h:
 
-/usr/include/SDL2/close_code.h:
-
 /usr/include/errno.h:
 
 /opt/ros/humble/include/rcl/rcl/allocator.h:
@@ -1960,9 +1680,9 @@ CMakeFiles/shoot_node.dir/src/shoot.cpp.o: /home/tdt/tool/ros/src/shoot/src/shoo
 
 /usr/include/unistd.h:
 
-/usr/lib/gcc/x86_64-linux-gnu/11/include/amxint8intrin.h:
-
 /usr/include/c++/11/bits/stl_algobase.h:
+
+/opt/ros/humble/include/geometry_msgs/geometry_msgs/msg/detail/point__type_support.hpp:
 
 /usr/include/x86_64-linux-gnu/sys/select.h:
 
@@ -1977,8 +1697,6 @@ CMakeFiles/shoot_node.dir/src/shoot.cpp.o: /home/tdt/tool/ros/src/shoot/src/shoo
 /usr/include/x86_64-linux-gnu/bits/uintn-identity.h:
 
 /usr/include/c++/11/iostream:
-
-/usr/lib/gcc/x86_64-linux-gnu/11/include/xsavesintrin.h:
 
 /usr/include/x86_64-linux-gnu/bits/fp-fast.h:
 
@@ -2004,8 +1722,6 @@ CMakeFiles/shoot_node.dir/src/shoot.cpp.o: /home/tdt/tool/ros/src/shoot/src/shoo
 
 /usr/include/c++/11/tr1/gamma.tcc:
 
-/usr/include/SDL2/SDL_filesystem.h:
-
 /usr/include/x86_64-linux-gnu/bits/confname.h:
 
 /usr/include/x86_64-linux-gnu/bits/siginfo-arch.h:
@@ -2022,8 +1738,6 @@ CMakeFiles/shoot_node.dir/src/shoot.cpp.o: /home/tdt/tool/ros/src/shoot/src/shoo
 
 /opt/ros/humble/include/rcutils/rcutils/allocator.h:
 
-/usr/include/SDL2/SDL_pixels.h:
-
 /home/tdt/tool/OpenCv/1.0/opencv-4.7.0/modules/core/include/opencv2/core/core.hpp:
 
 /usr/include/c++/11/system_error:
@@ -2031,8 +1745,6 @@ CMakeFiles/shoot_node.dir/src/shoot.cpp.o: /home/tdt/tool/ros/src/shoot/src/shoo
 /usr/include/features-time64.h:
 
 /usr/include/x86_64-linux-gnu/bits/types/locale_t.h:
-
-/usr/include/SDL2/SDL_touch.h:
 
 /usr/include/c++/11/bits/stl_numeric.h:
 
@@ -2042,8 +1754,6 @@ CMakeFiles/shoot_node.dir/src/shoot.cpp.o: /home/tdt/tool/ros/src/shoot/src/shoo
 
 /opt/ros/humble/include/rcpputils/rcpputils/join.hpp:
 
-/usr/include/SDL2/SDL_log.h:
-
 /opt/ros/humble/include/rclcpp/rclcpp/experimental/buffers/intra_process_buffer.hpp:
 
 /usr/include/c++/11/string:
@@ -2051,6 +1761,8 @@ CMakeFiles/shoot_node.dir/src/shoot.cpp.o: /home/tdt/tool/ros/src/shoot/src/shoo
 /usr/include/c++/11/bits/std_thread.h:
 
 /opt/ros/humble/include/rcl_interfaces/rcl_interfaces/msg/rosidl_generator_cpp__visibility_control.hpp:
+
+/opt/ros/humble/include/std_msgs/std_msgs/msg/detail/float32_multi_array__type_support.hpp:
 
 /opt/ros/humble/include/rcl_interfaces/rcl_interfaces/srv/detail/describe_parameters__struct.hpp:
 
@@ -2072,8 +1784,6 @@ CMakeFiles/shoot_node.dir/src/shoot.cpp.o: /home/tdt/tool/ros/src/shoot/src/shoo
 
 /opt/ros/humble/include/rclcpp/rclcpp/executors.hpp:
 
-/usr/lib/gcc/x86_64-linux-gnu/11/include/xsaveintrin.h:
-
 /usr/include/c++/11/bits/stringfwd.h:
 
 /usr/include/x86_64-linux-gnu/bits/types/struct_tm.h:
@@ -2090,8 +1800,6 @@ CMakeFiles/shoot_node.dir/src/shoot.cpp.o: /home/tdt/tool/ros/src/shoot/src/shoo
 
 /usr/include/asm-generic/errno-base.h:
 
-/usr/lib/gcc/x86_64-linux-gnu/11/include/tmmintrin.h:
-
 /opt/ros/humble/include/rmw/rmw/subscription_options.h:
 
 /usr/include/c++/11/bits/allocator.h:
@@ -2103,8 +1811,6 @@ CMakeFiles/shoot_node.dir/src/shoot.cpp.o: /home/tdt/tool/ros/src/shoot/src/shoo
 /home/tdt/tool/OpenCv/1.0/opencv-4.7.0/modules/core/include/opencv2/core/fast_math.hpp:
 
 /usr/include/c++/11/pstl/pstl_config.h:
-
-/usr/lib/gcc/x86_64-linux-gnu/11/include/waitpkgintrin.h:
 
 /usr/include/x86_64-linux-gnu/sys/single_threaded.h:
 
@@ -2135,10 +1841,6 @@ CMakeFiles/shoot_node.dir/src/shoot.cpp.o: /home/tdt/tool/ros/src/shoot/src/shoo
 /usr/lib/gcc/x86_64-linux-gnu/11/include/stdint.h:
 
 /opt/ros/humble/include/rclcpp/rclcpp/serialized_message.hpp:
-
-/usr/lib/gcc/x86_64-linux-gnu/11/include/fmaintrin.h:
-
-/usr/lib/gcc/x86_64-linux-gnu/11/include/avx512erintrin.h:
 
 /usr/include/c++/11/cwchar:
 
@@ -2182,8 +1884,6 @@ CMakeFiles/shoot_node.dir/src/shoot.cpp.o: /home/tdt/tool/ros/src/shoot/src/shoo
 
 /usr/include/c++/11/atomic:
 
-/usr/include/SDL2/SDL_shape.h:
-
 /opt/ros/humble/include/rcl_interfaces/rcl_interfaces/srv/detail/set_parameters_atomically__traits.hpp:
 
 /usr/include/x86_64-linux-gnu/c++/11/bits/atomic_word.h:
@@ -2220,8 +1920,6 @@ CMakeFiles/shoot_node.dir/src/shoot.cpp.o: /home/tdt/tool/ros/src/shoot/src/shoo
 
 /usr/include/x86_64-linux-gnu/bits/waitflags.h:
 
-/usr/lib/gcc/x86_64-linux-gnu/11/include/avx512bwintrin.h:
-
 /opt/ros/humble/include/rclcpp/rclcpp/callback_group.hpp:
 
 /usr/include/locale.h:
@@ -2248,8 +1946,6 @@ CMakeFiles/shoot_node.dir/src/shoot.cpp.o: /home/tdt/tool/ros/src/shoot/src/shoo
 
 /usr/include/c++/11/bits/basic_string.h:
 
-/usr/lib/gcc/x86_64-linux-gnu/11/include/amxtileintrin.h:
-
 /usr/include/c++/11/bits/shared_ptr_base.h:
 
 /usr/include/c++/11/ext/concurrence.h:
@@ -2271,8 +1967,6 @@ CMakeFiles/shoot_node.dir/src/shoot.cpp.o: /home/tdt/tool/ros/src/shoot/src/shoo
 /usr/include/c++/11/ext/atomicity.h:
 
 /opt/ros/humble/include/rcl/rcl/types.h:
-
-/usr/include/SDL2/SDL_rect.h:
 
 /usr/include/c++/11/mutex:
 
@@ -2332,8 +2026,6 @@ CMakeFiles/shoot_node.dir/src/shoot.cpp.o: /home/tdt/tool/ros/src/shoot/src/shoo
 
 /usr/include/c++/11/bits/locale_classes.tcc:
 
-/usr/include/SDL2/SDL_endian.h:
-
 /usr/include/c++/11/streambuf:
 
 /usr/include/c++/11/bits/stl_iterator_base_funcs.h:
@@ -2352,13 +2044,13 @@ CMakeFiles/shoot_node.dir/src/shoot.cpp.o: /home/tdt/tool/ros/src/shoot/src/shoo
 
 /opt/ros/humble/include/rclcpp/rclcpp/context.hpp:
 
-/usr/lib/gcc/x86_64-linux-gnu/11/include/avx512vp2intersectvlintrin.h:
-
 /usr/include/c++/11/bits/streambuf_iterator.h:
 
 /usr/include/x86_64-linux-gnu/c++/11/bits/ctype_inline.h:
 
 /usr/include/c++/11/istream:
+
+/opt/ros/humble/include/geometry_msgs/geometry_msgs/msg/detail/point__struct.hpp:
 
 /usr/include/c++/11/bits/istream.tcc:
 
@@ -2376,8 +2068,6 @@ CMakeFiles/shoot_node.dir/src/shoot.cpp.o: /home/tdt/tool/ros/src/shoot/src/shoo
 
 /usr/include/c++/11/map:
 
-/usr/include/SDL2/SDL_mouse.h:
-
 /opt/ros/humble/include/rosidl_runtime_cpp/rosidl_runtime_cpp/message_initialization.hpp:
 
 /usr/include/c++/11/bits/stl_map.h:
@@ -2387,10 +2077,6 @@ CMakeFiles/shoot_node.dir/src/shoot.cpp.o: /home/tdt/tool/ros/src/shoot/src/shoo
 /opt/ros/humble/include/rclcpp/rclcpp/node_interfaces/node_topics_interface_traits.hpp:
 
 /opt/ros/humble/include/rcl/rcl/guard_condition.h:
-
-/usr/lib/gcc/x86_64-linux-gnu/11/include/avx512vldqintrin.h:
-
-/usr/include/SDL2/SDL_assert.h:
 
 /usr/lib/gcc/x86_64-linux-gnu/11/include/stdbool.h:
 
@@ -2422,8 +2108,6 @@ CMakeFiles/shoot_node.dir/src/shoot.cpp.o: /home/tdt/tool/ros/src/shoot/src/shoo
 
 /opt/ros/humble/include/rclcpp/rclcpp/network_flow_endpoint.hpp:
 
-/usr/lib/gcc/x86_64-linux-gnu/11/include/avx512bf16intrin.h:
-
 /opt/ros/humble/include/rmw/rmw/init_options.h:
 
 /opt/ros/humble/include/rmw/rmw/domain_id.h:
@@ -2437,8 +2121,6 @@ CMakeFiles/shoot_node.dir/src/shoot.cpp.o: /home/tdt/tool/ros/src/shoot/src/shoo
 /opt/ros/humble/include/rmw/rmw/visibility_control.h:
 
 /opt/ros/humble/include/rmw/rmw/macros.h:
-
-/usr/lib/gcc/x86_64-linux-gnu/11/include/avx512ifmavlintrin.h:
 
 /opt/ros/humble/include/libstatistics_collector/libstatistics_collector/moving_average_statistics/moving_average.hpp:
 
@@ -2472,15 +2154,11 @@ CMakeFiles/shoot_node.dir/src/shoot.cpp.o: /home/tdt/tool/ros/src/shoot/src/shoo
 
 /opt/ros/humble/include/rcutils/rcutils/types.h:
 
-/usr/include/SDL2/SDL_sensor.h:
-
 /opt/ros/humble/include/rclcpp/rclcpp/detail/resolve_enable_topic_statistics.hpp:
 
 /opt/ros/humble/include/statistics_msgs/statistics_msgs/msg/rosidl_generator_cpp__visibility_control.hpp:
 
 /opt/ros/humble/include/rcutils/rcutils/types/char_array.h:
-
-/usr/include/SDL2/SDL_scancode.h:
 
 /usr/include/c++/11/variant:
 
@@ -2532,8 +2210,6 @@ CMakeFiles/shoot_node.dir/src/shoot.cpp.o: /home/tdt/tool/ros/src/shoot/src/shoo
 
 /opt/ros/humble/include/rmw/rmw/events_statuses/offered_deadline_missed.h:
 
-/usr/lib/gcc/x86_64-linux-gnu/11/include/xsaveoptintrin.h:
-
 /opt/ros/humble/include/rclcpp/rclcpp/memory_strategies.hpp:
 
 /opt/ros/humble/include/rmw/rmw/events_statuses/requested_deadline_missed.h:
@@ -2543,8 +2219,6 @@ CMakeFiles/shoot_node.dir/src/shoot.cpp.o: /home/tdt/tool/ros/src/shoot/src/shoo
 /opt/ros/humble/include/rcl/rcl/visibility_control.h:
 
 /opt/ros/humble/include/rclcpp/rclcpp/service.hpp:
-
-/usr/lib/gcc/x86_64-linux-gnu/11/include/avx512dqintrin.h:
 
 /usr/include/c++/11/bits/allocated_ptr.h:
 
@@ -2557,8 +2231,6 @@ CMakeFiles/shoot_node.dir/src/shoot.cpp.o: /home/tdt/tool/ros/src/shoot/src/shoo
 /usr/include/c++/11/bits/locale_facets.tcc:
 
 /usr/lib/gcc/x86_64-linux-gnu/11/include/stdalign.h:
-
-/usr/lib/gcc/x86_64-linux-gnu/11/include/avx512vbmivlintrin.h:
 
 /opt/ros/humble/include/rcl/rcl/wait.h:
 
@@ -2614,8 +2286,6 @@ CMakeFiles/shoot_node.dir/src/shoot.cpp.o: /home/tdt/tool/ros/src/shoot/src/shoo
 
 /opt/ros/humble/include/rcpputils/rcpputils/scope_exit.hpp:
 
-/usr/include/SDL2/SDL_power.h:
-
 /opt/ros/humble/include/rclcpp/rclcpp/memory_strategy.hpp:
 
 /usr/include/c++/11/bits/stl_vector.h:
@@ -2627,8 +2297,6 @@ CMakeFiles/shoot_node.dir/src/shoot.cpp.o: /home/tdt/tool/ros/src/shoot/src/shoo
 /opt/ros/humble/include/rcl/rcl/event_callback.h:
 
 /opt/ros/humble/include/tracetools/tracetools/tracetools.h:
-
-/usr/lib/gcc/x86_64-linux-gnu/11/include/rtmintrin.h:
 
 /opt/ros/humble/include/rcl_interfaces/rcl_interfaces/msg/detail/parameter_descriptor__builder.hpp:
 
@@ -2666,8 +2334,6 @@ CMakeFiles/shoot_node.dir/src/shoot.cpp.o: /home/tdt/tool/ros/src/shoot/src/shoo
 
 /opt/ros/humble/include/rclcpp/rclcpp/exceptions/exceptions.hpp:
 
-/usr/lib/gcc/x86_64-linux-gnu/11/include/pmmintrin.h:
-
 /opt/ros/humble/include/rclcpp/rclcpp/expand_topic_or_service_name.hpp:
 
 /usr/include/c++/11/tr1/hypergeometric.tcc:
@@ -2685,8 +2351,6 @@ CMakeFiles/shoot_node.dir/src/shoot.cpp.o: /home/tdt/tool/ros/src/shoot/src/shoo
 /opt/ros/humble/include/rclcpp/rclcpp/logger.hpp:
 
 /opt/ros/humble/include/builtin_interfaces/builtin_interfaces/msg/detail/time__type_support.hpp:
-
-/usr/include/SDL2/SDL_atomic.h:
 
 /home/tdt/tool/OpenCv/1.0/opencv-4.7.0/modules/imgproc/include/opencv2/imgproc/types_c.h:
 
@@ -2719,8 +2383,6 @@ CMakeFiles/shoot_node.dir/src/shoot.cpp.o: /home/tdt/tool/ros/src/shoot/src/shoo
 /opt/ros/humble/include/builtin_interfaces/builtin_interfaces/msg/duration.hpp:
 
 /home/tdt/tool/ros/install/tdt_interface/include/tdt_interface/tdt_interface/msg/detail/send_data__traits.hpp:
-
-/usr/include/SDL2/SDL_hints.h:
 
 /opt/ros/humble/include/sensor_msgs/sensor_msgs/msg/detail/compressed_image__type_support.hpp:
 
@@ -2772,8 +2434,6 @@ CMakeFiles/shoot_node.dir/src/shoot.cpp.o: /home/tdt/tool/ros/src/shoot/src/shoo
 
 /opt/ros/humble/include/rcl/rcl/logging_rosout.h:
 
-/usr/lib/gcc/x86_64-linux-gnu/11/include/pconfigintrin.h:
-
 /home/tdt/tool/OpenCv/1.0/opencv-4.7.0/modules/objdetect/include/opencv2/objdetect/charuco_detector.hpp:
 
 /opt/ros/humble/include/rclcpp/rclcpp/exceptions.hpp:
@@ -2785,8 +2445,6 @@ CMakeFiles/shoot_node.dir/src/shoot.cpp.o: /home/tdt/tool/ros/src/shoot/src/shoo
 /usr/include/alloca.h:
 
 /opt/ros/humble/include/rclcpp/rclcpp/publisher_base.hpp:
-
-/usr/lib/gcc/x86_64-linux-gnu/11/include/lzcntintrin.h:
 
 /opt/ros/humble/include/rmw/rmw/network_flow_endpoint.h:
 
@@ -2820,13 +2478,9 @@ CMakeFiles/shoot_node.dir/src/shoot.cpp.o: /home/tdt/tool/ros/src/shoot/src/shoo
 
 /opt/ros/humble/include/rclcpp/rclcpp/subscription_base.hpp:
 
-/usr/include/SDL2/SDL_gamecontroller.h:
-
 /opt/ros/humble/include/rclcpp/rclcpp/any_subscription_callback.hpp:
 
 /opt/ros/humble/include/rclcpp/rclcpp/message_info.hpp:
-
-/usr/lib/gcc/x86_64-linux-gnu/11/include/serializeintrin.h:
 
 /opt/ros/humble/include/rcl_interfaces/rcl_interfaces/srv/detail/set_parameters_atomically__builder.hpp:
 
@@ -2855,6 +2509,8 @@ CMakeFiles/shoot_node.dir/src/shoot.cpp.o: /home/tdt/tool/ros/src/shoot/src/shoo
 /opt/ros/humble/include/rclcpp/rclcpp/experimental/subscription_intra_process_buffer.hpp:
 
 /opt/ros/humble/include/rclcpp/rclcpp/experimental/create_intra_process_buffer.hpp:
+
+/opt/ros/humble/include/std_msgs/std_msgs/msg/detail/multi_array_dimension__traits.hpp:
 
 /opt/ros/humble/include/builtin_interfaces/builtin_interfaces/msg/detail/time__struct.hpp:
 
@@ -2911,8 +2567,6 @@ CMakeFiles/shoot_node.dir/src/shoot.cpp.o: /home/tdt/tool/ros/src/shoot/src/shoo
 /opt/ros/humble/include/rcl/rcl/error_handling.h:
 
 /usr/include/c++/11/tr1/exp_integral.tcc:
-
-/usr/include/SDL2/SDL_rwops.h:
 
 /usr/include/c++/11/tr1/modified_bessel_func.tcc:
 

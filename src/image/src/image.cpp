@@ -1,7 +1,6 @@
 #include <string>
 #include <algorithm>
 #include "rclcpp/rclcpp.hpp"
-#include "my_msgs/msg/msg1.hpp"
 #include <opencv2/opencv.hpp>
 #include <cv_bridge/cv_bridge.h>
 #include "sensor_msgs/image_encodings.hpp"
@@ -16,7 +15,6 @@ class image:public rclcpp::Node{
         window_name_ = "T-DT_CampusGame_2025";
         capture_rate_ = 80; 
         // this->declare_parameter<double>("publish_frequency", 2.0);
-        // publisher_ = this->create_publisher<my_msgs::msg::Msg1>("unity_camera_image", 10);
         publisher_ = this->create_publisher<sensor_msgs::msg::Image>("unity_camera_image", 10);
         timer_ = this->create_wall_timer(
             std::chrono::milliseconds(1000 / capture_rate_),
@@ -25,14 +23,14 @@ class image:public rclcpp::Node{
         RCLCPP_INFO(this->get_logger(), "查找窗口名称包含 '%s' 的窗口", window_name_.c_str());
         RCLCPP_INFO(this->get_logger(), "显示频率: %d FPS", capture_rate_);
         RCLCPP_INFO(this->get_logger(), "发布话题: unity_camera_image");
-        cv::namedWindow("Unity Game Viewer", cv::WINDOW_AUTOSIZE);
+        //cv::namedWindow("Unity Game Viewer", cv::WINDOW_AUTOSIZE);
     }
     private:
         void captureAndDisplay(){  // 定时器回调函数：每12.5ms执行一次
             cv::Mat screenshot = captureUnityWindow();//捕获Unity窗口
             if (!screenshot.empty()){
-                cv::imshow("Unity Game Viewer", screenshot);// 显示图像
-                cv::waitKey(1);  // 必须调用waitKey来刷新显示
+                //cv::imshow("Unity Game Viewer", screenshot);// 显示图像
+                //cv::waitKey(1);  // 必须调用waitKey来刷新显示
 
                 // 发布图像消息
                 sensor_msgs::msg::Image::SharedPtr msg = 
@@ -162,6 +160,6 @@ class image:public rclcpp::Node{
 int main(int argc,char*argv[]){
     rclcpp::init(argc, argv);
     rclcpp::spin(std::make_shared<image>());
-    cv::destroyAllWindows();
+    //cv::destroyAllWindows();
     rclcpp::shutdown();
 }
