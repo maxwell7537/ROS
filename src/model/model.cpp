@@ -96,8 +96,12 @@ private:
             // 发布检测结果
             publish_detection_result(detection_result);
             
+            
+            //灯条二值化和原图
+            // detector_light_.debugShowBinary(frame);
+
             // 显示图像
-            // display_debug_image(frame, detection_result);
+            //display_debug_image(frame, detection_result);
             
         } catch (const cv_bridge::Exception& e) {
             RCLCPP_ERROR(this->get_logger(), "cv_bridge异常: %s", e.what());
@@ -131,7 +135,7 @@ private:
                 
                 Mat small_mat = frame(roi);
                 vector<LightBar> lightBars = detector_light_.detect(small_mat);
-                
+                // detector_light_.drawResults(frame, lightBars);
                 if(!lightBars.empty()) {
                     int lightCount = min((int)lightBars.size(), 100);
                     
@@ -146,6 +150,8 @@ private:
                         lights_a[i].id = i;
                         lights_a[i].dis = sqrt((lights_a[i].p.x - robCenter.x) * (lights_a[i].p.x - robCenter.x) + 
                                               (lights_a[i].p.y - robCenter.y) * (lights_a[i].p.y - robCenter.y));    
+                        //显示检测到的等条中心点
+                        //circle(frame, Point(lb.center.x + roi.x, lb.center.y + roi.y), 3, Scalar(0, 255, 0), -1);
                     }
                     
                     sort(lights_a, lights_a + lightCount, cmp);
@@ -244,33 +250,33 @@ private:
         }
     }
     
-    // void display_debug_image(Mat& frame, const DetectionResult& result) {
-    //     // 绘制检测框
-    //     if(!result.bounding_box.empty()) {
-    //         rectangle(frame, result.bounding_box, Scalar(0, 255, 0), 2);
-    //         string label = format("Rob: %.2f", result.confidence);
-    //         putText(frame, label, Point(result.bounding_box.x, result.bounding_box.y - 10), 
-    //                FONT_HERSHEY_SIMPLEX, 0.5, Scalar(0, 255, 0), 1);
-    //     }
+    void display_debug_image(Mat& frame, const DetectionResult& result) {
+        // 绘制检测框
+        // if(!result.bounding_box.empty()) {
+        //     rectangle(frame, result.bounding_box, Scalar(0, 255, 0), 2);
+        //     string label = format("Rob: %.2f", result.confidence);
+        //     putText(frame, label, Point(result.bounding_box.x, result.bounding_box.y - 10), 
+        //            FONT_HERSHEY_SIMPLEX, 0.5, Scalar(0, 255, 0), 1);
+        // }
         
-    //     // 绘制中心点
-    //     circle(frame, result.pixel_position, 5, Scalar(0, 0, 255), -1);
+        // // 绘制中心点
+        // circle(frame, result.pixel_position, 5, Scalar(0, 0, 255), -1);
         
-    //     // 绘制轨迹
-    //     for(size_t i = 1; i < trajectory_.size(); i++) {
-    //         line(frame, trajectory_[i-1], trajectory_[i], Scalar(255, 0, 0), 2);
-    //     }
+        // 绘制轨迹
+        // for(size_t i = 1; i < trajectory_.size(); i++) {
+        //     line(frame, trajectory_[i-1], trajectory_[i], Scalar(255, 0, 0), 2);
+        // }
         
-    //     // 显示距离信息
-    //     if(result.distance > 0) {
-    //         string info = format("Distance: %.2f", result.distance);
-    //         putText(frame, info, Point(10, frame.rows - 20), 
-    //                 FONT_HERSHEY_SIMPLEX, 0.7, Scalar(0,255,255), 2);
-    //     }
+        // 显示距离信息
+        // if(result.distance > 0) {
+        //     string info = format("Distance: %.2f", result.distance);
+        //     putText(frame, info, Point(10, frame.rows - 20), 
+        //             FONT_HERSHEY_SIMPLEX, 0.7, Scalar(0,255,255), 2);
+        // }
         
-    //     imshow("Rob Detection", frame);
-    //     waitKey(1);
-    // }
+        imshow("Rob Detection", frame);
+        waitKey(1);
+    }
 
 private:
     // 检测器

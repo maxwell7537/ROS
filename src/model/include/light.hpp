@@ -45,6 +45,7 @@ public:
     std::vector<LightBar> nonMaximumSuppression(const std::vector<LightBar>& lightBars, double overlapThreshold = 0.3);
     double calculateOverlap(const LightBar& lb1, const LightBar& lb2);
     void drawResults(cv::Mat& img, const std::vector<LightBar>& lightBars);
+    void debugShowBinary(const cv::Mat& src);
 };
 
 #endif // LIGHT_HPP

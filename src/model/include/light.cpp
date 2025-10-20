@@ -77,26 +77,67 @@ void LightBarDetector::setParams(int min_area, int max_area, double min_ar, doub
     brightnessThreshold = bright_thresh;
 }
 
+// cv::Mat LightBarDetector::preprocess(const cv::Mat& src) {
+//     cv::Mat gray, binary, hsv, brightness_mask;
+//     if (src.channels() == 3) {
+//         cv::cvtColor(src, gray, cv::COLOR_BGR2GRAY);
+//         cv::cvtColor(src, hsv, cv::COLOR_BGR2HSV);
+//         std::vector<cv::Mat> hsv_channels;
+//         cv::split(hsv, hsv_channels);
+//         cv::Mat v_channel = hsv_channels[2];
+//         cv::threshold(v_channel, brightness_mask, brightnessThreshold, 255, cv::THRESH_BINARY);
+//     } else {
+//         gray = src.clone();
+//         cv::threshold(gray, brightness_mask, brightnessThreshold, 255, cv::THRESH_BINARY);
+//     }
+//     cv::GaussianBlur(gray, gray, cv::Size(5, 5), 1.5);
+//     cv::adaptiveThreshold(gray, binary, 255, cv::ADAPTIVE_THRESH_GAUSSIAN_C, cv::THRESH_BINARY, 11, 2);
+//     cv::bitwise_and(binary, brightness_mask, binary);
+//     cv::Mat kernel_open = cv::getStructuringElement(cv::MORPH_RECT, cv::Size(2, 2));
+//     cv::Mat kernel_close = cv::getStructuringElement(cv::MORPH_RECT, cv::Size(3, 7));
+//     cv::morphologyEx(binary, binary, cv::MORPH_OPEN, kernel_open);
+//     cv::morphologyEx(binary, binary, cv::MORPH_CLOSE, kernel_close);
+//     return binary;
+// }
+
 cv::Mat LightBarDetector::preprocess(const cv::Mat& src) {
-    cv::Mat gray, binary, hsv, brightness_mask;
-    if (src.channels() == 3) {
-        cv::cvtColor(src, gray, cv::COLOR_BGR2GRAY);
-        cv::cvtColor(src, hsv, cv::COLOR_BGR2HSV);
-        std::vector<cv::Mat> hsv_channels;
-        cv::split(hsv, hsv_channels);
-        cv::Mat v_channel = hsv_channels[2];
-        cv::threshold(v_channel, brightness_mask, brightnessThreshold, 255, cv::THRESH_BINARY);
-    } else {
-        gray = src.clone();
-        cv::threshold(gray, brightness_mask, brightnessThreshold, 255, cv::THRESH_BINARY);
-    }
+    cv::Mat gray, binary, hsv;
+
+    // 1. 转换到 HSV 空间
+    cv::cvtColor(src, hsv, cv::COLOR_BGR2HSV);
+
+    // 2. 定义更宽但合理的红-橙色范围
+    cv::Mat color_mask;
+
+    // 主色调：红色到橙黄色（覆盖你提供的 2° ~ 34°）
+    // 映射到 OpenCV: H ∈ [1, 17] → 扩展为 [0, 25] 更鲁棒
+    // S ≥ 180（中等以上饱和度），V ≥ 180（较亮）
+    cv::Scalar lower_red_orange(0,   180, 180);  // H=0°  → 红
+    cv::Scalar upper_red_orange(25, 255, 255);  // H=50° → 橙黄（留余量）
+
+    cv::inRange(hsv, lower_red_orange, upper_red_orange, color_mask);
+
+    // 可选：补充一个低饱和但高亮的红色区域（用于过曝区域）
+    cv::Mat bright_mask;
+    cv::inRange(hsv, cv::Scalar(0, 50, 220), cv::Scalar(30, 180, 255), bright_mask);
+    cv::bitwise_or(color_mask, bright_mask, color_mask); // 合并：正常饱和 + 过曝区域
+
+    // 3. 转灰度图
+    cv::cvtColor(src, gray, cv::COLOR_BGR2GRAY);
     cv::GaussianBlur(gray, gray, cv::Size(5, 5), 1.5);
+
+    // 4. 自适应阈值
     cv::adaptiveThreshold(gray, binary, 255, cv::ADAPTIVE_THRESH_GAUSSIAN_C, cv::THRESH_BINARY, 11, 2);
-    cv::bitwise_and(binary, brightness_mask, binary);
+
+    // 5. 只保留“自适应二值化结果”中满足颜色的区域
+    cv::bitwise_and(binary, color_mask, binary);
+
+    // 6. 形态学操作
     cv::Mat kernel_open = cv::getStructuringElement(cv::MORPH_RECT, cv::Size(2, 2));
     cv::Mat kernel_close = cv::getStructuringElement(cv::MORPH_RECT, cv::Size(3, 7));
     cv::morphologyEx(binary, binary, cv::MORPH_OPEN, kernel_open);
     cv::morphologyEx(binary, binary, cv::MORPH_CLOSE, kernel_close);
+
     return binary;
 }
 
@@ -190,4 +231,10 @@ void LightBarDetector::drawResults(cv::Mat& img, const std::vector<LightBar>& li
         cv::putText(img, info, cv::Point(lightBar.center.x - 20, lightBar.center.y - 20),
                    cv::FONT_HERSHEY_SIMPLEX, 0.5, cv::Scalar(255, 255, 255), 1);
     }
+}
+void LightBarDetector::debugShowBinary(const cv::Mat& src) {
+    cv::imshow("Debug: Binary Image2", src);
+    cv::Mat binary = preprocess(src);
+    cv::imshow("Debug: Binary Image", binary);
+    cv::waitKey(1);
 }
