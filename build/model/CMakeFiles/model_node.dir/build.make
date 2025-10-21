@@ -141,7 +141,7 @@ model_node: CMakeFiles/model_node.dir/include/light.cpp.o
 model_node: CMakeFiles/model_node.dir/include/kalman_filter.cpp.o
 model_node: CMakeFiles/model_node.dir/build.make
 model_node: /opt/ros/humble/lib/librclcpp.so
-model_node: /home/tdt/tool/ros/install/cv_bridge/lib/libcv_bridge.so
+model_node: /opt/ros/humble/lib/libcv_bridge.so
 model_node: /usr/local/lib/libopencv_gapi.so.4.7.0
 model_node: /usr/local/lib/libopencv_highgui.so.4.7.0
 model_node: /usr/local/lib/libopencv_ml.so.4.7.0

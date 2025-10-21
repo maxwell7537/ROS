@@ -353,7 +353,7 @@ core_IS_TOP_LEVEL:STATIC=ON
 core_SOURCE_DIR:STATIC=/home/tdt/tool/ros/src/core
 
 //The directory containing a CMake configuration file for cv_bridge.
-cv_bridge_DIR:PATH=/home/tdt/tool/ros/install/cv_bridge/share/cv_bridge/cmake
+cv_bridge_DIR:PATH=/opt/ros/humble/share/cv_bridge/cmake
 
 //The directory containing a CMake configuration file for fastcdr.
 fastcdr_DIR:PATH=/opt/ros/humble/lib/cmake/fastcdr

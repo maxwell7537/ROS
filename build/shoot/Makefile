@@ -198,24 +198,38 @@ shoot_uninstall/fast:
 .PHONY : shoot_uninstall/fast
 
 #=============================================================================
-# Target rules for targets named shoot_node
+# Target rules for targets named shoot_pnp
 
 # Build rule for target.
-shoot_node: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 shoot_node
-.PHONY : shoot_node
+shoot_pnp: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 shoot_pnp
+.PHONY : shoot_pnp
 
 # fast build rule for target.
-shoot_node/fast:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/shoot_node.dir/build.make CMakeFiles/shoot_node.dir/build
-.PHONY : shoot_node/fast
+shoot_pnp/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/shoot_pnp.dir/build.make CMakeFiles/shoot_pnp.dir/build
+.PHONY : shoot_pnp/fast
+
+#=============================================================================
+# Target rules for targets named shoot_pixel
+
+# Build rule for target.
+shoot_pixel: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 shoot_pixel
+.PHONY : shoot_pixel
+
+# fast build rule for target.
+shoot_pixel/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/shoot_pixel.dir/build.make CMakeFiles/shoot_pixel.dir/build
+.PHONY : shoot_pixel/fast
 
 src/shoot.o: src/shoot.cpp.o
 .PHONY : src/shoot.o
 
 # target to build an object file
 src/shoot.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/shoot_node.dir/build.make CMakeFiles/shoot_node.dir/src/shoot.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/shoot_pnp.dir/build.make CMakeFiles/shoot_pnp.dir/src/shoot.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/shoot_pixel.dir/build.make CMakeFiles/shoot_pixel.dir/src/shoot.cpp.o
 .PHONY : src/shoot.cpp.o
 
 src/shoot.i: src/shoot.cpp.i
@@ -223,7 +237,8 @@ src/shoot.i: src/shoot.cpp.i
 
 # target to preprocess a source file
 src/shoot.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/shoot_node.dir/build.make CMakeFiles/shoot_node.dir/src/shoot.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/shoot_pnp.dir/build.make CMakeFiles/shoot_pnp.dir/src/shoot.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/shoot_pixel.dir/build.make CMakeFiles/shoot_pixel.dir/src/shoot.cpp.i
 .PHONY : src/shoot.cpp.i
 
 src/shoot.s: src/shoot.cpp.s
@@ -231,7 +246,8 @@ src/shoot.s: src/shoot.cpp.s
 
 # target to generate assembly for a file
 src/shoot.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/shoot_node.dir/build.make CMakeFiles/shoot_node.dir/src/shoot.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/shoot_pnp.dir/build.make CMakeFiles/shoot_pnp.dir/src/shoot.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/shoot_pixel.dir/build.make CMakeFiles/shoot_pixel.dir/src/shoot.cpp.s
 .PHONY : src/shoot.cpp.s
 
 # Help Target
@@ -249,7 +265,8 @@ help:
 	@echo "... test"
 	@echo "... shoot_uninstall"
 	@echo "... uninstall"
-	@echo "... shoot_node"
+	@echo "... shoot_pixel"
+	@echo "... shoot_pnp"
 	@echo "... src/shoot.o"
 	@echo "... src/shoot.i"
 	@echo "... src/shoot.s"

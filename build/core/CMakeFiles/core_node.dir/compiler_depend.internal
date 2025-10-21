@@ -709,7 +709,7 @@ CMakeFiles/core_node.dir/src/core.cpp.o
  /opt/ros/humble/include/std_msgs/std_msgs/msg/detail/header__traits.hpp
  /opt/ros/humble/include/sensor_msgs/sensor_msgs/msg/detail/image__type_support.hpp
  /opt/ros/humble/include/sensor_msgs/sensor_msgs/msg/rosidl_generator_cpp__visibility_control.hpp
- /home/tdt/tool/ros/install/cv_bridge/include/cv_bridge/cv_bridge/cv_bridge.h
+ /opt/ros/humble/include/cv_bridge/cv_bridge/cv_bridge.h
  /opt/ros/humble/include/sensor_msgs/sensor_msgs/msg/compressed_image.hpp
  /opt/ros/humble/include/sensor_msgs/sensor_msgs/msg/detail/compressed_image__struct.hpp
  /opt/ros/humble/include/sensor_msgs/sensor_msgs/msg/detail/compressed_image__builder.hpp
@@ -768,7 +768,7 @@ CMakeFiles/core_node.dir/src/core.cpp.o
  /home/tdt/tool/OpenCv/1.0/opencv-4.7.0/modules/imgproc/include/opencv2/imgproc/types_c.h
  /home/tdt/tool/OpenCv/1.0/opencv-4.7.0/modules/core/include/opencv2/core/core_c.h
  /home/tdt/tool/OpenCv/1.0/opencv-4.7.0/modules/core/include/opencv2/core/types_c.h
- /home/tdt/tool/ros/install/cv_bridge/include/cv_bridge/cv_bridge/cv_bridge_export.h
+ /opt/ros/humble/include/cv_bridge/cv_bridge/cv_bridge_export.h
  /home/tdt/tool/OpenCv/1.0/opencv-4.7.0/include/opencv2/opencv.hpp
  /home/tdt/tool/OpenCv/1.0/opencv-4.7.0/modules/calib3d/include/opencv2/calib3d.hpp
  /home/tdt/tool/OpenCv/1.0/opencv-4.7.0/modules/features2d/include/opencv2/features2d.hpp

@@ -7,7 +7,7 @@
 #include <iostream>
 #include <memory>
 
-#define is_show 1
+#define is_show 0
 
 using namespace std;
 using namespace rclcpp;
@@ -85,7 +85,7 @@ private:
             }
 
             // 保留关键信息日志，但减少频率
-            if (detection_count_ % 10 == 0) {
+            if (detection_count_ % 60 == 0) {
                 RCLCPP_INFO(this->get_logger(), 
                     "检测到目标 #%d - 像素: (%.1f, %.1f), 世界: (%.2f, %.2f, %.2f), 距离: %.2f, 置信度: %.2f",
                     detection_count_, 

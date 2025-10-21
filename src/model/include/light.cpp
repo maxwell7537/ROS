@@ -44,23 +44,33 @@ double LightBar::getWidth() const {
            rotatedRect.size.width : rotatedRect.size.height;
 }
 
-double LightBar::getAngle() const {
-    double angle = rotatedRect.angle;
-    if (rotatedRect.size.width > rotatedRect.size.height) {
-        angle = 90 + angle;
-    }
-    return std::abs(angle);
-}
+// double LightBar::getAngle() const {
+//     double angle = rotatedRect.angle;
+//     if (rotatedRect.size.width > rotatedRect.size.height) {
+//         angle = 90 + angle;
+//     }
+//     return std::abs(angle);
+// }
 
+double LightBar::getAngle() const {
+    double angle = rotatedRect.angle;  // [-90, 0)
+    // 获取长边相对于 x 轴的角度
+    double theta = (rotatedRect.size.width >= rotatedRect.size.height) ?
+                   angle : angle + 90.0;
+    // 与竖直方向（90°）的夹角
+    double diff = std::abs(theta - 90.0);
+    // 取最小夹角，限制在 [0, 90]
+    return diff > 90.0 ? 180.0 - diff : diff;
+}
 LightBarDetector::LightBarDetector() {
-    minArea = 50;
-    maxArea = 2000;
-    minAspectRatio = 0.001;
-    maxAspectRatio = 50;
-    minFillRatio = 0.2;
+    minArea = 20;
+    maxArea = 750;
+    minAspectRatio = 2;
+    maxAspectRatio = 20;
+    minFillRatio = 0.4;
     maxFillRatio = 1;
-    minAngle = -90;
-    maxAngle = 90.0;
+    minAngle = 0;
+    maxAngle = 30.0;
     brightnessThreshold = 200;
 }
 
@@ -117,7 +127,7 @@ cv::Mat LightBarDetector::preprocess(const cv::Mat& src) {
 
     cv::inRange(hsv, lower_red_orange, upper_red_orange, color_mask);
 
-    // 可选：补充一个低饱和但高亮的红色区域（用于过曝区域）
+    // 补充一个低饱和但高亮的红色区域（用于过曝区域）
     cv::Mat bright_mask;
     cv::inRange(hsv, cv::Scalar(0, 50, 220), cv::Scalar(30, 180, 255), bright_mask);
     cv::bitwise_or(color_mask, bright_mask, color_mask); // 合并：正常饱和 + 过曝区域
@@ -152,8 +162,9 @@ double LightBarDetector::calculateConfidence(const std::vector<cv::Point>& conto
     double aspectRatio = (width > height) ? width / height : height / width;
     double aspectScore = 1.0 - std::abs(aspectRatio - 8.0) / 8.0;
     aspectScore = std::max(0.0, std::min(1.0, aspectScore));
-    double angle = rect.angle;
-    double angleScore = 1.0 - std::min(std::abs(angle - 90), std::abs(angle + 90)) / 90.0;
+    LightBar tempBar(rect, 0.0);
+    double angle = tempBar.getAngle();
+    double angleScore = 1.0 - (angle / 90.0);
     confidence = (fillScore + aspectScore + angleScore) / 3.0;
     return confidence;
 }
@@ -177,6 +188,10 @@ std::vector<LightBar> LightBarDetector::detect(const cv::Mat& src) {
         if (fillRatio < minFillRatio || fillRatio > maxFillRatio) continue;
         double confidence = calculateConfidence(contour, rect);
         LightBar lightBar(rect, confidence);
+        double angle = lightBar.getAngle(); // 获取相对于竖直方向的角度
+        if(angle < minAngle || angle > maxAngle) {
+            continue; // 角度超出范围，跳过此灯条
+        }
         lightBars.push_back(lightBar);
     }
     std::sort(lightBars.begin(), lightBars.end(), 

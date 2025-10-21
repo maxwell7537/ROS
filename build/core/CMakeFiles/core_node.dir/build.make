@@ -93,7 +93,7 @@ core_node_EXTERNAL_OBJECTS =
 core_node: CMakeFiles/core_node.dir/src/core.cpp.o
 core_node: CMakeFiles/core_node.dir/build.make
 core_node: /opt/ros/humble/lib/x86_64-linux-gnu/libimage_transport.so
-core_node: /home/tdt/tool/ros/install/cv_bridge/lib/libcv_bridge.so
+core_node: /opt/ros/humble/lib/libcv_bridge.so
 core_node: /home/tdt/tool/ros/install/my_msgs/lib/libmy_msgs__rosidl_typesupport_fastrtps_c.so
 core_node: /home/tdt/tool/ros/install/my_msgs/lib/libmy_msgs__rosidl_typesupport_introspection_c.so
 core_node: /home/tdt/tool/ros/install/my_msgs/lib/libmy_msgs__rosidl_typesupport_fastrtps_cpp.so

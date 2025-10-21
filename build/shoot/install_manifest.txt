@@ -1,4 +1,5 @@
-/home/tdt/tool/ros/install/shoot/lib/shoot/shoot_node
+/home/tdt/tool/ros/install/shoot/lib/shoot/shoot_pnp
+/home/tdt/tool/ros/install/shoot/lib/shoot/shoot_pixel
 /home/tdt/tool/ros/install/shoot/share/ament_index/resource_index/package_run_dependencies/shoot
 /home/tdt/tool/ros/install/shoot/share/ament_index/resource_index/parent_prefix_path/shoot
 /home/tdt/tool/ros/install/shoot/share/shoot/environment/ament_prefix_path.sh
@@ -12,6 +13,7 @@
 /home/tdt/tool/ros/install/shoot/share/shoot/package.dsv
 /home/tdt/tool/ros/install/shoot/share/ament_index/resource_index/packages/shoot
 /home/tdt/tool/ros/install/shoot/share/shoot/cmake/ament_cmake_export_dependencies-extras.cmake
+/home/tdt/tool/ros/install/shoot/share/shoot/cmake/ament_cmake_export_include_directories-extras.cmake
 /home/tdt/tool/ros/install/shoot/share/shoot/cmake/shootConfig.cmake
 /home/tdt/tool/ros/install/shoot/share/shoot/cmake/shootConfig-version.cmake
 /home/tdt/tool/ros/install/shoot/share/shoot/package.xml

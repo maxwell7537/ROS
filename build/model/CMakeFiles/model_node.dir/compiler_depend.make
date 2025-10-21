@@ -2098,7 +2098,7 @@ CMakeFiles/model_node.dir/model.cpp.o: /home/tdt/tool/ros/src/model/model.cpp \
   /opt/ros/humble/include/std_msgs/std_msgs/msg/detail/multi_array_dimension__traits.hpp \
   /opt/ros/humble/include/std_msgs/std_msgs/msg/detail/float32_multi_array__type_support.hpp \
   /opt/ros/humble/include/std_msgs/std_msgs/msg/rosidl_generator_cpp__visibility_control.hpp \
-  /home/tdt/tool/ros/install/cv_bridge/include/cv_bridge/cv_bridge/cv_bridge.h \
+  /opt/ros/humble/include/cv_bridge/cv_bridge/cv_bridge.h \
   /opt/ros/humble/include/sensor_msgs/sensor_msgs/msg/compressed_image.hpp \
   /opt/ros/humble/include/sensor_msgs/sensor_msgs/msg/detail/compressed_image__struct.hpp \
   /opt/ros/humble/include/sensor_msgs/sensor_msgs/msg/detail/compressed_image__builder.hpp \
@@ -2110,8 +2110,10 @@ CMakeFiles/model_node.dir/model.cpp.o: /home/tdt/tool/ros/src/model/model.cpp \
   /home/tdt/tool/OpenCv/1.0/opencv-4.7.0/modules/imgproc/include/opencv2/imgproc/types_c.h \
   /home/tdt/tool/OpenCv/1.0/opencv-4.7.0/modules/core/include/opencv2/core/core_c.h \
   /home/tdt/tool/OpenCv/1.0/opencv-4.7.0/modules/core/include/opencv2/core/types_c.h \
-  /home/tdt/tool/ros/install/cv_bridge/include/cv_bridge/cv_bridge/cv_bridge_export.h
+  /opt/ros/humble/include/cv_bridge/cv_bridge/cv_bridge_export.h
 
+
+/opt/ros/humble/include/cv_bridge/cv_bridge/cv_bridge_export.h:
 
 /home/tdt/tool/OpenCv/1.0/opencv-4.7.0/modules/core/include/opencv2/core/types_c.h:
 
@@ -2122,6 +2124,8 @@ CMakeFiles/model_node.dir/model.cpp.o: /home/tdt/tool/ros/src/model/model.cpp \
 /opt/ros/humble/include/sensor_msgs/sensor_msgs/msg/detail/compressed_image__struct.hpp:
 
 /opt/ros/humble/include/sensor_msgs/sensor_msgs/msg/compressed_image.hpp:
+
+/opt/ros/humble/include/cv_bridge/cv_bridge/cv_bridge.h:
 
 /opt/ros/humble/include/std_msgs/std_msgs/msg/rosidl_generator_cpp__visibility_control.hpp:
 
@@ -3345,8 +3349,6 @@ CMakeFiles/model_node.dir/model.cpp.o: /home/tdt/tool/ros/src/model/model.cpp \
 
 /usr/include/c++/11/thread:
 
-/home/tdt/tool/ros/install/cv_bridge/include/cv_bridge/cv_bridge/cv_bridge_export.h:
-
 /usr/include/c++/11/ctime:
 
 /usr/include/c++/11/bits/parse_numbers.h:
@@ -3372,8 +3374,6 @@ CMakeFiles/model_node.dir/model.cpp.o: /home/tdt/tool/ros/src/model/model.cpp \
 /usr/include/c++/11/map:
 
 /usr/include/c++/11/bits/stl_tree.h:
-
-/home/tdt/tool/ros/install/cv_bridge/include/cv_bridge/cv_bridge/cv_bridge.h:
 
 /opt/ros/humble/include/rcutils/rcutils/visibility_control.h:
 

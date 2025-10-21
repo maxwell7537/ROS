@@ -6,28 +6,45 @@ if(CMAKE_COMPILER_IS_GNUCXX OR CMAKE_CXX_COMPILER_ID MATCHES "Clang")
   add_compile_options(-Wall -Wextra -Wpedantic)
 endif()
 
-# 使用ament自动查找依赖（这会自动处理ROS2包）
+# 查找必需的依赖
 find_package(ament_cmake REQUIRED)
 find_package(ament_cmake_auto REQUIRED)
+find_package(rclcpp REQUIRED)
+find_package(std_msgs REQUIRED)
 find_package(tdt_interface REQUIRED)
-find_package(SDL2 REQUIRED)
 
-# 设置OpenCV路径
-set(OpenCV_DIR "/home/tdt/tool/OpenCv/1.0/opencv-4.7.0/build")
+# 创建两个不同的可执行文件，分别使用不同的瞄准方式
+add_executable(shoot_pnp src/shoot.cpp)
+target_compile_definitions(shoot_pnp PRIVATE USE_PNP_WORLD_COORDINATES)
+target_include_directories(shoot_pnp PRIVATE include)
+# 使用 ament_target_dependencies 而不是直接链接
+ament_target_dependencies(shoot_pnp rclcpp std_msgs tdt_interface)
 
-# 自动查找所有在package.xml中声明的依赖
-ament_auto_find_build_dependencies()
+add_executable(shoot_pixel src/shoot.cpp)
+target_compile_definitions(shoot_pixel PRIVATE USE_PIXEL_CENTER_AIM)
+target_include_directories(shoot_pixel PRIVATE include)
+# 使用 ament_target_dependencies 而不是直接链接
+ament_target_dependencies(shoot_pixel rclcpp std_msgs tdt_interface)
 
-find_package(OpenCV REQUIRED)
+# 安装两个可执行文件
+install(TARGETS
+  shoot_pnp
+  shoot_pixel
+  DESTINATION lib/${PROJECT_NAME}
+)
 
-# 创建可执行文件
-ament_auto_add_executable(shoot_node src/shoot.cpp)
+# 安装包含目录（如果有头文件需要安装）
+if(EXISTS ${CMAKE_CURRENT_SOURCE_DIR}/include)
+  install(DIRECTORY include/
+    DESTINATION include/${PROJECT_NAME}
+  )
+endif()
 
+# 导出依赖信息
+ament_export_dependencies(rclcpp std_msgs tdt_interface)
+ament_export_include_directories(include)
 
-
-# 手动链接OpenCV库（因为ament_auto可能不会自动链接）
-target_link_libraries(shoot_node ${OpenCV_LIBS} ${SDL2_LIBRARIES})
-
+# 生成包配置
 ament_auto_package(
   USE_SCOPED_HEADER_INSTALL_DIR
 )

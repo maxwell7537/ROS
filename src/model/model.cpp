@@ -101,7 +101,7 @@ private:
             // detector_light_.debugShowBinary(frame);
 
             // 显示图像
-            //display_debug_image(frame, detection_result);
+            // display_debug_image(frame, detection_result);
             
         } catch (const cv_bridge::Exception& e) {
             RCLCPP_ERROR(this->get_logger(), "cv_bridge异常: %s", e.what());
@@ -151,7 +151,7 @@ private:
                         lights_a[i].dis = sqrt((lights_a[i].p.x - robCenter.x) * (lights_a[i].p.x - robCenter.x) + 
                                               (lights_a[i].p.y - robCenter.y) * (lights_a[i].p.y - robCenter.y));    
                         //显示检测到的等条中心点
-                        //circle(frame, Point(lb.center.x + roi.x, lb.center.y + roi.y), 3, Scalar(0, 255, 0), -1);
+                        circle(frame, Point(lb.center.x + roi.x, lb.center.y + roi.y), 5, Scalar(0, 255, 0), -1);
                     }
                     
                     sort(lights_a, lights_a + lightCount, cmp);

@@ -362,7 +362,7 @@ class_loader_DIR:PATH=/opt/ros/humble/share/class_loader/cmake
 console_bridge_DIR:PATH=/usr/lib/x86_64-linux-gnu/console_bridge/cmake
 
 //The directory containing a CMake configuration file for cv_bridge.
-cv_bridge_DIR:PATH=/home/tdt/tool/ros/install/cv_bridge/share/cv_bridge/cmake
+cv_bridge_DIR:PATH=/opt/ros/humble/share/cv_bridge/cmake
 
 //The directory containing a CMake configuration file for fastcdr.
 fastcdr_DIR:PATH=/opt/ros/humble/lib/cmake/fastcdr
