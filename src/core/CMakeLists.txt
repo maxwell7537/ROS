@@ -22,6 +22,7 @@ find_package(OpenCV REQUIRED)
 # 创建可执行文件
 ament_auto_add_executable(core_node src/core.cpp)
 
+ament_target_dependencies(core_node rclcpp std_msgs tdt_interface)
 # 手动链接OpenCV库（因为ament_auto可能不会自动链接）
 target_link_libraries(core_node ${OpenCV_LIBS})
 

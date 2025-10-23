@@ -25,8 +25,8 @@ vector<Point2f> imagePoints;
 
 // 内参矩阵
 Mat cameraMatrix = (Mat_<double>(3,3) << 
-    1.7774091341308808e+03, 0, 7.1075979428865026e+02,
-    0, 1.7754170626354828e+03, 5.3472407285624729e+02,
+    554.26, 0, 320,
+    0, 554.26, 240,
     0, 0, 1
 );
 // 畸变系数
@@ -49,13 +49,16 @@ bool cmp(node a,node b){
 }
 
 struct DetectionResult {
-    Point2f pixel_position;
-    Point3f world_position;
-    float distance;
-    vector<float> rvec;
-    vector<float> tvec;
-    float confidence;
-    Rect bounding_box;
+    Point2f pixel_position{0, 0};
+    Point3f world_position{0, 0, 0};
+    float distance = -1.0f;
+    vector<float> rvec = {0.0f, 0.0f, 0.0f};
+    vector<float> tvec = {0.0f, 0.0f, 0.0f};
+    float confidence = 0.0f;
+    Rect bounding_box{0, 0, 0, 0};
+    int class_id = 0;  //0 表示未检测到
+
+    DetectionResult() = default;
 };
 
 class ModelNode : public rclcpp::Node {
@@ -124,6 +127,7 @@ private:
             result.pixel_position = current_center;
             result.confidence = detections[0].confidence;
             result.bounding_box = rob_box;
+            result.class_id = detections[0].class_id;
             
             // 灯条检测和姿态估计
             Rect roi(rob_box.x-100, rob_box.y-100, 
@@ -212,7 +216,6 @@ private:
             // 更新轨迹
             update_trajectory(current_center);
         }
-        
         return result;
     }
     
@@ -227,10 +230,11 @@ private:
             result.world_position.z,      // 4: 世界z
             result.distance,              // 5: 距离
             result.confidence,            // 6: 置信度
-            (float)result.bounding_box.x, // 7: 边界框x
-            (float)result.bounding_box.y, // 8: 边界框y
-            (float)result.bounding_box.width,  // 9: 边界框宽度
-            (float)result.bounding_box.height  // 10: 边界框高度
+            (float)result.class_id,       // 7: 类别 
+            (float)result.bounding_box.x, // 8: 边界框x
+            (float)result.bounding_box.y, // 9: 边界框y
+            (float)result.bounding_box.width,  // 10: 边界框宽度
+            (float)result.bounding_box.height  // 11: 边界框高度
         };
         // 添加旋转和平移向量
         for(auto val : result.rvec) {

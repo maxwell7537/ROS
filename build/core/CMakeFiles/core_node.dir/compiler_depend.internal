@@ -691,6 +691,24 @@ CMakeFiles/core_node.dir/src/core.cpp.o
  /opt/ros/humble/include/geometry_msgs/geometry_msgs/msg/detail/point__traits.hpp
  /opt/ros/humble/include/geometry_msgs/geometry_msgs/msg/detail/point__type_support.hpp
  /opt/ros/humble/include/geometry_msgs/geometry_msgs/msg/rosidl_generator_cpp__visibility_control.hpp
+ /opt/ros/humble/include/geometry_msgs/geometry_msgs/msg/twist.hpp
+ /opt/ros/humble/include/geometry_msgs/geometry_msgs/msg/detail/twist__struct.hpp
+ /opt/ros/humble/include/geometry_msgs/geometry_msgs/msg/detail/vector3__struct.hpp
+ /opt/ros/humble/include/geometry_msgs/geometry_msgs/msg/detail/twist__builder.hpp
+ /opt/ros/humble/include/geometry_msgs/geometry_msgs/msg/detail/twist__traits.hpp
+ /opt/ros/humble/include/geometry_msgs/geometry_msgs/msg/detail/vector3__traits.hpp
+ /opt/ros/humble/include/geometry_msgs/geometry_msgs/msg/detail/twist__type_support.hpp
+ /opt/ros/humble/include/geometry_msgs/geometry_msgs/msg/pose_stamped.hpp
+ /opt/ros/humble/include/geometry_msgs/geometry_msgs/msg/detail/pose_stamped__struct.hpp
+ /opt/ros/humble/include/std_msgs/std_msgs/msg/detail/header__struct.hpp
+ /opt/ros/humble/include/geometry_msgs/geometry_msgs/msg/detail/pose__struct.hpp
+ /opt/ros/humble/include/geometry_msgs/geometry_msgs/msg/detail/quaternion__struct.hpp
+ /opt/ros/humble/include/geometry_msgs/geometry_msgs/msg/detail/pose_stamped__builder.hpp
+ /opt/ros/humble/include/geometry_msgs/geometry_msgs/msg/detail/pose_stamped__traits.hpp
+ /opt/ros/humble/include/std_msgs/std_msgs/msg/detail/header__traits.hpp
+ /opt/ros/humble/include/geometry_msgs/geometry_msgs/msg/detail/pose__traits.hpp
+ /opt/ros/humble/include/geometry_msgs/geometry_msgs/msg/detail/quaternion__traits.hpp
+ /opt/ros/humble/include/geometry_msgs/geometry_msgs/msg/detail/pose_stamped__type_support.hpp
  /opt/ros/humble/include/std_msgs/std_msgs/msg/float32_multi_array.hpp
  /opt/ros/humble/include/std_msgs/std_msgs/msg/detail/float32_multi_array__struct.hpp
  /opt/ros/humble/include/std_msgs/std_msgs/msg/detail/multi_array_layout__struct.hpp
@@ -703,10 +721,8 @@ CMakeFiles/core_node.dir/src/core.cpp.o
  /opt/ros/humble/include/std_msgs/std_msgs/msg/rosidl_generator_cpp__visibility_control.hpp
  /opt/ros/humble/include/sensor_msgs/sensor_msgs/msg/image.hpp
  /opt/ros/humble/include/sensor_msgs/sensor_msgs/msg/detail/image__struct.hpp
- /opt/ros/humble/include/std_msgs/std_msgs/msg/detail/header__struct.hpp
  /opt/ros/humble/include/sensor_msgs/sensor_msgs/msg/detail/image__builder.hpp
  /opt/ros/humble/include/sensor_msgs/sensor_msgs/msg/detail/image__traits.hpp
- /opt/ros/humble/include/std_msgs/std_msgs/msg/detail/header__traits.hpp
  /opt/ros/humble/include/sensor_msgs/sensor_msgs/msg/detail/image__type_support.hpp
  /opt/ros/humble/include/sensor_msgs/sensor_msgs/msg/rosidl_generator_cpp__visibility_control.hpp
  /opt/ros/humble/include/cv_bridge/cv_bridge/cv_bridge.h

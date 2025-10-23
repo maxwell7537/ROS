@@ -690,6 +690,24 @@ CMakeFiles/core_node.dir/src/core.cpp.o: /home/tdt/tool/ros/src/core/src/core.cp
   /opt/ros/humble/include/geometry_msgs/geometry_msgs/msg/detail/point__traits.hpp \
   /opt/ros/humble/include/geometry_msgs/geometry_msgs/msg/detail/point__type_support.hpp \
   /opt/ros/humble/include/geometry_msgs/geometry_msgs/msg/rosidl_generator_cpp__visibility_control.hpp \
+  /opt/ros/humble/include/geometry_msgs/geometry_msgs/msg/twist.hpp \
+  /opt/ros/humble/include/geometry_msgs/geometry_msgs/msg/detail/twist__struct.hpp \
+  /opt/ros/humble/include/geometry_msgs/geometry_msgs/msg/detail/vector3__struct.hpp \
+  /opt/ros/humble/include/geometry_msgs/geometry_msgs/msg/detail/twist__builder.hpp \
+  /opt/ros/humble/include/geometry_msgs/geometry_msgs/msg/detail/twist__traits.hpp \
+  /opt/ros/humble/include/geometry_msgs/geometry_msgs/msg/detail/vector3__traits.hpp \
+  /opt/ros/humble/include/geometry_msgs/geometry_msgs/msg/detail/twist__type_support.hpp \
+  /opt/ros/humble/include/geometry_msgs/geometry_msgs/msg/pose_stamped.hpp \
+  /opt/ros/humble/include/geometry_msgs/geometry_msgs/msg/detail/pose_stamped__struct.hpp \
+  /opt/ros/humble/include/std_msgs/std_msgs/msg/detail/header__struct.hpp \
+  /opt/ros/humble/include/geometry_msgs/geometry_msgs/msg/detail/pose__struct.hpp \
+  /opt/ros/humble/include/geometry_msgs/geometry_msgs/msg/detail/quaternion__struct.hpp \
+  /opt/ros/humble/include/geometry_msgs/geometry_msgs/msg/detail/pose_stamped__builder.hpp \
+  /opt/ros/humble/include/geometry_msgs/geometry_msgs/msg/detail/pose_stamped__traits.hpp \
+  /opt/ros/humble/include/std_msgs/std_msgs/msg/detail/header__traits.hpp \
+  /opt/ros/humble/include/geometry_msgs/geometry_msgs/msg/detail/pose__traits.hpp \
+  /opt/ros/humble/include/geometry_msgs/geometry_msgs/msg/detail/quaternion__traits.hpp \
+  /opt/ros/humble/include/geometry_msgs/geometry_msgs/msg/detail/pose_stamped__type_support.hpp \
   /opt/ros/humble/include/std_msgs/std_msgs/msg/float32_multi_array.hpp \
   /opt/ros/humble/include/std_msgs/std_msgs/msg/detail/float32_multi_array__struct.hpp \
   /opt/ros/humble/include/std_msgs/std_msgs/msg/detail/multi_array_layout__struct.hpp \
@@ -702,10 +720,8 @@ CMakeFiles/core_node.dir/src/core.cpp.o: /home/tdt/tool/ros/src/core/src/core.cp
   /opt/ros/humble/include/std_msgs/std_msgs/msg/rosidl_generator_cpp__visibility_control.hpp \
   /opt/ros/humble/include/sensor_msgs/sensor_msgs/msg/image.hpp \
   /opt/ros/humble/include/sensor_msgs/sensor_msgs/msg/detail/image__struct.hpp \
-  /opt/ros/humble/include/std_msgs/std_msgs/msg/detail/header__struct.hpp \
   /opt/ros/humble/include/sensor_msgs/sensor_msgs/msg/detail/image__builder.hpp \
   /opt/ros/humble/include/sensor_msgs/sensor_msgs/msg/detail/image__traits.hpp \
-  /opt/ros/humble/include/std_msgs/std_msgs/msg/detail/header__traits.hpp \
   /opt/ros/humble/include/sensor_msgs/sensor_msgs/msg/detail/image__type_support.hpp \
   /opt/ros/humble/include/sensor_msgs/sensor_msgs/msg/rosidl_generator_cpp__visibility_control.hpp \
   /opt/ros/humble/include/cv_bridge/cv_bridge/cv_bridge.h \
@@ -874,8 +890,6 @@ CMakeFiles/core_node.dir/src/core.cpp.o: /home/tdt/tool/ros/src/core/src/core.cp
 
 /home/tdt/tool/OpenCv/1.0/opencv-4.7.0/modules/core/include/opencv2/core/cuda.inl.hpp:
 
-/home/tdt/tool/OpenCv/1.0/opencv-4.7.0/modules/stitching/include/opencv2/stitching/detail/warpers.hpp:
-
 /home/tdt/tool/OpenCv/1.0/opencv-4.7.0/modules/stitching/include/opencv2/stitching/warpers.hpp:
 
 /home/tdt/tool/OpenCv/1.0/opencv-4.7.0/modules/photo/include/opencv2/photo.hpp:
@@ -936,8 +950,6 @@ CMakeFiles/core_node.dir/src/core.cpp.o: /home/tdt/tool/ros/src/core/src/core.cp
 
 /home/tdt/tool/OpenCv/1.0/opencv-4.7.0/modules/core/include/opencv2/core/types_c.h:
 
-/home/tdt/tool/OpenCv/1.0/opencv-4.7.0/modules/imgproc/include/opencv2/imgproc/segmentation.hpp:
-
 /home/tdt/tool/OpenCv/1.0/opencv-4.7.0/modules/imgproc/include/opencv2/imgproc.hpp:
 
 /home/tdt/tool/OpenCv/1.0/opencv-4.7.0/modules/imgproc/include/opencv2/imgproc/imgproc.hpp:
@@ -963,8 +975,6 @@ CMakeFiles/core_node.dir/src/core.cpp.o: /home/tdt/tool/ros/src/core/src/core.cp
 /home/tdt/tool/OpenCv/1.0/opencv-4.7.0/modules/core/include/opencv2/core/check.hpp:
 
 /home/tdt/tool/OpenCv/1.0/opencv-4.7.0/modules/core/include/opencv2/core/vsx_utils.hpp:
-
-/home/tdt/tool/OpenCv/1.0/opencv-4.7.0/modules/core/include/opencv2/core/neon_utils.hpp:
 
 /usr/include/x86_64-linux-gnu/bits/uio_lim.h:
 
@@ -1012,8 +1022,6 @@ CMakeFiles/core_node.dir/src/core.cpp.o: /home/tdt/tool/ros/src/core/src/core.cp
 
 /opt/ros/humble/include/sensor_msgs/sensor_msgs/msg/detail/image__builder.hpp:
 
-/opt/ros/humble/include/std_msgs/std_msgs/msg/detail/header__struct.hpp:
-
 /home/tdt/tool/OpenCv/1.0/opencv-4.7.0/modules/core/include/opencv2/core/cvstd_wrapper.hpp:
 
 /opt/ros/humble/include/sensor_msgs/sensor_msgs/msg/detail/image__struct.hpp:
@@ -1027,6 +1035,32 @@ CMakeFiles/core_node.dir/src/core.cpp.o: /home/tdt/tool/ros/src/core/src/core.cp
 /opt/ros/humble/include/std_msgs/std_msgs/msg/detail/float32_multi_array__struct.hpp:
 
 /opt/ros/humble/include/std_msgs/std_msgs/msg/float32_multi_array.hpp:
+
+/opt/ros/humble/include/geometry_msgs/geometry_msgs/msg/detail/pose_stamped__type_support.hpp:
+
+/home/tdt/tool/OpenCv/1.0/opencv-4.7.0/modules/core/include/opencv2/core/neon_utils.hpp:
+
+/opt/ros/humble/include/geometry_msgs/geometry_msgs/msg/detail/quaternion__traits.hpp:
+
+/home/tdt/tool/OpenCv/1.0/opencv-4.7.0/modules/imgproc/include/opencv2/imgproc/segmentation.hpp:
+
+/opt/ros/humble/include/geometry_msgs/geometry_msgs/msg/detail/pose_stamped__builder.hpp:
+
+/opt/ros/humble/include/geometry_msgs/geometry_msgs/msg/detail/quaternion__struct.hpp:
+
+/opt/ros/humble/include/geometry_msgs/geometry_msgs/msg/detail/pose__struct.hpp:
+
+/opt/ros/humble/include/std_msgs/std_msgs/msg/detail/header__struct.hpp:
+
+/opt/ros/humble/include/geometry_msgs/geometry_msgs/msg/detail/pose_stamped__struct.hpp:
+
+/opt/ros/humble/include/geometry_msgs/geometry_msgs/msg/pose_stamped.hpp:
+
+/opt/ros/humble/include/geometry_msgs/geometry_msgs/msg/detail/twist__type_support.hpp:
+
+/home/tdt/tool/OpenCv/1.0/opencv-4.7.0/modules/stitching/include/opencv2/stitching/detail/warpers.hpp:
+
+/opt/ros/humble/include/geometry_msgs/geometry_msgs/msg/detail/twist__struct.hpp:
 
 /home/tdt/tool/OpenCv/1.0/opencv-4.7.0/modules/videoio/include/opencv2/videoio.hpp:
 
@@ -1336,6 +1370,8 @@ CMakeFiles/core_node.dir/src/core.cpp.o: /home/tdt/tool/ros/src/core/src/core.cp
 
 /home/tdt/tool/OpenCv/1.0/opencv-4.7.0/modules/core/include/opencv2/core/cuda.hpp:
 
+/opt/ros/humble/include/geometry_msgs/geometry_msgs/msg/detail/pose_stamped__traits.hpp:
+
 /usr/include/x86_64-linux-gnu/bits/types/error_t.h:
 
 /opt/ros/humble/include/rosidl_runtime_cpp/rosidl_typesupport_cpp/service_type_support.hpp:
@@ -1602,6 +1638,8 @@ CMakeFiles/core_node.dir/src/core.cpp.o: /home/tdt/tool/ros/src/core/src/core.cp
 
 /usr/include/x86_64-linux-gnu/bits/types/__sigset_t.h:
 
+/opt/ros/humble/include/geometry_msgs/geometry_msgs/msg/detail/vector3__struct.hpp:
+
 /opt/ros/humble/include/rclcpp/rclcpp/intra_process_buffer_type.hpp:
 
 /home/tdt/tool/OpenCv/1.0/opencv-4.7.0/modules/stitching/include/opencv2/stitching.hpp:
@@ -1638,6 +1676,8 @@ CMakeFiles/core_node.dir/src/core.cpp.o: /home/tdt/tool/ros/src/core/src/core.cp
 
 /usr/lib/gcc/x86_64-linux-gnu/11/include/mm_malloc.h:
 
+/opt/ros/humble/include/geometry_msgs/geometry_msgs/msg/detail/twist__traits.hpp:
+
 /usr/include/x86_64-linux-gnu/bits/time64.h:
 
 /opt/ros/humble/include/rcl_interfaces/rcl_interfaces/srv/get_parameters.hpp:
@@ -1645,6 +1685,8 @@ CMakeFiles/core_node.dir/src/core.cpp.o: /home/tdt/tool/ros/src/core/src/core.cp
 /opt/ros/humble/include/rosidl_runtime_c/rosidl_runtime_c/service_type_support_struct.h:
 
 /usr/include/c++/11/iosfwd:
+
+/opt/ros/humble/include/geometry_msgs/geometry_msgs/msg/detail/vector3__traits.hpp:
 
 /usr/include/c++/11/initializer_list:
 
@@ -2144,6 +2186,8 @@ CMakeFiles/core_node.dir/src/core.cpp.o: /home/tdt/tool/ros/src/core/src/core.cp
 
 /opt/ros/humble/include/rclcpp/rclcpp/experimental/buffers/ring_buffer_implementation.hpp:
 
+/opt/ros/humble/include/geometry_msgs/geometry_msgs/msg/detail/pose__traits.hpp:
+
 /usr/include/x86_64-linux-gnu/c++/11/bits/gthr.h:
 
 /usr/include/c++/11/bits/list.tcc:
@@ -2233,6 +2277,8 @@ CMakeFiles/core_node.dir/src/core.cpp.o: /home/tdt/tool/ros/src/core/src/core.cp
 /opt/ros/humble/include/rcl/rcl/time.h:
 
 /opt/ros/humble/include/rcl_interfaces/rcl_interfaces/msg/detail/set_parameters_result__traits.hpp:
+
+/opt/ros/humble/include/geometry_msgs/geometry_msgs/msg/twist.hpp:
 
 /opt/ros/humble/include/rosidl_runtime_c/rosidl_runtime_c/sequence_bound.h:
 
@@ -2543,5 +2589,7 @@ CMakeFiles/core_node.dir/src/core.cpp.o: /home/tdt/tool/ros/src/core/src/core.cp
 /opt/ros/humble/include/builtin_interfaces/builtin_interfaces/msg/time.hpp:
 
 /usr/include/c++/11/tr1/riemann_zeta.tcc:
+
+/opt/ros/humble/include/geometry_msgs/geometry_msgs/msg/detail/twist__builder.hpp:
 
 /opt/ros/humble/include/libstatistics_collector/libstatistics_collector/topic_statistics_collector/constants.hpp:

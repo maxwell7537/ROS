@@ -48,7 +48,7 @@ void RobDetector::postprocessYOLOv8(Mat& output, Size original_size, vector<Dete
     
     Mat output_transposed;
     transpose(output.reshape(1, dimensions), output_transposed);
-    
+    vector<int> class_ids;
     vector<float> confidences;
     vector<Rect> boxes;
     
@@ -56,7 +56,7 @@ void RobDetector::postprocessYOLOv8(Mat& output, Size original_size, vector<Dete
         Mat row = output_transposed.row(i);
         float* data = row.ptr<float>();
         float cx = data[0], cy = data[1], w = data[2], h = data[3], confidence;
-        
+        int class_id = 0;
         if (dimensions == 5) {
             confidence = data[4];
         } else {
@@ -64,6 +64,7 @@ void RobDetector::postprocessYOLOv8(Mat& output, Size original_size, vector<Dete
             for (int j = 4; j < dimensions; j++) {
                 if (data[j] > max_score) {
                     max_score = data[j];
+                    class_id=j-4;
                 }
             }
             confidence = max_score;
@@ -71,6 +72,7 @@ void RobDetector::postprocessYOLOv8(Mat& output, Size original_size, vector<Dete
         
         if (confidence > confThreshold) {
             confidences.push_back(confidence);
+            class_ids.push_back(class_id);
             float left = (cx - w/2) / 640 * original_size.width;
             float top = (cy - h/2) / 640 * original_size.height;
             float width = w * original_size.width / 640;
@@ -87,6 +89,7 @@ void RobDetector::postprocessYOLOv8(Mat& output, Size original_size, vector<Dete
         Detection det;
         det.confidence = confidences[idx];
         det.box = boxes[idx];
+        det.class_id = class_ids[idx];
         detections.push_back(det);
     }
 }

@@ -9,6 +9,7 @@
 struct Detection {
     cv::Rect box;
     float confidence;
+    int class_id;
 };
 
 class RobDetector {

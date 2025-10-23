@@ -1,0 +1,10 @@
+/home/tdt/tool/ros/build/move/CMakeFiles/uninstall.dir
+/home/tdt/tool/ros/build/move/CMakeFiles/move_uninstall.dir
+/home/tdt/tool/ros/build/move/CMakeFiles/move_node.dir
+/home/tdt/tool/ros/build/move/CMakeFiles/test.dir
+/home/tdt/tool/ros/build/move/CMakeFiles/edit_cache.dir
+/home/tdt/tool/ros/build/move/CMakeFiles/rebuild_cache.dir
+/home/tdt/tool/ros/build/move/CMakeFiles/list_install_components.dir
+/home/tdt/tool/ros/build/move/CMakeFiles/install.dir
+/home/tdt/tool/ros/build/move/CMakeFiles/install/local.dir
+/home/tdt/tool/ros/build/move/CMakeFiles/install/strip.dir
