@@ -20,7 +20,7 @@ target_include_directories(shoot_pnp PRIVATE include)
 # 使用 ament_target_dependencies 而不是直接链接
 ament_target_dependencies(shoot_pnp rclcpp std_msgs tdt_interface)
 
-add_executable(shoot_pixel src/shoot.cpp)
+add_executable(shoot_pixel src/shoot.cpp src/shoot.hpp)
 target_compile_definitions(shoot_pixel PRIVATE USE_PIXEL_CENTER_AIM)
 target_include_directories(shoot_pixel PRIVATE include)
 # 使用 ament_target_dependencies 而不是直接链接

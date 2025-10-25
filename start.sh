@@ -31,6 +31,7 @@ ros2 topic pub --once /game_start_player_1 std_msgs/Bool "data: true"
 start_node "移动控制" "move" "move_node" "1"
 start_node "射击控制" "shoot" "shoot_pixel" "1"
 start_node "模型节点" "model" "model_node"
+sleep 4
 start_node "核心节点" "core" "core_node"
 
 # ros2 topic pub --once /game_start_player_2 std_msgs/Bool "data: true" &      

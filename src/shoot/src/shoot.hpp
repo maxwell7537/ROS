@@ -12,6 +12,8 @@
 #include <cmath>
 #include "std_msgs/msg/float32_multi_array.hpp"
 #include <tdt_interface/msg/send_data.hpp>
+#include <tdt_interface/msg/receive_data.hpp>
+#include <std_msgs/msg/int32.hpp>
 
 class Shoot : public rclcpp::Node {
 public:
@@ -21,7 +23,9 @@ public:
 private:
     // 参数回调
     rcl_interfaces::msg::SetParametersResult parameters_callback(const std::vector<rclcpp::Parameter> &parameters);
+    void angles_callback(const tdt_interface::msg::ReceiveData::SharedPtr msg);
     
+    void shoot_state_callback(const std_msgs::msg::Int32::SharedPtr msg);
     // 定时器回调
     void timer_callback();
     
@@ -49,11 +53,11 @@ private:
     
     // ROS2相关
     rclcpp::Publisher<tdt_interface::msg::SendData>::SharedPtr publisher_;
-    rclcpp::Publisher<std_msgs::msg::Float32MultiArray>::SharedPtr debug_publisher_;
+    rclcpp::Subscription<std_msgs::msg::Int32>::SharedPtr shoot_state_sub_; 
     rclcpp::Subscription<std_msgs::msg::Float32MultiArray>::SharedPtr detection_result_sub_;
     rclcpp::TimerBase::SharedPtr timer_;
     OnSetParametersCallbackHandle::SharedPtr parameters_callback_handle_;
-    
+    rclcpp::Subscription<tdt_interface::msg::ReceiveData>::SharedPtr angles_sub_;
     int player_id_;
     
     // 通用参数
@@ -61,6 +65,15 @@ private:
     double yaw_offset_;
     bool auto_shoot_;
     double confidence_threshold_;
+    bool is_aiming_;
+
+    bool angles_initialized_;
+    double current_yaw_;    // 当前实际yaw角度
+    double current_pitch_;  // 当前实际pitch角度
+
+    double base_yaw_;        // 底盘当前绝对 yaw（来自 angles_callback）
+    double turret_yaw_offset_; // 云台相对于底盘的偏移（PID 控制对象）
+    double target_turret_yaw_; // 云台期望的绝对角度
     
 #ifdef USE_PNP_WORLD_COORDINATES
     // PNP模式专用参数
@@ -78,6 +91,13 @@ private:
     double fov_y_;
     double aim_tolerance_;
     double max_angle_step_;  // 新增：最大角度步长限制
+    double pixel_kd_; 
+    double pixel_ki_;
+    double max_i_term_;
+    double prev_error_x_;
+    double prev_error_y_;
+    double integral_x_;
+    double integral_y_;
 #endif
 
     // 云台角度

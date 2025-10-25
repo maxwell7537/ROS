@@ -1,11 +1,12 @@
 #include "shoot.hpp"
+#include <std_msgs/msg/int32.hpp>
 
 using namespace std;
 
 Shoot::Shoot(int id) : Node("shoot_node"), player_id_(id) {
     // 初始化云台角度
     pitch_ = 0.0;
-    yaw_ = 90.0;
+    yaw_ = 0.0;
     
     // 初始化目标位置
     target_pixel_x_ = 0.0f;
@@ -19,8 +20,22 @@ Shoot::Shoot(int id) : Node("shoot_node"), player_id_(id) {
     
     pitch_offset_ =0.0;
     yaw_offset_ = 0.0;
-    auto_shoot_ =1;   //全程射击
+    auto_shoot_ =0;   //全程射击
     confidence_threshold_ =0.3;
+    
+    prev_error_x_ = 0.0;
+    prev_error_y_ = 0.0;
+    integral_x_ = 0.0;
+    integral_y_ = 0.0;
+    angles_initialized_ = false;
+    base_yaw_ = 0.0;
+    turret_yaw_offset_ = 0.0;
+    target_turret_yaw_ = 0.0;
+    // 射击状态发布
+    shoot_state_sub_ = this->create_subscription<std_msgs::msg::Int32>(
+            "shoot_state", 10,
+            std::bind(&Shoot::shoot_state_callback, this, std::placeholders::_1));
+    is_aiming_ = false;
     
 #ifdef USE_PNP_WORLD_COORDINATES
     // PNP模式专用参数声明
@@ -37,13 +52,17 @@ Shoot::Shoot(int id) : Node("shoot_node"), player_id_(id) {
 #endif
 
 #ifdef USE_PIXEL_CENTER_AIM
-    pixel_kp_ = 0.1;// 灵敏度
+    // 调整后的参数
+    pixel_kp_ = 0.03;          // 比例系数
+    pixel_kd_ = 0.05;          // 微分系数，抑制振荡
+    pixel_ki_ = 0.001;         // 积分系数，消除静差
     image_width_ = 640.0;
     image_height_ = 480.0;
     fov_x_ = 60.0;
     fov_y_ = 45.0;
-    aim_tolerance_ = 40.0;// 容忍度
-    max_angle_step_ = 10.0;// 最大单步角度变化
+    aim_tolerance_ = 35.0;     // 容忍度，避免频繁开关
+    max_angle_step_ = 3.0;     // 最大步长，运动更平滑
+    max_i_term_ = 5.0;         // 积分限幅
     control_mode_ = "PIXEL_CENTER";
 #endif
 
@@ -54,6 +73,10 @@ Shoot::Shoot(int id) : Node("shoot_node"), player_id_(id) {
         "detection_result", 10,
         bind(&Shoot::detection_result_callback, this, placeholders::_1));
 
+    string angles_topic = "real_angles_player_" + to_string(player_id_);
+    angles_sub_ = this->create_subscription<tdt_interface::msg::ReceiveData>(
+        angles_topic, 10,
+        std::bind(&Shoot::angles_callback, this, std::placeholders::_1));
     #ifdef USE_PNP_WORLD_COORDINATES
         parameters_callback_handle_ = this->add_on_set_parameters_callback(
             std::bind(&Shoot::parameters_callback, this, std::placeholders::_1));
@@ -84,39 +107,96 @@ rcl_interfaces::msg::SetParametersResult Shoot::parameters_callback(const std::v
 }
 #endif
 
+void Shoot::angles_callback(const tdt_interface::msg::ReceiveData::SharedPtr msg) {
+    // 更新当前底盘角度
+    base_yaw_ = msg->yaw;
+    
+    if (!angles_initialized_) {
+        // 第一次收到角度信息时初始化控制角度
+        yaw_ = base_yaw_;
+        pitch_ = 0.0;
+        angles_initialized_ = true;
+        RCLCPP_INFO(this->get_logger(), "云台角度初始化完成: base_yaw=%.2f, control_yaw=%.2f", base_yaw_, yaw_);
+    }
+    
+    // 实时更新当前角度用于显示
+    current_yaw_ = msg->yaw;
+    current_pitch_ = msg->pitch;
+}
+void Shoot::shoot_state_callback(const std_msgs::msg::Int32::SharedPtr msg) {
+    if (msg->data == 1) {
+        is_aiming_ = true;
+        
+        // 重要修改：在获得射击授权时，将控制角度同步到当前实际角度
+        if (angles_initialized_) {
+            yaw_ = base_yaw_;  // 使用底盘角度作为初始控制角度
+            pitch_ = 0.0;      // 重置俯仰角
+            
+            #ifdef USE_PIXEL_CENTER_AIM
+            prev_error_x_ = 0.0;
+            prev_error_y_ = 0.0;
+            integral_x_ = 0.0;
+            integral_y_ = 0.0;
+            #endif
+            
+            RCLCPP_INFO(this->get_logger(), "射击授权激活，角度已同步: yaw=%.2f", yaw_);
+        }
+        
+        RCLCPP_INFO(this->get_logger(), "收到射击授权，开始控制云台并射击");
+    } else {
+        is_aiming_ = false;
+        RCLCPP_INFO(this->get_logger(), "射击授权收回，停止射击");
+    }
+}
 void Shoot::timer_callback(){
     auto msg = tdt_interface::msg::SendData();
     
-    if (has_target_ && target_confidence_ >confidence_threshold_) {
+    if (is_aiming_ && angles_initialized_ && has_target_ && target_confidence_ > confidence_threshold_) {
         string used_mode = "NONE";
+        bool angle_calculated = false;
         
 #ifdef USE_PNP_WORLD_COORDINATES
         if (is_world_coordinates_valid()) {
             calculate_target_angles_from_world();
             used_mode = "PNP_WORLD";
+            angle_calculated = true;
         }
 #endif
 
 #ifdef USE_PIXEL_CENTER_AIM
-        // 检查像素坐标是否有效
-        if (target_pixel_x_ > 0 && target_pixel_y_ > 0 && 
+        if (!angle_calculated && target_pixel_x_ > 0 && target_pixel_y_ > 0 && 
             target_pixel_x_ < image_width_ && target_pixel_y_ < image_height_) {
             calculate_target_angles_from_pixel();
             used_mode = "PIXEL_CENTER";
+            angle_calculated = true;
         }
 #endif
-        double final_pitch = clamp(pitch_ + pitch_offset_, -17.0, 60.0);
-        double final_yaw = clamp(yaw_ + yaw_offset_, 0.0, 180.0);
         
-        msg.pitch = final_pitch;
-        msg.yaw = final_yaw;
-        msg.if_shoot = auto_shoot_ ||is_aimed_at_center();
-    }else{
-        msg.pitch = pitch_;
-        msg.yaw = yaw_;
-        msg.if_shoot = auto_shoot_;
+        if (angle_calculated) {
+            // 重要修改：直接使用计算出的角度，不添加偏移量
+            double final_pitch = pitch_;
+            double final_yaw = yaw_;
+            
+            static double last_published_yaw = final_yaw;
+            static double last_published_pitch = final_pitch;
+            double yaw_diff = fabs(final_yaw - last_published_yaw);
+            double pitch_diff = fabs(final_pitch - last_published_pitch);
+
+            // 只有当角度变化足够大时才发布
+            if (yaw_diff > 0.5 || pitch_diff > 0.5) {
+                msg.pitch = final_pitch;
+                msg.yaw = final_yaw;
+                msg.if_shoot = auto_shoot_ || is_aimed_at_center();
+
+                RCLCPP_INFO(this->get_logger(), "控制输出: yaw=%.2f, pitch=%.2f, 模式=%s", 
+                           final_yaw, final_pitch, used_mode.c_str());
+                
+                publisher_->publish(msg);
+                last_published_yaw = final_yaw;
+                last_published_pitch = final_pitch;
+            }
+        }
     }
-    publisher_->publish(msg);
 }
 
 void Shoot::detection_result_callback(const std_msgs::msg::Float32MultiArray::SharedPtr msg) {
@@ -203,28 +283,54 @@ double Shoot::calculate_gravity_compensation(double horizontal_distance, double 
 bool Shoot::calculate_target_angles_from_pixel() {
     // 计算图像中心
     double center_x = image_width_ / 2.0;
-    double center_y = image_height_ / 2.0;
+    double center_y = image_height_ / 2.0 - 15;
     
-    // 计算像素偏差
+    // 计算当前误差
     double error_x = target_pixel_x_ - center_x;
     double error_y = target_pixel_y_ - center_y;
-    double angle_adjust_x = (error_x / image_width_) * fov_x_ * pixel_kp_;
-    double angle_adjust_y = (error_y / image_height_) * fov_y_ * pixel_kp_;
     
-    // 限制单步角度变化，避免过冲
+    // 计算微分项
+    double derivative_x = error_x - prev_error_x_;
+    double derivative_y = error_y - prev_error_y_;
+    
+    // 计算积分项
+    integral_x_ += error_x;
+    integral_y_ += error_y;
+    
+    // 积分限幅
+    integral_x_ = clamp(integral_x_, -max_i_term_, max_i_term_);
+    integral_y_ = clamp(integral_y_, -max_i_term_, max_i_term_);
+    
+    // PID计算
+    double angle_adjust_x = pixel_kp_ * error_x + pixel_kd_ * derivative_x + pixel_ki_ * integral_x_;
+    double angle_adjust_y = pixel_kp_ * error_y + pixel_kd_ * derivative_y + pixel_ki_ * integral_y_;
+    
+    // 归一化并转换为角度
+    angle_adjust_x = (angle_adjust_x / image_width_) * fov_x_;
+    angle_adjust_y = (angle_adjust_y / image_height_) * fov_y_;
+    
+    // 限制单步角度变化
     angle_adjust_x = clamp(angle_adjust_x, -max_angle_step_, max_angle_step_);
     angle_adjust_y = clamp(angle_adjust_y, -max_angle_step_, max_angle_step_);
-  
-    yaw_ = yaw_ + angle_adjust_x;
-    pitch_ = pitch_ - angle_adjust_y;
     
-    // 限制角度范围
-    yaw_ = clamp(yaw_, 0.0, 180.0);
-    pitch_ = clamp(pitch_, -17.0, 60.0);
+    // 重要修改：直接更新yaw_和pitch_，而不是使用偏移量
+    yaw_ += angle_adjust_x;
+    pitch_ -= angle_adjust_y;
+    
+    // 保存当前误差
+    prev_error_x_ = error_x;
+    prev_error_y_ = error_y;
+    
+    // // 角度限幅
+    // yaw_ = clamp(yaw_, 0.0, 180.0);
+    // pitch_ = clamp(pitch_, -17.0, 60.0);
+    
+    // RCLCPP_INFO(this->get_logger(),
+    //                      "像素瞄准: 误差(%.1f,%.1f), 调整(%.3f,%.3f), 角度(%.2f,%.2f)",
+    //                      error_x, error_y, angle_adjust_x, angle_adjust_y, yaw_, pitch_);
     
     return true;
 }
-
 bool Shoot::is_aimed_at_center() {
     double center_x = image_width_ / 2.0;
     double center_y = image_height_ / 2.0;

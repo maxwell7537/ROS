@@ -5,13 +5,16 @@
 #include <std_msgs/msg/float32_multi_array.hpp>
 #include <std_msgs/msg/int32_multi_array.hpp>
 #include <tdt_interface/msg/receive_data.hpp>
+#include <tdt_interface/msg/send_data.hpp>
 #include <std_msgs/msg/int32.hpp>
 #include <cv_bridge/cv_bridge.h>
 #include <opencv2/opencv.hpp>
 #include <iostream>
 #include <memory>
 #include <queue>
-
+#include <vector>
+#include <limits>
+#include <cstring>
 
 using namespace std;
 using namespace rclcpp;
@@ -21,7 +24,9 @@ class core : public rclcpp::Node {
 public:
     core() : Node("core_node") {
         player_id_=1;
-        linear_velocity_ = 100.0; // 线速度 (m/s)
+        linear_velocity_ = 100.0; // 线速度 (单位/s)
+        
+        // 地图节点（保持你原有的点）
         point_set[0]=cv::Point2f(-16.00,-45.00);//0 补给区(起点)
         point_set[1]=cv::Point2f(7.00,-45.00);//1 补给区前方
         point_set[2]=cv::Point2f(5.50,-37.50);//2 基地右前方
@@ -34,7 +39,9 @@ public:
         point_set[9]=cv::Point2f(22.30,-16.27);//9 隧道中点
         point_set[10]=cv::Point2f(22.55,6.00);//10 隧道终点
         point_set[11]=cv::Point2f(-27.60,-20.67);//11 通往3号敌人的拐点
-        point_set[12]=cv::Point2f(-20.46,-20.86);//11 3号敌人
+        point_set[12]=cv::Point2f(-20.46,-20.86);//12 3号敌人
+        
+        // map adjacency (保持)
         map_[0].push_back(1);  map_[1].push_back(0);
         map_[1].push_back(2);  map_[2].push_back(1);
         map_[2].push_back(3);  map_[3].push_back(2);
@@ -53,16 +60,18 @@ public:
         map_[10].push_back(6);  map_[6].push_back(10); 
         map_[11].push_back(12);  map_[12].push_back(11);
         
-        
+        is_shooting_ = false;
+        last_gimbal_control_time_ = this->now();
+        turn_completed_ = false;
+        shooting_authority_transferred_ = false;
         eps=0.50;
         std::memset(blue_healths_, 0, sizeof(blue_healths_));
         std::memset(red_healths_, 0, sizeof(red_healths_));
-
+        
         detection_result_sub_ = this->create_subscription<std_msgs::msg::Float32MultiArray>(
             "detection_result", 10,
             std::bind(&core::detection_result_callback, this, std::placeholders::_1));
         
-
         std::string topic_name = "control_cmd_player_" + std::to_string(player_id_);
         cmd_pub_ = this->create_publisher<geometry_msgs::msg::Twist>(topic_name, 10);
 
@@ -75,6 +84,10 @@ public:
         angles_sub_ = this->create_subscription<tdt_interface::msg::ReceiveData>(
             angles_topic, 10,
             std::bind(&core::angles_callback, this, std::placeholders::_1));
+            
+        string turn_topic_name = "target_angles_player_" + std::to_string(player_id_);
+        turn_publisher_ = this->create_publisher<tdt_interface::msg::SendData>(turn_topic_name, 10);
+        
         healths_sub_ = this->create_subscription<std_msgs::msg::Int32MultiArray>(
                 "game_healths", 10,
                 std::bind(&core::healths_callback, this, std::placeholders::_1));
@@ -83,21 +96,364 @@ public:
                 "game_time", 10,
                 std::bind(&core::time_callback, this, std::placeholders::_1));
 
+        // 新增：订阅射击状态
+        
+        shoot_state_pub_ = this->create_publisher<std_msgs::msg::Int32>("shoot_state", 10);
         timer_ = this->create_wall_timer(
             100ms, std::bind(&core::publishCommand, this));
         last_detection_time_ = this->now();
         last_display_time_ = this->now();
         detection_count_ = 0;
+
+        // FSM 初始化
+        current_state_ = State::INIT;
+        last_state_change_time_ = this->now();
+        revive_start_time_ = this->now();
+        invincible_end_time_ = this->now();
+        current_target_node_ = -1;
+        game_started_ = false;
+        first_death_ignored_ = false;
+        
+        // 新增：云台控制状态
+        is_shooting_ = false;
+        last_gimbal_control_time_ = this->now();
+        
+        // 新增：云台控制标志
+        initial_orientation_set_ = false;
+        enemy5_orientation_set_ = false;
         
         RCLCPP_INFO(this->get_logger(), "目标检测订阅节点已启动");
     }
     
 
 private:
+    // 根据当前状态和目标节点设置云台角度
+    void setGimbalAnglesBasedOnState() {
+        // 如果处于射击状态，完全由shoot模块控制云台
+        if (is_shooting_) {
+            RCLCPP_DEBUG_THROTTLE(this->get_logger(), *this->get_clock(), 5000, 
+                                "射击状态中，shoot模块控制云台");
+            return;
+        }
+
+        auto msg = tdt_interface::msg::SendData();
+        auto shoot_msg = std_msgs::msg::Int32();
+        msg.if_shoot = false;
+
+        // 检查是否到达5号敌人节点（节点3）
+        int current_node = nearest_node_index(current_x_, current_y_);
+        
+        // 设置初始朝向为90度（只在开始时设置一次）
+        if (!initial_orientation_set_) {
+            msg.yaw = 90.0f;
+            msg.pitch = 0.0f;
+            initial_orientation_set_ = true;
+            RCLCPP_INFO(this->get_logger(), "设置初始朝向: yaw=90.0");
+        }
+        // 到达5号敌人节点且未设置过朝向时，设置为-90度
+        else if (current_node == 3 && !enemy5_orientation_set_) {
+            msg.yaw = -90.0f;
+            msg.pitch = 0.0f;
+            enemy5_orientation_set_ = true;
+            RCLCPP_INFO(this->get_logger(), "到达5号敌人，设置朝向: yaw=-90.0");
+        }
+         else if (current_node == 3 && enemy5_orientation_set_ && !turn_completed_) {
+            // 检查当前云台角度是否接近目标角度（-90度）
+            if (fabs(yaw - (-90.0f)) < 5.0f) { // 容忍度5度
+                turn_completed_ = true;
+                RCLCPP_INFO(this->get_logger(), "5号敌人转向完成，当前yaw=%.2f", yaw);
+                
+                // 发布射击状态，将射击权交给shoot模块
+                shoot_msg.data = 1;
+                shoot_state_pub_->publish(shoot_msg);
+                is_shooting_ = true;
+                shooting_authority_transferred_ = true;
+                RCLCPP_INFO(this->get_logger(), "射击权已交给shoot模块");
+            } else {
+                RCLCPP_DEBUG(this->get_logger(), "等待转向完成，当前yaw=%.2f，目标yaw=-90.0", yaw);
+            }
+            return;
+        }
+        else {
+            msg.yaw = yaw;
+            msg.pitch = pitch;
+            return; 
+        }
+
+        shoot_msg.data=0;
+        auto now = this->now();
+        if ((now - last_gimbal_control_time_).seconds() > 0.5) { 
+            shoot_state_pub_->publish(shoot_msg);
+            turn_publisher_->publish(msg);
+            last_gimbal_control_time_ = now;
+        }
+    }
+
+    bool bfs_find_node_path(int start_idx, int goal_idx, vector<int>& out_path) {
+        if (start_idx < 0 || goal_idx < 0 || start_idx == goal_idx) {
+            return false;
+        }
+        
+        int N = 20;
+        vector<int> parent(N, -1);
+        vector<bool> visited(N, false);
+        queue<int> q;
+        
+        q.push(start_idx);
+        visited[start_idx] = true;
+        bool found = false;
+        
+        while(!q.empty() && !found) {
+            int u = q.front(); 
+            q.pop();
+            
+            for (int v : map_[u]) {
+                if (!visited[v]) {
+                    visited[v] = true;
+                    parent[v] = u;
+                    q.push(v);
+                    
+                    if (v == goal_idx) {
+                        found = true;
+                        break;
+                    }
+                }
+            }
+        }
+        
+        if (!found) {
+            return false;
+        }
+        
+        // 回溯路径
+        vector<int> reverse_path;
+        int current = goal_idx;
+        while (current != -1) {
+            reverse_path.push_back(current);
+            current = parent[current];
+        }
+        
+        out_path.assign(reverse_path.rbegin(), reverse_path.rend());
+        return true;
+    }
+
+    int nearest_node_index(double x, double y) {
+        int best = -1;
+        double best_distance = numeric_limits<double>::max();
+        
+        for (int i = 0; i < 20; i++) {
+            double px = point_set[i].x;
+            double py = point_set[i].y;
+            
+            // 跳过未初始化的点
+            if (i > 12 && px == 0.0f && py == 0.0f) continue;
+            
+            double distance = sqrt(pow(px - x, 2) + pow(py - y, 2));
+            if (distance < best_distance) {
+                best = i;
+                best_distance = distance;
+            }
+        }
+        return best;
+    }
+
+    // 将节点序列转换为 move_list（点序列）
+    void set_move_list_from_nodes(const vector<int>& nodes) {
+        // 清空当前路径
+        while(!move_list.empty()) {
+            move_list.pop();
+        }
+        
+        // 添加新路径点
+        for (int idx : nodes) {
+            move_list.push(point_set[idx]);
+        }
+        
+        if (!move_list.empty()) {
+            RCLCPP_INFO(this->get_logger(), "设置新路径，共 %zu 个路径点", nodes.size());
+        }
+    }
+
+    // 检查增益敌人是否存在
+    bool hasAliveBuffEnemies() {
+        // 3号敌人(横向平移靶), 4号敌人(前后平移靶), 5号敌人(陀螺靶)
+        return (red_healths_[1] > 0) || (red_healths_[2] > 0) || (red_healths_[3] > 0);
+    }
+
+    // 选择要攻击的增益敌人目标点
+    int selectBuffEnemyTarget() {
+        static int last_target = 3; // 默认目标
+        static rclcpp::Time last_change_time = this->now();
+        
+        auto now = this->now();
+        auto change_duration = now - last_change_time;
+        
+        // 只有当目标改变持续时间超过3秒才允许切换目标，避免频繁切换
+        if (change_duration.seconds() < 3.0) {
+            return last_target;
+        }
+        
+        int new_target = last_target;
+        
+        // 优先攻击陀螺靶（5号敌人）- 积分最高
+        if (red_healths_[3] > 0) {
+            new_target = 3; // 5号敌人前方点
+        } else if (red_healths_[2] > 0) {
+            new_target = 4; // 4号敌人前方点
+        } else if (red_healths_[1] > 0) {
+            new_target = 12; // 3号敌人点
+        }
+        
+        if (new_target != last_target) {
+            last_target = new_target;
+            last_change_time = now;
+            RCLCPP_INFO(this->get_logger(), "切换攻击目标到节点%d", new_target);
+        }
+        
+        return last_target;
+    }
+    bool isDead() {
+        return blue_healths_[0] <= 0;
+    }
+    bool isBaseInvincible() {
+        return time_ >= 13 * 60; // 剩余时间大于13分钟时基地无敌
+    }
+    // 检查是否已经到达目标节点
+    bool isAtTargetNode(int target_node) {
+        if (target_node == -1) return false;
+        
+        int current_node = nearest_node_index(current_x_, current_y_);
+        return current_node == target_node;
+    }
+    bool isGameStarted() {
+        return time_ < 900;
+    }
+
+    // 简化的FSM状态转移逻辑
+    void calculation_path() {
+        if (!game_started_) {
+            game_started_ = isGameStarted();
+            if (!game_started_) {
+                current_state_ = State::INIT;
+                return;
+            } else {
+                RCLCPP_INFO(this->get_logger(), "游戏开始！");
+            }
+        }
+
+        // 检查复活机制 - 忽略开局第一次死亡判定
+        if (isDead()) {
+            if (!first_death_ignored_) {
+                first_death_ignored_ = true;
+                current_state_ = State::ATTACK_BUFF_ENEMY;
+                last_state_change_time_ = this->now();
+                current_target_node_ = -1;
+                RCLCPP_INFO(this->get_logger(), "忽略开局死亡判定，直接开始攻击");
+                return;
+            }
+            //
+            return;
+        }
+        auto now = this->now();
+        auto state_duration = now - last_state_change_time_;
+        
+        // 只有当状态持续时间超过2秒才允许状态转换，避免频繁切换
+        if (state_duration.seconds() < 2.0) {
+            return;
+        }
+
+        // 状态转换逻辑
+        switch (current_state_) {
+            case State::INIT:
+                current_state_ = State::ATTACK_BUFF_ENEMY;
+                last_state_change_time_ = now;
+                current_target_node_ = -1;
+                RCLCPP_INFO(this->get_logger(), "STATE -> ATTACK_BUFF_ENEMY");
+                break;
+                
+            case State::ATTACK_BUFF_ENEMY:
+                if (!hasAliveBuffEnemies()) {
+                    current_state_ = State::ATTACK_OUTPOST;
+                    last_state_change_time_ = now;
+                    current_target_node_ = -1;
+                    RCLCPP_INFO(this->get_logger(), "STATE -> ATTACK_OUTPOST (增益敌人全部消灭)");
+                }
+                break;
+                
+            case State::ATTACK_OUTPOST:
+                if (red_healths_[4] <= 0) {
+                    current_state_ = State::ATTACK_BASE;
+                    last_state_change_time_ = now;
+                    current_target_node_ = -1;
+                    RCLCPP_INFO(this->get_logger(), "STATE -> ATTACK_BASE (前哨站已摧毁)");
+                }
+                break;
+                
+            case State::ATTACK_BASE:
+                // 基地被摧毁后保持在该状态
+                break;
+        }
+
+        // 根据当前状态设置目标路径
+        setTargetBasedOnState();
+        
+        // 设置云台角度
+        setGimbalAnglesBasedOnState();
+    }
+
+    void setTargetBasedOnState() {
+        // 如果当前有路径且未完成，不重新规划
+        if (!move_list.empty()) {
+            return;
+        }
+        
+        vector<int> path_nodes;
+        int start_node = nearest_node_index(current_x_, current_y_);
+        int target_node = -1;
+        
+        switch (current_state_) {
+            case State::ATTACK_BUFF_ENEMY:
+                target_node = selectBuffEnemyTarget();
+                break;
+                
+            case State::ATTACK_OUTPOST:
+                target_node = 5; // 前往前哨站
+                break;
+                
+            case State::ATTACK_BASE:
+                target_node = 7; // 前往敌方基地
+                break;
+                
+            case State::DEAD:
+            case State::REVIVING:
+                // 死亡和复活期间不移动
+                return;
+                
+            default:
+                // 默认情况下攻击增益敌人
+                target_node = 3;
+                break;
+        }
+        
+        // 检查是否需要重新规划路径
+        if (target_node != current_target_node_ || !isAtTargetNode(target_node)) {
+            current_target_node_ = target_node;
+            
+            if (target_node != -1 && start_node != -1 && start_node != target_node) {
+                RCLCPP_INFO(this->get_logger(), "规划路径到节点%d", target_node);
+                if (bfs_find_node_path(start_node, target_node, path_nodes)) {
+                    set_move_list_from_nodes(path_nodes);
+                } else {
+                    RCLCPP_ERROR(this->get_logger(), "无法找到从节点%d到节点%d的路径!", start_node, target_node);
+                }
+            } else if (start_node == target_node) {
+                RCLCPP_INFO(this->get_logger(), "已经在目标节点%d，无需移动", target_node);
+            }
+        }
+    }
 
     void detection_result_callback(const std_msgs::msg::Float32MultiArray::SharedPtr msg) {
         if (msg->data.size() >= 12) {
-            // 解析完整检测结果
             detection_result_.pixel_x = msg->data[0];
             detection_result_.pixel_y = msg->data[1];
             detection_result_.world_x = msg->data[2];
@@ -111,7 +467,6 @@ private:
             detection_result_.bbox_width = msg->data[10];
             detection_result_.bbox_height = msg->data[11];
             
-            // 解析旋转向量
             if (msg->data.size() > 15) {
                 detection_result_.rvec_x = msg->data[12];
                 detection_result_.rvec_y = msg->data[13];
@@ -123,14 +478,6 @@ private:
             
             last_detection_time_ = this->now();
             detection_count_++;
-            if (detection_count_ % 60 == 0) {
-                RCLCPP_INFO(this->get_logger(), 
-                    "检测到目标 #%d - 像素: (%.1f, %.1f), 世界: (%.2f, %.2f, %.2f), 距离: %.2f, 置信度: %.2f",
-                    detection_count_, 
-                    detection_result_.pixel_x, detection_result_.pixel_y,
-                    detection_result_.world_x, detection_result_.world_y, detection_result_.world_z,
-                    detection_result_.distance, detection_result_.confidence);
-            }
         }
     }
  
@@ -140,13 +487,12 @@ private:
     } 
     void time_callback(const std_msgs::msg::Int32::SharedPtr msg) {
         time_ = msg->data;
-        
     } 
     void healths_callback(const std_msgs::msg::Int32MultiArray::SharedPtr msg) {
-    for(int i=0;i<6;i++){
+        for(int i=0;i<6;i++){
             blue_healths_[i]=msg->data[i];
         }
-    for(int i=0;i<6;i++){
+        for(int i=0;i<6;i++){
             red_healths_[i]=msg->data[i+6];
         }
     } 
@@ -156,14 +502,19 @@ private:
         sec=msg->timestamp.sec;
         nanosec=msg->timestamp.nanosec;
     }
-    void calculation_path(){
-        //帮我完善决策代码框架
-        return;
-    }
+
     void publishCommand() {
         auto msg = geometry_msgs::msg::Twist();
         calculation_path();
-        // 检查是否还有路径点
+        
+        // 死亡和复活期间不移动
+        if (current_state_ == State::DEAD || current_state_ == State::REVIVING) {
+            RCLCPP_INFO_THROTTLE(this->get_logger(), *this->get_clock(), 2000, 
+                                "死亡/复活状态，停止移动");
+            cmd_pub_->publish(msg);
+            return;
+        }
+        
         if (move_list.empty()) {
             RCLCPP_INFO_THROTTLE(this->get_logger(), *this->get_clock(), 5000, 
                                 "所有路径点已完成，停止移动");
@@ -175,9 +526,9 @@ private:
         double dx = target_point.x - current_x_;
         double dy = target_point.y - current_y_;
         double distance = sqrt(dx*dx + dy*dy);
+        
         if (distance < eps) {
             move_list.pop();
-            point_count--;
             
             if (!move_list.empty()) {
                 cv::Point2f next_point = move_list.front();
@@ -189,28 +540,23 @@ private:
             cmd_pub_->publish(msg);
             return;
         }
-        // 归一化方向向量
+        
         double direction_x = dx / distance;
         double direction_y = dy / distance;
         
-        msg.linear.x = direction_x *linear_velocity_;  // X方向速度
-        msg.linear.y = direction_y *linear_velocity_;  // Y方向速度
-        msg.linear.z = 0.0;
-        msg.angular.x = 0.0;
-        msg.angular.y = 0.0;
-        msg.angular.z = 0.0;
+        msg.linear.x = direction_x * linear_velocity_;
+        msg.linear.y = direction_y * linear_velocity_;
+        
         cmd_pub_->publish(msg);
         
         static int count=0;
         if (count++%10 == 0) {
-            RCLCPP_INFO(this->get_logger(), "x:%.2lf,y:%.2lf",current_x_,current_y_);
+            RCLCPP_INFO(this->get_logger(), "位置: (%.2lf, %.2lf), 状态: %d, 血量: %d, 目标节点: %d, 射击状态: %s", 
+                       current_x_, current_y_, static_cast<int>(current_state_), blue_healths_[0], current_target_node_,
+                       is_shooting_ ? "是" : "否");
         }
     }
 
-    
-
-    
-    // 检测结果结构体
     struct DetectionResult {
         float pixel_x = 0.0f;
         float pixel_y = 0.0f;
@@ -233,36 +579,61 @@ private:
     };
 
 private:
+    rclcpp::Publisher<tdt_interface::msg::SendData>::SharedPtr turn_publisher_;
     rclcpp::Subscription<std_msgs::msg::Float32MultiArray>::SharedPtr detection_result_sub_;
     rclcpp::Subscription<geometry_msgs::msg::PoseStamped>::SharedPtr position_sub_;
     rclcpp::Subscription<tdt_interface::msg::ReceiveData>::SharedPtr angles_sub_;
     rclcpp::Subscription<std_msgs::msg::Int32MultiArray>::SharedPtr healths_sub_;
     rclcpp::Subscription<std_msgs::msg::Int32>::SharedPtr time_sub_;
+    rclcpp::Publisher<std_msgs::msg::Int32>::SharedPtr shoot_state_pub_;
     rclcpp::TimerBase::SharedPtr timer_;
     
     DetectionResult detection_result_;
     rclcpp::Publisher<geometry_msgs::msg::Twist>::SharedPtr cmd_pub_;
-    // 状态变量
+    
+
+    enum class State {
+        INIT,
+        ATTACK_BUFF_ENEMY,
+        ATTACK_OUTPOST,
+        ATTACK_BASE,
+        DEAD,
+        REVIVING,
+        INVINCIBLE
+    };
+    State current_state_;
+    rclcpp::Time last_state_change_time_;
+    rclcpp::Time revive_start_time_;  // 复活开始时间
+    rclcpp::Time invincible_end_time_; // 无敌结束时间
+    rclcpp::Time last_gimbal_control_time_; // 上次云台控制时间
+    int current_target_node_; // 当前目标节点
+    bool game_started_;       // 游戏是否开始
+    bool first_death_ignored_; // 是否已忽略第一次死亡判定
     rclcpp::Time last_detection_time_;
     int detection_count_;
-    bool detection_timeout_reported_ = false;
     rclcpp::Time last_display_time_;
     int player_id_;
     double linear_velocity_;
-    double angular_velocity_;
-    double current_x_, current_y_;
+    double current_x_ = 0.0, current_y_ = 0.0;
     queue<cv::Point2f> move_list;
     double eps;
-    int point_count;
+    int point_count = 0;
     cv::Point2f point_set[20];
     vector<int> map_[20];
-    int time_;
+    int time_ = 0;
     int blue_healths_[6];  // 0:玩家, 1:3号, 2:4号, 3:5号, 4:前哨站, 5:基地
     int red_healths_[6];   // 同上
-    float yaw;
-    float pitch;
+    float yaw = 0.0f;
+    float pitch = 0.0f;
     int32_t sec;
     uint32_t nanosec;
+    bool is_shooting_;
+    bool turn_completed_;           // 转向是否完成
+    bool shooting_authority_transferred_;  // 射击权是否已转移
+    
+    // 新增：云台控制标志
+    bool initial_orientation_set_;   // 初始朝向是否已设置
+    bool enemy5_orientation_set_;    // 5号敌人朝向是否已设置
 };
 
 int main(int argc, char* argv[]) {
