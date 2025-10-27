@@ -1,6 +1,6 @@
 /home/tdt/tool/ros/build/shoot/CMakeFiles/uninstall.dir
 /home/tdt/tool/ros/build/shoot/CMakeFiles/shoot_uninstall.dir
-/home/tdt/tool/ros/build/shoot/CMakeFiles/shoot_pnp.dir
+/home/tdt/tool/ros/build/shoot/CMakeFiles/shoot_node.dir
 /home/tdt/tool/ros/build/shoot/CMakeFiles/shoot_pixel.dir
 /home/tdt/tool/ros/build/shoot/CMakeFiles/test.dir
 /home/tdt/tool/ros/build/shoot/CMakeFiles/edit_cache.dir

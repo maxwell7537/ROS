@@ -43,21 +43,21 @@ if(NOT DEFINED CMAKE_OBJDUMP)
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  if(EXISTS "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib/shoot/shoot_pnp" AND
-     NOT IS_SYMLINK "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib/shoot/shoot_pnp")
+  if(EXISTS "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib/shoot/shoot_node" AND
+     NOT IS_SYMLINK "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib/shoot/shoot_node")
     file(RPATH_CHECK
-         FILE "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib/shoot/shoot_pnp"
+         FILE "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib/shoot/shoot_node"
          RPATH "")
   endif()
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/shoot" TYPE EXECUTABLE FILES "/home/tdt/tool/ros/build/shoot/shoot_pnp")
-  if(EXISTS "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib/shoot/shoot_pnp" AND
-     NOT IS_SYMLINK "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib/shoot/shoot_pnp")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/shoot" TYPE EXECUTABLE FILES "/home/tdt/tool/ros/build/shoot/shoot_node")
+  if(EXISTS "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib/shoot/shoot_node" AND
+     NOT IS_SYMLINK "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib/shoot/shoot_node")
     file(RPATH_CHANGE
-         FILE "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib/shoot/shoot_pnp"
+         FILE "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib/shoot/shoot_node"
          OLD_RPATH "/opt/ros/humble/lib:/home/tdt/tool/ros/install/tdt_interface/lib:"
          NEW_RPATH "")
     if(CMAKE_INSTALL_DO_STRIP)
-      execute_process(COMMAND "/usr/bin/strip" "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib/shoot/shoot_pnp")
+      execute_process(COMMAND "/usr/bin/strip" "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib/shoot/shoot_node")
     endif()
   endif()
 endif()

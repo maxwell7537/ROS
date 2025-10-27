@@ -331,6 +331,7 @@ bool Shoot::calculate_target_angles_from_pixel() {
     
     return true;
 }
+#endif
 bool Shoot::is_aimed_at_center() {
     double center_x = image_width_ / 2.0;
     double center_y = image_height_ / 2.0;
@@ -342,7 +343,6 @@ bool Shoot::is_aimed_at_center() {
     
     return aimed;
 }
-#endif
 
 double Shoot::clamp(double value, double min_val, double max_val) {
     return max(min_val, min(value, max_val));

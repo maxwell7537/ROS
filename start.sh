@@ -29,9 +29,9 @@ ros2 topic pub --once /game_start_player_1 std_msgs/Bool "data: true"
 # 启动Unity相机捕获节点（游戏画面采集）
 #start_node "Unity图像捕获节点" "image" "image_node"
 start_node "移动控制" "move" "move_node" "1"
-start_node "射击控制" "shoot" "shoot_pixel" "1"
+start_node "射击控制" "shoot" "shoot_node" "1" #shoot_pnp
 start_node "模型节点" "model" "model_node"
-sleep 4
+sleep 2
 start_node "核心节点" "core" "core_node"
 
 # ros2 topic pub --once /game_start_player_2 std_msgs/Bool "data: true" &      

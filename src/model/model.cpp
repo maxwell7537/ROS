@@ -13,13 +13,16 @@ using namespace cv;
 using namespace std;
 using namespace std::chrono_literals;
 
+double armor_width = 135.0/200;  // 装甲板宽度
+double armor_height = 125.0/200; // 装甲板高度
+
 vector<Point3f> objectPoints = {
-    Point3f(67.5, 62.5, 0),   
-    Point3f(67.5, 0, 0),      
-    Point3f(67.5, -62.5, 0),  
-    Point3f(-67.5, 62.5, 0),  
-    Point3f(-67.5, 0, 0),     
-    Point3f(-67.5, -62.5, 0)  
+    Point3f(armor_width/2, armor_height/2, 0),   
+    Point3f(armor_width/2, 0, 0),      
+    Point3f(armor_width/2, -armor_height/2, 0),  
+    Point3f(-armor_width/2, armor_height/2, 0),  
+    Point3f(-armor_width/2, 0, 0),     
+    Point3f(-armor_width/2, -armor_height/2, 0)  
 };
 vector<Point2f> imagePoints;
 
@@ -101,10 +104,10 @@ private:
             
             
             //灯条二值化和原图
-            // detector_light_.debugShowBinary(frame);
+            //detector_light_.debugShowBinary(frame);
 
             // 显示图像
-            // display_debug_image(frame, detection_result);
+            //display_debug_image(frame, detection_result);
             
         } catch (const cv_bridge::Exception& e) {
             RCLCPP_ERROR(this->get_logger(), "cv_bridge异常: %s", e.what());
@@ -202,11 +205,11 @@ private:
                                                           (float)tvec.at<double>(1), 
                                                           (float)tvec.at<double>(2)};
                                 
-                                RCLCPP_DEBUG(this->get_logger(), 
-                                    "检测到目标 - 像素位置: (%.1f, %.1f), 世界位置: (%.2f, %.2f, %.2f), 距离: %.2f", 
-                                    result.pixel_position.x, result.pixel_position.y,
-                                    result.world_position.x, result.world_position.y, result.world_position.z,
-                                    result.distance);
+                                // RCLCPP_INFO(this->get_logger(), 
+                                //     "检测到目标 - 像素位置: (%.1f, %.1f), 世界位置: (%.2f, %.2f, %.2f), 距离: %.2f", 
+                                //     result.pixel_position.x, result.pixel_position.y,
+                                //     result.world_position.x, result.world_position.y, result.world_position.z,
+                                //     result.distance);
                             }
                         }
                     }

@@ -3,7 +3,7 @@
 
 // ==================== 配置宏 ====================
 // 选择一种瞄准方式（只能启用一个）
-// #define USE_PNP_WORLD_COORDINATES    // 使用PNP解算的世界坐标进行弹道计算
+ //#define USE_PNP_WORLD_COORDINATES    // 使用PNP解算的世界坐标进行弹道计算
 #define USE_PIXEL_CENTER_AIM       // 使用像素坐标将准心移动到目标中心
 
 #include <string>

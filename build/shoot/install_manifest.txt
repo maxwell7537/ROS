@@ -1,4 +1,4 @@
-/home/tdt/tool/ros/install/shoot/lib/shoot/shoot_pnp
+/home/tdt/tool/ros/install/shoot/lib/shoot/shoot_node
 /home/tdt/tool/ros/install/shoot/lib/shoot/shoot_pixel
 /home/tdt/tool/ros/install/shoot/share/ament_index/resource_index/package_run_dependencies/shoot
 /home/tdt/tool/ros/install/shoot/share/ament_index/resource_index/parent_prefix_path/shoot

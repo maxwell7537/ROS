@@ -14,11 +14,11 @@ find_package(std_msgs REQUIRED)
 find_package(tdt_interface REQUIRED)
 
 # 创建两个不同的可执行文件，分别使用不同的瞄准方式
-add_executable(shoot_pnp src/shoot.cpp)
-target_compile_definitions(shoot_pnp PRIVATE USE_PNP_WORLD_COORDINATES)
-target_include_directories(shoot_pnp PRIVATE include)
+add_executable(shoot_node src/shoot1.cpp)
+target_compile_definitions(shoot_node PRIVATE USE_PNP_WORLD_COORDINATES)
+target_include_directories(shoot_node PRIVATE include)
 # 使用 ament_target_dependencies 而不是直接链接
-ament_target_dependencies(shoot_pnp rclcpp std_msgs tdt_interface)
+ament_target_dependencies(shoot_node rclcpp std_msgs tdt_interface)
 
 add_executable(shoot_pixel src/shoot.cpp src/shoot.hpp)
 target_compile_definitions(shoot_pixel PRIVATE USE_PIXEL_CENTER_AIM)
@@ -28,7 +28,7 @@ ament_target_dependencies(shoot_pixel rclcpp std_msgs tdt_interface)
 
 # 安装两个可执行文件
 install(TARGETS
-  shoot_pnp
+  shoot_node
   shoot_pixel
   DESTINATION lib/${PROJECT_NAME}
 )
