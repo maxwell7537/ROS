@@ -17,6 +17,7 @@ namespace kf {
         cv::Mat processNoiseCov;    // 过程噪声协方差(stateSize x stateSize)
         cv::Mat measurementNoiseCov;// 测量噪声协方差(measSize x measSize)
         cv::Mat errorCov;           // 误差协方差(stateSize x stateSize)
+        cv::Mat errorCovPost;          
         cv::Mat gain;               // 卡尔曼增益(stateSize x measSize)
 
     public:

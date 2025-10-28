@@ -73,7 +73,8 @@ public:
             RCLCPP_ERROR(this->get_logger(), "无法加载模型: %s", model_path.c_str());
             throw std::runtime_error("无法加载YOLO模型");
         }
-        
+
+        init_kalman_filter();
         // 创建订阅者
         image_subscription_ = this->create_subscription<sensor_msgs::msg::Image>(
             "camera_image_player_1", 10,
@@ -85,8 +86,14 @@ public:
             
         // 轨迹存储
         max_trajectory_length_ = 50;
+
+         // 预测参数
+        prediction_time_ = 0.01;  // 预测100ms后的位置
+        kf_initialized_ = false;
+        consecutive_misses_ = 0;
+        max_consecutive_misses_ = 5;
         
-        RCLCPP_INFO(this->get_logger(), "模型节点已启动，等待图像数据...");
+        RCLCPP_INFO(this->get_logger(), "模型节点已启动，卡尔曼滤波已初始化，等待图像数据...");
     }
 
 private:
@@ -107,7 +114,7 @@ private:
             //detector_light_.debugShowBinary(frame);
 
             // 显示图像
-            //display_debug_image(frame, detection_result);
+            // display_debug_image(frame, detection_result);
             
         } catch (const cv_bridge::Exception& e) {
             RCLCPP_ERROR(this->get_logger(), "cv_bridge异常: %s", e.what());
@@ -116,6 +123,37 @@ private:
         }
     }
     
+    void init_kalman_filter() {
+        // 状态向量: [x, y, z, vx, vy, vz] 6维
+        // 观测向量: [x, y, z] 3维
+        int stateSize = 6;  // 状态维度 (位置 + 速度)
+        int measSize = 3;   // 观测维度 (位置)
+        int controlSize = 0; // 控制维度
+        
+        kf_.init(stateSize, measSize, controlSize);
+        
+        // 设置状态转移矩阵 (匀速模型)
+        kf_.setTransitionMatrix((Mat_<float>(6, 6) << 
+            1, 0, 0, 1, 0, 0,
+            0, 1, 0, 0, 1, 0,
+            0, 0, 1, 0, 0, 1,
+            0, 0, 0, 1, 0, 0,
+            0, 0, 0, 0, 1, 0,
+            0, 0, 0, 0, 0, 1));
+        
+        // 设置测量矩阵
+        kf_.setMeasurementMatrix((Mat_<float>(3, 6) << 
+            1, 0, 0, 0, 0, 0,
+            0, 1, 0, 0, 0, 0,
+            0, 0, 1, 0, 0, 0));
+        
+        kf_.setProcessNoiseCov(Mat::eye(6, 6, CV_32F) * 1e-2);
+        kf_.setMeasurementNoiseCov(Mat::eye(3, 3, CV_32F) * 1e-1);
+        kf_.setErrorCov(Mat::eye(6, 6, CV_32F) * 1.0);
+            
+        RCLCPP_INFO(this->get_logger(), "卡尔曼滤波器初始化完成");
+    }
+
     DetectionResult process_frame(Mat& frame) {
         DetectionResult result;
         
@@ -204,13 +242,25 @@ private:
                                 result.tvec = vector<float>{(float)tvec.at<double>(0), 
                                                           (float)tvec.at<double>(1), 
                                                           (float)tvec.at<double>(2)};
+
+
+                                update_kalman_filter(result.world_position);
+                
+                                Point3f predicted_position = predict_future_position(prediction_time_);
+                                Point2f predicted_pixel = world_to_pixel(predicted_position, frame.cols, frame.rows);
                                 
-                                // RCLCPP_INFO(this->get_logger(), 
-                                //     "检测到目标 - 像素位置: (%.1f, %.1f), 世界位置: (%.2f, %.2f, %.2f), 距离: %.2f", 
-                                //     result.pixel_position.x, result.pixel_position.y,
-                                //     result.world_position.x, result.world_position.y, result.world_position.z,
-                                //     result.distance);
+                                // 用预测结果替代检测结果
+                                // result.world_position = predicted_position;
+                                // result.pixel_position = predicted_pixel;
+                                // result.distance = norm(Mat(predicted_position));
+
+                                RCLCPP_INFO(this->get_logger(), 
+                                    "检测到目标 - 像素位置: (%.1f, %.1f), 世界位置: (%.2f, %.2f, %.2f), 距离: %.2f", 
+                                    result.pixel_position.x, result.pixel_position.y,
+                                    result.world_position.x, result.world_position.y, result.world_position.z,
+                                    result.distance);
                             }
+                             
                         }
                     }
                 }
@@ -256,30 +306,96 @@ private:
             trajectory_.erase(trajectory_.begin());
         }
     }
+    void update_kalman_filter(const Point3f& position) {
+    if (!kf_initialized_) {
+        // 第一次初始化状态
+        Mat initial_state = (Mat_<float>(6, 1) << 
+            position.x, position.y, position.z, 0, 0, 0);
+        kf_.setState(initial_state);
+        kf_initialized_ = true;
+        consecutive_misses_ = 0;
+    } else {
+        // 更新测量值
+        Mat measurement = (Mat_<float>(3, 1) << 
+            position.x, position.y, position.z);
+        kf_.correct(measurement);
+        consecutive_misses_ = 0;
+    }
+}
     
+    Point3f predict_future_position(float dt) {
+        if (!kf_initialized_) {
+            return Point3f(0, 0, 0);
+        }
+        
+        // 创建预测用的状态转移矩阵
+        Mat F = (Mat_<float>(6, 6) << 
+            1, 0, 0, dt, 0, 0,
+            0, 1, 0, 0, dt, 0,
+            0, 0, 1, 0, 0, dt,
+            0, 0, 0, 1, 0, 0,
+            0, 0, 0, 0, 1, 0,
+            0, 0, 0, 0, 0, 1);
+        
+        // 预测状态
+        Mat predicted_state = F * kf_.getState();
+        
+        return Point3f(predicted_state.at<float>(0),
+                      predicted_state.at<float>(1),
+                      predicted_state.at<float>(2));
+    }
+    
+    void predict_without_measurement() {
+        if (kf_initialized_) {
+            // 只有预测步骤，没有更新
+            kf_.predict();
+            consecutive_misses_++;
+            
+            if (consecutive_misses_ > max_consecutive_misses_) {
+                kf_initialized_ = false;
+            }
+        }
+    }
+    
+   Point2f world_to_pixel(const Point3f& world_pos, int img_width, int img_height) {
+        vector<Point3f> world_points = {world_pos};
+        vector<Point2f> pixel_points;
+        
+        projectPoints(world_points, rvec, tvec, cameraMatrix, distCoeffs, pixel_points);
+        
+        if (!pixel_points.empty()) {
+            Point2f pixel = pixel_points[0];
+            // 宽松的检查：允许像素坐标在图像边界外一定范围内
+            if (pixel.x >= -1000 && pixel.x < img_width+1000 && pixel.y >= -1000 && pixel.y < img_height+1000) {
+                return pixel;
+            }
+        }
+        // 返回图像中心
+        return Point2f(img_width/2, img_height/2);
+    }
     void display_debug_image(Mat& frame, const DetectionResult& result) {
-        // 绘制检测框
-        // if(!result.bounding_box.empty()) {
-        //     rectangle(frame, result.bounding_box, Scalar(0, 255, 0), 2);
-        //     string label = format("Rob: %.2f", result.confidence);
-        //     putText(frame, label, Point(result.bounding_box.x, result.bounding_box.y - 10), 
-        //            FONT_HERSHEY_SIMPLEX, 0.5, Scalar(0, 255, 0), 1);
-        // }
+        //绘制检测框
+        if(!result.bounding_box.empty()) {
+            rectangle(frame, result.bounding_box, Scalar(0, 255, 0), 2);
+            string label = format("Rob: %.2f", result.confidence);
+            putText(frame, label, Point(result.bounding_box.x, result.bounding_box.y - 10), 
+                   FONT_HERSHEY_SIMPLEX, 0.5, Scalar(0, 255, 0), 1);
+        }
         
-        // // 绘制中心点
-        // circle(frame, result.pixel_position, 5, Scalar(0, 0, 255), -1);
+        // 绘制中心点
+        circle(frame, result.pixel_position, 5, Scalar(0, 0, 255), -1);
         
-        // 绘制轨迹
-        // for(size_t i = 1; i < trajectory_.size(); i++) {
-        //     line(frame, trajectory_[i-1], trajectory_[i], Scalar(255, 0, 0), 2);
-        // }
+        //绘制轨迹
+        for(size_t i = 1; i < trajectory_.size(); i++) {
+            line(frame, trajectory_[i-1], trajectory_[i], Scalar(255, 0, 0), 2);
+        }
         
-        // 显示距离信息
-        // if(result.distance > 0) {
-        //     string info = format("Distance: %.2f", result.distance);
-        //     putText(frame, info, Point(10, frame.rows - 20), 
-        //             FONT_HERSHEY_SIMPLEX, 0.7, Scalar(0,255,255), 2);
-        // }
+        //显示距离信息
+        if(result.distance > 0) {
+            string info = format("Distance: %.2f", result.distance);
+            putText(frame, info, Point(10, frame.rows - 20), 
+                    FONT_HERSHEY_SIMPLEX, 0.7, Scalar(0,255,255), 2);
+        }
         
         imshow("Rob Detection", frame);
         waitKey(1);
@@ -290,10 +406,15 @@ private:
     RobDetector detector_rob_{0.3};
     LightBarDetector detector_light_;
     
+     // 卡尔曼滤波器
+    kf::kalmanfilter kf_;
+    bool kf_initialized_;
+    int consecutive_misses_;
+    int max_consecutive_misses_;
+    float prediction_time_;
+
     // ROS2相关
     rclcpp::Subscription<sensor_msgs::msg::Image>::SharedPtr image_subscription_;
-    rclcpp::Publisher<geometry_msgs::msg::Point>::SharedPtr target_position_publisher_;
-    rclcpp::Publisher<geometry_msgs::msg::Point>::SharedPtr target_world_position_publisher_;
     rclcpp::Publisher<std_msgs::msg::Float32MultiArray>::SharedPtr detection_result_publisher_;
     
     // 轨迹跟踪

@@ -17,6 +17,7 @@ void kalmanfilter::init(int _stateSize,int _measSize,int _controlSize){
     processNoiseCov=Mat::eye(stateSize,stateSize,CV_32F)*1e-2;
     measurementNoiseCov=Mat::eye(measSize,measSize,CV_32F)*1e-1;
     errorCov=Mat::eye(stateSize,stateSize,CV_32F);
+    errorCovPost=Mat::eye(stateSize,stateSize,CV_32F);
     gain=Mat::zeros(stateSize,measSize,CV_32F);
 }
 const Mat& kalmanfilter::predict(const Mat& control) {
@@ -26,6 +27,7 @@ const Mat& kalmanfilter::predict(const Mat& control) {
         state+=controlMatrix*control;
     // 误差协方差预测: P'=F*P*F^T+Q
     errorCov=transitionMatrix*errorCov*transitionMatrix.t()+processNoiseCov;
+    errorCovPost = errorCov.clone(); 
     return state;
 }
 const Mat& kalmanfilter::correct(const Mat& _measurement) {
@@ -39,6 +41,7 @@ const Mat& kalmanfilter::correct(const Mat& _measurement) {
     // 误差协方差更新:P=(I-K*H)*P'
     Mat I=Mat::eye(stateSize,stateSize,CV_32F);
     errorCov=(I-gain*measurementMatrix)*errorCov;
+    errorCovPost = errorCov.clone();
     return state;
 }
 void kalmanfilter::setState(const Mat& _state){

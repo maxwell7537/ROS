@@ -86,5 +86,6 @@
         "span": "cpp",
         "syncstream": "cpp",
         "valarray": "cpp"
-    }
+    },
+    "cmake.sourceDirectory": "/home/tdt/tool/ros/build/tdt_interface/tdt_interface__py"
 }

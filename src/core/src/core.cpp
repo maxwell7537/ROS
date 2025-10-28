@@ -117,7 +117,7 @@ public:
         last_state_change_time_ = this->now();
         revive_start_time_ = this->now();
         invincible_end_time_ = this->now();
-        current_target_node_ = -1;
+        current_target_node_ = 13;//特殊
         game_started_ = false;
         first_death_ignored_ = false;
         
@@ -140,7 +140,6 @@ private:
     // 初始化敌人配置
     void initializeEnemyConfig() {
         // 敌人ID到节点和角度的映射
-        // 格式: {敌人ID, {节点ID, 目标yaw角度, 是否已设置朝向}}
         enemy_config_[2] = {7, 90.0f, false};   // 2号敌人（敌方基地）: 节点7, yaw=90度
         enemy_config_[3] = {12, 180.0f, false};   // 3号敌人: 节点12, yaw=180度
         enemy_config_[4] = {14, 90.0f, false}; // 4号敌人: 节点14, yaw=90度  
@@ -166,8 +165,6 @@ private:
         auto shoot_msg = std_msgs::msg::Int32();
         msg.if_shoot = false;
 
-        // 检查是否到达当前攻击敌人的节点
-        int current_node = nearest_node_index(current_x_, current_y_);
         
         // 设置初始朝向为90度（只在开始时设置一次）
         if (!initial_orientation_set_) {
@@ -177,10 +174,10 @@ private:
             RCLCPP_INFO(this->get_logger(), "设置初始朝向: yaw=90.0");
         }
         // 到达敌人节点且未设置过朝向时，设置为对应角度
-        else if (current_enemy_id_ != -1 && current_node == enemy_config_[current_enemy_id_].node_id && 
+        else if (current_enemy_id_ != -1 && check_nearest_node(enemy_config_[current_enemy_id_].node_id) && 
                  !enemy_config_[current_enemy_id_].orientation_set&&enemy_states_[current_enemy_id_].alive) {
-            if(current_enemy_id_==2&&current_y_<=33){
-                cout<<"id 匹配"<<endl;
+            if(current_enemy_id_==2&&current_y_<=34.8){
+                // cout<<"id 匹配"<<endl;
                 msg.yaw = yaw;
                 msg.pitch = pitch;
             }else{
@@ -193,7 +190,7 @@ private:
             }
         }
             
-        else if (current_enemy_id_ != -1 && current_node == enemy_config_[current_enemy_id_].node_id && 
+        else if (current_enemy_id_ != -1 && check_nearest_node(enemy_config_[current_enemy_id_].node_id) && 
                  current_enemy_orientation_set_&&enemy_states_[current_enemy_id_].alive) {
                 //  RCLCPP_INFO(this->get_logger(), "debug：current_enemy_id_=%d != -1 && current_node=%d == enemy_config_[current_enemy_id_].node_id=%d && current_enemy_orientation_set_=%d && !turn_completed_=%d", current_enemy_id_, current_node,enemy_config_[current_enemy_id_].node_id,current_enemy_orientation_set_,turn_completed_);
             // 检查当前云台角度是否接近目标角度
@@ -336,13 +333,18 @@ private:
         out_path.assign(reverse_path.rbegin(), reverse_path.rend());
         
         // 记录路径信息用于调试
-        // RCLCPP_INFO(this->get_logger(), "从节点%d到节点%d的路径: ", start_idx, goal_idx);
-        // for (int node : out_path) {
-        //     RCLCPP_INFO(this->get_logger(), "-> %d", node);
-        // }
-        // RCLCPP_INFO(this->get_logger(), "路径长度: %zu", out_path.size());
+        RCLCPP_INFO(this->get_logger(), "从节点%d到节点%d的路径: ", start_idx, goal_idx);
+        for (int node : out_path) {
+            RCLCPP_INFO(this->get_logger(), "-> %d", node);
+        }
+        RCLCPP_INFO(this->get_logger(), "路径长度: %zu", out_path.size());
         
         // return true;
+    }
+
+    int check_nearest_node(int x) {
+        double xx=point_set[x].x,  yy=point_set[x].y;
+        return fabs(current_x_-xx)<1.0&&fabs(current_y_-yy)<1.0;
     }
 
     int nearest_node_index(double x, double y) {
@@ -364,7 +366,6 @@ private:
         }
         return best;
     }
-
     // 将节点序列转换为 move_list（点序列）
     void set_move_list_from_nodes(const vector<int>& nodes) {
         // 清空当前路径
@@ -435,13 +436,6 @@ private:
     }
     bool isBaseInvincible() {
         return time_ >= 13 * 60; // 剩余时间大于13分钟时基地无敌
-    }
-    // 检查是否已经到达目标节点
-    bool isAtTargetNode(int target_node) {
-        if (target_node == -1) return false;
-        
-        int current_node = nearest_node_index(current_x_, current_y_);
-        return current_node == target_node;
     }
     bool isGameStarted() {
         return time_ < 900;
@@ -569,7 +563,7 @@ private:
         }
         
         // 检查是否需要重新规划路径
-        if (target_node != current_target_node_ || isAtTargetNode(target_node)) {
+        if (target_node != current_target_node_ || !check_nearest_node(target_node)) {
             current_target_node_ = target_node;
             
             if (target_node != -1 && start_node != -1 && start_node != target_node) {

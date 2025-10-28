@@ -41,9 +41,6 @@ private:
     bool is_angle_safe(double pitch, double yaw);
     bool is_distance_safe(double distance);
 
-    // 发布调试（预留）
-    void publish_debug_info(double final_pitch, double final_yaw);
-
     // ROS2接口
     rclcpp::Publisher<tdt_interface::msg::SendData>::SharedPtr publisher_;
     rclcpp::Subscription<std_msgs::msg::Int32>::SharedPtr shoot_state_sub_;
@@ -113,7 +110,7 @@ private:
     double integral_x_;
     double integral_y_;
     double center_x[10];
-    double center_y[10];//30 在13点打5号可以
+    double center_y[10];
     double kp;
     
     // 安全限制参数
@@ -184,16 +181,16 @@ Shoot::Shoot(int id)
   image_height_(480.0),
   fov_x_(60.0),
   fov_y_(60.0),
-  aim_tolerance_(90.0),
+  aim_tolerance_(90.0),// 容忍度
   max_angle_step_(3.0),
   max_i_term_(5.0),
   prev_error_x_(0.0),
   prev_error_y_(0.0),
   integral_x_(0.0),
   integral_y_(0.0),
-  center_x ({0,0,image_width_/2.0,0,image_width_/2.0,image_width_ / 2.0+20,0}),
-  center_y({0,0,image_height_/2.0+20,0,image_height_/2.0,image_height_/2.0+30,0}),//30 在13点打5号可以
-  kp(6.4),
+  center_x ({0,0,image_width_/2.0,0,image_width_/2.0,image_width_ / 2.0,0}),
+  center_y({0,0,image_height_/2.0+20,0,image_height_/2.0,image_height_/2.0+30,0}),
+  kp(15.0),
   // 安全限制参数
   max_pitch_angle_(60.0),
   min_pitch_angle_(-17.0),
@@ -321,7 +318,18 @@ void Shoot::detection_result_callback(const std_msgs::msg::Float32MultiArray::Sh
         has_target_ = false;
     }
     if(class_id==4){
-        center_y[4]=kp*(target_distance_-12.5)+240.0+30;
+        // center_y[4]=-8*(target_distance_-11)+240.0-30;//
+        center_y[4] = 240 + 2 * target_distance_ - 4.9 * pow(target_distance_ / 23, 2);
+        // center_y[4] = 350 - 5 * target_distance_;
+
+        // double compensation = 0.0;
+        // if (target_distance_ < 9.0) {
+        //     compensation = 5.0 + 1.5 * (9.0 - target_distance_);
+        // } else {
+        //     compensation = 12.0 + 1.2 * (target_distance_ - 9.0) + 0.08 * pow(target_distance_ - 9.0, 2);
+        // }
+        // compensation = std::clamp(compensation, 5.0, 45.0);
+        // center_y[4] = 240.0 - compensation - 28.0;
         // RCLCPP_INFO(this->get_logger(), "center_y[4]=%lf",center_y[4]);
     }
     if(class_id==2){
@@ -396,18 +404,18 @@ double Shoot::calculate_gravity_compensation(double horizontal_distance, double 
         return 0.0;
     }
 
-    // 飞行时间近似为水平距离 / 子弹速度（忽略风阻）
+    // 飞行时间=水平距离 / 子弹速度
     double time_to_target = horizontal_distance / bullet_speed_;
     double drop_distance = 0.5 * gravity_ * time_to_target * time_to_target;
 
-    // 需要提升的角度（弧度）
+    // 需要提升的角度
     double compensation_rad = std::atan2(drop_distance, horizontal_distance);
     return compensation_rad * (180.0 / M_PI);
 }
 
 bool Shoot::calculate_target_angles_from_pixel()
 {
-    // 在无法获得世界坐标时，使用像素 PID 更新角度以跟随目标（增量方式）
+    // 在无法获得世界坐标时，使用像素 PID 更新角度以跟随目标
     double error_x = static_cast<double>(target_pixel_x_) - center_x[class_id];
     double error_y = static_cast<double>(target_pixel_y_) - center_y[class_id];
 
@@ -430,7 +438,7 @@ bool Shoot::calculate_target_angles_from_pixel()
     // angle_adjust_x = clamp(angle_adjust_x, -max_angle_step_, max_angle_step_);
     // angle_adjust_y = clamp(angle_adjust_y, -max_angle_step_, max_angle_step_);
 
-    // 更新角度：像素控制为微调（增量）
+    // 像素控制为增量
     yaw_ += angle_adjust_x;
     pitch_ -= angle_adjust_y;
 
@@ -439,16 +447,12 @@ bool Shoot::calculate_target_angles_from_pixel()
     return true;
 }
 
-bool Shoot::is_aimed_at_center()
-{
-
+bool Shoot::is_aimed_at_center(){
     double error_x = std::abs(static_cast<double>(target_pixel_x_) - center_x[class_id]);
     double error_y = std::abs(static_cast<double>(target_pixel_y_) - center_y[class_id]);
 
     return (error_x <= aim_tolerance_ && error_y <= aim_tolerance_);
 }
-
-
 
 double Shoot::apply_spread(double angle) {
     if (!enable_spread_) {
@@ -470,8 +474,7 @@ double Shoot::clamp(double value, double min_val, double max_val){
     return std::max(min_val, std::min(value, max_val));
 }
 
-void Shoot::timer_callback()
-{
+void Shoot::timer_callback(){
     auto msg = tdt_interface::msg::SendData();
 
     // 检查目标是否过期（0.5秒无更新认为目标丢失）
@@ -511,12 +514,12 @@ void Shoot::timer_callback()
                 msg.yaw = final_yaw;
                 
                 msg.if_shoot = auto_shoot_  || is_aimed_at_center();
-                static int count=0;
-                if(count++%10 == 0){
-                    RCLCPP_INFO(this->get_logger(), "Output: yaw=%.2f, pitch=%.2f, conf=%.2f, fire=%s",
-                                final_yaw, final_pitch,  target_confidence_,
-                                 (msg.if_shoot ? "YES" : "NO"));
-                }
+                // static int count=0;
+                // if(count++%10 == 0){
+                //     RCLCPP_INFO(this->get_logger(), "Output: yaw=%.2f, pitch=%.2f, conf=%.2f, fire=%s",
+                //                 final_yaw, final_pitch,  target_confidence_,
+                //                  (msg.if_shoot ? "YES" : "NO"));
+                // }
                 publisher_->publish(msg);
                 last_published_yaw = final_yaw;
                 last_published_pitch = final_pitch;
@@ -525,8 +528,7 @@ void Shoot::timer_callback()
     }
 }
 
-int main(int argc, char * argv[])
-{
+int main(int argc, char * argv[]){
     setenv("ROS_DOMAIN_ID", "0", 1);
     rclcpp::init(argc, argv);
 
