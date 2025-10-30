@@ -256,6 +256,9 @@ OPENSSL_INCLUDE_DIR:PATH=/usr/include
 //Path to a library.
 OPENSSL_SSL_LIBRARY:FILEPATH=/usr/lib/x86_64-linux-gnu/libssl.so
 
+//The directory containing a CMake configuration file for OpenCV.
+OpenCV_DIR:PATH=/usr/local/lib/cmake/opencv4
+
 //Arguments to supply to pkg-config
 PKG_CONFIG_ARGN:STRING=
 
@@ -353,7 +356,7 @@ core_IS_TOP_LEVEL:STATIC=ON
 core_SOURCE_DIR:STATIC=/home/tdt/tool/ros/src/core
 
 //The directory containing a CMake configuration file for cv_bridge.
-cv_bridge_DIR:PATH=/opt/ros/humble/share/cv_bridge/cmake
+cv_bridge_DIR:PATH=/home/tdt/tool/ros/install/cv_bridge/share/cv_bridge/cmake
 
 //The directory containing a CMake configuration file for fastcdr.
 fastcdr_DIR:PATH=/opt/ros/humble/lib/cmake/fastcdr
@@ -669,7 +672,7 @@ CMAKE_VERBOSE_MAKEFILE-ADVANCED:INTERNAL=1
 //Details about finding FastRTPS
 FIND_PACKAGE_MESSAGE_DETAILS_FastRTPS:INTERNAL=[/opt/ros/humble/include][/opt/ros/humble/lib/libfastrtps.so;/opt/ros/humble/lib/libfastcdr.so][v()]
 //Details about finding OpenCV
-FIND_PACKAGE_MESSAGE_DETAILS_OpenCV:INTERNAL=[/home/tdt/tool/OpenCv/1.0/opencv-4.7.0/build][v4.7.0()]
+FIND_PACKAGE_MESSAGE_DETAILS_OpenCV:INTERNAL=[/usr/local][v4.7.0()]
 //Details about finding OpenSSL
 FIND_PACKAGE_MESSAGE_DETAILS_OpenSSL:INTERNAL=[/usr/lib/x86_64-linux-gnu/libcrypto.so][/usr/include][c ][v3.0.2()]
 //Details about finding Python3

@@ -1,0 +1,476 @@
+{
+	"archive" : {},
+	"artifacts" : 
+	[
+		{
+			"path" : "3rdparty/lib/libippiw.a"
+		}
+	],
+	"backtrace" : 1,
+	"backtraceGraph" : 
+	{
+		"commands" : 
+		[
+			"add_library",
+			"add_definitions",
+			"include_directories",
+			"ocv_include_directories"
+		],
+		"files" : 
+		[
+			"/home/tdt/tool/ros/build/OpenCV/3rdparty/ippicv/ippicv_lnx/iw/CMakeLists.txt",
+			"cmake/OpenCVUtils.cmake",
+			"CMakeLists.txt"
+		],
+		"nodes" : 
+		[
+			{
+				"file" : 0
+			},
+			{
+				"command" : 0,
+				"file" : 0,
+				"line" : 20,
+				"parent" : 0
+			},
+			{
+				"command" : 1,
+				"file" : 0,
+				"line" : 10,
+				"parent" : 0
+			},
+			{
+				"command" : 1,
+				"file" : 0,
+				"line" : 8,
+				"parent" : 0
+			},
+			{
+				"command" : 3,
+				"file" : 0,
+				"line" : 7,
+				"parent" : 0
+			},
+			{
+				"command" : 2,
+				"file" : 1,
+				"line" : 315,
+				"parent" : 4
+			},
+			{
+				"file" : 2
+			},
+			{
+				"command" : 3,
+				"file" : 2,
+				"line" : 615,
+				"parent" : 6
+			},
+			{
+				"command" : 2,
+				"file" : 1,
+				"line" : 312,
+				"parent" : 7
+			}
+		]
+	},
+	"compileGroups" : 
+	[
+		{
+			"compileCommandFragments" : 
+			[
+				{
+					"fragment" : "   -fsigned-char -W -Wall -Wreturn-type -Waddress -Wsequence-point -Wformat -Wformat-security -Wmissing-declarations -Wmissing-prototypes -Wstrict-prototypes -Wundef -Winit-self -Wpointer-arith -Wshadow -Wuninitialized -Wno-comment -Wimplicit-fallthrough=3 -Wno-strict-overflow -fdiagnostics-show-option -Wno-long-long -pthread -fomit-frame-pointer -ffunction-sections -fdata-sections  -msse -msse2 -msse3 -fvisibility=hidden -Wno-unused-function -Wno-missing-braces -Wno-missing-field-initializers -O3 -DNDEBUG  -DNDEBUG -fPIC"
+				}
+			],
+			"defines" : 
+			[
+				{
+					"backtrace" : 2,
+					"define" : "ICV_BASE"
+				},
+				{
+					"backtrace" : 3,
+					"define" : "IW_BUILD"
+				}
+			],
+			"includes" : 
+			[
+				{
+					"backtrace" : 5,
+					"path" : "/home/tdt/tool/ros/build/OpenCV/3rdparty/ippicv/ippicv_lnx/iw/include"
+				},
+				{
+					"backtrace" : 5,
+					"path" : "/home/tdt/tool/ros/build/OpenCV/3rdparty/ippicv/ippicv_lnx/icv/include"
+				},
+				{
+					"backtrace" : 8,
+					"isSystem" : true,
+					"path" : "/home/tdt/tool/ros/build/OpenCV"
+				}
+			],
+			"language" : "C",
+			"sourceIndexes" : 
+			[
+				0,
+				1,
+				2,
+				3,
+				4,
+				5,
+				6,
+				7,
+				8,
+				9,
+				10,
+				11,
+				12,
+				13,
+				14,
+				15,
+				16,
+				17,
+				18,
+				19,
+				20,
+				21,
+				22,
+				23,
+				24,
+				25,
+				26
+			]
+		}
+	],
+	"id" : "ippiw::@5f1c6d7264a9a7781a27",
+	"name" : "ippiw",
+	"nameOnDisk" : "libippiw.a",
+	"paths" : 
+	{
+		"build" : "3rdparty/ippiw",
+		"source" : "/home/tdt/tool/ros/build/OpenCV/3rdparty/ippicv/ippicv_lnx/iw"
+	},
+	"sourceGroups" : 
+	[
+		{
+			"name" : "Source Files",
+			"sourceIndexes" : 
+			[
+				0,
+				1,
+				2,
+				3,
+				4,
+				5,
+				6,
+				7,
+				8,
+				9,
+				10,
+				11,
+				12,
+				13,
+				14,
+				15,
+				16,
+				17,
+				18,
+				19,
+				20,
+				21,
+				22,
+				23,
+				24,
+				25,
+				26
+			]
+		},
+		{
+			"name" : "Header Files",
+			"sourceIndexes" : 
+			[
+				27,
+				28,
+				29,
+				30,
+				31,
+				32,
+				33,
+				34,
+				35,
+				36,
+				37,
+				38,
+				39,
+				40,
+				41,
+				42,
+				43,
+				44,
+				45
+			]
+		}
+	],
+	"sources" : 
+	[
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "/home/tdt/tool/ros/build/OpenCV/3rdparty/ippicv/ippicv_lnx/iw/src/iw_core.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "/home/tdt/tool/ros/build/OpenCV/3rdparty/ippicv/ippicv_lnx/iw/src/iw_image.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "/home/tdt/tool/ros/build/OpenCV/3rdparty/ippicv/ippicv_lnx/iw/src/iw_image_color_convert_all.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "/home/tdt/tool/ros/build/OpenCV/3rdparty/ippicv/ippicv_lnx/iw/src/iw_image_color_convert_rgbs.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "/home/tdt/tool/ros/build/OpenCV/3rdparty/ippicv/ippicv_lnx/iw/src/iw_image_filter_bilateral.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "/home/tdt/tool/ros/build/OpenCV/3rdparty/ippicv/ippicv_lnx/iw/src/iw_image_filter_box.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "/home/tdt/tool/ros/build/OpenCV/3rdparty/ippicv/ippicv_lnx/iw/src/iw_image_filter_canny.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "/home/tdt/tool/ros/build/OpenCV/3rdparty/ippicv/ippicv_lnx/iw/src/iw_image_filter_gaussian.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "/home/tdt/tool/ros/build/OpenCV/3rdparty/ippicv/ippicv_lnx/iw/src/iw_image_filter_general.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "/home/tdt/tool/ros/build/OpenCV/3rdparty/ippicv/ippicv_lnx/iw/src/iw_image_filter_laplacian.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "/home/tdt/tool/ros/build/OpenCV/3rdparty/ippicv/ippicv_lnx/iw/src/iw_image_filter_morphology.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "/home/tdt/tool/ros/build/OpenCV/3rdparty/ippicv/ippicv_lnx/iw/src/iw_image_filter_scharr.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "/home/tdt/tool/ros/build/OpenCV/3rdparty/ippicv/ippicv_lnx/iw/src/iw_image_filter_sobel.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "/home/tdt/tool/ros/build/OpenCV/3rdparty/ippicv/ippicv_lnx/iw/src/iw_image_op_copy.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "/home/tdt/tool/ros/build/OpenCV/3rdparty/ippicv/ippicv_lnx/iw/src/iw_image_op_copy_channel.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "/home/tdt/tool/ros/build/OpenCV/3rdparty/ippicv/ippicv_lnx/iw/src/iw_image_op_copy_make_border.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "/home/tdt/tool/ros/build/OpenCV/3rdparty/ippicv/ippicv_lnx/iw/src/iw_image_op_copy_merge.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "/home/tdt/tool/ros/build/OpenCV/3rdparty/ippicv/ippicv_lnx/iw/src/iw_image_op_copy_split.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "/home/tdt/tool/ros/build/OpenCV/3rdparty/ippicv/ippicv_lnx/iw/src/iw_image_op_scale.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "/home/tdt/tool/ros/build/OpenCV/3rdparty/ippicv/ippicv_lnx/iw/src/iw_image_op_set.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "/home/tdt/tool/ros/build/OpenCV/3rdparty/ippicv/ippicv_lnx/iw/src/iw_image_op_set_channel.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "/home/tdt/tool/ros/build/OpenCV/3rdparty/ippicv/ippicv_lnx/iw/src/iw_image_op_swap_channels.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "/home/tdt/tool/ros/build/OpenCV/3rdparty/ippicv/ippicv_lnx/iw/src/iw_image_transform_mirror.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "/home/tdt/tool/ros/build/OpenCV/3rdparty/ippicv/ippicv_lnx/iw/src/iw_image_transform_resize.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "/home/tdt/tool/ros/build/OpenCV/3rdparty/ippicv/ippicv_lnx/iw/src/iw_image_transform_rotate.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "/home/tdt/tool/ros/build/OpenCV/3rdparty/ippicv/ippicv_lnx/iw/src/iw_image_transform_warpaffine.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "/home/tdt/tool/ros/build/OpenCV/3rdparty/ippicv/ippicv_lnx/iw/src/iw_own.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"path" : "/home/tdt/tool/ros/build/OpenCV/3rdparty/ippicv/ippicv_lnx/iw/include/iw++/iw.hpp",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 1,
+			"path" : "/home/tdt/tool/ros/build/OpenCV/3rdparty/ippicv/ippicv_lnx/iw/include/iw++/iw_core.hpp",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 1,
+			"path" : "/home/tdt/tool/ros/build/OpenCV/3rdparty/ippicv/ippicv_lnx/iw/include/iw++/iw_image.hpp",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 1,
+			"path" : "/home/tdt/tool/ros/build/OpenCV/3rdparty/ippicv/ippicv_lnx/iw/include/iw++/iw_image_color.hpp",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 1,
+			"path" : "/home/tdt/tool/ros/build/OpenCV/3rdparty/ippicv/ippicv_lnx/iw/include/iw++/iw_image_filter.hpp",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 1,
+			"path" : "/home/tdt/tool/ros/build/OpenCV/3rdparty/ippicv/ippicv_lnx/iw/include/iw++/iw_image_op.hpp",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 1,
+			"path" : "/home/tdt/tool/ros/build/OpenCV/3rdparty/ippicv/ippicv_lnx/iw/include/iw++/iw_image_transform.hpp",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 1,
+			"path" : "/home/tdt/tool/ros/build/OpenCV/3rdparty/ippicv/ippicv_lnx/iw/include/iw/iw.h",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 1,
+			"path" : "/home/tdt/tool/ros/build/OpenCV/3rdparty/ippicv/ippicv_lnx/iw/include/iw/iw_core.h",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 1,
+			"path" : "/home/tdt/tool/ros/build/OpenCV/3rdparty/ippicv/ippicv_lnx/iw/include/iw/iw_image.h",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 1,
+			"path" : "/home/tdt/tool/ros/build/OpenCV/3rdparty/ippicv/ippicv_lnx/iw/include/iw/iw_image_color.h",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 1,
+			"path" : "/home/tdt/tool/ros/build/OpenCV/3rdparty/ippicv/ippicv_lnx/iw/include/iw/iw_image_filter.h",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 1,
+			"path" : "/home/tdt/tool/ros/build/OpenCV/3rdparty/ippicv/ippicv_lnx/iw/include/iw/iw_image_op.h",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 1,
+			"path" : "/home/tdt/tool/ros/build/OpenCV/3rdparty/ippicv/ippicv_lnx/iw/include/iw/iw_image_transform.h",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 1,
+			"path" : "/home/tdt/tool/ros/build/OpenCV/3rdparty/ippicv/ippicv_lnx/iw/include/iw/iw_ll.h",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 1,
+			"path" : "/home/tdt/tool/ros/build/OpenCV/3rdparty/ippicv/ippicv_lnx/iw/include/iw/iw_version.h",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 1,
+			"path" : "/home/tdt/tool/ros/build/OpenCV/3rdparty/ippicv/ippicv_lnx/iw/include/iw_config.h",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 1,
+			"path" : "/home/tdt/tool/ros/build/OpenCV/3rdparty/ippicv/ippicv_lnx/iw/include/iw_own.h",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 1,
+			"path" : "/home/tdt/tool/ros/build/OpenCV/3rdparty/ippicv/ippicv_lnx/iw/include/iw_owni.h",
+			"sourceGroupIndex" : 1
+		}
+	],
+	"type" : "STATIC_LIBRARY"
+}

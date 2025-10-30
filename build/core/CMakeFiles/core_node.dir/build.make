@@ -93,7 +93,7 @@ core_node_EXTERNAL_OBJECTS =
 core_node: CMakeFiles/core_node.dir/src/core.cpp.o
 core_node: CMakeFiles/core_node.dir/build.make
 core_node: /opt/ros/humble/lib/x86_64-linux-gnu/libimage_transport.so
-core_node: /opt/ros/humble/lib/libcv_bridge.so
+core_node: /home/tdt/tool/ros/install/cv_bridge/lib/libcv_bridge.so
 core_node: /home/tdt/tool/ros/install/my_msgs/lib/libmy_msgs__rosidl_typesupport_fastrtps_c.so
 core_node: /home/tdt/tool/ros/install/my_msgs/lib/libmy_msgs__rosidl_typesupport_introspection_c.so
 core_node: /home/tdt/tool/ros/install/my_msgs/lib/libmy_msgs__rosidl_typesupport_fastrtps_cpp.so
@@ -116,14 +116,14 @@ core_node: /home/tdt/tool/ros/install/tdt_interface/lib/libtdt_interface__rosidl
 core_node: /home/tdt/tool/ros/install/tdt_interface/lib/libtdt_interface__rosidl_typesupport_introspection_cpp.so
 core_node: /home/tdt/tool/ros/install/tdt_interface/lib/libtdt_interface__rosidl_typesupport_cpp.so
 core_node: /home/tdt/tool/ros/install/tdt_interface/lib/libtdt_interface__rosidl_generator_py.so
-core_node: /home/tdt/tool/OpenCv/1.0/opencv-4.7.0/build/lib/libopencv_gapi.so.4.7.0
-core_node: /home/tdt/tool/OpenCv/1.0/opencv-4.7.0/build/lib/libopencv_highgui.so.4.7.0
-core_node: /home/tdt/tool/OpenCv/1.0/opencv-4.7.0/build/lib/libopencv_ml.so.4.7.0
-core_node: /home/tdt/tool/OpenCv/1.0/opencv-4.7.0/build/lib/libopencv_objdetect.so.4.7.0
-core_node: /home/tdt/tool/OpenCv/1.0/opencv-4.7.0/build/lib/libopencv_photo.so.4.7.0
-core_node: /home/tdt/tool/OpenCv/1.0/opencv-4.7.0/build/lib/libopencv_stitching.so.4.7.0
-core_node: /home/tdt/tool/OpenCv/1.0/opencv-4.7.0/build/lib/libopencv_video.so.4.7.0
-core_node: /home/tdt/tool/OpenCv/1.0/opencv-4.7.0/build/lib/libopencv_videoio.so.4.7.0
+core_node: /usr/local/lib/libopencv_gapi.so.4.7.0
+core_node: /usr/local/lib/libopencv_highgui.so.4.7.0
+core_node: /usr/local/lib/libopencv_ml.so.4.7.0
+core_node: /usr/local/lib/libopencv_objdetect.so.4.7.0
+core_node: /usr/local/lib/libopencv_photo.so.4.7.0
+core_node: /usr/local/lib/libopencv_stitching.so.4.7.0
+core_node: /usr/local/lib/libopencv_video.so.4.7.0
+core_node: /usr/local/lib/libopencv_videoio.so.4.7.0
 core_node: /opt/ros/humble/lib/libmessage_filters.so
 core_node: /opt/ros/humble/lib/librclcpp.so
 core_node: /opt/ros/humble/lib/liblibstatistics_collector.so
@@ -197,13 +197,13 @@ core_node: /opt/ros/humble/lib/librcpputils.so
 core_node: /opt/ros/humble/lib/librosidl_runtime_c.so
 core_node: /opt/ros/humble/lib/librcutils.so
 core_node: /usr/lib/x86_64-linux-gnu/libpython3.10.so
-core_node: /home/tdt/tool/OpenCv/1.0/opencv-4.7.0/build/lib/libopencv_imgcodecs.so.4.7.0
-core_node: /home/tdt/tool/OpenCv/1.0/opencv-4.7.0/build/lib/libopencv_dnn.so.4.7.0
-core_node: /home/tdt/tool/OpenCv/1.0/opencv-4.7.0/build/lib/libopencv_calib3d.so.4.7.0
-core_node: /home/tdt/tool/OpenCv/1.0/opencv-4.7.0/build/lib/libopencv_features2d.so.4.7.0
-core_node: /home/tdt/tool/OpenCv/1.0/opencv-4.7.0/build/lib/libopencv_flann.so.4.7.0
-core_node: /home/tdt/tool/OpenCv/1.0/opencv-4.7.0/build/lib/libopencv_imgproc.so.4.7.0
-core_node: /home/tdt/tool/OpenCv/1.0/opencv-4.7.0/build/lib/libopencv_core.so.4.7.0
+core_node: /usr/local/lib/libopencv_imgcodecs.so.4.7.0
+core_node: /usr/local/lib/libopencv_dnn.so.4.7.0
+core_node: /usr/local/lib/libopencv_calib3d.so.4.7.0
+core_node: /usr/local/lib/libopencv_features2d.so.4.7.0
+core_node: /usr/local/lib/libopencv_flann.so.4.7.0
+core_node: /usr/local/lib/libopencv_imgproc.so.4.7.0
+core_node: /usr/local/lib/libopencv_core.so.4.7.0
 core_node: CMakeFiles/core_node.dir/link.txt
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/tdt/tool/ros/build/core/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Linking CXX executable core_node"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/core_node.dir/link.txt --verbose=$(VERBOSE)

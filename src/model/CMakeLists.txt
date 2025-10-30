@@ -9,7 +9,8 @@ find_package(ament_cmake REQUIRED)
 find_package(ament_cmake_auto REQUIRED)
 ament_auto_find_build_dependencies()
 
-set(OpenCV_DIR "/home/tdt/tool/OpenCv/1.0/opencv-4.7.0/build")
+#set(OpenCV_DIR "/home/tdt/tool/OpenCv/1.0/opencv-4.7.0/build")
+set(OpenCV_DIR "/ros/src/oprncv/opencv-4.7.0/build")
 find_package(OpenCV REQUIRED)
 
 # 添加头文件包含路径

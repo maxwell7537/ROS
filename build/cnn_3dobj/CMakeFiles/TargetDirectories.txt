@@ -1,0 +1,2 @@
+/home/tdt/tool/ros/build/cnn_3dobj/CMakeFiles/edit_cache.dir
+/home/tdt/tool/ros/build/cnn_3dobj/CMakeFiles/rebuild_cache.dir

@@ -1,0 +1,541 @@
+{
+	"backtraceGraph" : 
+	{
+		"commands" : 
+		[
+			"install",
+			"ocv_install_3rdparty_licenses",
+			"include",
+			"ippiw_done",
+			"ippiw_setup",
+			"_add_modules_1",
+			"ocv_glob_modules",
+			"ocv_register_modules",
+			"ocv_gen_config",
+			"ocv_finalize_status"
+		],
+		"files" : 
+		[
+			"cmake/OpenCVUtils.cmake",
+			"cmake/OpenCVFindIPP.cmake",
+			"cmake/OpenCVFindLibsPerf.cmake",
+			"CMakeLists.txt",
+			"cmake/OpenCVFindIPPIW.cmake",
+			"cmake/OpenCVDetectOpenCL.cmake",
+			"modules/gapi/cmake/DownloadADE.cmake",
+			"modules/gapi/cmake/init.cmake",
+			"cmake/OpenCVModule.cmake",
+			"cmake/OpenCVGenHeaders.cmake",
+			"cmake/OpenCVGenConfig.cmake",
+			"cmake/OpenCVGenSetupVars.cmake"
+		],
+		"nodes" : 
+		[
+			{
+				"file" : 3
+			},
+			{
+				"command" : 2,
+				"file" : 3,
+				"line" : 750,
+				"parent" : 0
+			},
+			{
+				"file" : 2,
+				"parent" : 1
+			},
+			{
+				"command" : 2,
+				"file" : 2,
+				"line" : 12,
+				"parent" : 2
+			},
+			{
+				"file" : 1,
+				"parent" : 3
+			},
+			{
+				"command" : 1,
+				"file" : 1,
+				"line" : 264,
+				"parent" : 4
+			},
+			{
+				"command" : 0,
+				"file" : 0,
+				"line" : 1348,
+				"parent" : 5
+			},
+			{
+				"command" : 1,
+				"file" : 1,
+				"line" : 268,
+				"parent" : 4
+			},
+			{
+				"command" : 0,
+				"file" : 0,
+				"line" : 1348,
+				"parent" : 7
+			},
+			{
+				"command" : 1,
+				"file" : 1,
+				"line" : 270,
+				"parent" : 4
+			},
+			{
+				"command" : 0,
+				"file" : 0,
+				"line" : 1348,
+				"parent" : 9
+			},
+			{
+				"command" : 2,
+				"file" : 2,
+				"line" : 14,
+				"parent" : 2
+			},
+			{
+				"file" : 4,
+				"parent" : 11
+			},
+			{
+				"command" : 4,
+				"file" : 4,
+				"line" : 170,
+				"parent" : 12
+			},
+			{
+				"command" : 3,
+				"file" : 4,
+				"line" : 94,
+				"parent" : 13
+			},
+			{
+				"command" : 1,
+				"file" : 4,
+				"line" : 36,
+				"parent" : 14
+			},
+			{
+				"command" : 0,
+				"file" : 0,
+				"line" : 1348,
+				"parent" : 15
+			},
+			{
+				"command" : 1,
+				"file" : 4,
+				"line" : 36,
+				"parent" : 14
+			},
+			{
+				"command" : 0,
+				"file" : 0,
+				"line" : 1348,
+				"parent" : 17
+			},
+			{
+				"command" : 1,
+				"file" : 4,
+				"line" : 36,
+				"parent" : 14
+			},
+			{
+				"command" : 0,
+				"file" : 0,
+				"line" : 1348,
+				"parent" : 19
+			},
+			{
+				"command" : 2,
+				"file" : 3,
+				"line" : 810,
+				"parent" : 0
+			},
+			{
+				"file" : 5,
+				"parent" : 21
+			},
+			{
+				"command" : 1,
+				"file" : 5,
+				"line" : 8,
+				"parent" : 22
+			},
+			{
+				"command" : 0,
+				"file" : 0,
+				"line" : 1348,
+				"parent" : 23
+			},
+			{
+				"command" : 7,
+				"file" : 3,
+				"line" : 951,
+				"parent" : 0
+			},
+			{
+				"command" : 6,
+				"file" : 8,
+				"line" : 385,
+				"parent" : 25
+			},
+			{
+				"command" : 5,
+				"file" : 8,
+				"line" : 361,
+				"parent" : 26
+			},
+			{
+				"command" : 2,
+				"file" : 8,
+				"line" : 298,
+				"parent" : 27
+			},
+			{
+				"file" : 7,
+				"parent" : 28
+			},
+			{
+				"command" : 2,
+				"file" : 7,
+				"line" : 20,
+				"parent" : 29
+			},
+			{
+				"file" : 6,
+				"parent" : 30
+			},
+			{
+				"command" : 1,
+				"file" : 6,
+				"line" : 45,
+				"parent" : 31
+			},
+			{
+				"command" : 0,
+				"file" : 0,
+				"line" : 1348,
+				"parent" : 32
+			},
+			{
+				"command" : 2,
+				"file" : 3,
+				"line" : 980,
+				"parent" : 0
+			},
+			{
+				"file" : 9,
+				"parent" : 34
+			},
+			{
+				"command" : 0,
+				"file" : 9,
+				"line" : 4,
+				"parent" : 35
+			},
+			{
+				"command" : 0,
+				"file" : 9,
+				"line" : 32,
+				"parent" : 35
+			},
+			{
+				"command" : 2,
+				"file" : 3,
+				"line" : 991,
+				"parent" : 0
+			},
+			{
+				"file" : 10,
+				"parent" : 38
+			},
+			{
+				"command" : 8,
+				"file" : 10,
+				"line" : 118,
+				"parent" : 39
+			},
+			{
+				"command" : 0,
+				"file" : 10,
+				"line" : 101,
+				"parent" : 40
+			},
+			{
+				"command" : 0,
+				"file" : 10,
+				"line" : 102,
+				"parent" : 40
+			},
+			{
+				"command" : 2,
+				"file" : 3,
+				"line" : 1059,
+				"parent" : 0
+			},
+			{
+				"file" : 11,
+				"parent" : 43
+			},
+			{
+				"command" : 0,
+				"file" : 11,
+				"line" : 66,
+				"parent" : 44
+			},
+			{
+				"command" : 9,
+				"file" : 3,
+				"line" : 1811,
+				"parent" : 0
+			},
+			{
+				"command" : 0,
+				"file" : 0,
+				"line" : 980,
+				"parent" : 46
+			}
+		]
+	},
+	"installers" : 
+	[
+		{
+			"backtrace" : 6,
+			"component" : "licenses",
+			"destination" : "share/licenses/opencv4",
+			"paths" : 
+			[
+				{
+					"from" : "/home/tdt/tool/ros/build/OpenCV/3rdparty/ippicv/ippicv_lnx/icv/readme.htm",
+					"to" : "ippicv-readme.htm"
+				}
+			],
+			"type" : "file"
+		},
+		{
+			"backtrace" : 8,
+			"component" : "licenses",
+			"destination" : "share/licenses/opencv4",
+			"paths" : 
+			[
+				{
+					"from" : "/home/tdt/tool/ros/build/OpenCV/3rdparty/ippicv/ippicv_lnx/EULA.txt",
+					"to" : "ippicv-EULA.txt"
+				}
+			],
+			"type" : "file"
+		},
+		{
+			"backtrace" : 10,
+			"component" : "licenses",
+			"destination" : "share/licenses/opencv4",
+			"paths" : 
+			[
+				{
+					"from" : "/home/tdt/tool/ros/build/OpenCV/3rdparty/ippicv/ippicv_lnx/third-party-programs.txt",
+					"to" : "ippicv-third-party-programs.txt"
+				}
+			],
+			"type" : "file"
+		},
+		{
+			"backtrace" : 16,
+			"component" : "licenses",
+			"destination" : "share/licenses/opencv4",
+			"paths" : 
+			[
+				{
+					"from" : "/home/tdt/tool/ros/build/OpenCV/3rdparty/ippicv/ippicv_lnx/icv/../iw/../support.txt",
+					"to" : "ippiw-support.txt"
+				}
+			],
+			"type" : "file"
+		},
+		{
+			"backtrace" : 18,
+			"component" : "licenses",
+			"destination" : "share/licenses/opencv4",
+			"paths" : 
+			[
+				{
+					"from" : "/home/tdt/tool/ros/build/OpenCV/3rdparty/ippicv/ippicv_lnx/icv/../iw/../third-party-programs.txt",
+					"to" : "ippiw-third-party-programs.txt"
+				}
+			],
+			"type" : "file"
+		},
+		{
+			"backtrace" : 20,
+			"component" : "licenses",
+			"destination" : "share/licenses/opencv4",
+			"paths" : 
+			[
+				{
+					"from" : "/home/tdt/tool/ros/build/OpenCV/3rdparty/ippicv/ippicv_lnx/icv/../iw/../EULA.txt",
+					"to" : "ippiw-EULA.txt"
+				}
+			],
+			"type" : "file"
+		},
+		{
+			"backtrace" : 24,
+			"component" : "licenses",
+			"destination" : "share/licenses/opencv4",
+			"paths" : 
+			[
+				{
+					"from" : "3rdparty/include/opencl/LICENSE.txt",
+					"to" : "opencl-headers-LICENSE.txt"
+				}
+			],
+			"type" : "file"
+		},
+		{
+			"backtrace" : 33,
+			"component" : "licenses",
+			"destination" : "share/licenses/opencv4",
+			"paths" : 
+			[
+				{
+					"from" : "/home/tdt/tool/ros/build/OpenCV/3rdparty/ade/ade-0.1.2a/LICENSE",
+					"to" : "ade-LICENSE"
+				}
+			],
+			"type" : "file"
+		},
+		{
+			"backtrace" : 36,
+			"component" : "dev",
+			"destination" : "include/opencv4/opencv2",
+			"paths" : 
+			[
+				"/home/tdt/tool/ros/build/OpenCV/cvconfig.h"
+			],
+			"type" : "file"
+		},
+		{
+			"backtrace" : 37,
+			"component" : "dev",
+			"destination" : "include/opencv4/opencv2",
+			"paths" : 
+			[
+				"/home/tdt/tool/ros/build/OpenCV/opencv2/opencv_modules.hpp"
+			],
+			"type" : "file"
+		},
+		{
+			"backtrace" : 41,
+			"component" : "dev",
+			"destination" : "lib/cmake/opencv4",
+			"exportName" : "OpenCVModules",
+			"exportTargets" : 
+			[
+				{
+					"id" : "opencv_core::@90e83aff1e86c0750a9d",
+					"index" : 12
+				},
+				{
+					"id" : "opencv_flann::@b7c07563ccf30005c216",
+					"index" : 16
+				},
+				{
+					"id" : "opencv_imgproc::@46089d46ac6964f10538",
+					"index" : 21
+				},
+				{
+					"id" : "opencv_ml::@b79385d0caec563eb03e",
+					"index" : 23
+				},
+				{
+					"id" : "opencv_photo::@7fc8438b288b9566f339",
+					"index" : 40
+				},
+				{
+					"id" : "opencv_dnn::@9bfb28f21a1ab2b0c462",
+					"index" : 13
+				},
+				{
+					"id" : "opencv_features2d::@4f2b1ecb2cf869bde395",
+					"index" : 15
+				},
+				{
+					"id" : "opencv_imgcodecs::@e5f64ca75d8a3efadfa0",
+					"index" : 20
+				},
+				{
+					"id" : "opencv_videoio::@368e281a2b3422cd0411",
+					"index" : 62
+				},
+				{
+					"id" : "opencv_calib3d::@e8558e004ddb3d41eff9",
+					"index" : 11
+				},
+				{
+					"id" : "opencv_highgui::@eec24f45586c5b1a2074",
+					"index" : 18
+				},
+				{
+					"id" : "opencv_objdetect::@7f5df5b9e7e68549eda2",
+					"index" : 26
+				},
+				{
+					"id" : "opencv_stitching::@c90dc6396798f553fb2f",
+					"index" : 42
+				},
+				{
+					"id" : "opencv_video::@08df6c0062966df3c8f9",
+					"index" : 61
+				},
+				{
+					"id" : "opencv_gapi::@77f52973fba75ea81765",
+					"index" : 17
+				}
+			],
+			"paths" : 
+			[
+				"CMakeFiles/Export/lib/cmake/opencv4/OpenCVModules.cmake"
+			],
+			"type" : "export"
+		},
+		{
+			"backtrace" : 42,
+			"component" : "dev",
+			"destination" : "lib/cmake/opencv4",
+			"paths" : 
+			[
+				"/home/tdt/tool/ros/build/OpenCV/unix-install/OpenCVConfig-version.cmake",
+				"/home/tdt/tool/ros/build/OpenCV/unix-install/OpenCVConfig.cmake"
+			],
+			"type" : "file"
+		},
+		{
+			"backtrace" : 45,
+			"component" : "scripts",
+			"destination" : "bin",
+			"paths" : 
+			[
+				"/home/tdt/tool/ros/build/OpenCV/CMakeFiles/install/setup_vars_opencv4.sh"
+			],
+			"type" : "file"
+		},
+		{
+			"backtrace" : 47,
+			"component" : "dev",
+			"destination" : "share/opencv4",
+			"paths" : 
+			[
+				"platforms/scripts/valgrind.supp",
+				"platforms/scripts/valgrind_3rdparty.supp"
+			],
+			"type" : "file"
+		}
+	],
+	"paths" : 
+	{
+		"build" : ".",
+		"source" : "."
+	}
+}

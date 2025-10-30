@@ -13,7 +13,8 @@ find_package(X11 REQUIRED)
 
 ament_auto_find_build_dependencies()# 自动查找所有在package.xml中声明的依赖
 # 设置OpenCV路径
-set(OpenCV_DIR "/home/tdt/tool/OpenCv/1.0/opencv-4.7.0/build")
+#set(OpenCV_DIR "/home/tdt/tool/OpenCv/1.0/opencv-4.7.0/build")
+set(OpenCV_DIR "/ros/src/oprncv/opencv-4.7.0/build")
 find_package(OpenCV REQUIRED)
 
 # 创建可执行文件

@@ -25,7 +25,7 @@ class core : public rclcpp::Node {
 public:
     core() : Node("core_node") {
         player_id_=1;
-        linear_velocity_ = 100.0; // 线速度
+        linear_velocity_ = 40.0; // 线速度
         
         // 地图节点
         point_set[0]=cv::Point2f(-16.00,-45.00);//0 补给区(起点)
@@ -68,7 +68,7 @@ public:
         last_gimbal_control_time_ = this->now();
         turn_completed_ = false;
         shooting_authority_transferred_ = false;
-        eps=0.50;
+        eps=0.30;
         std::memset(blue_healths_, 0, sizeof(blue_healths_));
         std::memset(red_healths_, 0, sizeof(red_healths_));
         
@@ -107,7 +107,7 @@ public:
         
         shoot_state_pub_ = this->create_publisher<std_msgs::msg::Int32>("shoot_state", 10);
         timer_ = this->create_wall_timer(
-            100ms, std::bind(&core::publishCommand, this));
+            10ms, std::bind(&core::publishCommand, this));
         last_detection_time_ = this->now();
         last_display_time_ = this->now();
         detection_count_ = 0;
@@ -131,6 +131,12 @@ public:
         
         // 当前攻击的敌人ID
         current_enemy_id_ = -1;
+
+        last_error_x_ = 0.0;
+        last_error_y_ = 0.0;
+        last_control_time_ = this->now();
+        kp_ = 2.0;   // 可以根据实际效果调整
+        kd_ = 0.5;   // 可以根据实际效果调整
         
         RCLCPP_INFO(this->get_logger(), "目标检测订阅节点已启动");
     }
@@ -339,12 +345,12 @@ private:
         }
         RCLCPP_INFO(this->get_logger(), "路径长度: %zu", out_path.size());
         
-        // return true;
+        return true;
     }
 
     int check_nearest_node(int x) {
         double xx=point_set[x].x,  yy=point_set[x].y;
-        return fabs(current_x_-xx)<1.0&&fabs(current_y_-yy)<1.0;
+        return fabs(current_x_-xx)<5.0&&fabs(current_y_-yy)<5.0;
     }
 
     int nearest_node_index(double x, double y) {
@@ -453,6 +459,7 @@ private:
             }
         }
         checkEnemyStatus();
+        injury();
 
         // 检查复活机制 - 忽略开局第一次死亡判定
         if (isDead()) {
@@ -480,7 +487,7 @@ private:
             case State::INIT:
                 current_state_ = State::ATTACK_BUFF_ENEMY;
                 last_state_change_time_ = now;
-                current_target_node_ = -1;
+                current_target_node_ = 13;
                 RCLCPP_INFO(this->get_logger(), "STATE -> ATTACK_BUFF_ENEMY");
                 break;
                 
@@ -506,6 +513,8 @@ private:
             case State::ATTACK_BASE:
                 // 基地被摧毁后保持在该状态
                 break;
+            case State::INJURY:
+                break;
         }
 
         // 设置云台角度
@@ -513,6 +522,173 @@ private:
         // 根据当前状态设置目标路径
         setTargetBasedOnState();
         
+    }
+    
+    void injury(){
+        // 只在行进时判断受击
+        if (!move_list.empty()) {
+            checkHitStatus();
+        }
+        
+        // 如果不在受击状态，直接返回
+        if (!is_under_attack_) {
+            return;
+        }
+        
+        // 受击状态处理
+        if (current_state_ != State::INJURY) {
+            enterInjuryState();
+        } else {
+            handleInjuryState();
+        }
+    }
+
+    // 修改checkHitStatus函数，修复判断逻辑
+    void checkHitStatus() {
+        int current_health = blue_healths_[0];
+        
+        // 检测血量减少（受击）
+        if (current_health < last_health_) {
+            int damage = last_health_ - current_health;
+            
+            // 血量减少就视为受击
+            if (damage > 0) {
+                is_under_attack_ = true;
+                last_hit_time_ = this->now();
+                RCLCPP_WARN(this->get_logger(), "受到攻击！伤害: %d, 当前血量: %d", damage, current_health);
+            }
+            
+            last_health_ = current_health;
+        }
+        
+        // 受击状态超时自动恢复
+        if (is_under_attack_ && (this->now() - last_hit_time_).seconds() > 8.0) {
+            RCLCPP_INFO(this->get_logger(), "受击状态超时结束");
+            exitInjuryState();
+        }
+    }
+
+    // 修改进入受击状态
+    void enterInjuryState() {
+        RCLCPP_WARN(this->get_logger(), "进入受击规避状态");
+        current_state_ = State::INJURY;
+        injury_start_time_ = this->now();
+        is_evading_ = true;
+        evasion_phase_ = 0;
+        last_evasion_phase_time_ = this->now();
+        
+        // 保存原始目标点
+        if (!move_list.empty()) {
+            original_target_point_ = move_list.front();
+            original_target_saved_ = true;
+            RCLCPP_INFO(this->get_logger(), "保存原始目标点: (%.2f, %.2f)", 
+                       original_target_point_.x, original_target_point_.y);
+        } else {
+            RCLCPP_WARN(this->get_logger(), "没有移动路径，无法保存原始目标点");
+        }
+    }
+
+    // 修改受击状态处理
+    void handleInjuryState() {
+        auto now = this->now();
+        auto state_duration = now - injury_start_time_;
+        
+        // 受击状态超时检查
+        if (state_duration.seconds() > 15.0) {
+            RCLCPP_INFO(this->get_logger(), "受击状态超时，恢复正常状态");
+            exitInjuryState();
+            return;
+        }
+        
+        // 如果不再受击，退出受击状态
+        if (!is_under_attack_ && state_duration.seconds() > 3.0) {
+            RCLCPP_INFO(this->get_logger(), "威胁解除，退出受击状态");
+            exitInjuryState();
+            return;
+        }
+        
+        // 执行折线规避
+        executeZigzagEvasion();
+    }
+
+    // 修改折线规避，确保每次都会发布移动命令
+    void executeZigzagEvasion() {
+        if (!is_evading_ || !original_target_saved_) {
+            RCLCPP_WARN(this->get_logger(), "规避条件不满足: is_evading=%d, original_target_saved=%d", 
+                       is_evading_, original_target_saved_);
+            return;
+        }
+        
+        auto now = this->now();
+        auto phase_duration = now - last_evasion_phase_time_;
+        
+        // 每1.5秒切换一次规避方向
+        if (phase_duration.seconds() > 1.5) {
+            evasion_phase_ = (evasion_phase_ + 1) % 2; // 只在左右两个方向切换
+            last_evasion_phase_time_ = now;
+            RCLCPP_DEBUG(this->get_logger(), "切换规避阶段: %d", evasion_phase_);
+        }
+        
+        // 计算折线规避移动
+        cv::Point2f target_point = original_target_point_;
+        double dx = target_point.x - current_x_;
+        double dy = target_point.y - current_y_;
+        double distance = sqrt(dx*dx + dy*dy);
+        
+        if (distance > eps) {
+            // 基础前进方向
+            double base_direction_x = dx / distance;
+            double base_direction_y = dy / distance;
+            
+            // 垂直于前进方向的偏移方向
+            double perpendicular_x = -base_direction_y;
+            double perpendicular_y = base_direction_x;
+            
+            // 根据规避阶段调整偏移方向（左或右）
+            double phase_offset = (evasion_phase_ == 0) ? 1.0 : -1.0;
+            double evasion_strength = 0.6; // 规避强度
+            
+            // 合成最终移动方向
+            double final_direction_x = base_direction_x + perpendicular_x * phase_offset * evasion_strength;
+            double final_direction_y = base_direction_y + perpendicular_y * phase_offset * evasion_strength;
+            
+            // 归一化
+            double final_length = sqrt(final_direction_x*final_direction_x + final_direction_y*final_direction_y);
+            if (final_length > 0) {
+                final_direction_x /= final_length;
+                final_direction_y /= final_length;
+            }
+            
+            // 发布移动命令
+            auto msg = geometry_msgs::msg::Twist();
+            msg.linear.x = final_direction_x * linear_velocity_ * 0.8; // 受击时稍慢
+            msg.linear.y = final_direction_y * linear_velocity_ * 0.8;
+            cmd_pub_->publish(msg);
+            
+            RCLCPP_DEBUG_THROTTLE(this->get_logger(), *this->get_clock(), 2000, 
+                                "折线规避: 方向(%.2f, %.2f), 阶段%d", 
+                                final_direction_x, final_direction_y, evasion_phase_);
+        } else {
+            RCLCPP_INFO(this->get_logger(), "已接近目标点，停止规避");
+            exitInjuryState();
+        }
+    }
+
+    // 修改退出受击状态
+    void exitInjuryState() {
+        RCLCPP_INFO(this->get_logger(), "退出受击状态");
+        is_under_attack_ = false;
+        is_evading_ = false;
+        original_target_saved_ = false;
+        
+        // 恢复到攻击增益敌人状态
+        current_state_ = State::ATTACK_BUFF_ENEMY;//last_state
+        last_state_change_time_ = this->now();
+        
+        last_health_=blue_healths_[0];
+        // 发布停止移动命令，确保状态切换
+        auto msg = geometry_msgs::msg::Twist();
+        cmd_pub_->publish(msg);
     }
 
     void setTargetBasedOnState() {
@@ -565,7 +741,7 @@ private:
         // 检查是否需要重新规划路径
         if (target_node != current_target_node_ || !check_nearest_node(target_node)) {
             current_target_node_ = target_node;
-            
+            RCLCPP_DEBUG(this->get_logger(), "目标节点变化或不在目标节点附近，重新规划路径。当前目标节点: %d", current_target_node_);
             if (target_node != -1 && start_node != -1 && start_node != target_node) {
                 RCLCPP_INFO(this->get_logger(), "规划路径到节点%d (敌人%d)", target_node, current_enemy_id_);
                 if (bfs_find_node_path(start_node, target_node, path_nodes)) {
@@ -629,21 +805,21 @@ private:
         sec=msg->timestamp.sec;
         nanosec=msg->timestamp.nanosec;
     }
-    void publishCommand() {
+   void publishCommand() {
         auto msg = geometry_msgs::msg::Twist();
         calculation_path();
         
         // 死亡和复活期间不移动
         if (current_state_ == State::DEAD || current_state_ == State::REVIVING) {
-            RCLCPP_INFO_THROTTLE(this->get_logger(), *this->get_clock(), 2000, 
-                                "死亡/复活状态，停止移动");
             cmd_pub_->publish(msg);
             return;
         }
         
+        if (current_state_ == State::INJURY) {
+            return;
+        }
+
         if (move_list.empty()) {
-            RCLCPP_INFO_THROTTLE(this->get_logger(), *this->get_clock(), 5000, 
-                                "所有路径点已完成，停止移动");
             cmd_pub_->publish(msg);
             return;
         }
@@ -653,40 +829,112 @@ private:
         double dy = target_point.y - current_y_;
         double distance = sqrt(dx*dx + dy*dy);
         
+        // 到达判断
         if (distance < eps) {
             move_list.pop();
+            // 重置PD控制器状态
+            last_error_x_ = 0.0;
+            last_error_y_ = 0.0;
+            cmd_pub_->publish(msg);
             
             if (!move_list.empty()) {
-                cv::Point2f next_point = move_list.front();
-                RCLCPP_INFO(this->get_logger(), "到达路径点，剩余 %zu 个点，下一个目标: (%.2f, %.2f)", 
-                        move_list.size(), next_point.x, next_point.y);
-            } else {
-                RCLCPP_INFO(this->get_logger(), "所有路径点已完成!");
+                RCLCPP_INFO(this->get_logger(), "到达路径点，下一个目标: (%.2f, %.2f)", 
+                        move_list.front().x, move_list.front().y);
             }
-            cmd_pub_->publish(msg);
             return;
         }
         
-        double direction_x = dx / distance;
-        double direction_y = dy / distance;
+        // 使用PD控制计算速度
+        double vx, vy;
+        calculatePDControl(dx, dy, vx, vy);
         
-        msg.linear.x = direction_x * linear_velocity_;
-        msg.linear.y = direction_y * linear_velocity_;
+        // 根据距离进一步限制速度（安全减速）
+        double target_speed = calculateOptimalSpeed(distance);
+        double current_speed = sqrt(vx*vx + vy*vy);
+        
+        if (current_speed > target_speed) {
+            double scale = target_speed / current_speed;
+            vx *= scale;
+            vy *= scale;
+        }
+        
+        msg.linear.x = vx;
+        msg.linear.y = vy;
         
         cmd_pub_->publish(msg);
         
-        static int count=0;
-        if (count++%10 == 0) {
-            std::string enemy_status = "无";
-            if (current_enemy_id_ != -1) {
-                enemy_status = std::to_string(current_enemy_id_) + "号(" + 
-                              (enemy_states_[current_enemy_id_].alive ? "存活" : "死亡") + ")";
-            }
-            
-            RCLCPP_INFO(this->get_logger(), "位置: (%.2lf, %.2lf), 状态: %d, 血量: %d, 目标节点: %d, 当前敌人: %s, 射击状态: %s", 
-                       current_x_, current_y_, static_cast<int>(current_state_), blue_healths_[0], current_target_node_,
-                       enemy_status.c_str(), is_shooting_ ? "是" : "否");
+        // 调试信息
+        static int count = 0;
+        if (count++ % 25 == 0) { // 约1.25秒输出一次
+            RCLCPP_INFO(this->get_logger(), 
+                    "位置: (%.2f, %.2f), 目标: (%.2f, %.2f), 距离: %.3f, 速度: (%.2f, %.2f)", 
+                    current_x_, current_y_, target_point.x, target_point.y, 
+                    distance, vx, vy);
         }
+    }
+
+    // 新增：计算最优速度的函数
+    double calculateOptimalSpeed(double distance) {
+        // 使用更平滑的速度曲线
+        if (distance <= eps) {
+            return 0.0;
+        }
+        else if (distance < 0.2) {
+            return 1.0; // 极近距离，非常慢
+        }
+        else if (distance < 0.5) {
+            return 3.0;
+        }
+        else if (distance < 1.0) {
+            return 8.0;
+        }
+        else if (distance < 2.0) {
+            return 15.0;
+        }
+        else if (distance < 4.0) {
+            return 22.0;
+        }
+        else {
+            return linear_velocity_; // 最大速度
+        }
+    }
+
+    double last_error_x_ = 0.0;
+    double last_error_y_ = 0.0;
+    rclcpp::Time last_control_time_;
+    double kp_ = 2.0;  // 比例系数
+    double kd_ = 0.5;  // 微分系数
+
+    // PD控制计算
+    void calculatePDControl(double dx, double dy, double& out_vx, double& out_vy) {
+        auto now = this->now();
+        double dt = (now - last_control_time_).seconds();
+        
+        if (dt < 0.01) dt = 0.01; // 最小时间间隔
+        if (dt > 0.2) dt = 0.2;   // 最大时间间隔
+        
+        // 比例项
+        double p_x = kp_ * dx;
+        double p_y = kp_ * dy;
+        
+        // 微分项
+        double d_x = kd_ * (dx - last_error_x_) / dt;
+        double d_y = kd_ * (dy - last_error_y_) / dt;
+        
+        out_vx = p_x + d_x;
+        out_vy = p_y + d_y;
+        
+        // 限制最大速度
+        double speed = sqrt(out_vx * out_vx + out_vy * out_vy);
+        if (speed > linear_velocity_) {
+            double scale = linear_velocity_ / speed;
+            out_vx *= scale;
+            out_vy *= scale;
+        }
+        
+        last_error_x_ = dx;
+        last_error_y_ = dy;
+        last_control_time_ = now;
     }
 
     // 敌人配置结构
@@ -742,6 +990,7 @@ private:
         ATTACK_BUFF_ENEMY,
         ATTACK_OUTPOST,
         ATTACK_BASE,
+        INJURY,
         DEAD,
         REVIVING,
         INVINCIBLE
@@ -784,6 +1033,17 @@ private:
     std::map<int, EnemyConfig> enemy_config_;  // 敌人ID到配置的映射
     std::map<int, EnemyState> enemy_states_;   // 敌人ID到状态的映射
     int current_enemy_id_;                     // 当前攻击的敌人ID
+
+    rclcpp::Time last_hit_time_;           // 上次受击时间
+    bool is_under_attack_ = false;         // 是否正在受击
+    int last_health_ = 200;                // 上次记录的血量
+    rclcpp::Time injury_start_time_;       // 受击状态开始时间
+    bool is_evading_ = false;              // 是否正在规避
+    cv::Point2f original_target_point_;    // 原始目标点
+    bool original_target_saved_ = false;   // 是否已保存原始目标
+    int evasion_phase_ = 0;                // 规避阶段
+    rclcpp::Time last_evasion_phase_time_; // 上次规避阶段切换时间
+
 };
 
 int main(int argc, char* argv[]) {

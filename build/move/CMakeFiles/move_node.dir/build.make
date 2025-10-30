@@ -111,14 +111,14 @@ move_node: /home/tdt/tool/ros/install/tdt_interface/lib/libtdt_interface__rosidl
 move_node: /home/tdt/tool/ros/install/tdt_interface/lib/libtdt_interface__rosidl_typesupport_introspection_cpp.so
 move_node: /home/tdt/tool/ros/install/tdt_interface/lib/libtdt_interface__rosidl_typesupport_cpp.so
 move_node: /home/tdt/tool/ros/install/tdt_interface/lib/libtdt_interface__rosidl_generator_py.so
-move_node: /home/tdt/tool/OpenCv/1.0/opencv-4.7.0/build/lib/libopencv_gapi.so.4.7.0
-move_node: /home/tdt/tool/OpenCv/1.0/opencv-4.7.0/build/lib/libopencv_highgui.so.4.7.0
-move_node: /home/tdt/tool/OpenCv/1.0/opencv-4.7.0/build/lib/libopencv_ml.so.4.7.0
-move_node: /home/tdt/tool/OpenCv/1.0/opencv-4.7.0/build/lib/libopencv_objdetect.so.4.7.0
-move_node: /home/tdt/tool/OpenCv/1.0/opencv-4.7.0/build/lib/libopencv_photo.so.4.7.0
-move_node: /home/tdt/tool/OpenCv/1.0/opencv-4.7.0/build/lib/libopencv_stitching.so.4.7.0
-move_node: /home/tdt/tool/OpenCv/1.0/opencv-4.7.0/build/lib/libopencv_video.so.4.7.0
-move_node: /home/tdt/tool/OpenCv/1.0/opencv-4.7.0/build/lib/libopencv_videoio.so.4.7.0
+move_node: /usr/local/lib/libopencv_gapi.so.4.7.0
+move_node: /usr/local/lib/libopencv_highgui.so.4.7.0
+move_node: /usr/local/lib/libopencv_ml.so.4.7.0
+move_node: /usr/local/lib/libopencv_objdetect.so.4.7.0
+move_node: /usr/local/lib/libopencv_photo.so.4.7.0
+move_node: /usr/local/lib/libopencv_stitching.so.4.7.0
+move_node: /usr/local/lib/libopencv_video.so.4.7.0
+move_node: /usr/local/lib/libopencv_videoio.so.4.7.0
 move_node: /opt/ros/humble/lib/libmessage_filters.so
 move_node: /opt/ros/humble/lib/librclcpp.so
 move_node: /opt/ros/humble/lib/liblibstatistics_collector.so
@@ -197,13 +197,13 @@ move_node: /opt/ros/humble/lib/librcpputils.so
 move_node: /opt/ros/humble/lib/librosidl_runtime_c.so
 move_node: /opt/ros/humble/lib/librcutils.so
 move_node: /usr/lib/x86_64-linux-gnu/libpython3.10.so
-move_node: /home/tdt/tool/OpenCv/1.0/opencv-4.7.0/build/lib/libopencv_imgcodecs.so.4.7.0
-move_node: /home/tdt/tool/OpenCv/1.0/opencv-4.7.0/build/lib/libopencv_dnn.so.4.7.0
-move_node: /home/tdt/tool/OpenCv/1.0/opencv-4.7.0/build/lib/libopencv_calib3d.so.4.7.0
-move_node: /home/tdt/tool/OpenCv/1.0/opencv-4.7.0/build/lib/libopencv_features2d.so.4.7.0
-move_node: /home/tdt/tool/OpenCv/1.0/opencv-4.7.0/build/lib/libopencv_flann.so.4.7.0
-move_node: /home/tdt/tool/OpenCv/1.0/opencv-4.7.0/build/lib/libopencv_imgproc.so.4.7.0
-move_node: /home/tdt/tool/OpenCv/1.0/opencv-4.7.0/build/lib/libopencv_core.so.4.7.0
+move_node: /usr/local/lib/libopencv_imgcodecs.so.4.7.0
+move_node: /usr/local/lib/libopencv_dnn.so.4.7.0
+move_node: /usr/local/lib/libopencv_calib3d.so.4.7.0
+move_node: /usr/local/lib/libopencv_features2d.so.4.7.0
+move_node: /usr/local/lib/libopencv_flann.so.4.7.0
+move_node: /usr/local/lib/libopencv_imgproc.so.4.7.0
+move_node: /usr/local/lib/libopencv_core.so.4.7.0
 move_node: CMakeFiles/move_node.dir/link.txt
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/tdt/tool/ros/build/move/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Linking CXX executable move_node"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/move_node.dir/link.txt --verbose=$(VERBOSE)
