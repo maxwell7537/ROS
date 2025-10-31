@@ -41,17 +41,17 @@ public:
         point_set[10]=cv::Point2f(22.55,6.00);//10 隧道终点
         point_set[11]=cv::Point2f(-27.60,-20.67);//11 通往3号敌人的拐点
         point_set[12]=cv::Point2f(-20.46,-20.86);//12 3号敌人
-        point_set[13]=cv::Point2f(-25.00,-37.50);//13 5号敌人
+        // point_set[13]=cv::Point2f(-25.00,-37.50);//13 5号敌人
         point_set[14]=cv::Point2f(-27.23,4.10);//14 4号敌人
         // map adjacency 
         map_[0].push_back(1);  map_[1].push_back(0);
         map_[1].push_back(2);  map_[2].push_back(1);
-        map_[2].push_back(13);  map_[13].push_back(2);
+        map_[2].push_back(3);  map_[3].push_back(2);
         map_[2].push_back(5);  map_[5].push_back(2);
         map_[2].push_back(6);  map_[6].push_back(2);
         map_[2].push_back(8);  //单向
         map_[3].push_back(4);  map_[4].push_back(3);
-        map_[3].push_back(13);  map_[13].push_back(3);
+        // map_[3].push_back(13);  map_[13].push_back(3);
         map_[3].push_back(11);  map_[11].push_back(3);
         map_[4].push_back(5);  map_[5].push_back(4);
         map_[4].push_back(6);  map_[6].push_back(4);
@@ -69,6 +69,20 @@ public:
         turn_completed_ = false;
         shooting_authority_transferred_ = false;
         eps=0.30;
+
+        last_valid_detection_time_ = this->now();
+        no_target_reset_delay_ = 2.0;
+        is_resetting_gimbal_ = false;
+        reset_target_yaw_ = 90.0;
+
+        is_tracking_enemy1_ = false;
+        enemy1_last_detection_time_ = this->now();
+        enemy1_lost_timeout_ = 3.0;
+        original_target_enemy_id_ = -1;
+        was_shooting_ = false;
+        enemy1_tracking_start_time_ = this->now();
+        max_enemy1_tracking_time_ = 5.0;
+
         std::memset(blue_healths_, 0, sizeof(blue_healths_));
         std::memset(red_healths_, 0, sizeof(red_healths_));
         
@@ -149,7 +163,8 @@ private:
         enemy_config_[2] = {7, 90.0f, false};   // 2号敌人（敌方基地）: 节点7, yaw=90度
         enemy_config_[3] = {12, 180.0f, false};   // 3号敌人: 节点12, yaw=180度
         enemy_config_[4] = {14, 90.0f, false}; // 4号敌人: 节点14, yaw=90度  
-        enemy_config_[5] = {13, -90.0f, false}; // 5号敌人: 节点13, yaw=-90度
+        enemy_config_[5] = {3, -90.0f, false}; // 5号敌人: 节点3, yaw=-90度
+        enemy_config_[6] = {5, 86.0f, false}; // qs: 节点5, yaw=86度
         
         // 初始化敌人状态
         for (auto& enemy : enemy_config_) {
@@ -160,13 +175,20 @@ private:
 
     // 根据当前状态和目标节点设置云台角度
     void setGimbalAnglesBasedOnState() {
+        if(is_tracking_enemy1_) {
+                return;
+        }
+        if(shouldResetGimbal()) {
+            resetGimbalToInitial();
+            return; // 重置过程中不执行其他云台控制
+        }
+        
         // 如果处于射击状态，完全由shoot模块控制云台
         if (is_shooting_) {
             RCLCPP_DEBUG_THROTTLE(this->get_logger(), *this->get_clock(), 5000, 
                                 "射击状态中，shoot模块控制云台");
             return;
         }
-
         auto msg = tdt_interface::msg::SendData();
         auto shoot_msg = std_msgs::msg::Int32();
         msg.if_shoot = false;
@@ -178,7 +200,17 @@ private:
             msg.pitch = 0.0f;
             initial_orientation_set_ = true;
             RCLCPP_INFO(this->get_logger(), "设置初始朝向: yaw=90.0");
-        }
+        } else if (current_enemy_id_ != -1 && !check_nearest_node(enemy_config_[current_enemy_id_].node_id)) {
+                // 未到达敌人节点，进行小范围旋转搜索
+                auto now = this->now();
+                float time_offset = (now - last_gimbal_control_time_).seconds();
+                // 以1秒为周期在90°±5°范围内摆动
+                float angle_offset = 5.0f * sin(2 * M_PI * time_offset);
+                msg.yaw = 90.0f + angle_offset;
+                msg.pitch = 0.0f;
+                RCLCPP_DEBUG(this->get_logger(), "云台搜索旋转: yaw=%.2f", msg.yaw);
+                return; // 退出后续逻辑，直接发布搜索角度
+            }
         // 到达敌人节点且未设置过朝向时，设置为对应角度
         else if (current_enemy_id_ != -1 && check_nearest_node(enemy_config_[current_enemy_id_].node_id) && 
                  !enemy_config_[current_enemy_id_].orientation_set&&enemy_states_[current_enemy_id_].alive) {
@@ -190,6 +222,9 @@ private:
                 float target_yaw = enemy_config_[current_enemy_id_].target_yaw;
                 msg.yaw = target_yaw;
                 msg.pitch = 0.0f;
+                if(current_enemy_id_==6){
+                    msg.pitch=20.0f;
+                }
                 enemy_config_[current_enemy_id_].orientation_set = true;
                 current_enemy_orientation_set_ = true;
                 RCLCPP_INFO(this->get_logger(), "到达敌人%d，设置朝向: yaw=%.1f", current_enemy_id_, target_yaw);
@@ -198,8 +233,7 @@ private:
             
         else if (current_enemy_id_ != -1 && check_nearest_node(enemy_config_[current_enemy_id_].node_id) && 
                  current_enemy_orientation_set_&&enemy_states_[current_enemy_id_].alive) {
-                //  RCLCPP_INFO(this->get_logger(), "debug：current_enemy_id_=%d != -1 && current_node=%d == enemy_config_[current_enemy_id_].node_id=%d && current_enemy_orientation_set_=%d && !turn_completed_=%d", current_enemy_id_, current_node,enemy_config_[current_enemy_id_].node_id,current_enemy_orientation_set_,turn_completed_);
-            // 检查当前云台角度是否接近目标角度
+                 // 检查当前云台角度是否接近目标角度
             float target_yaw = enemy_config_[current_enemy_id_].target_yaw;
             if (fabs(yaw - target_yaw) < 5.0f) { // 容忍度5度
                 turn_completed_ = true;
@@ -212,7 +246,8 @@ private:
                 shooting_authority_transferred_ = true;
                 RCLCPP_INFO(this->get_logger(), "射击权已交给shoot模块");
             } else {
-                RCLCPP_DEBUG(this->get_logger(), "等待转向完成，当前yaw=%.2f，目标yaw=%.1f", yaw, target_yaw);
+                        // RCLCPP_INFO(this->get_logger(), "debug： current_enemy_id_=%d != -1 && check_nearest_node(enemy_config_[current_enemy_id_].node_id)=%d && current_enemy_orientation_set_=%d&&enemy_states_[current_enemy_id_].alive=%d",current_enemy_id_ ,check_nearest_node(enemy_config_[current_enemy_id_].node_id),current_enemy_orientation_set_,enemy_states_[current_enemy_id_].alive);
+
             }
             return;
         }
@@ -240,7 +275,7 @@ private:
         
         shoot_msg.data=0;
         auto now = this->now();
-        if ((now - last_gimbal_control_time_).seconds() > 0.5) { 
+        if (now.seconds()- last_gimbal_control_time_.seconds() > 0.5) { 
             shoot_state_pub_->publish(shoot_msg);
             turn_publisher_->publish(msg);
             last_gimbal_control_time_ = now;
@@ -252,10 +287,7 @@ private:
         // 检查所有增益敌人血量变化
         for (auto& enemy_state : enemy_states_) {
             int enemy_id = enemy_state.first;
-            int current_health = red_healths_[enemy_id - 2]; // 敌人ID到血量数组索引的映射
-            if(enemy_id==2){
-                current_health = red_healths_[112];
-            }
+            int current_health = getEnemyHealthIndex(enemy_id);// 敌人ID到血量数组索引的映射
             // 如果之前有血量但现在为0，说明敌人被打死了
             if (enemy_state.second.previous_health > 0 && current_health <= 0) {
                 enemy_state.second.alive = false;
@@ -284,9 +316,10 @@ private:
     }
 
     // 获取敌人对应的血量数组索引
-    int getEnemyHealthIndex(int enemy_id) {
-        // 敌人ID: 3,4,5 对应血量数组索引: 1,2,3
-        return enemy_id - 2;
+    int getEnemyHealthIndex(int id){
+        if(id==2)return red_healths_[5];
+        if(id==1)return red_healths_[0];
+        return red_healths_[id-2];
     }
 
     bool bfs_find_node_path(int start_idx, int goal_idx, vector<int>& out_path) {
@@ -350,7 +383,7 @@ private:
 
     int check_nearest_node(int x) {
         double xx=point_set[x].x,  yy=point_set[x].y;
-        return fabs(current_x_-xx)<5.0&&fabs(current_y_-yy)<5.0;
+        return fabs(current_x_-xx)<3.0&&fabs(current_y_-yy)<3.0;
     }
 
     int nearest_node_index(double x, double y) {
@@ -392,7 +425,7 @@ private:
     // 检查增益敌人是否存在
     bool hasAliveBuffEnemies() {
         // 3号敌人(横向平移靶), 4号敌人(前后平移靶), 5号敌人(陀螺靶)
-        return (red_healths_[2] > 0) || (red_healths_[3] > 0);
+        return (red_healths_[2] > 0) || (red_healths_[3] > 0);//(red_healths_[1] > 0) ||
     }
 
     // 选择要攻击的增益敌人目标点
@@ -441,7 +474,7 @@ private:
         return blue_healths_[0] <= 0;
     }
     bool isBaseInvincible() {
-        return time_ >= 13 * 60; // 剩余时间大于13分钟时基地无敌
+        return time_ <= 120; // 基地无敌
     }
     bool isGameStarted() {
         return time_ < 900;
@@ -457,6 +490,9 @@ private:
             } else {
                 RCLCPP_INFO(this->get_logger(), "游戏开始！");
             }
+        }
+        if(is_tracking_enemy1_) {
+            return;
         }
         checkEnemyStatus();
         injury();
@@ -487,16 +523,25 @@ private:
             case State::INIT:
                 current_state_ = State::ATTACK_BUFF_ENEMY;
                 last_state_change_time_ = now;
-                current_target_node_ = 13;
+                current_target_node_ = 3;
                 RCLCPP_INFO(this->get_logger(), "STATE -> ATTACK_BUFF_ENEMY");
                 break;
                 
             case State::ATTACK_BUFF_ENEMY:
-                if (!hasAliveBuffEnemies()){
-                    current_state_ = State::ATTACK_BASE;
-                    last_state_change_time_ = now;
-                    current_target_node_ = -1;
-                    RCLCPP_INFO(this->get_logger(), "STATE -> ATTACK_BASE (增益敌人全部消灭且基地无敌时间结束)");
+                 if (!hasAliveBuffEnemies()) {
+                    if (isBaseInvincible()) {
+                        // 基地无敌时攻击前哨站
+                        current_state_ = State::ATTACK_OUTPOST;
+                        last_state_change_time_ = now;
+                        current_target_node_ = -1;
+                        RCLCPP_INFO(this->get_logger(), "STATE -> ATTACK_OUTPOST (增益敌人全部消灭，基地无敌)");
+                    } else {
+                        // 基地无敌时间结束，直接攻击基地
+                        current_state_ = State::ATTACK_BASE;
+                        last_state_change_time_ = now;
+                        current_target_node_ = -1;
+                        RCLCPP_INFO(this->get_logger(), "STATE -> ATTACK_BASE (增益敌人全部消灭，基地无敌时间结束)");
+                    }
                 }
                 break;
                 
@@ -694,6 +739,7 @@ private:
     void setTargetBasedOnState() {
         // 如果当前有路径且未完成，不重新规划
         if (!move_list.empty()) {
+            RCLCPP_DEBUG(this->get_logger(), "当前有未完成路径，跳过重新规划");
             return;
         }
         
@@ -701,57 +747,86 @@ private:
         int start_node = nearest_node_index(current_x_, current_y_);
         int target_node = -1;
         
+        RCLCPP_INFO(this->get_logger(), "当前状态: %d, 当前敌人ID: %d, 起始节点: %d", 
+                    static_cast<int>(current_state_), current_enemy_id_, start_node);
+        
         switch (current_state_) {
             case State::ATTACK_BUFF_ENEMY:
                 current_enemy_id_ = selectBuffEnemyTarget();
                 if (current_enemy_id_ != -1) {
                     target_node = getTargetNodeByEnemyId(current_enemy_id_);
-                    // RCLCPP_INFO(this->get_logger(), "攻击增益敌人: 敌人%d, 目标节点%d", current_enemy_id_, target_node);
+                    RCLCPP_INFO(this->get_logger(), "攻击增益敌人: 敌人%d, 目标节点%d", 
+                            current_enemy_id_, target_node);
                 } else {
-                    // 如果没有存活的增益敌人，检查是否需要转换状态
-                    RCLCPP_INFO(this->get_logger(), "没有存活的增益敌人，等待状态转换");
+                    RCLCPP_WARN(this->get_logger(), "没有存活的增益敌人，等待状态转换");
                     return;
                 }
                 break;
                 
             case State::ATTACK_OUTPOST:
                 target_node = 5; // 前往前哨站
-                current_enemy_id_ = -1; // 重置当前敌人ID
-                // RCLCPP_INFO(this->get_logger(), "攻击前哨站，目标节点5");
+                current_enemy_id_ = 6; // 设置当前敌人ID为6（前哨站）
+                RCLCPP_INFO(this->get_logger(), "攻击前哨站，目标节点5，敌人ID6");
                 break;
                 
             case State::ATTACK_BASE:
                 target_node = 7; // 前往敌方基地
-                current_enemy_id_ = 2; // 重置当前敌人ID
-                // RCLCPP_INFO(this->get_logger(), "攻击基地，目标节点7");
+                current_enemy_id_ = 2; // 设置当前敌人ID为2（基地）
+                RCLCPP_INFO(this->get_logger(), "攻击基地，目标节点7，敌人ID2");
                 break;
                 
             case State::DEAD:
             case State::REVIVING:
                 // 死亡和复活期间不移动
+                RCLCPP_INFO(this->get_logger(), "死亡或复活状态，不移动");
                 return;
                 
             default:
                 // 默认情况下攻击5号敌人
                 current_enemy_id_ = 5;
                 target_node = getTargetNodeByEnemyId(current_enemy_id_);
+                RCLCPP_WARN(this->get_logger(), "默认状态，攻击敌人%d，目标节点%d", 
+                        current_enemy_id_, target_node);
                 break;
         }
         
         // 检查是否需要重新规划路径
         if (target_node != current_target_node_ || !check_nearest_node(target_node)) {
             current_target_node_ = target_node;
-            RCLCPP_DEBUG(this->get_logger(), "目标节点变化或不在目标节点附近，重新规划路径。当前目标节点: %d", current_target_node_);
+            RCLCPP_INFO(this->get_logger(), "重新规划路径到节点%d", current_target_node_);
             if (target_node != -1 && start_node != -1 && start_node != target_node) {
-                RCLCPP_INFO(this->get_logger(), "规划路径到节点%d (敌人%d)", target_node, current_enemy_id_);
+                RCLCPP_INFO(this->get_logger(), "规划路径从节点%d到节点%d (敌人%d)", 
+                        start_node, target_node, current_enemy_id_);
                 if (bfs_find_node_path(start_node, target_node, path_nodes)) {
                     set_move_list_from_nodes(path_nodes);
+                    RCLCPP_INFO(this->get_logger(), "路径规划成功，共%ld个路径点", path_nodes.size());
+                    
+                    // 显示路径详情
+                    RCLCPP_INFO(this->get_logger(), "路径详情:");
+                    for (size_t i = 0; i < path_nodes.size(); ++i) {
+                        cv::Point2f point = point_set[path_nodes[i]];
+                        RCLCPP_INFO(this->get_logger(), "  节点%d: (%.2f, %.2f)", 
+                                path_nodes[i], point.x, point.y);
+                    }
                 } else {
                     RCLCPP_ERROR(this->get_logger(), "无法找到从节点%d到节点%d的路径!", start_node, target_node);
+                    
+                    // 添加紧急处理：尝试直接移动到目标点
+                    RCLCPP_WARN(this->get_logger(), "尝试直接移动到目标点");
+                    cv::Point2f target_point = point_set[target_node];
+                    move_list.push(target_point);
                 }
-            } else if (start_node == target_node) {
-                // RCLCPP_INFO(this->get_logger(), "已经在目标节点%d，无需移动", target_node);
+            } else if (start_node == target_node&&check_nearest_node(target_node)) {
+                RCLCPP_INFO(this->get_logger(), "已经在目标节点%d，无需移动", target_node);
+            } else if(start_node == target_node&&(!check_nearest_node(target_node))){
+                RCLCPP_WARN(this->get_logger(), "尝试直接移动到目标点");
+                    cv::Point2f target_point = point_set[target_node];
+                    move_list.push(target_point);
+            }else{
+                RCLCPP_ERROR(this->get_logger(), "无效的起始节点%d或目标节点%d", start_node, target_node);
             }
+        } else {
+            RCLCPP_DEBUG(this->get_logger(), "目标节点未变化且已在附近，无需重新规划");
         }
     }
 
@@ -765,20 +840,23 @@ private:
             detection_result_.distance = msg->data[5];
             detection_result_.confidence = msg->data[6];
             detection_result_.class_id = (int)msg->data[7];
-            detection_result_.bbox_x = msg->data[8];
-            detection_result_.bbox_y = msg->data[9];
-            detection_result_.bbox_width = msg->data[10];
-            detection_result_.bbox_height = msg->data[11];
             
-            if (msg->data.size() > 15) {
-                detection_result_.rvec_x = msg->data[12];
-                detection_result_.rvec_y = msg->data[13];
-                detection_result_.rvec_z = msg->data[14];
-                detection_result_.tvec_x = msg->data[15];
-                detection_result_.tvec_y = msg->data[16];
-                detection_result_.tvec_z = msg->data[17];
+            // 1号敌人检测逻辑
+            if (detection_result_.confidence > 0.3 && detection_result_.class_id == 1) {
+                if (!is_tracking_enemy1_) {
+                    startTrackingEnemy1();
+                }else {
+                    // 如果已经在跟踪，只更新时间戳
+                    enemy1_last_detection_time_ = this->now();
+                }
+                enemy1_last_detection_time_ = this->now();
             }
             
+            if (detection_result_.confidence > 0.3) {
+                last_valid_detection_time_ = this->now();
+                is_resetting_gimbal_ = false;
+            }
+
             last_detection_time_ = this->now();
             detection_count_++;
         }
@@ -806,6 +884,25 @@ private:
         nanosec=msg->timestamp.nanosec;
     }
    void publishCommand() {
+        static rclcpp::Time last_movement_time = this->now();
+        auto now = this->now();
+        
+        // 如果正在跟踪1号敌人，只执行跟踪逻辑
+        if (is_tracking_enemy1_) {
+            checkEnemy1Status(); // 检查1号敌人状态
+            // 在跟踪期间不执行移动，完全由shoot模块控制
+            return;
+        }
+        
+        if (!move_list.empty()) {
+            last_movement_time = now;
+        } else if ((now - last_movement_time).seconds() > 10.0) {
+            RCLCPP_WARN(this->get_logger(), "检测到卡死状态，强制重新规划路径");
+            current_target_node_ = -1;
+            setTargetBasedOnState();
+            setGimbalAnglesBasedOnState();
+            last_movement_time = now;
+        }
         auto msg = geometry_msgs::msg::Twist();
         calculation_path();
         
@@ -937,6 +1034,167 @@ private:
         last_control_time_ = now;
     }
 
+    bool shouldResetGimbal() {
+        if (!is_shooting_ || !shooting_authority_transferred_) {
+            return false;
+        }
+        
+        auto now = this->now();
+        double time_since_last_detection = (now - last_valid_detection_time_).seconds();
+        
+        return (time_since_last_detection > no_target_reset_delay_ && !is_resetting_gimbal_);
+    }
+    void resetGimbalToInitial() {
+        reset_target_yaw_=enemy_config_[current_enemy_id_].target_yaw;
+        if (!is_resetting_gimbal_) {
+            RCLCPP_INFO(this->get_logger(), "开始重置云台到初始位置: yaw=%.1f", reset_target_yaw_);
+            is_resetting_gimbal_ = true;
+        }
+
+        auto msg = tdt_interface::msg::SendData();
+        auto shoot_msg = std_msgs::msg::Int32();
+        
+        
+        msg.yaw = reset_target_yaw_;
+        msg.pitch = 0.0f;
+        msg.if_shoot = false;
+        
+        shoot_msg.data = 0;
+        is_resetting_gimbal_ = false;
+        RCLCPP_INFO(this->get_logger(), "云台重置完成: yaw=%.1f", reset_target_yaw_);
+        
+        // 收回射击权，等待重新检测到目标
+        is_shooting_ = false;
+        shooting_authority_transferred_ = false;
+        RCLCPP_INFO(this->get_logger(), "射击权已收回，等待重新检测目标");
+        
+        // 发布控制指令
+        auto now = this->now();
+        if ((now - last_gimbal_control_time_).seconds() > 0.1) { 
+            shoot_state_pub_->publish(shoot_msg);
+            turn_publisher_->publish(msg);
+            last_gimbal_control_time_ = now;
+        }
+    }
+
+    void startTrackingEnemy1() {
+        auto now = this->now();
+        
+        // 检查是否已经在跟踪
+        if (is_tracking_enemy1_) {
+            // 如果已经在跟踪，只更新时间戳
+            enemy1_last_detection_time_ = now;
+            return;
+        }
+
+        RCLCPP_WARN(this->get_logger(), "检测到1号敌人，开始跟踪！");
+        
+        // 保存当前状态
+        is_tracking_enemy1_ = true;
+        original_target_enemy_id_ = current_enemy_id_;
+        was_shooting_ = is_shooting_;
+        enemy1_tracking_start_time_ = now;
+        enemy1_last_detection_time_ = now;
+        
+        // 停止移动并清空路径
+        while(!move_list.empty()) {
+            move_list.pop();
+        }
+        
+        // 发布停止移动命令
+        auto stop_msg = geometry_msgs::msg::Twist();
+        cmd_pub_->publish(stop_msg);
+        
+        // 设置云台到当前角度（保持稳定）
+        // auto yuntai_msg = tdt_interface::msg::SendData();
+        // yuntai_msg.yaw = yaw;
+        // yuntai_msg.pitch = pitch;
+        // yuntai_msg.if_shoot = false;
+        // turn_publisher_->publish(yuntai_msg);
+
+        // 发布射击授权（特殊消息，比如2表示只攻击1号敌人）
+        auto shoot_msg = std_msgs::msg::Int32();
+        shoot_msg.data = 2; // 2表示只攻击1号敌人
+        shoot_state_pub_->publish(shoot_msg);
+        
+        // 设置射击状态
+        is_shooting_ = true;
+        shooting_authority_transferred_ = true;
+        
+        RCLCPP_INFO(this->get_logger(), "已授权射击1号敌人，停止移动，当前yaw=%.2f", yaw);
+    }
+
+    // 改进的1号敌人状态检查
+        void checkEnemy1Status() {
+        if (!is_tracking_enemy1_) {
+            return;
+        }
+        
+        auto now = this->now();
+        double time_since_last_detection = now.seconds() - enemy1_last_detection_time_.seconds();
+        double total_tracking_time = now.seconds() - enemy1_tracking_start_time_.seconds();
+        
+        // 检查总跟踪时间
+        if (total_tracking_time > max_enemy1_tracking_time_) {
+            RCLCPP_WARN(this->get_logger(), "1号敌人跟踪超时 (%.1f秒)，强制停止", total_tracking_time);
+            stopTrackingEnemy1();
+            return;
+        }
+        
+        // 检查1号敌人是否死亡或目标丢失
+        if (red_healths_[0] <= 0) {
+            RCLCPP_INFO(this->get_logger(), "1号敌人已死亡，停止跟踪");
+            stopTrackingEnemy1();
+        } else if (time_since_last_detection > enemy1_lost_timeout_) {
+            RCLCPP_WARN(this->get_logger(), "1号敌人目标丢失(%.1f秒)，停止跟踪", time_since_last_detection);
+            stopTrackingEnemy1();
+        }
+    }
+
+    // 改进的停止跟踪方法
+    void stopTrackingEnemy1() {
+        RCLCPP_INFO(this->get_logger(), "停止跟踪1号敌人");
+        
+        // 恢复原有状态
+        is_tracking_enemy1_ = false;
+        current_enemy_id_ = original_target_enemy_id_;
+        
+        // 收回射击权限
+        auto shoot_msg = std_msgs::msg::Int32();
+        shoot_msg.data = 0;
+        shoot_state_pub_->publish(shoot_msg);
+        
+        // 恢复射击状态
+        is_shooting_ = was_shooting_;
+        shooting_authority_transferred_ = was_shooting_;
+        
+        // 重置云台控制标志，确保能重新触发云台控制逻辑
+        initial_orientation_set_ = false;
+        current_enemy_orientation_set_ = false;
+        
+        // 重要修复：重置当前敌人的朝向设置，确保能重新设置云台角度
+        if (current_enemy_id_ != -1) {
+            enemy_config_[current_enemy_id_].orientation_set = false;
+        }
+        turn_completed_ = false;
+        
+        // 重新规划路径
+        current_target_node_ = -1; // 强制重新规划路径
+        setTargetBasedOnState();
+        setGimbalAnglesBasedOnState();
+        
+        RCLCPP_INFO(this->get_logger(), "已恢复原有路径和状态，当前敌人ID=%d", current_enemy_id_);
+        
+        // 重要修复：如果当前在基地节点，立即重新授权射击
+        if (current_enemy_id_ == 2 && check_nearest_node(7)) {
+            RCLCPP_INFO(this->get_logger(), "在基地节点，立即重新设置云台角度");
+            // 强制重置云台角度设置，确保能重新进入射击授权流程
+            enemy_config_[2].orientation_set = false;
+            current_enemy_orientation_set_ = false;
+            setGimbalAnglesBasedOnState();
+        }
+    }
+
     // 敌人配置结构
     struct EnemyConfig {
         int node_id;           // 对应的节点ID
@@ -1043,6 +1301,20 @@ private:
     bool original_target_saved_ = false;   // 是否已保存原始目标
     int evasion_phase_ = 0;                // 规避阶段
     rclcpp::Time last_evasion_phase_time_; // 上次规避阶段切换时间
+
+    
+    rclcpp::Time last_valid_detection_time_;
+    double no_target_reset_delay_ ;
+    bool is_resetting_gimbal_ ;
+    double reset_target_yaw_ ;
+
+    bool is_tracking_enemy1_;
+    rclcpp::Time enemy1_last_detection_time_;
+    double enemy1_lost_timeout_ ;
+    int original_target_enemy_id_ ;
+    bool was_shooting_ ;
+    rclcpp::Time enemy1_tracking_start_time_;
+    double max_enemy1_tracking_time_ ; 
 
 };
 

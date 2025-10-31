@@ -92,6 +92,7 @@ public:
         kf_initialized_ = false;
         consecutive_misses_ = 0;
         max_consecutive_misses_ = 5;
+        target_priority_ = 1;  // 优先检测1号目标
         
         RCLCPP_INFO(this->get_logger(), "模型节点已启动，卡尔曼滤波已初始化，等待图像数据...");
     }
@@ -160,15 +161,35 @@ private:
         auto detections = detector_rob_.detect(frame);
         
         if(!detections.empty()) {
+            Detection selected_detection;
+             bool found_priority_target = false;
+             for (const auto& det : detections) {
+                if (det.class_id == target_priority_) {
+                    selected_detection = det;
+                    found_priority_target = true;
+                    break;
+                }
+            }
+            
+            // 如果没有找到优先级目标，选择置信度最高的目标
+            if (!found_priority_target) {
+                float max_confidence = 0.0f;
+                for (const auto& det : detections) {
+                    if (det.confidence > max_confidence) {
+                        max_confidence = det.confidence;
+                        selected_detection = det;
+                    }
+                }
+            }
             // 使用检测到的第一个机器人的中心
-            Rect rob_box = detections[0].box;
+            Rect rob_box = selected_detection.box;
             Point2f current_center = Point2f(rob_box.x + rob_box.width/2, 
                                            rob_box.y + rob_box.height/2);
             
             result.pixel_position = current_center;
-            result.confidence = detections[0].confidence;
+            result.confidence = selected_detection.confidence;
             result.bounding_box = rob_box;
-            result.class_id = detections[0].class_id;
+            result.class_id = selected_detection.class_id;
             
             // 灯条检测和姿态估计
             Rect roi(rob_box.x-100, rob_box.y-100, 
@@ -254,11 +275,11 @@ private:
                                 // result.pixel_position = predicted_pixel;
                                 // result.distance = norm(Mat(predicted_position));
 
-                                RCLCPP_INFO(this->get_logger(), 
-                                    "检测到目标 - 像素位置: (%.1f, %.1f), 世界位置: (%.2f, %.2f, %.2f), 距离: %.2f", 
-                                    result.pixel_position.x, result.pixel_position.y,
-                                    result.world_position.x, result.world_position.y, result.world_position.z,
-                                    result.distance);
+                                // RCLCPP_INFO(this->get_logger(), 
+                                //     "检测到目标 - 像素位置: (%.1f, %.1f), 世界位置: (%.2f, %.2f, %.2f), 距离: %.2f", 
+                                //     result.pixel_position.x, result.pixel_position.y,
+                                //     result.world_position.x, result.world_position.y, result.world_position.z,
+                                //     result.distance);
                             }
                              
                         }
@@ -298,6 +319,7 @@ private:
         }
         
         detection_result_publisher_->publish(result_msg);
+        // RCLCPP_INFO(this->get_logger(),"model_id:%d",result.class_id);
     }
     
     void update_trajectory(const Point2f& point) {
@@ -412,6 +434,7 @@ private:
     int consecutive_misses_;
     int max_consecutive_misses_;
     float prediction_time_;
+    int target_priority_;  // 目标优先级
 
     // ROS2相关
     rclcpp::Subscription<sensor_msgs::msg::Image>::SharedPtr image_subscription_;

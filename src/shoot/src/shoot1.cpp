@@ -41,6 +41,8 @@ private:
     bool is_angle_safe(double pitch, double yaw);
     bool is_distance_safe(double distance);
 
+    void executeEnemy1Search();
+
     // ROS2接口
     rclcpp::Publisher<tdt_interface::msg::SendData>::SharedPtr publisher_;
     rclcpp::Subscription<std_msgs::msg::Int32>::SharedPtr shoot_state_sub_;
@@ -135,6 +137,8 @@ private:
     bool has_target_;
     rclcpp::Time last_target_time_;
   
+
+    
 };
 
 // --------------------------------- 实现 ---------------------------------
@@ -174,9 +178,9 @@ Shoot::Shoot(int id)
   air_resistance_factor_(0.0),
   bullet_mass_(0.003),
   // 像素瞄准参数
-  pixel_kp_(0.03),
-  pixel_kd_(0.05),
-  pixel_ki_(0.001),
+  pixel_kp_(0.020),
+  pixel_kd_(0.02),
+  pixel_ki_(0.0005),
   image_width_(640.0),
   image_height_(480.0),
   fov_x_(60.0),
@@ -188,8 +192,10 @@ Shoot::Shoot(int id)
   prev_error_y_(0.0),
   integral_x_(0.0),
   integral_y_(0.0),
-  center_x ({0,0,image_width_/2.0,0,image_width_/2.0,image_width_ / 2.0,0}),
-  center_y({0,0,image_height_/2.0+20,0,image_height_/2.0,image_height_/2.0+30,0}),
+//   center_x ({0,image_width_/2.0,image_width_/2.0,image_width_/2.0,image_width_/2.0,image_width_ / 2.0,image_width_/2.0+15}),
+//   center_y({0,image_height_/2.0,image_height_/2.0+20,image_height_/2.0+35,image_height_/2.0,image_height_/2.0+30,image_height_/2.0+33}),
+    center_x{0, image_width_/2.0, image_width_/2.0, image_width_/2.0, image_width_/2.0, image_width_/2.0, image_width_/2.0+15},
+    center_y{0, image_height_/2.0+20, image_height_/2.0+20, image_height_/2.0+35, image_height_/2.0, image_height_/2.0+30, image_height_/2.0+33},
   kp(15.0),
   // 安全限制参数
   max_pitch_angle_(60.0),
@@ -210,6 +216,7 @@ Shoot::Shoot(int id)
   target_distance_(0.0f),
   target_confidence_(0.0f),
   has_target_(false)
+
 {// 发布者/订阅者
     this->declare_parameter("kp", 5.0);
     std::string topic_name = "target_angles_player_" + std::to_string(player_id_);
@@ -228,7 +235,7 @@ Shoot::Shoot(int id)
         "shoot_state", 10,
         std::bind(&Shoot::shoot_state_callback, this, std::placeholders::_1));
 
-    timer_ = this->create_wall_timer(20ms, std::bind(&Shoot::timer_callback, this));
+    timer_ = this->create_wall_timer(10ms, std::bind(&Shoot::timer_callback, this));
 
     parameters_callback_handle_ = this->add_on_set_parameters_callback(
             std::bind(&Shoot::parameters_callback, this, std::placeholders::_1));
@@ -274,7 +281,7 @@ void Shoot::angles_callback(const tdt_interface::msg::ReceiveData::SharedPtr msg
 
 void Shoot::shoot_state_callback(const std_msgs::msg::Int32::SharedPtr msg)
 {
-    if (msg->data == 1) {
+    if (msg->data == 1||msg->data == 2) {
         is_aiming_ = true;
         if (angles_initialized_) {
             // 同步控制角度到当前实际角度，避免瞬移
@@ -287,14 +294,13 @@ void Shoot::shoot_state_callback(const std_msgs::msg::Int32::SharedPtr msg)
             RCLCPP_INFO(this->get_logger(), "Shooting enabled, angles synced (yaw=%.2f)", yaw_);
         }
         RCLCPP_INFO(this->get_logger(), "Received shoot enable");
-    } else {
+    }else {
         is_aiming_ = false;
         RCLCPP_INFO(this->get_logger(), "Received shoot disable");
     }
 }
 
-void Shoot::detection_result_callback(const std_msgs::msg::Float32MultiArray::SharedPtr msg)
-{
+void Shoot::detection_result_callback(const std_msgs::msg::Float32MultiArray::SharedPtr msg){
     if (msg->data.size() >= 11) {
         // 解析检测结果（与原数据格式保持一致）
         target_pixel_x_ = msg->data[0];
@@ -307,36 +313,31 @@ void Shoot::detection_result_callback(const std_msgs::msg::Float32MultiArray::Sh
         class_id = (int)msg->data[7];
 
         bool data_valid = (target_pixel_x_ > 0 && target_pixel_y_ > 0 &&
-                           target_pixel_x_ < 2000 && target_pixel_y_ < 2000 &&
+                           target_pixel_x_ < 1000 && target_pixel_y_ < 1000 &&
                            target_confidence_ > 0.1);
 
+        // 在1号敌人专用模式下，只处理1号敌人
+        
+            // 正常模式下的目标处理
         has_target_ = data_valid;
         if (data_valid) {
             last_target_time_ = this->now();
         }
-    } else {
+        }
+    else {
         has_target_ = false;
     }
+    
+    // 原有的class_id特殊处理逻辑保持不变
     if(class_id==4){
-        // center_y[4]=-8*(target_distance_-11)+240.0-30;//
         center_y[4] = 240 + 2 * target_distance_ - 4.9 * pow(target_distance_ / 23, 2);
-        // center_y[4] = 350 - 5 * target_distance_;
-
-        // double compensation = 0.0;
-        // if (target_distance_ < 9.0) {
-        //     compensation = 5.0 + 1.5 * (9.0 - target_distance_);
-        // } else {
-        //     compensation = 12.0 + 1.2 * (target_distance_ - 9.0) + 0.08 * pow(target_distance_ - 9.0, 2);
-        // }
-        // compensation = std::clamp(compensation, 5.0, 45.0);
-        // center_y[4] = 240.0 - compensation - 28.0;
-        // RCLCPP_INFO(this->get_logger(), "center_y[4]=%lf",center_y[4]);
     }
     if(class_id==2){
-        // std::cout<<"666"<<std::endl;
         auto_shoot_=1;
     }
 }
+
+
 
 bool Shoot::is_world_coordinates_valid()
 {
@@ -476,16 +477,18 @@ double Shoot::clamp(double value, double min_val, double max_val){
 
 void Shoot::timer_callback(){
     auto msg = tdt_interface::msg::SendData();
-
     // 检查目标是否过期（0.5秒无更新认为目标丢失）
     auto now = this->now();
-    if (has_target_ && (now - last_target_time_).seconds() > 0.5) {
+    if (has_target_ && now.seconds()-last_target_time_.seconds() > 0.5) {
         has_target_ = false;
         RCLCPP_DEBUG(this->get_logger(), "目标丢失");
     }
 
     if (is_aiming_ && angles_initialized_ && has_target_ && target_confidence_ > confidence_threshold_) {
         bool angle_calculated = false;
+
+        calculate_target_angles_from_pixel();
+        angle_calculated = true;
 
         // 优先使用世界坐标计算云台角度（PNP 弹道）
         // if (is_world_coordinates_valid() && is_distance_safe(target_distance_)) {
@@ -496,8 +499,8 @@ void Shoot::timer_callback(){
         // // 如果世界坐标不可用，使用像素回退（微调）
         // if (!angle_calculated && target_pixel_x_ > 0 && target_pixel_y_ > 0 &&
             // target_pixel_x_ < image_width_ && target_pixel_y_ < image_height_) {
-            calculate_target_angles_from_pixel();
-            angle_calculated = true;
+            // calculate_target_angles_from_pixel();
+            // angle_calculated = true;
         // }
 
         if (angle_calculated) {
@@ -512,14 +515,13 @@ void Shoot::timer_callback(){
             // if (yaw_diff > 0.5 || pitch_diff > 0.25) {
                 msg.pitch = final_pitch;
                 msg.yaw = final_yaw;
-                
-                msg.if_shoot = auto_shoot_  || is_aimed_at_center();
-                // static int count=0;
-                // if(count++%10 == 0){
-                //     RCLCPP_INFO(this->get_logger(), "Output: yaw=%.2f, pitch=%.2f, conf=%.2f, fire=%s",
-                //                 final_yaw, final_pitch,  target_confidence_,
-                //                  (msg.if_shoot ? "YES" : "NO"));
-                // }
+               msg.if_shoot = auto_shoot_  || is_aimed_at_center();
+                static int count=0;
+                if(count++%10 == 0){
+                    RCLCPP_INFO(this->get_logger(), "Output: yaw=%.2f, pitch=%.2f, conf=%.2f, fire=%s",
+                                final_yaw, final_pitch,  target_confidence_,
+                                 (msg.if_shoot ? "YES" : "NO"));
+                }
                 publisher_->publish(msg);
                 last_published_yaw = final_yaw;
                 last_published_pitch = final_pitch;
